@@ -90,11 +90,11 @@ delicious_user: kalenkov
 delicious_count: 5
 
 # Disqus Comments
-disqus_short_name: disqus_x6bjMU3IHN
+disqus_short_name: unclegenegithubio
 disqus_show_comment_count: false
 
 # Google Analytics
-google_analytics_tracking_id:
+google_analytics_tracking_id: UA-29251718-4
 
 # Facebook Like
 facebook_like: false
