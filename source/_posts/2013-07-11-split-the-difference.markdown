@@ -3,7 +3,7 @@ layout: post
 title: "Split the Difference"
 date: 2013-07-11 09:01
 comments: true
-categories: ruby
+categories: [Ruby]
 ---
 {% include_code split.rb %}
 
