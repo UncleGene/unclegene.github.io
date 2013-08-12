@@ -64,7 +64,7 @@ default_asides: [asides/recent_posts.html, asides/github.html, asides/delicious.
 
 # Github repositories
 github_user: UncleGene
-github_repo_count: 5
+github_repo_count: 10
 github_show_profile_link: true
 github_skip_forks: true
 
@@ -87,7 +87,7 @@ pinboard_count: 3
 
 # Delicious
 delicious_user: kalenkov
-delicious_count: 10
+delicious_count: 20
 
 # Disqus Comments
 disqus_short_name: unclegenegithubio
