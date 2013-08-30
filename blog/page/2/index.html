@@ -9,7 +9,18 @@
   <meta name="author" content="Eugene Kalenkovich">
 
   
-  <meta name="description" content="Self-documenting code is a pipe dream. TDD (or BDD) is not the panacea of testing. In the pursuit of test coverage we&#8217;ve forgotten what really &hellip;">
+  <meta name="description" content="(split.rb) download 1
+2
+3
+4
+5
+6
+7
+8
+9
+s = &quot; To\tbe or\nnot\tto be &quot;
+s.split(/ /)
+#=&gt; [&quot;&quot;, &quot;To\tbe&quot;, &quot;&quot;, & &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +29,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://unclegene.github.io/blog/page/2">
+  <link rel="canonical" href="http://UncleGene.github.io/blog/page/2">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="SoftOver" type="application/atom+xml">
@@ -60,7 +71,7 @@
   
 <form action="http://google.com/search" method="get">
   <fieldset role="search">
-    <input type="hidden" name="q" value="site:unclegene.github.io" />
+    <input type="hidden" name="q" value="site:UncleGene.github.io" />
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
   </fieldset>
 </form>
@@ -75,6 +86,69 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/07/11/split-the-difference/">Split the Difference</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-11T09:01:00-07:00" pubdate data-updated="true">Jul 11<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><figure class='code'><figcaption><span> (split.rb)</span> <a href='/downloads/code/split.rb'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot; To</span><span class="se">\t</span><span class="s2">be  or</span><span class="se">\n</span><span class="s2">not</span><span class="se">\t</span><span class="s2">to  be  &quot;</span>
+</span><span class='line'><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sr">/ /</span><span class="p">)</span>
+</span><span class='line'><span class="c1">#=&gt; [&quot;&quot;, &quot;To\tbe&quot;, &quot;&quot;, &quot;or\nnot\tto&quot;, &quot;&quot;, &quot;be&quot;]</span>
+</span><span class='line'><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sr">/( )/</span><span class="p">)</span>
+</span><span class='line'><span class="c1">#=&gt; [&quot;&quot;, &quot; &quot;, &quot;To\tbe&quot;, &quot; &quot;, &quot;&quot;, &quot; &quot;, &quot;or\nnot\tto&quot;, &quot; &quot;, &quot;&quot;, &quot; &quot;, &quot;be&quot;, &quot; &quot;, &quot;&quot;, &quot; &quot;]</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span> <span class="sr">/\s+/</span>
+</span><span class='line'><span class="c1">#=&gt; [&quot;&quot;, &quot;To&quot;, &quot;be&quot;, &quot;or&quot;, &quot;not&quot;, &quot;to&quot;, &quot;be&quot;]</span>
+</span><span class='line'><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+</span><span class='line'><span class="c1">#=&gt; [&quot;To&quot;, &quot;be&quot;, &quot;or&quot;, &quot;not&quot;, &quot;to&quot;, &quot;be&quot;]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>From the ruby docs:</p>
+
+<blockquote><p>If pattern is a single space, str is split on whitespace, with leading whitespace and runs of contiguous whitespace characters ignored.</p></blockquote>
+
+
+<p>Note that split by regex without groups omits trailing matches. Undocumented?</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -107,12 +181,12 @@
   <div class="entry-content"><div class="embed-video-container"><iframe src="http://www.youtube.com/embed/9md-GTF_Th8 "></iframe></div>
 
 
-
-
-<blockquote><p>Self-documenting code is a pipe dream. TDD (or BDD) is not the panacea of testing. In the pursuit of test coverage we&#8217;ve forgotten what really matters: getting things done. Lets talk about putting documentation and testing into their proper place. Tools that ease maintenance, help other developers join a project, and reduce bugs.<br/>I&#8217;m going to go over lessons learned in writing, maintaining, and introducing new developers to 20,000 lines of code. Specifically, how we are testing, documenting, and refactoring our code to stay sane, make the team happier, and get more done.</p></blockquote>
-
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/07/01/delicious-controversy-docs-and-tests-by-thomas-meeks/">Read on &rarr;</a>
+    </footer>
   
 
 
@@ -129,8 +203,16 @@
 <aside class="sidebar">
   
     <section>
+  <h1>Categories</h1>
+    <ul id="category-list"><li><a href='/blog/categories/mysql/'>MySQL</a></li><li><a href='/blog/categories/osx/'>OSX</a></li><li><a href='/blog/categories/ruby/'>Ruby</a></li><li><a href='/blog/categories/video/'>Video</a></li></ul>
+</section>
+<section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/08/30/confident-code-by-avdi-grimm/">Confident Code by Avdi Grimm</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2013/08/30/howto-reset-your-mysql-root-password/">HowTo: Reset Your MySQL Root Password</a>

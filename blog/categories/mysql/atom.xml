@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: MySQL | SoftOver]]></title>
-  <link href="http://unclegene.github.io/blog/categories/mysql/atom.xml" rel="self"/>
-  <link href="http://unclegene.github.io/"/>
-  <updated>2013-08-30T11:30:23-07:00</updated>
-  <id>http://unclegene.github.io/</id>
+  <link href="http://UncleGene.github.io/blog/categories/mysql/atom.xml" rel="self"/>
+  <link href="http://UncleGene.github.io/"/>
+  <updated>2013-08-30T15:57:52-07:00</updated>
+  <id>http://UncleGene.github.io/</id>
   <author>
     <name><![CDATA[Eugene Kalenkovich]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[HowTo: Reset Your MySQL Root Password]]></title>
-    <link href="http://unclegene.github.io/blog/2013/08/30/howto-reset-your-mysql-root-password/"/>
+    <link href="http://UncleGene.github.io/blog/2013/08/30/howto-reset-your-mysql-root-password/"/>
     <updated>2013-08-30T11:06:00-07:00</updated>
-    <id>http://unclegene.github.io/blog/2013/08/30/howto-reset-your-mysql-root-password</id>
+    <id>http://UncleGene.github.io/blog/2013/08/30/howto-reset-your-mysql-root-password</id>
     <content type="html"><![CDATA[<p>In case you forgot your root password for MySQL installed with <a href="http://brew.sh/">Homebrew</a> on OS X Mountain Lion.</p>
 
 <p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (reroot.sh)</span> <a href='/downloads/code/reroot.sh'>download</a></figcaption>

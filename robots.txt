@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://unclegene.github.io/sitemap.xml 
+Sitemap: http://UncleGene.github.io/sitemap.xml 
