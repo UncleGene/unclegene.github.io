@@ -4,7 +4,7 @@
   <title><![CDATA[SoftOver]]></title>
   <link href="http://unclegene.github.io/atom.xml" rel="self"/>
   <link href="http://unclegene.github.io/"/>
-  <updated>2013-08-30T10:42:43-07:00</updated>
+  <updated>2013-08-30T11:23:28-07:00</updated>
   <id>http://unclegene.github.io/</id>
   <author>
     <name><![CDATA[Eugene Kalenkovich]]></name>
@@ -12,6 +12,31 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[HowTo: Reset Your MySQL Root Password]]></title>
+    <link href="http://unclegene.github.io/blog/2013/08/30/howto-reset-your-mysql-root-password/"/>
+    <updated>2013-08-30T11:06:00-07:00</updated>
+    <id>http://unclegene.github.io/blog/2013/08/30/howto-reset-your-mysql-root-password</id>
+    <content type="html"><![CDATA[<p>In case you forgot your root password for MySQL installed with <a href="http://brew.sh/">Homebrew</a> on OS X Mountain Lion.</p>
+
+<figure class='code'><figcaption><span> (reroot.sh)</span> <a href='http://unclegene.github.io/downloads/code/reroot.sh'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+</span><span class='line'>/usr/local/opt/mysql/bin/mysqld_safe --skip-grant-tables --skip-networking &amp;
+</span><span class='line'>mysql -e <span class="s2">&quot;UPDATE mysql.user SET Password=PASSWORD(&#39;new password&#39;) WHERE User=&#39;root&#39;; FLUSH PRIVILEGES;&quot;</span>
+</span><span class='line'>/usr/local/bin/mysql.server stop
+</span><span class='line'>launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Different versions may have different paths to be used with launchctl load/unload</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Boundaries by Gary Bernhardt]]></title>
@@ -61,15 +86,6 @@
 
 
 <p>Note that split by regex without groups omits trailing matches. Undocumented?</p>
-
-<p>P.S. Looks like docummentation has been updated. To include trailing matches one should provide negative limit parameter, as in</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sr">/ /</span><span class="p">,</span> <span class="o">-</span><span class="mi">42</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This is the first time I see Ruby uses <em>any</em> negative nymber as a flag</p>
 ]]></content>
   </entry>
   

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | SoftOver]]></title>
   <link href="http://unclegene.github.io/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://unclegene.github.io/"/>
-  <updated>2013-08-30T10:42:43-07:00</updated>
+  <updated>2013-08-30T11:23:28-07:00</updated>
   <id>http://unclegene.github.io/</id>
   <author>
     <name><![CDATA[Eugene Kalenkovich]]></name>
@@ -54,14 +54,6 @@
 <blockquote><p>If pattern is a single space, str is split on whitespace, with leading whitespace and runs of contiguous whitespace characters ignored.</p></blockquote></p>
 
 <p>Note that split by regex without groups omits trailing matches. Undocumented?</p>
-
-<p>P.S. Looks like docummentation has been updated. To include trailing matches one should provide negative limit parameter, as in</p>
-
-<p><code>ruby
-s.split(/ /, -42)
-</code></p>
-
-<p>This is the first time I see Ruby uses <em>any</em> negative nymber as a flag</p>
 ]]></content>
   </entry>
   
