@@ -3,7 +3,7 @@ layout: post
 title: "HowTo: Reset Your MySQL Root Password"
 date: 2013-08-30 11:06
 comments: true
-categories: [MySQL, OsX] 
+categories: [MySQL, OSX] 
 ---
 In case you forgot your root password for MySQL installed with [Homebrew](http://brew.sh/) on OS X Mountain Lion.
 
