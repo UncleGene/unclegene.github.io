@@ -5,16 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>SoftOver</title>
+  <title>Boundaries by Gary Bernhardt - SoftOver</title>
   <meta name="author" content="Eugene Kalenkovich">
 
   
-  <meta name="description" content="In case you forgot your root password for MySQL installed with Homebrew on OS X Mountain Lion. (reroot.sh) download 1
-2
-3
-4
-5
-launchctl unload ~/ &hellip;">
+  <meta name="description" content="Some people test in isolation, mocking everything except the class under test. We&#8217;ll start with that idea, quickly examine the drawbacks, and &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -23,7 +18,7 @@ launchctl unload ~/ &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://unclegene.github.io">
+  <link rel="canonical" href="http://unclegene.github.io/blog/2013/08/12/boundaries-by-gary-bernhardt">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="SoftOver" type="application/atom+xml">
@@ -78,67 +73,12 @@ launchctl unload ~/ &hellip;">
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2013/08/30/howto-reset-your-mysql-root-password/">HowTo: Reset Your MySQL Root Password</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-08-30T11:06:00-07:00" pubdate data-updated="true">Aug 30<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>In case you forgot your root password for MySQL installed with <a href="http://brew.sh/">Homebrew</a> on OS X Mountain Lion.</p>
-
-<figure class='code'><figcaption><span> (reroot.sh)</span> <a href='/downloads/code/reroot.sh'>download</a></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
-</span><span class='line'>/usr/local/opt/mysql/bin/mysqld_safe --skip-grant-tables --skip-networking &amp;
-</span><span class='line'>mysql -e <span class="s2">&quot;UPDATE mysql.user SET Password=PASSWORD(&#39;new password&#39;) WHERE User=&#39;root&#39;; FLUSH PRIVILEGES;&quot;</span>
-</span><span class='line'>/usr/local/bin/mysql.server stop
-</span><span class='line'>launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Different versions may have different paths to be used with launchctl load/unload</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/08/12/boundaries-by-gary-bernhardt/">Boundaries by Gary Bernhardt</a></h1>
+      <h1 class="entry-title">Boundaries by Gary Bernhardt</h1>
     
     
       <p class="meta">
@@ -161,7 +101,7 @@ launchctl unload ~/ &hellip;">
   </header>
 
 
-  <div class="entry-content"><div class="embed-video-container"><iframe src="http://www.youtube.com/embed/yTkzNHF6rMs "></iframe></div>
+<div class="entry-content"><div class="embed-video-container"><iframe src="http://www.youtube.com/embed/yTkzNHF6rMs "></iframe></div>
 
 
 
@@ -169,22 +109,16 @@ launchctl unload ~/ &hellip;">
 <blockquote><p>Some people test in isolation, mocking everything except the class under test. We&#8217;ll start with that idea, quickly examine the drawbacks, and ask how we might fix them without losing the benefits. This will send us on a trip through behavior vs. data, mutation vs. immutability, interface vs. data dependencies, how data shape affords parallelism, and what a system optimizing each of these for natural isolation might look like.</p></blockquote>
 
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/07/11/split-the-difference/">Split the Difference</a></h1>
-    
-    
-      <p class="meta">
-        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Eugene Kalenkovich</span></span>
+
+      
 
 
 
@@ -196,56 +130,48 @@ launchctl unload ~/ &hellip;">
   
 
 
-<time datetime="2013-07-11T09:01:00-07:00" pubdate data-updated="true">Jul 11<span>th</span>, 2013</time>
-        
-      </p>
+<time datetime="2013-08-12T10:50:00-07:00" pubdate data-updated="true">Aug 12<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/ruby/'>Ruby</a>, <a class='category' href='/blog/categories/video/'>Video</a>
+  
+</span>
+
+
+    </p>
     
-  </header>
-
-
-  <div class="entry-content"><figure class='code'><figcaption><span> (split.rb)</span> <a href='/downloads/code/split.rb'>download</a></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot; To</span><span class="se">\t</span><span class="s2">be  or</span><span class="se">\n</span><span class="s2">not</span><span class="se">\t</span><span class="s2">to  be  &quot;</span>
-</span><span class='line'><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sr">/ /</span><span class="p">)</span>
-</span><span class='line'><span class="c1">#=&gt; [&quot;&quot;, &quot;To\tbe&quot;, &quot;&quot;, &quot;or\nnot\tto&quot;, &quot;&quot;, &quot;be&quot;]</span>
-</span><span class='line'><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sr">/( )/</span><span class="p">)</span>
-</span><span class='line'><span class="c1">#=&gt; [&quot;&quot;, &quot; &quot;, &quot;To\tbe&quot;, &quot; &quot;, &quot;&quot;, &quot; &quot;, &quot;or\nnot\tto&quot;, &quot; &quot;, &quot;&quot;, &quot; &quot;, &quot;be&quot;, &quot; &quot;, &quot;&quot;, &quot; &quot;]</span>
-</span><span class='line'><span class="o">&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span> <span class="sr">/\s+/</span>
-</span><span class='line'><span class="c1">#=&gt; [&quot;&quot;, &quot;To&quot;, &quot;be&quot;, &quot;or&quot;, &quot;not&quot;, &quot;to&quot;, &quot;be&quot;]</span>
-</span><span class='line'><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
-</span><span class='line'><span class="c1">#=&gt; [&quot;To&quot;, &quot;be&quot;, &quot;or&quot;, &quot;not&quot;, &quot;to&quot;, &quot;be&quot;]</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>From the ruby docs:</p>
-
-<blockquote><p>If pattern is a single space, str is split on whitespace, with leading whitespace and runs of contiguous whitespace characters ignored.</p></blockquote>
-
-
-<p>Note that split by regex without groups omits trailing matches. Undocumented?</p>
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://unclegene.github.io/blog/2013/08/12/boundaries-by-gary-bernhardt/" data-via="UncleGene" data-counturl="http://unclegene.github.io/blog/2013/08/12/boundaries-by-gary-bernhardt/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="small"></div>
+  
+  
 </div>
-  
-  
 
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/07/11/split-the-difference/" title="Previous Post: Split the Difference">&laquo; Split the Difference</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/08/30/howto-reset-your-mysql-root-password/" title="Next Post: HowTo: Reset Your MySQL Root Password">HowTo: Reset Your MySQL Root Password &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
 
-    </article>
-  
-  <div class="pagination">
-    
-      <a class="prev" href="/blog/page/2/">&larr; Older</a>
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
+  </section>
+
+</div>
+
 <aside class="sidebar">
   
     <section>
@@ -274,7 +200,7 @@ launchctl unload ~/ &hellip;">
 <section>
   <h1>GitHub Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   
   <a href="https://github.com/UncleGene">@UncleGene</a> on GitHub
@@ -323,6 +249,7 @@ launchctl unload ~/ &hellip;">
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -337,7 +264,10 @@ launchctl unload ~/ &hellip;">
       var disqus_shortname = 'unclegenegithubio';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://unclegene.github.io/blog/2013/08/12/boundaries-by-gary-bernhardt/';
+        var disqus_url = 'http://unclegene.github.io/blog/2013/08/12/boundaries-by-gary-bernhardt/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

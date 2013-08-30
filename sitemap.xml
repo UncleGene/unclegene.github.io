@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
+    <url>
+        <loc>
+            http://unclegene.github.io/blog/2013/07/01/delicious-controversy-docs-and-tests-by-thomas-meeks/
+        </loc>
+        <lastmod>2013-08-30T11:30:00-07:00</lastmod>
+    </url>
+    <url>
+        <loc>http://unclegene.github.io/blog/2013/07/11/split-the-difference/</loc>
+        <lastmod>2013-08-30T11:30:00-07:00</lastmod>
+    </url>
+    <url>
+        <loc>http://unclegene.github.io/blog/2013/08/12/boundaries-by-gary-bernhardt/</loc>
+        <lastmod>2013-08-30T11:30:00-07:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://unclegene.github.io/blog/2013/08/30/howto-reset-your-mysql-root-password/
+        </loc>
+        <lastmod>2013-08-30T11:30:00-07:00</lastmod>
+    </url>
+    <url>
+        <loc>http://unclegene.github.io/blog/archives/</loc>
+        <lastmod>2013-08-30T11:30:00-07:00</lastmod>
+    </url>
+    <url>
+        <loc>http://unclegene.github.io/</loc>
+        <lastmod>2013-08-30T11:30:00-07:00</lastmod>
+    </url>
+    <url>
+        <loc>http://unclegene.github.io/robots.txt</loc>
+        <lastmod>2013-08-30T11:30:00-07:00</lastmod>
+    </url>
+</urlset>
