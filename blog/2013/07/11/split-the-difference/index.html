@@ -5,11 +5,22 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>SoftOver</title>
+  <title>Split the Difference - SoftOver</title>
   <meta name="author" content="Eugene Kalenkovich">
 
   
-  <meta name="description" content="Some people test in isolation, mocking everything except the class under test. We&#8217;ll start with that idea, quickly examine the drawbacks, and &hellip;">
+  <meta name="description" content="(split.rb) download 1
+2
+3
+4
+5
+6
+7
+8
+9
+s = &quot; To\tbe or\nnot\tto be &quot;
+s.split(/ /)
+#=&gt; [&quot;&quot;, &quot;To\tbe&quot;, &quot;&quot;, & &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +29,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://unclegene.github.io">
+  <link rel="canonical" href="http://unclegene.github.io/blog/2013/07/11/split-the-difference">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="SoftOver" type="application/atom+xml">
@@ -73,57 +84,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2013/08/12/boundaries-by-gary-bernhardt/">Boundaries by Gary Bernhardt</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-08-12T10:50:00-07:00" pubdate data-updated="true">Aug 12<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class="embed-video-container"><iframe src="http://www.youtube.com/embed/yTkzNHF6rMs "></iframe></div>
-
-
-
-
-<blockquote><p>Some people test in isolation, mocking everything except the class under test. We&#8217;ll start with that idea, quickly examine the drawbacks, and ask how we might fix them without losing the benefits. This will send us on a trip through behavior vs. data, mutation vs. immutability, interface vs. data dependencies, how data shape affords parallelism, and what a system optimizing each of these for natural isolation might look like.</p></blockquote>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/07/11/split-the-difference/">Split the Difference</a></h1>
+      <h1 class="entry-title">Split the Difference</h1>
     
     
       <p class="meta">
@@ -146,7 +112,7 @@
   </header>
 
 
-  <div class="entry-content"><figure class='code'><figcaption><span> (split.rb)</span> <a href='/downloads/code/split.rb'>download</a></figcaption>
+<div class="entry-content"><figure class='code'><figcaption><span> (split.rb)</span> <a href='/downloads/code/split.rb'>download</a></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -184,22 +150,16 @@
 
 <p>This is the first time I see Ruby uses <em>any</em> negative nymber as a flag</p>
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/07/01/delicious-controversy-docs-and-tests-by-thomas-meeks/">Delicious Controversy: Docs &amp; Tests by Thomas Meeks</a></h1>
-    
-    
-      <p class="meta">
-        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Eugene Kalenkovich</span></span>
+
+      
 
 
 
@@ -211,33 +171,48 @@
   
 
 
-<time datetime="2013-07-01T08:46:00-07:00" pubdate data-updated="true">Jul 1<span>st</span>, 2013</time>
-        
-      </p>
+<time datetime="2013-07-11T09:01:00-07:00" pubdate data-updated="true">Jul 11<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/ruby/'>Ruby</a>
+  
+</span>
+
+
+    </p>
     
-  </header>
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://unclegene.github.io/blog/2013/07/11/split-the-difference/" data-via="UncleGene" data-counturl="http://unclegene.github.io/blog/2013/07/11/split-the-difference/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="small"></div>
+  
+  
+</div>
 
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/07/01/delicious-controversy-docs-and-tests-by-thomas-meeks/" title="Previous Post: Delicious Controversy: Docs &amp; Tests by Thomas Meeks">&laquo; Delicious Controversy: Docs &amp; Tests by Thomas Meeks</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/08/12/boundaries-by-gary-bernhardt/" title="Next Post: Boundaries by Gary Bernhardt">Boundaries by Gary Bernhardt &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
 
-  <div class="entry-content"><div class="embed-video-container"><iframe src="http://www.youtube.com/embed/9md-GTF_Th8 "></iframe></div>
-
-
-
-
-<blockquote><p>Self-documenting code is a pipe dream. TDD (or BDD) is not the panacea of testing. In the pursuit of test coverage we&#8217;ve forgotten what really matters: getting things done. Lets talk about putting documentation and testing into their proper place. Tools that ease maintenance, help other developers join a project, and reduce bugs.<br/>I&#8217;m going to go over lessons learned in writing, maintaining, and introducing new developers to 20,000 lines of code. Specifically, how we are testing, documenting, and refactoring our code to stay sane, make the team happier, and get more done.</p></blockquote>
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
-  
-  
 
-
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
 <aside class="sidebar">
   
     <section>
@@ -262,7 +237,7 @@
 <section>
   <h1>GitHub Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   
   <a href="https://github.com/UncleGene">@UncleGene</a> on GitHub
@@ -311,6 +286,7 @@
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -325,7 +301,10 @@
       var disqus_shortname = 'unclegenegithubio';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://unclegene.github.io/blog/2013/07/11/split-the-difference/';
+        var disqus_url = 'http://unclegene.github.io/blog/2013/07/11/split-the-difference/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
