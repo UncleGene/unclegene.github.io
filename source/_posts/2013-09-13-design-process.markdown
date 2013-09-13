@@ -26,7 +26,7 @@ And this is taught in elementary school! One question that I have now is: did mo
 5. Implement Whitebox Tests (only if forced to do testing. In a lot of cases tests are matching implementation one-to-one; if code has bugs – tests are ensuring that bugs are there)
 
 Sometimes it even extends to: 
-<ol start="6>">
+<ol start="6">
 <li>Restlessly Defend Picked Solution as the Best One</li>
 </ol> 
 
