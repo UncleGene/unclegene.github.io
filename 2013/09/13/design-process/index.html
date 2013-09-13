@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Confident Code by Avdi Grimm - SoftOver</title>
+  <title>Design Process - SoftOver</title>
   <meta name="author" content="Eugene Kalenkovich">
 
   
-  <meta name="description" content="Are your methods timid? Do they constantly second-guess themselves, checking for nil values, errors, and unexpected input? Even the cleanest Ruby &hellip;">
+  <meta name="description" content="Yesterday I&rsquo;ve attended my daughter&rsquo;s &ldquo;Curriculum Night&rdquo; (yes, I am a very good and responsible dad, I even managed not only &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://UncleGene.github.io/2013/08/30/confident-code-by-avdi-grimm">
+  <link rel="canonical" href="http://UncleGene.github.io/2013/09/13/design-process">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="SoftOver" type="application/atom+xml">
@@ -72,7 +72,7 @@
   
   <header>
     
-      <h1 class="entry-title">Confident Code by Avdi Grimm</h1>
+      <h1 class="entry-title">Design Process</h1>
     
     
       <p class="meta">
@@ -88,20 +88,105 @@
   
 
 
-<time datetime="2013-08-30T15:06:00-07:00" pubdate data-updated="true">Aug 30<span>th</span>, 2013</time>
+<time datetime="2013-09-13T12:41:00-07:00" pubdate data-updated="true">Sep 13<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><div class="embed-video-container"><iframe src="http://www.youtube.com/embed/T8J0j2xJFgQ "></iframe></div>
+<div class="entry-content"><p>Yesterday I&rsquo;ve attended my daughter&rsquo;s &ldquo;Curriculum Night&rdquo; (yes, I am a very good and responsible dad, I even managed not only to recall where the school is, but also to successfully follow my wife&rsquo;s instructions on how to find the classroom).</p>
+
+<p>Listening to the teacher&rsquo;s presentation, I was surprised by how process-oriented the education is (not having US education experience myself). Here is one of the processes that were presented by the teacher as a part of 5th grade curriculum:</p>
+
+<h3>Design Process</h3>
+
+<ol>
+<li>State the Problem</li>
+<li>Gather Information</li>
+<li>Explore Ideas</li>
+<li>Select a Solution</li>
+<li>Test and Evaluate</li>
+<li>Redesign</li>
+</ol>
 
 
-<!-- more -->
+<p>And this is taught in elementary school! One question that I have now is: did most of software engineers skip the 5th grade? Or this is something new that was added to curriculum less than twenty-something years ago? The &ldquo;Design Process&rdquo; I see again and again, not only with interns or junior engineers, but also with some experienced people:</p>
+
+<ol>
+<li>Pick the Task (or Get Assignment)</li>
+<li>Pick a Solution</li>
+<li>Implement</li>
+<li>Try if it Works (sometimes)</li>
+<li>Implement Whitebox Tests (only if forced to do testing. In a lot of cases tests are matching implementation one-to-one; if code has bugs – tests are ensuring that bugs are there)</li>
+</ol>
 
 
-<blockquote><p>Are your methods timid? Do they constantly second-guess themselves, checking for nil values, errors, and unexpected input? Even the cleanest Ruby codebases can become littered over time with nil checks, error handling, and other interruptions which steal attention away from the essential purpose of the code. This talk will discuss strategies for writing your Ruby classes and methods in a confident, straightforward style; without sacrificing functionality or robustness. In the process, we&#8217;ll cover concepts and techniques points including: The narrative style of method construction The four parts of a method Three strategies for dealing with uncertain input Massaging input with coercion and the Decorator pattern Lightweight preconditions Exterminating nils from your code The chaining and iterative styles of method construction Eliminating conditionals with the Special Case and Null Object patterns Isolating errors with the Bouncer and Checked Method patterns</p></blockquote>
+<p>Sometimes it even extends to:</p>
+
+<ol start="6>&#8221;>
+<li>Restlessly Defend Picked Solution as the Best One</li>
+</ol>
+
+
+<p></p>
+
+<p>Nope. Please, go back to elementaruy school. They can teach you how to do your job!</p>
+
+<!--more-->
+
+
+<p>All right, all right, I agree, we do not have time for this, and, more important,  our school district is not funded enough to bring you back to school. But I hope you did not skip classes when they tought reading. Or did you? If not, please read what these steps mean (or, at least, how I want you to understand them):</p>
+
+<h3>Design Process for Engineers</h3>
+
+<h4>1. State the Problem</h4>
+
+<p>Describe in your words what is the problem you are trying to address. If you cannot clearly describe the problem – you do not understand it. If your friend does not understand your description &ndash; <strong><em>you</em></strong> do not understand it.</p>
+
+<h4>2. Gather Information</h4>
+
+<p>Starting with the most important one – are you really stating the right problem? Or even: did the person that originally stated it understand what she wanted? Is there already a solution for either directly the problem or something similar? How well does it fit your case?</p>
+
+<h4>3. Explore Ideas</h4>
+
+<p>There is a very high probablility that the first idea that comes to your mind is the wrong one. And do not forget to continue exploring on all steps. And please, PLEASE, do not limit yourself to your ideas only. There are a lot of smart people around.</p>
+
+<h4>4. Select a Solution</h4>
+
+<p>Remember: there is no selection if you have only one solution.</p>
+
+<h4>5. Test and Evaluate</h4>
+
+<p>Test not what you did, but whether the problem was solved. Evaluate all steps that were done before – starting from restating the problem. Quite possible that with all new information you have now your understanding of the problem may change.</p>
+
+<p>And one of the most important evaluation aspects – decision whether you have to go to the step #6 or not. Understanding of what is &ldquo;good enough&rdquo; comes with experience, so do not trust yourself if you lack one.</p>
+
+<h4>6. Redesign</h4>
+
+<p>Return to #1. Always. Yes, I know, you think you are ready for #4. Forget what you see at this moment as a &ldquo;better solution&rdquo; – you are wrong (even if you are right!).</p>
+
+<h3>Bonus #1: Investigation Process (5th Grade Version)</h3>
+
+<ol>
+<li>Question</li>
+<li>Prediction</li>
+<li>Materials</li>
+<li>Procedure</li>
+<li>Data/Results</li>
+<li>Conclusion</li>
+</ol>
+
+
+<h3>Bonus #2: Writing Process (5th Grade Version)</h3>
+
+<ol>
+<li>Prewrite</li>
+<li>Rough Draft</li>
+<li>Revise</li>
+<li>Edit</li>
+<li>Publish</li>
+</ol>
 
 </div>
 
@@ -125,12 +210,12 @@
   
 
 
-<time datetime="2013-08-30T15:06:00-07:00" pubdate data-updated="true">Aug 30<span>th</span>, 2013</time>
+<time datetime="2013-09-13T12:41:00-07:00" pubdate data-updated="true">Sep 13<span>th</span>, 2013</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/categories/ruby/'>Ruby</a>, <a class='category' href='/categories/video/'>Video</a>
+    <a class='category' href='/categories/general/'>General</a>
   
 </span>
 
@@ -139,7 +224,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://UncleGene.github.io/2013/08/30/confident-code-by-avdi-grimm/" data-via="UncleGene" data-counturl="http://UncleGene.github.io/2013/08/30/confident-code-by-avdi-grimm/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://UncleGene.github.io/2013/09/13/design-process/" data-via="UncleGene" data-counturl="http://UncleGene.github.io/2013/09/13/design-process/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="small"></div>
@@ -150,10 +235,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/2013/08/30/howto-reset-your-mysql-root-password/" title="Previous Post: HowTo: Reset Your MySQL Root Password">&laquo; HowTo: Reset Your MySQL Root Password</a>
+        <a class="basic-alignment left" href="/2013/08/30/confident-code-by-avdi-grimm/" title="Previous Post: Confident Code by Avdi Grimm">&laquo; Confident Code by Avdi Grimm</a>
       
-      
-        <a class="basic-alignment right" href="/2013/09/13/design-process/" title="Next Post: Design Process">Design Process &raquo;</a>
       
     </p>
   </footer>
@@ -271,8 +354,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://UncleGene.github.io/2013/08/30/confident-code-by-avdi-grimm/';
-        var disqus_url = 'http://UncleGene.github.io/2013/08/30/confident-code-by-avdi-grimm/';
+        var disqus_identifier = 'http://UncleGene.github.io/2013/09/13/design-process/';
+        var disqus_url = 'http://UncleGene.github.io/2013/09/13/design-process/';
         var disqus_script = 'embed.js';
       
     (function () {

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: General | SoftOver]]></title>
+  <link href="http://UncleGene.github.io/categories/general/atom.xml" rel="self"/>
+  <link href="http://UncleGene.github.io/"/>
+  <updated>2013-09-13T13:00:28-07:00</updated>
+  <id>http://UncleGene.github.io/</id>
+  <author>
+    <name><![CDATA[Eugene Kalenkovich]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Design Process]]></title>
+    <link href="http://UncleGene.github.io/2013/09/13/design-process/"/>
+    <updated>2013-09-13T12:41:00-07:00</updated>
+    <id>http://UncleGene.github.io/2013/09/13/design-process</id>
+    <content type="html"><![CDATA[<p>Yesterday I&rsquo;ve attended my daughter&rsquo;s &ldquo;Curriculum Night&rdquo; (yes, I am a very good and responsible dad, I even managed not only to recall where the school is, but also to successfully follow my wife&rsquo;s instructions on how to find the classroom).</p>
+
+<p>Listening to the teacher&rsquo;s presentation, I was surprised by how process-oriented the education is (not having US education experience myself). Here is one of the processes that were presented by the teacher as a part of 5th grade curriculum:</p>
+
+<h3>Design Process</h3>
+
+<ol>
+<li>State the Problem</li>
+<li>Gather Information</li>
+<li>Explore Ideas</li>
+<li>Select a Solution</li>
+<li>Test and Evaluate</li>
+<li>Redesign</li>
+</ol>
+
+
+<p>And this is taught in elementary school! One question that I have now is: did most of software engineers skip the 5th grade? Or this is something new that was added to curriculum less than twenty-something years ago? The &ldquo;Design Process&rdquo; I see again and again, not only with interns or junior engineers, but also with some experienced people:</p>
+
+<ol>
+<li>Pick the Task (or Get Assignment)</li>
+<li>Pick a Solution</li>
+<li>Implement</li>
+<li>Try if it Works (sometimes)</li>
+<li>Implement Whitebox Tests (only if forced to do testing. In a lot of cases tests are matching implementation one-to-one; if code has bugs – tests are ensuring that bugs are there)</li>
+</ol>
+
+
+<p>Sometimes it even extends to:</p>
+
+<ol start="6>">
+<li>Restlessly Defend Picked Solution as the Best One</li>
+</ol>
+
+
+<p></p>
+
+<p>Nope. Please, go back to elementaruy school. They can teach you how to do your job!</p>
+
+<!--more-->
+
+
+<p>All right, all right, I agree, we do not have time for this, and, more important,  our school district is not funded enough to bring you back to school. But I hope you did not skip classes when they tought reading. Or did you? If not, please read what these steps mean (or, at least, how I want you to understand them):</p>
+
+<h3>Design Process for Engineers</h3>
+
+<h4>1. State the Problem</h4>
+
+<p>Describe in your words what is the problem you are trying to address. If you cannot clearly describe the problem – you do not understand it. If your friend does not understand your description &ndash; <strong><em>you</em></strong> do not understand it.</p>
+
+<h4>2. Gather Information</h4>
+
+<p>Starting with the most important one – are you really stating the right problem? Or even: did the person that originally stated it understand what she wanted? Is there already a solution for either directly the problem or something similar? How well does it fit your case?</p>
+
+<h4>3. Explore Ideas</h4>
+
+<p>There is a very high probablility that the first idea that comes to your mind is the wrong one. And do not forget to continue exploring on all steps. And please, PLEASE, do not limit yourself to your ideas only. There are a lot of smart people around.</p>
+
+<h4>4. Select a Solution</h4>
+
+<p>Remember: there is no selection if you have only one solution.</p>
+
+<h4>5. Test and Evaluate</h4>
+
+<p>Test not what you did, but whether the problem was solved. Evaluate all steps that were done before – starting from restating the problem. Quite possible that with all new information you have now your understanding of the problem may change.</p>
+
+<p>And one of the most important evaluation aspects – decision whether you have to go to the step #6 or not. Understanding of what is &ldquo;good enough&rdquo; comes with experience, so do not trust yourself if you lack one.</p>
+
+<h4>6. Redesign</h4>
+
+<p>Return to #1. Always. Yes, I know, you think you are ready for #4. Forget what you see at this moment as a &ldquo;better solution&rdquo; – you are wrong (even if you are right!).</p>
+
+<h3>Bonus #1: Investigation Process (5th Grade Version)</h3>
+
+<ol>
+<li>Question</li>
+<li>Prediction</li>
+<li>Materials</li>
+<li>Procedure</li>
+<li>Data/Results</li>
+<li>Conclusion</li>
+</ol>
+
+
+<h3>Bonus #2: Writing Process (5th Grade Version)</h3>
+
+<ol>
+<li>Prewrite</li>
+<li>Rough Draft</li>
+<li>Revise</li>
+<li>Edit</li>
+<li>Publish</li>
+</ol>
+
+]]></content>
+  </entry>
+  
+</feed>
