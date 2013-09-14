@@ -2,12 +2,12 @@
 #      Main Configs       #
 # ----------------------- #
 
-url: http://UncleGene.github.io
-title: SoftOver
-subtitle:
+url: http://203.softover.com
+title: 203
+subtitle: "HTTP code 203: Non-Authoritative Information" 
 author: Eugene Kalenkovich
 simple_search: http://google.com/search
-description:
+description: "HTTP code 203: Non-Authoritative Information"
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
