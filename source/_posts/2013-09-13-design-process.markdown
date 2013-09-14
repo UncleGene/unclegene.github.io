@@ -4,6 +4,8 @@ title: "Design Process"
 date: 2013-09-13 12:41
 comments: true
 categories: [General] 
+description: 5th grade design process for software engineers
+keywords: design, process, software
 ---
 Yesterday I've attended my daughter's "Curriculum Night" (yes, I am a very good and responsible dad, I even managed not only to recall where the school is, but also to successfully follow my wife's instructions on how to find the classroom). 
 
