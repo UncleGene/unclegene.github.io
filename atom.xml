@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[SoftOver]]></title>
-  <link href="http://UncleGene.github.io/atom.xml" rel="self"/>
-  <link href="http://UncleGene.github.io/"/>
-  <updated>2013-09-13T13:11:09-07:00</updated>
-  <id>http://UncleGene.github.io/</id>
+  <title><![CDATA[203]]></title>
+  <link href="http://203.softover.com/atom.xml" rel="self"/>
+  <link href="http://203.softover.com/"/>
+  <updated>2013-09-13T17:13:35-07:00</updated>
+  <id>http://203.softover.com/</id>
   <author>
     <name><![CDATA[Eugene Kalenkovich]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Design Process]]></title>
-    <link href="http://UncleGene.github.io/2013/09/13/design-process/"/>
+    <link href="http://203.softover.com/2013/09/13/design-process/"/>
     <updated>2013-09-13T12:41:00-07:00</updated>
-    <id>http://UncleGene.github.io/2013/09/13/design-process</id>
+    <id>http://203.softover.com/2013/09/13/design-process</id>
     <content type="html"><![CDATA[<p>Yesterday I&rsquo;ve attended my daughter&rsquo;s &ldquo;Curriculum Night&rdquo; (yes, I am a very good and responsible dad, I even managed not only to recall where the school is, but also to successfully follow my wife&rsquo;s instructions on how to find the classroom).</p>
 
 <p>Listening to the teacher&rsquo;s presentation, I was surprised by how process-oriented the education is (not having US education experience myself). Here is one of the processes that were presented by the teacher as a part of 5th grade curriculum:</p>
@@ -113,15 +113,15 @@
 
 ]]></content>
     
-    <category scheme="http://UncleGene.github.io/categories/" term="general" />
+    <category scheme="http://203.softover.com/categories/" term="general" />
     
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Confident Code by Avdi Grimm]]></title>
-    <link href="http://UncleGene.github.io/2013/08/30/confident-code-by-avdi-grimm/"/>
+    <link href="http://203.softover.com/2013/08/30/confident-code-by-avdi-grimm/"/>
     <updated>2013-08-30T15:06:00-07:00</updated>
-    <id>http://UncleGene.github.io/2013/08/30/confident-code-by-avdi-grimm</id>
+    <id>http://203.softover.com/2013/08/30/confident-code-by-avdi-grimm</id>
     <content type="html"><![CDATA[<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/T8J0j2xJFgQ "></iframe></div>
 
 
@@ -132,20 +132,20 @@
 
 ]]></content>
     
-    <category scheme="http://UncleGene.github.io/categories/" term="ruby" />
+    <category scheme="http://203.softover.com/categories/" term="ruby" />
     
-    <category scheme="http://UncleGene.github.io/categories/" term="video" />
+    <category scheme="http://203.softover.com/categories/" term="video" />
     
   </entry>
   
   <entry>
     <title type="html"><![CDATA[HowTo: Reset Your MySQL Root Password]]></title>
-    <link href="http://UncleGene.github.io/2013/08/30/howto-reset-your-mysql-root-password/"/>
+    <link href="http://203.softover.com/2013/08/30/howto-reset-your-mysql-root-password/"/>
     <updated>2013-08-30T11:06:00-07:00</updated>
-    <id>http://UncleGene.github.io/2013/08/30/howto-reset-your-mysql-root-password</id>
+    <id>http://203.softover.com/2013/08/30/howto-reset-your-mysql-root-password</id>
     <content type="html"><![CDATA[<p>In case you forgot your root password for MySQL installed with <a href="http://brew.sh/">Homebrew</a> on OS X Mountain Lion.</p>
 
-<figure class='code'><figcaption><span> (reroot.sh)</span> <a href='http://UncleGene.github.io/downloads/code/reroot.sh'>download</a></figcaption>
+<figure class='code'><figcaption><span> (reroot.sh)</span> <a href='http://203.softover.com/downloads/code/reroot.sh'>download</a></figcaption>
  <div class="highlight"><table><tr> <td class='code'><pre><code class='sh'><span class='line'>launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
 </span><span class='line'>/usr/local/opt/mysql/bin/mysqld_safe --skip-grant-tables --skip-networking &amp;
 </span><span class='line'>mysql -e <span class="s2">&quot;UPDATE mysql.user SET Password=PASSWORD(&#39;new password&#39;) WHERE User=&#39;root&#39;; FLUSH PRIVILEGES;&quot;</span>
@@ -157,17 +157,17 @@
 <p>Different versions may have different paths to be used with launchctl load/unload</p>
 ]]></content>
     
-    <category scheme="http://UncleGene.github.io/categories/" term="mysql" />
+    <category scheme="http://203.softover.com/categories/" term="mysql" />
     
-    <category scheme="http://UncleGene.github.io/categories/" term="osx" />
+    <category scheme="http://203.softover.com/categories/" term="osx" />
     
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Boundaries by Gary Bernhardt]]></title>
-    <link href="http://UncleGene.github.io/2013/08/12/boundaries-by-gary-bernhardt/"/>
+    <link href="http://203.softover.com/2013/08/12/boundaries-by-gary-bernhardt/"/>
     <updated>2013-08-12T10:50:00-07:00</updated>
-    <id>http://UncleGene.github.io/2013/08/12/boundaries-by-gary-bernhardt</id>
+    <id>http://203.softover.com/2013/08/12/boundaries-by-gary-bernhardt</id>
     <content type="html"><![CDATA[<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/yTkzNHF6rMs "></iframe></div>
 
 
@@ -178,18 +178,18 @@
 
 ]]></content>
     
-    <category scheme="http://UncleGene.github.io/categories/" term="ruby" />
+    <category scheme="http://203.softover.com/categories/" term="ruby" />
     
-    <category scheme="http://UncleGene.github.io/categories/" term="video" />
+    <category scheme="http://203.softover.com/categories/" term="video" />
     
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Split the Difference]]></title>
-    <link href="http://UncleGene.github.io/2013/07/11/split-the-difference/"/>
+    <link href="http://203.softover.com/2013/07/11/split-the-difference/"/>
     <updated>2013-07-11T09:01:00-07:00</updated>
-    <id>http://UncleGene.github.io/2013/07/11/split-the-difference</id>
-    <content type="html"><![CDATA[<figure class='code'><figcaption><span> (split.rb)</span> <a href='http://UncleGene.github.io/downloads/code/split.rb'>download</a></figcaption>
+    <id>http://203.softover.com/2013/07/11/split-the-difference</id>
+    <content type="html"><![CDATA[<figure class='code'><figcaption><span> (split.rb)</span> <a href='http://203.softover.com/downloads/code/split.rb'>download</a></figcaption>
  <div class="highlight"><table><tr> <td class='code'><pre><code class='rb'><span class='line'><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot; To</span><span class="se">\t</span><span class="s2">be  or</span><span class="se">\n</span><span class="s2">not</span><span class="se">\t</span><span class="s2">to  be  &quot;</span>
 </span><span class='line'><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sr">/ /</span><span class="p">)</span>
 </span><span class='line'><span class="c1">#=&gt; [&quot;&quot;, &quot;To\tbe&quot;, &quot;&quot;, &quot;or\nnot\tto&quot;, &quot;&quot;, &quot;be&quot;]</span>
@@ -210,15 +210,15 @@
 <p>Note that split by regex without groups omits trailing matches. Undocumented?</p>
 ]]></content>
     
-    <category scheme="http://UncleGene.github.io/categories/" term="ruby" />
+    <category scheme="http://203.softover.com/categories/" term="ruby" />
     
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Delicious Controversy: Docs &amp; Tests by Thomas Meeks]]></title>
-    <link href="http://UncleGene.github.io/2013/07/01/delicious-controversy-docs-and-tests-by-thomas-meeks/"/>
+    <link href="http://203.softover.com/2013/07/01/delicious-controversy-docs-and-tests-by-thomas-meeks/"/>
     <updated>2013-07-01T08:46:00-07:00</updated>
-    <id>http://UncleGene.github.io/2013/07/01/delicious-controversy-docs-and-tests-by-thomas-meeks</id>
+    <id>http://203.softover.com/2013/07/01/delicious-controversy-docs-and-tests-by-thomas-meeks</id>
     <content type="html"><![CDATA[<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/9md-GTF_Th8 "></iframe></div>
 
 
@@ -229,9 +229,9 @@
 
 ]]></content>
     
-    <category scheme="http://UncleGene.github.io/categories/" term="ruby" />
+    <category scheme="http://203.softover.com/categories/" term="ruby" />
     
-    <category scheme="http://UncleGene.github.io/categories/" term="video" />
+    <category scheme="http://203.softover.com/categories/" term="video" />
     
   </entry>
   

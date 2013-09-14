@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Video | SoftOver]]></title>
-  <link href="http://UncleGene.github.io/categories/video/atom.xml" rel="self"/>
-  <link href="http://UncleGene.github.io/"/>
-  <updated>2013-09-13T13:11:09-07:00</updated>
-  <id>http://UncleGene.github.io/</id>
+  <title><![CDATA[Category: Video | 203]]></title>
+  <link href="http://203.softover.com/categories/video/atom.xml" rel="self"/>
+  <link href="http://203.softover.com/"/>
+  <updated>2013-09-13T17:13:35-07:00</updated>
+  <id>http://203.softover.com/</id>
   <author>
     <name><![CDATA[Eugene Kalenkovich]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Confident Code by Avdi Grimm]]></title>
-    <link href="http://UncleGene.github.io/2013/08/30/confident-code-by-avdi-grimm/"/>
+    <link href="http://203.softover.com/2013/08/30/confident-code-by-avdi-grimm/"/>
     <updated>2013-08-30T15:06:00-07:00</updated>
-    <id>http://UncleGene.github.io/2013/08/30/confident-code-by-avdi-grimm</id>
+    <id>http://203.softover.com/2013/08/30/confident-code-by-avdi-grimm</id>
     <content type="html"><![CDATA[<p><div class="embed-video-container"><iframe src="http://www.youtube.com/embed/T8J0j2xJFgQ "></iframe></div></p>
 
 <!-- more -->
@@ -29,9 +29,9 @@
   
   <entry>
     <title type="html"><![CDATA[Boundaries by Gary Bernhardt]]></title>
-    <link href="http://UncleGene.github.io/2013/08/12/boundaries-by-gary-bernhardt/"/>
+    <link href="http://203.softover.com/2013/08/12/boundaries-by-gary-bernhardt/"/>
     <updated>2013-08-12T10:50:00-07:00</updated>
-    <id>http://UncleGene.github.io/2013/08/12/boundaries-by-gary-bernhardt</id>
+    <id>http://203.softover.com/2013/08/12/boundaries-by-gary-bernhardt</id>
     <content type="html"><![CDATA[<p><div class="embed-video-container"><iframe src="http://www.youtube.com/embed/yTkzNHF6rMs "></iframe></div></p>
 
 <!-- more -->
@@ -43,9 +43,9 @@
   
   <entry>
     <title type="html"><![CDATA[Delicious Controversy: Docs &amp; Tests by Thomas Meeks]]></title>
-    <link href="http://UncleGene.github.io/2013/07/01/delicious-controversy-docs-and-tests-by-thomas-meeks/"/>
+    <link href="http://203.softover.com/2013/07/01/delicious-controversy-docs-and-tests-by-thomas-meeks/"/>
     <updated>2013-07-01T08:46:00-07:00</updated>
-    <id>http://UncleGene.github.io/2013/07/01/delicious-controversy-docs-and-tests-by-thomas-meeks</id>
+    <id>http://203.softover.com/2013/07/01/delicious-controversy-docs-and-tests-by-thomas-meeks</id>
     <content type="html"><![CDATA[<p><div class="embed-video-container"><iframe src="http://www.youtube.com/embed/9md-GTF_Th8 "></iframe></div></p>
 
 <!-- more -->

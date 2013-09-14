@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: OSX | SoftOver]]></title>
-  <link href="http://UncleGene.github.io/categories/osx/atom.xml" rel="self"/>
-  <link href="http://UncleGene.github.io/"/>
-  <updated>2013-09-13T13:11:09-07:00</updated>
-  <id>http://UncleGene.github.io/</id>
+  <title><![CDATA[Category: OSX | 203]]></title>
+  <link href="http://203.softover.com/categories/osx/atom.xml" rel="self"/>
+  <link href="http://203.softover.com/"/>
+  <updated>2013-09-13T17:13:35-07:00</updated>
+  <id>http://203.softover.com/</id>
   <author>
     <name><![CDATA[Eugene Kalenkovich]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[HowTo: Reset Your MySQL Root Password]]></title>
-    <link href="http://UncleGene.github.io/2013/08/30/howto-reset-your-mysql-root-password/"/>
+    <link href="http://203.softover.com/2013/08/30/howto-reset-your-mysql-root-password/"/>
     <updated>2013-08-30T11:06:00-07:00</updated>
-    <id>http://UncleGene.github.io/2013/08/30/howto-reset-your-mysql-root-password</id>
+    <id>http://203.softover.com/2013/08/30/howto-reset-your-mysql-root-password</id>
     <content type="html"><![CDATA[<p>In case you forgot your root password for MySQL installed with <a href="http://brew.sh/">Homebrew</a> on OS X Mountain Lion.</p>
 
 <p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (reroot.sh)</span> <a href='/downloads/code/reroot.sh'>download</a></figcaption>
