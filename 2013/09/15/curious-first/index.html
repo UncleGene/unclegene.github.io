@@ -5,20 +5,20 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>203</title>
+  <title>Curious First - 203</title>
   <meta name="author" content="Eugene Kalenkovich">
 
   
-  <meta name="description" content="HTTP code 203: Non-Authoritative Information">
+  <meta name="description" content="Curious behavior of ActiveRecord 3.x #first">
   
-  <meta name="keywords" content="203, softover, software, ruby, rails, design">
+  <meta name="keywords" content="ruby, rails, activerecord, active_record, bug">
 
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://203.softover.com">
+  <link rel="canonical" href="http://203.softover.com/2013/09/15/curious-first">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="203" type="application/atom+xml">
@@ -67,15 +67,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/2013/09/15/curious-first/">Curious First</a></h1>
+      <h1 class="entry-title">Curious First</h1>
     
     
       <p class="meta">
@@ -98,7 +95,7 @@
   </header>
 
 
-  <div class="entry-content"><figure class='code'><figcaption><span> (first_last.rb)</span> <a href='/downloads/code/first_last.rb'>download</a></figcaption>
+<div class="entry-content"><figure class='code'><figcaption><span> (first_last.rb)</span> <a href='/downloads/code/first_last.rb'>download</a></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -144,104 +141,23 @@
 
 <p>The test succeeds on SQLite and MySQL (latter &ndash; with various engines), but fails on PostgreSQL.</p>
 
+<!--more-->
+
+
+<p>Is it a database fault? Not really. Rails (before 4.0) used a strange asymmetric approach: #last (when statement do not have any explicit order) adds ordering by primary key, but #first does not add anything, thus using default database ordering. No database actually guarantees what is implicit order, but there is still some consistency: at least in simple cases, MySQL always maintains primary key order, but PostgreSQL places most recently modified records at the end.</p>
+
+<p>Bug? I’d say yes, but… This is not the bug that is going to be fixed. Apparently there are developers “in the wild” that managed to rely on this behavior. Thus – this behavior was effectively <a href="https://github.com/rails/rails/issues/11774#issuecomment-24336831">declared “a feature, not a bug”</a>&hellip;</p>
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2013/09/15/curious-first/">Read on &rarr;</a>
-    </footer>
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/2013/09/13/design-process/">Design Process</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
   
 
+<span class="byline author vcard">Posted by <span class="fn">Eugene Kalenkovich</span></span>
 
-<time datetime="2013-09-13T12:41:00-07:00" pubdate data-updated="true">Sep 13<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Yesterday I&rsquo;ve attended my daughter&rsquo;s &ldquo;Curriculum Night&rdquo; (yes, I am a very good and responsible dad, I even managed not only to recall where the school is, but also to successfully follow my wife&rsquo;s instructions on how to find the classroom).</p>
-
-<p>Listening to the teacher&rsquo;s presentation, I was surprised by how process-oriented the education is (not having US education experience myself). Here is one of the processes that were presented by the teacher as a part of 5th grade curriculum:</p>
-
-<h3>Design Process</h3>
-
-<ol>
-<li>State the Problem</li>
-<li>Gather Information</li>
-<li>Explore Ideas</li>
-<li>Select a Solution</li>
-<li>Test and Evaluate</li>
-<li>Redesign</li>
-</ol>
-
-
-<p>And this is taught in elementary school! One question that I have now is: did most of software engineers skip the 5th grade? Or this is something new that was added to curriculum less than twenty-something years ago? The &ldquo;Design Process&rdquo; I see again and again, not only with interns or junior engineers, but also with some experienced people:</p>
-
-<ol>
-<li>Pick the Task (or Get Assignment)</li>
-<li>Pick a Solution</li>
-<li>Implement</li>
-<li>Try if it Works (sometimes)</li>
-<li>Implement Whitebox Tests (only if forced to do testing. In a lot of cases tests are matching implementation one-to-one; if code has bugs – tests are ensuring that bugs are there)</li>
-</ol>
-
-
-<p>Sometimes it even extends to:</p>
-
-<ol start="6">
-<li>Restlessly Defend Picked Solution as the Best One</li>
-</ol>
-
-
-<p></p>
-
-<p>Nope. Please, go back to elementaruy school. They can teach you how to do your job!</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2013/09/13/design-process/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/2013/08/30/confident-code-by-avdi-grimm/">Confident Code by Avdi Grimm</a></h1>
-    
-    
-      <p class="meta">
-        
 
 
 
@@ -253,35 +169,46 @@
   
 
 
-<time datetime="2013-08-30T15:06:00-07:00" pubdate data-updated="true">Aug 30<span>th</span>, 2013</time>
-        
-      </p>
+<time datetime="2013-09-15T09:40:00-07:00" pubdate data-updated="true">Sep 15<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/categories/db/'>DB</a>, <a class='category' href='/categories/rails/'>Rails</a>, <a class='category' href='/categories/ruby/'>Ruby</a>
+  
+</span>
+
+
+    </p>
     
-  </header>
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://203.softover.com/2013/09/15/curious-first/" data-via="UncleGene" data-counturl="http://203.softover.com/2013/09/15/curious-first/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="small"></div>
+  
+  
+</div>
 
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2013/09/13/design-process/" title="Previous Post: Design Process">&laquo; Design Process</a>
+      
+      
+    </p>
+  </footer>
+</article>
 
-  <div class="entry-content"><div class="embed-video-container"><iframe src="http://www.youtube.com/embed/T8J0j2xJFgQ "></iframe></div>
-
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2013/08/30/confident-code-by-avdi-grimm/">Read on &rarr;</a>
-    </footer>
-  
 
-
-    </article>
-  
-  <div class="pagination">
-    
-      <a class="prev" href="/blog/page/2/">&larr; Older</a>
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
 <aside class="sidebar">
   
     <section>
@@ -333,7 +260,7 @@
 <section>
   <h1>GitHub Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   
   <a href="https://github.com/UncleGene">@UncleGene</a> on GitHub
@@ -370,6 +297,7 @@
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -384,7 +312,10 @@
       var disqus_shortname = 'unclegenegithubio';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://203.softover.com/2013/09/15/curious-first/';
+        var disqus_url = 'http://203.softover.com/2013/09/15/curious-first/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

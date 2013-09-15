@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: DB | 203]]></title>
+  <link href="http://203.softover.com/categories/db/atom.xml" rel="self"/>
+  <link href="http://203.softover.com/"/>
+  <updated>2013-09-15T10:28:43-07:00</updated>
+  <id>http://203.softover.com/</id>
+  <author>
+    <name><![CDATA[Eugene Kalenkovich]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Curious First]]></title>
+    <link href="http://203.softover.com/2013/09/15/curious-first/"/>
+    <updated>2013-09-15T09:40:00-07:00</updated>
+    <id>http://203.softover.com/2013/09/15/curious-first</id>
+    <content type="html"><![CDATA[<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (first_last.rb)</span> <a href='/downloads/code/first_last.rb'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Schema</span><span class="o">.</span><span class="n">define</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">drop_table</span> <span class="ss">:records</span> <span class="k">if</span> <span class="n">table_exists?</span> <span class="ss">:records</span>
+</span><span class='line'>  <span class="n">create_table</span> <span class="ss">:records</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
+</span><span class='line'>    <span class="n">t</span><span class="o">.</span><span class="n">timestamps</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Record</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">CuriousFirstTest</span> <span class="o">&lt;</span> <span class="ss">MiniTest</span><span class="p">:</span><span class="ss">:Unit</span><span class="o">::</span><span class="no">TestCase</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">test_first_last</span>
+</span><span class='line'>    <span class="n">r</span> <span class="o">=</span> <span class="no">Record</span><span class="o">.</span><span class="n">create</span>
+</span><span class='line'>    <span class="no">Record</span><span class="o">.</span><span class="n">create</span>
+</span><span class='line'>    <span class="n">r</span><span class="o">.</span><span class="n">touch</span>
+</span><span class='line'>    <span class="n">assert_equal</span> <span class="mi">2</span><span class="p">,</span> <span class="no">Record</span><span class="o">.</span><span class="n">count</span>
+</span><span class='line'>    <span class="n">assert</span> <span class="no">Record</span><span class="o">.</span><span class="n">first</span> <span class="o">!=</span> <span class="no">Record</span><span class="o">.</span><span class="n">last</span><span class="p">,</span> <span class="s1">&#39;The first of 2 records is also the last!&#39;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>What are we doing here? We create two records, touching first (this updates the record timestamps), and making sure that the first record is not the same as the last one. Perfectly valid assumption, that <strong><em>almost</em></strong> works.</p>
+
+<p>The test succeeds on SQLite and MySQL (latter &ndash; with various engines), but fails on PostgreSQL.</p>
+
+<!--more-->
+
+
+<p>Is it a database fault? Not really. Rails (before 4.0) used a strange asymmetric approach: #last (when statement do not have any explicit order) adds ordering by primary key, but #first does not add anything, thus using default database ordering. No database actually guarantees what is implicit order, but there is still some consistency: at least in simple cases, MySQL always maintains primary key order, but PostgreSQL places most recently modified records at the end.</p>
+
+<p>Bug? I’d say yes, but… This is not the bug that is going to be fixed. Apparently there are developers “in the wild” that managed to rely on this behavior. Thus – this behavior was effectively <a href="https://github.com/rails/rails/issues/11774#issuecomment-24336831">declared “a feature, not a bug”</a>&hellip;</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[HowTo: Reset Your MySQL Root Password]]></title>
+    <link href="http://203.softover.com/2013/08/30/howto-reset-your-mysql-root-password/"/>
+    <updated>2013-08-30T11:06:00-07:00</updated>
+    <id>http://203.softover.com/2013/08/30/howto-reset-your-mysql-root-password</id>
+    <content type="html"><![CDATA[<p>In case you forgot your root password for MySQL installed with <a href="http://brew.sh/">Homebrew</a> on OS X Mountain Lion.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (reroot.sh)</span> <a href='/downloads/code/reroot.sh'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+</span><span class='line'>/usr/local/opt/mysql/bin/mysqld_safe --skip-grant-tables --skip-networking &amp;
+</span><span class='line'>mysql -e <span class="s2">&quot;UPDATE mysql.user SET Password=PASSWORD(&#39;new password&#39;) WHERE User=&#39;root&#39;; FLUSH PRIVILEGES;&quot;</span>
+</span><span class='line'>/usr/local/bin/mysql.server stop
+</span><span class='line'>launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Different versions may have different paths to be used with launchctl load/unload</p>
+]]></content>
+  </entry>
+  
+</feed>
