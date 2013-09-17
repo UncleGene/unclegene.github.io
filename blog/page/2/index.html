@@ -75,6 +75,58 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/2013/08/30/howto-reset-your-mysql-root-password/">HowTo: Reset Your MySQL Root Password</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-30T11:06:00-07:00" pubdate data-updated="true">Aug 30<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In case you forgot your root password for MySQL installed with <a href="http://brew.sh/">Homebrew</a> on OS X Mountain Lion.</p>
+
+<figure class='code'><figcaption><span> (reroot.sh)</span> <a href='/downloads/code/reroot.sh'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+</span><span class='line'>/usr/local/opt/mysql/bin/mysqld_safe --skip-grant-tables --skip-networking &amp;
+</span><span class='line'>mysql -e <span class="s2">&quot;UPDATE mysql.user SET Password=PASSWORD(&#39;new password&#39;) WHERE User=&#39;root&#39;; FLUSH PRIVILEGES;&quot;</span>
+</span><span class='line'>/usr/local/bin/mysql.server stop
+</span><span class='line'>launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Different versions may have different paths to be used with launchctl load/unload</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/2013/08/12/boundaries-by-gary-bernhardt/">Boundaries by Gary Bernhardt</a></h1>
     
     
@@ -175,49 +227,9 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2013/07/01/delicious-controversy-docs-and-tests-by-thomas-meeks/">Delicious Controversy: Docs &amp; Tests by Thomas Meeks</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-07-01T08:46:00-07:00" pubdate data-updated="true">Jul 1<span>st</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class="embed-video-container"><iframe src="http://www.youtube.com/embed/9md-GTF_Th8 "></iframe></div>
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2013/07/01/delicious-controversy-docs-and-tests-by-thomas-meeks/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
+    
+      <a class="prev" href="/blog/page/3/">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
     
@@ -251,6 +263,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2013/09/17/numeric-fun/">Numeric Fun</a>
+      </li>
+    
+      <li class="post">
         <a href="/2013/09/13/design-process/">Design Process</a>
       </li>
     
@@ -264,10 +280,6 @@
     
       <li class="post">
         <a href="/2013/08/12/boundaries-by-gary-bernhardt/">Boundaries by Gary Bernhardt</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/07/11/split-the-difference/">Split the Difference</a>
       </li>
     
   </ul>

@@ -1,0 +1,409 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Numeric Fun - 203</title>
+  <meta name="author" content="Eugene Kalenkovich">
+
+  
+  <meta name="description" content="Interesting methods in Ruby Numeric class">
+  
+  <meta name="keywords" content="Ruby, Numeric, code">
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://203.softover.com/2013/09/17/numeric-fun">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="203" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-29251718-4']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:203.softover.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><b><a class="siteTitle" href="/">203</a></b></li>
+  <li><a href="/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Numeric Fun</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-17T08:49:00-07:00" pubdate data-updated="true">Sep 17<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Today I was browsing Rails codebase (sometimes people do weird things for fun), and found an interesting piece of code:</p>
+
+<figure class='code'><figcaption><span>https://github.com/rails/rails/blob/master/activesupport/lib/active_support/core_ext/time/calculations.rb#L105 </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">options</span><span class="o">[</span><span class="ss">:days</span><span class="o">]</span><span class="p">,</span> <span class="n">partial_days</span> <span class="o">=</span> <span class="n">options</span><span class="o">[</span><span class="ss">:days</span><span class="o">].</span><span class="n">divmod</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This sparkled my interest: what is <em>divmod</em>, especially &ndash; its pretty harsh form <em>divmod(1)</em>? Quick search through documentation &ndash; and it starts to make perfect sense:
+<q>Returns an array containing the quotient and modulus obtained by dividing num by numeric</q>; especially if you instantly remember what is <q>quotient</q> and <q>modulus</q>. Looks like example table in documentation is designed to confuse (including expected output of multiple methods), but for the special case of a <em>positive float.divmod(1)</em> there is much simpler explanation: it just splits a positive floating point number to its integer and fractional parts (+/&ndash; error).</p>
+
+<!--more-->
+
+
+<p>Or, in other &ldquo;words&rdquo; (this one is true for negative numbers too):</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">float</span><span class="o">.</span><span class="n">divmod</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="o">[</span><span class="n">float</span><span class="o">.</span><span class="n">floor</span><span class="p">,</span> <span class="n">float</span> <span class="o">-</span> <span class="n">float</span><span class="o">.</span><span class="n">floor</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Examples:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="mi">1</span><span class="o">.</span><span class="mi">5</span><span class="o">.</span><span class="n">divmod</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="o">.</span><span class="mi">5</span><span class="o">]</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="mi">1</span><span class="o">.</span><span class="mi">4</span><span class="o">.</span><span class="n">divmod</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="o">.</span><span class="mi">3999999999999999</span><span class="o">]</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="o">-</span><span class="mi">5</span><span class="o">.</span><span class="mi">5</span><span class="o">.</span><span class="n">divmod</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="o">[-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="o">.</span><span class="mi">5</span><span class="o">]</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="o">-</span><span class="mi">5</span><span class="o">.</span><span class="mi">3</span><span class="o">.</span><span class="n">divmod</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="o">[-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="o">.</span><span class="mi">7000000000000002</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Let look at other surprising (for me) Numeric methods. For most of them I can see why they can be used internally, but I have hard time imagine why they are exposed &ldquo;to public&rdquo;</p>
+
+<h3>#abs2</h3>
+
+<p>Returns square of self. Nothing to say, other than interesting choice of name. I would never guess what it means.</p>
+
+<h3>#coerce(numeric)</h3>
+
+<p>Returns an array of target and argument if they are of the same type, converts both to Float if they have different types. It would be interesting to see a practical (outside of Ruby core) use of this.</p>
+
+<h3>#conj, #conjugate</h3>
+
+<p>The most weird one. Returns self.</p>
+
+<h3>#numerator, #denominator</h3>
+
+<p>I am excited about this pair, and really want to find a practical use for them. Documentation is <em>extremely</em> clear: it states that denominator returns denominator, and numerator &ndash; surprise! &ndash; numerator. What they really do is they return smallest integer numerator and denominator (separately) of a fraction that is equal to the message target.</p>
+
+<p>Taking separately &ndash; try to make sense of these results:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="mi">1</span><span class="o">.</span><span class="mi">2345</span><span class="o">.</span><span class="n">denominator</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="mi">4503599627370496</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="mi">4</span><span class="o">.</span><span class="mi">567</span><span class="o">.</span><span class="n">numerator</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="mi">642748109318783</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Together &ndash; here is a simple code example (unfortunately not leading to a practical use):</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="o">.</span><span class="mi">2345</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="mi">1</span><span class="o">.</span><span class="mi">2345</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">numerator</span><span class="o">.</span><span class="n">fdiv</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">denominator</span><span class="p">)</span> <span class="o">==</span> <span class="n">a</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="kp">true</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>#fdiv</h3>
+
+<p>Float division. not sure yet, but I like it better than its practical equivalents
+<em>a / b.to_f</em> or <em>a.to_f / b</em> &ndash; seems more explicit.</p>
+
+<h3>#nonzero?</h3>
+
+<p>Thank you, Ruby, for consistency! All other xxx? methods return <em>true</em> or <em>false</em>. But not this one. Returns <em>self</em> where you&rsquo;d expect true, and <em>nil</em> for <em>false</em>. Usage example in documentation</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">a</span> <span class="o">=</span> <span class="sx">%w( z Bb bB bb BB a aA Aa AA A )</span>
+</span><span class='line'><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">sort</span> <span class="p">{</span><span class="o">|</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">|</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">downcase</span> <span class="o">&lt;=&gt;</span> <span class="n">b</span><span class="o">.</span><span class="n">downcase</span><span class="p">)</span><span class="o">.</span><span class="n">nonzero?</span> <span class="o">||</span> <span class="n">a</span> <span class="o">&lt;=&gt;</span> <span class="n">b</span> <span class="p">}</span>
+</span><span class='line'><span class="n">b</span>   <span class="c1">#=&gt; [&quot;A&quot;, &quot;a&quot;, &quot;AA&quot;, &quot;Aa&quot;, &quot;aA&quot;, &quot;BB&quot;, &quot;Bb&quot;, &quot;bB&quot;, &quot;bb&quot;, &quot;z&quot;]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>does not give any clarity for why this inconsistency is necessary.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Eugene Kalenkovich</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-17T08:49:00-07:00" pubdate data-updated="true">Sep 17<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/categories/ruby/'>Ruby</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://203.softover.com/2013/09/17/numeric-fun/" data-via="UncleGene" data-counturl="http://203.softover.com/2013/09/17/numeric-fun/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="small"></div>
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2013/09/13/design-process/" title="Previous Post: Design Process">&laquo; Design Process</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Categories</h1>
+    <ul id="category-list"><li><a href='/categories/general/'>General</a></li><li><a href='/categories/mysql/'>MySQL</a></li><li><a href='/categories/osx/'>OSX</a></li><li><a href='/categories/ruby/'>Ruby</a></li><li><a href='/categories/video/'>Video</a></li></ul>
+</section>
+<section class="well">
+    <a href="http://twitter.com/UncleGene" class="twitter-follow-button" data-show-count="false">Follow @UncleGene</a>
+    <div class="g-follow" data-annotation="none" data-height="20" data-href="//plus.google.com/115429932486290520588" data-rel="author"></div>
+</section>
+
+<section class="googleplus googleplus-hidden">
+  <h1>
+    <a href="https://plus.google.com/115429932486290520588?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2013/09/17/numeric-fun/">Numeric Fun</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/09/13/design-process/">Design Process</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/08/30/confident-code-by-avdi-grimm/">Confident Code by Avdi Grimm</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/08/30/howto-reset-your-mysql-root-password/">HowTo: Reset Your MySQL Root Password</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/08/12/boundaries-by-gary-bernhardt/">Boundaries by Gary Bernhardt</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/UncleGene">@UncleGene</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'UncleGene',
+            count: 7,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section>
+  <h1>On Delicious</h1>
+  <div id="delicious"></div>
+  <script type="text/javascript" src="http://feeds.delicious.com/v2/json/kalenkov?count=15&amp;sort=date&amp;callback=renderDeliciousLinks"></script>
+  <p><a href="http://delicious.com/kalenkov">My Delicious Bookmarks &raquo;</a></p>
+</section>
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Eugene Kalenkovich -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'unclegenegithubio';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://203.softover.com/2013/09/17/numeric-fun/';
+        var disqus_url = 'http://203.softover.com/2013/09/17/numeric-fun/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
