@@ -137,7 +137,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Let look at other surprising (for me) Numeric methods.</p>
+<p>Let look at other surprising Numeric methods (ones that I either never saw or successfully forgot about).</p>
 
 <h3>#abs2</h3>
 
@@ -149,11 +149,11 @@
 
 <h3>#conj, #conjugate</h3>
 
-<p>The most weird one. Returns self.</p>
+<p>Returns self for Numeric. Probably &ndash; no use for non-Complex numbers</p>
 
 <h3>#numerator, #denominator</h3>
 
-<p>I am excited about this pair, and really want to find a practical use for them. Documentation is <em>extremely</em> clear: it states that denominator returns denominator, and numerator &ndash; surprise! &ndash; numerator. Makes perfect sense for Rational, but sounds weird for all other types. In reality they return numerator and denominator of a Numeric converted to a Rational</p>
+<p>I am excited about this pair, and really want to find a practical use for them. Documentation is <em>extremely</em> clear: it states that denominator returns denominator, and numerator &ndash; surprise! &ndash; numerator. Makes perfect sense for Rational, but sounds weird for all other types. In reality these methods return numerator and denominator of a Numeric converted to a Rational</p>
 
 <p>Taking out of the context &ndash; try to make sense out of these results:</p>
 
