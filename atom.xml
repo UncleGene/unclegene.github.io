@@ -4,7 +4,7 @@
   <title><![CDATA[203]]></title>
   <link href="http://203.softover.com/atom.xml" rel="self"/>
   <link href="http://203.softover.com/"/>
-  <updated>2013-09-17T10:20:55-07:00</updated>
+  <updated>2013-09-17T13:38:23-07:00</updated>
   <id>http://203.softover.com/</id>
   <author>
     <name><![CDATA[Eugene Kalenkovich]]></name>
@@ -50,7 +50,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Let look at other surprising (for me) Numeric methods. For most of them I can see why they can be used internally, but I have hard time imagining why they are exposed &ldquo;to public&rdquo;</p>
+<p>Let look at other surprising (for me) Numeric methods.</p>
 
 <h3>#abs2</h3>
 
@@ -66,29 +66,63 @@
 
 <h3>#numerator, #denominator</h3>
 
-<p>I am excited about this pair, and really want to find a practical use for them. Documentation is <em>extremely</em> clear: it states that denominator returns denominator, and numerator &ndash; surprise! &ndash; numerator. What they really do is they return smallest integer numerator and denominator (separately) of a fraction that is equal to the message target.</p>
+<p>I am excited about this pair, and really want to find a practical use for them. Documentation is <em>extremely</em> clear: it states that denominator returns denominator, and numerator &ndash; surprise! &ndash; numerator. Makes perfect sense for Rational, but sounds weird for all other types. In reality they return numerator and denominator of a Numeric converted to a Rational</p>
 
-<p>Taking separately &ndash; try to make sense of these results:</p>
+<p>Taking out of the context &ndash; try to make sense out of these results:</p>
 
 <figure class='code'> <div class="highlight"><table><tr> <td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="mi">1</span><span class="o">.</span><span class="mi">2345</span><span class="o">.</span><span class="n">denominator</span>
 </span><span class='line'><span class="o">=&gt;</span> <span class="mi">4503599627370496</span>
-</span><span class='line'><span class="o">&gt;</span> <span class="mi">4</span><span class="o">.</span><span class="mi">567</span><span class="o">.</span><span class="n">numerator</span>
-</span><span class='line'><span class="o">=&gt;</span> <span class="mi">642748109318783</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="mi">1</span><span class="o">.</span><span class="mi">2345</span><span class="o">.</span><span class="n">numerator</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="mi">5559693739988877</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Together &ndash; here is a simple code example (unfortunately not leading to a practical use):</p>
+<p>Together &ndash; much better</p>
 
 <figure class='code'> <div class="highlight"><table><tr> <td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="o">.</span><span class="mi">2345</span>
 </span><span class='line'><span class="o">=&gt;</span> <span class="mi">1</span><span class="o">.</span><span class="mi">2345</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">to_r</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="p">(</span><span class="mi">5559693739988877</span><span class="o">/</span><span class="mi">4503599627370496</span><span class="p">)</span>
 </span><span class='line'><span class="o">&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">numerator</span><span class="o">.</span><span class="n">fdiv</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">denominator</span><span class="p">)</span> <span class="o">==</span> <span class="n">a</span>
 </span><span class='line'><span class="o">=&gt;</span> <span class="kp">true</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
+<p>I could find only one &ldquo;valid&rdquo; use for <em>#denominator</em> for non-rational numbers &ndash; simplify (is it really simplification?) the check if any number is &ldquo;practically an integer&rdquo;</p>
+
+<figure class='code'> <div class="highlight"><table><tr> <td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">123</span><span class="o">.</span><span class="mi">0</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="mi">123</span><span class="o">.</span><span class="mi">0</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">to_i</span><span class="o">.</span><span class="n">to_f</span> <span class="o">==</span> <span class="n">a</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="kp">true</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">denominator</span> <span class="o">==</span> <span class="mi">1</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="kp">true</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>For <em>#numerator</em> I was able to find only pretty bad usage (not sure who started it as a pattern):</p>
+
+<figure class='code'> <div class="highlight"><table><tr> <td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">days_until</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">(</span><span class="n">date</span> <span class="o">-</span> <span class="no">Date</span><span class="o">.</span><span class="n">today</span><span class="p">)</span><span class="o">.</span><span class="n">numerator</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Problems here:</p>
+
+<ul>
+<li>for a non-manipulated Date input, it is no better than <em>#.to_i</em></li>
+<li>for calculated dates &ndash; it is much worse than <em>#to_i</em> as it will purely lie to you.</li>
+</ul>
+
+
+<figure class='code'> <div class="highlight"><table><tr> <td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="n">days_until</span><span class="p">(</span><span class="no">Date</span><span class="o">.</span><span class="n">today</span> <span class="o">+</span> <span class="mi">1</span><span class="o">.</span><span class="mi">3</span><span class="p">)</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="mi">13</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
 <h3>#fdiv</h3>
 
-<p>Float division. not sure yet, but I like it better than its practical equivalents
+<p>Float division. Not sure yet, but I think I like it better than its practical equivalents
 <em>a / b.to_f</em> or <em>a.to_f / b</em> &ndash; seems more explicit.</p>
 
 <h3>#nonzero?</h3>
@@ -101,7 +135,7 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>does not give any clarity for why this inconsistency is necessary.</p>
+<p>does not give any clarity for why this inconsistency is necessary. This metthod would make much more sense to me without &ldquo;?&rdquo;&#8221;</p>
 ]]></content>
     
     <category scheme="http://203.softover.com/categories/" term="ruby" />

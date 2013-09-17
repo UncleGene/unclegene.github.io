@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | 203]]></title>
   <link href="http://203.softover.com/categories/ruby/atom.xml" rel="self"/>
   <link href="http://203.softover.com/"/>
-  <updated>2013-09-17T10:20:55-07:00</updated>
+  <updated>2013-09-17T13:38:23-07:00</updated>
   <id>http://203.softover.com/</id>
   <author>
     <name><![CDATA[Eugene Kalenkovich]]></name>
@@ -61,7 +61,7 @@
 </span><span class='line'><span class="sr">=&gt; [-6, 0.7000000000000002]</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p></blockquote>
 
-<p>Let look at other surprising (for me) Numeric methods. For most of them I can see why they can be used internally, but I have hard time imagining why they are exposed &ldquo;to public&rdquo;</p>
+<p>Let look at other surprising (for me) Numeric methods.</p>
 
 <h3>#abs2</h3>
 
@@ -77,9 +77,9 @@
 
 <h3>#numerator, #denominator</h3>
 
-<p>I am excited about this pair, and really want to find a practical use for them. Documentation is <em>extremely</em> clear: it states that denominator returns denominator, and numerator &ndash; surprise! &ndash; numerator. What they really do is they return smallest integer numerator and denominator (separately) of a fraction that is equal to the message target.</p>
+<p>I am excited about this pair, and really want to find a practical use for them. Documentation is <em>extremely</em> clear: it states that denominator returns denominator, and numerator &ndash; surprise! &ndash; numerator. Makes perfect sense for Rational, but sounds weird for all other types. In reality they return numerator and denominator of a Numeric converted to a Rational</p>
 
-<p>Taking separately &ndash; try to make sense of these results:</p>
+<p>Taking out of the context &ndash; try to make sense out of these results:</p>
 
 <p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -91,11 +91,11 @@
 </span><span class='line'>
 </span><span class='line'><span class="sr">&lt;blockquote&gt;&lt;p&gt;1.2345.denominator</span>
 </span><span class='line'><span class="sr">=&gt; 4503599627370496</span>
-</span><span class='line'><span class="sr">4.567.numerator</span>
-</span><span class='line'><span class="sr">=&gt; 642748109318783</span>
+</span><span class='line'><span class="sr">1.2345.numerator</span>
+</span><span class='line'><span class="sr">=&gt; 5559693739988877</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p></blockquote>
 
-<p>Together &ndash; here is a simple code example (unfortunately not leading to a practical use):</p>
+<p>Together &ndash; much better</p>
 
 <p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -103,17 +103,69 @@
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="sr">/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="sr">&lt;blockquote&gt;&lt;p&gt;a = 1.2345</span>
 </span><span class='line'><span class="sr">=&gt; 1.2345</span>
-</span><span class='line'><span class="sr">a.numerator.fdiv(a.denominator) == a</span>
+</span><span class='line'><span class="sr">a.to_r</span>
+</span><span class='line'><span class="sr">=&gt; (5559693739988877/</span><span class="mi">4503599627370496</span><span class="p">)</span>
+</span><span class='line'><span class="n">a</span><span class="o">.</span><span class="n">numerator</span><span class="o">.</span><span class="n">fdiv</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">denominator</span><span class="p">)</span> <span class="o">==</span> <span class="n">a</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="kp">true</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p></blockquote>
+
+<p>I could find only one &ldquo;valid&rdquo; use for <em>#denominator</em> for non-rational numbers &ndash; simplify (is it really simplification?) the check if any number is &ldquo;practically an integer&rdquo;</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="sr">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">&lt;blockquote&gt;&lt;p&gt;a = 123.0</span>
+</span><span class='line'><span class="sr">=&gt; 123.0</span>
+</span><span class='line'><span class="sr">a.to_i.to_f == a</span>
 </span><span class='line'><span class="sr">=&gt; true</span>
+</span><span class='line'><span class="sr">a.denominator == 1</span>
+</span><span class='line'><span class="sr">=&gt; true</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p></blockquote>
+
+<p>For <em>#numerator</em> I was able to find only pretty bad usage (not sure who started it as a pattern):</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">days_until</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">(</span><span class="n">date</span> <span class="o">&amp;</span><span class="n">ndash</span><span class="p">;</span> <span class="no">Date</span><span class="o">.</span><span class="n">today</span><span class="p">)</span><span class="o">.</span><span class="n">numerator</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Problems here:</p>
+
+<ul>
+<li>for a non-manipulated Date input, it is no better than <em>#.to_i</em></li>
+<li>for calculated dates &ndash; it is much worse than <em>#to_i</em> as it will purely lie to you.</li>
+</ul>
+
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="sr">/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="sr">&lt;blockquote&gt;&lt;p&gt;days_until(Date.today + 1.3)</span>
+</span><span class='line'><span class="sr">=&gt; 13</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p></blockquote>
 
 <h3>#fdiv</h3>
 
-<p>Float division. not sure yet, but I like it better than its practical equivalents
+<p>Float division. Not sure yet, but I think I like it better than its practical equivalents
 <em>a / b.to_f</em> or <em>a.to_f / b</em> &ndash; seems more explicit.</p>
 
 <h3>#nonzero?</h3>
@@ -128,7 +180,7 @@
 </span><span class='line'><span class="n">b</span>   <span class="c1">#=&gt; [&amp;ldquo;A&amp;rdquo;, &amp;ldquo;a&amp;rdquo;, &amp;ldquo;AA&amp;rdquo;, &amp;ldquo;Aa&amp;rdquo;, &amp;ldquo;aA&amp;rdquo;, &amp;ldquo;BB&amp;rdquo;, &amp;ldquo;Bb&amp;rdquo;, &amp;ldquo;bB&amp;rdquo;, &amp;ldquo;bb&amp;rdquo;, &amp;ldquo;z&amp;rdquo;]</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
-<p>does not give any clarity for why this inconsistency is necessary.</p>
+<p>does not give any clarity for why this inconsistency is necessary. This metthod would make much more sense to me without &ldquo;?&rdquo;"</p>
 ]]></content>
   </entry>
   
