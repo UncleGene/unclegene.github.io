@@ -60,7 +60,7 @@ Return to #1. Always. Yes, I know, you think you are ready for #4. Forget what y
 
 
 
-### Bonus #1: Investigation Process (5th Grade Version)
+### Bonus #1: Investigation Process (Elementary School Edition)
 
 1. Question
 2. Prediction
@@ -69,7 +69,7 @@ Return to #1. Always. Yes, I know, you think you are ready for #4. Forget what y
 5. Data/Results
 6. Conclusion
 
-### Bonus #2: Writing Process (5th Grade Version)
+### Bonus #2: Writing Process (Elemenatry School Edition)
 
 1. Prewrite
 2. Rough Draft
