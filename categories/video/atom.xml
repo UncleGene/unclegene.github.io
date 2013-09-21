@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Video | 203]]></title>
   <link href="http://203.softover.com/categories/video/atom.xml" rel="self"/>
   <link href="http://203.softover.com/"/>
-  <updated>2013-09-17T14:03:28-07:00</updated>
+  <updated>2013-09-21T16:27:51-07:00</updated>
   <id>http://203.softover.com/</id>
   <author>
     <name><![CDATA[Eugene Kalenkovich]]></name>
@@ -12,6 +12,20 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Deconstructing the Framework by Gary Bernhardt]]></title>
+    <link href="http://203.softover.com/2013/09/21/deconstructing-the-framework-by-gary-bernhardt/"/>
+    <updated>2013-09-21T16:22:00-07:00</updated>
+    <id>http://203.softover.com/2013/09/21/deconstructing-the-framework-by-gary-bernhardt</id>
+    <content type="html"><![CDATA[<p><div class="embed-video-container"><iframe src="http://www.youtube.com/embed/iUe6tacW3JE "></iframe></div></p>
+
+<!-- more -->
+
+
+<p><blockquote><p>Rails gives us M, V, C, routes, and helpers. Some people add observers and concerns, among others. We&rsquo;ve standardized on presenters. Service objects are gaining popularity. Uncle Bob wants you to add interactors, request models, response models, and entities.</p></p><p><p>That&rsquo;s a lot of stuff! Let&rsquo;s step back: ideally, how do all of these things fit together? Does it make sense to have so many different components? How do different web frameworks project these onto actual components? Most importantly: how does this explain the tangled mess in Rails controllers and how we might fix it?</p></blockquote></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Confident Code by Avdi Grimm]]></title>
