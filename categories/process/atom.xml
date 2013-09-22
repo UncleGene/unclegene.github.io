@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: General | 203]]></title>
-  <link href="http://203.softover.com/categories/general/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Process | 203]]></title>
+  <link href="http://203.softover.com/categories/process/atom.xml" rel="self"/>
   <link href="http://203.softover.com/"/>
-  <updated>2013-09-21T16:56:47-07:00</updated>
+  <updated>2013-09-21T17:07:25-07:00</updated>
   <id>http://203.softover.com/</id>
   <author>
     <name><![CDATA[Eugene Kalenkovich]]></name>
@@ -14,16 +14,16 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Deconstructing the Framework by Gary Bernhardt]]></title>
-    <link href="http://203.softover.com/2013/09/21/deconstructing-the-framework-by-gary-bernhardt/"/>
-    <updated>2013-09-21T16:22:00-07:00</updated>
-    <id>http://203.softover.com/2013/09/21/deconstructing-the-framework-by-gary-bernhardt</id>
-    <content type="html"><![CDATA[<p><div class="embed-video-container"><iframe src="http://www.youtube.com/embed/iUe6tacW3JE "></iframe></div></p>
+    <title type="html"><![CDATA[Agile is the new black by Fred George]]></title>
+    <link href="http://203.softover.com/2013/09/21/agile-is-the-new-black/"/>
+    <updated>2013-09-21T17:01:00-07:00</updated>
+    <id>http://203.softover.com/2013/09/21/agile-is-the-new-black</id>
+    <content type="html"><![CDATA[<p><div class="embed-video-container"><iframe src="http://player.vimeo.com/video/68689393 "></iframe></div></p>
 
-<!-- more -->
+<!--more-->
 
 
-<p><blockquote><p>Rails gives us M, V, C, routes, and helpers. Some people add observers and concerns, among others. We&rsquo;ve standardized on presenters. Service objects are gaining popularity. Uncle Bob wants you to add interactors, request models, response models, and entities.</p></p><p><p>That&rsquo;s a lot of stuff! Let&rsquo;s step back: ideally, how do all of these things fit together? Does it make sense to have so many different components? How do different web frameworks project these onto actual components? Most importantly: how does this explain the tangled mess in Rails controllers and how we might fix it?</p></blockquote></p>
+<p><blockquote><p>&ldquo;This mid­ 80’s declaration from the fashion industry has become synonymous with radical shifts in the norm of any field. Agile provided such a radical shift for traditional waterfall processes. Yet as Agile has matured, it is redefining itself at a pace that rivals the whims of the fashion industry.</p></p><p><p>This presentation presents not only the (somewhat obvious) shifts from waterfall to Agile, but the second and third generation of shifts within the Agile community itself. Basics such as automated unit tests are falling away (“Deployment is the new unit test”).</p></p><p><p>The overall message is to continue to question practices, and strive to understand the reasons behind a practice so that you know when it is safe to discard.&ldquo;</p></blockquote></p>
 ]]></content>
   </entry>
   

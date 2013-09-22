@@ -4,7 +4,7 @@
   <title><![CDATA[203]]></title>
   <link href="http://203.softover.com/atom.xml" rel="self"/>
   <link href="http://203.softover.com/"/>
-  <updated>2013-09-21T16:56:47-07:00</updated>
+  <updated>2013-09-21T17:07:25-07:00</updated>
   <id>http://203.softover.com/</id>
   <author>
     <name><![CDATA[Eugene Kalenkovich]]></name>
@@ -12,6 +12,27 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Agile is the new black by Fred George]]></title>
+    <link href="http://203.softover.com/2013/09/21/agile-is-the-new-black/"/>
+    <updated>2013-09-21T17:01:00-07:00</updated>
+    <id>http://203.softover.com/2013/09/21/agile-is-the-new-black</id>
+    <content type="html"><![CDATA[<div class="embed-video-container"><iframe src="http://player.vimeo.com/video/68689393 "></iframe></div>
+
+
+<!--more-->
+
+
+<blockquote><p>&#8220;This mid­ 80’s declaration from the fashion industry has become synonymous with radical shifts in the norm of any field. Agile provided such a radical shift for traditional waterfall processes. Yet as Agile has matured, it is redefining itself at a pace that rivals the whims of the fashion industry.</p><p>This presentation presents not only the (somewhat obvious) shifts from waterfall to Agile, but the second and third generation of shifts within the Agile community itself. Basics such as automated unit tests are falling away (“Deployment is the new unit test”).</p><p>The overall message is to continue to question practices, and strive to understand the reasons behind a practice so that you know when it is safe to discard.&#8221;</p></blockquote>
+
+]]></content>
+    
+    <category scheme="http://203.softover.com/categories/" term="process" />
+    
+    <category scheme="http://203.softover.com/categories/" term="video" />
+    
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Deconstructing the Framework by Gary Bernhardt]]></title>
@@ -29,8 +50,6 @@
 
 
 ]]></content>
-    
-    <category scheme="http://203.softover.com/categories/" term="general" />
     
     <category scheme="http://203.softover.com/categories/" term="rails" />
     
@@ -315,7 +334,7 @@
 
 ]]></content>
     
-    <category scheme="http://203.softover.com/categories/" term="general" />
+    <category scheme="http://203.softover.com/categories/" term="process" />
     
   </entry>
   
