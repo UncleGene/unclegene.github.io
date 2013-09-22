@@ -3,7 +3,7 @@ layout: post
 title: "Deconstructing the Framework by Gary Bernhardt"
 date: 2013-09-21 16:22
 comments: true
-categories: [General, Rails, Video]
+categories: [Rails, Video]
 description: Barcelona Ruby Conference 2012 talk by Gary Bernhardt
 keywords: framework, rails, design, code
 ---

@@ -3,7 +3,7 @@ layout: post
 title: "Design Process"
 date: 2013-09-13 12:41
 comments: true
-categories: [General] 
+categories: [Process] 
 description: 5th grade design process for software engineers
 keywords: design, process, software
 ---
