@@ -75,6 +75,56 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/2013/09/17/numeric-fun/">Numeric Fun</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-17T08:49:00-07:00" pubdate data-updated="true">Sep 17<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Today I was browsing Rails codebase (sometimes people do weird things for fun), and found an interesting piece of code:</p>
+
+<figure class='code'><figcaption><span>https://github.com/rails/rails/blob/master/activesupport/lib/active_support/core_ext/time/calculations.rb#L105 </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">options</span><span class="o">[</span><span class="ss">:days</span><span class="o">]</span><span class="p">,</span> <span class="n">partial_days</span> <span class="o">=</span> <span class="n">options</span><span class="o">[</span><span class="ss">:days</span><span class="o">].</span><span class="n">divmod</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This sparkled my interest: what is <em>divmod</em>, especially &ndash; its pretty harsh form <em>divmod(1)</em>? Quick search through documentation &ndash; and it starts to make perfect sense:
+<q>Returns an array containing the quotient and modulus obtained by dividing num by numeric</q>; especially if you instantly remember what is <q>quotient</q> and <q>modulus</q>. Looks like example table in documentation is designed to confuse (including expected output of multiple methods), but for the special case of a <em>positive float.divmod(1)</em> there is much simpler explanation: it just splits a positive floating point number to its integer and fractional parts (+/&ndash; error).</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2013/09/17/numeric-fun/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/2013/09/15/curious-first/">Curious First</a></h1>
     
     
@@ -232,48 +282,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2013/08/30/confident-code-by-avdi-grimm/">Confident Code by Avdi Grimm</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-08-30T15:06:00-07:00" pubdate data-updated="true">Aug 30<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class="embed-video-container"><iframe src="http://www.youtube.com/embed/T8J0j2xJFgQ "></iframe></div>
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2013/08/30/confident-code-by-avdi-grimm/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -310,6 +318,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2013/12/07/rails-shadow-facets-of-concurrency/">Rails: Shadow Facets of Concurrency</a>
+      </li>
+    
+      <li class="post">
         <a href="/2013/09/21/agile-is-the-new-black/">Agile Is the New Black by Fred George</a>
       </li>
     
@@ -323,10 +335,6 @@
     
       <li class="post">
         <a href="/2013/09/15/curious-first/">Curious First</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/09/13/design-process/">Design Process</a>
       </li>
     
   </ul>
