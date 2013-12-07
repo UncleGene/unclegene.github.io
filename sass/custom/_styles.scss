@@ -18,3 +18,56 @@ html {
 ol, ul {
   margin-left: 3em;
 }
+
+p, figure.code {
+  margin-bottom: 0.5em;
+}
+
+figure.code figcuption {
+  font-size: 0.5em;
+}
+
+#content .blog-index article h1 {
+  margin-bottom: 0.5em;
+}
+
+#content .blog-index article h1, h1 {
+  font-size: 1.6em;  
+}
+
+.embed-video-container {
+  padding-bottom: 30%;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+  margin-right: 30px;
+  width: 50%;
+  float: left;
+}
+
+#content .blog-index article {
+  clear: both;
+  padding-top: 0;
+}
+
+#content div.pagination {
+  clear: both;
+}
+
+#content .blog-index a[rel=full-article] {
+  margin-top: 0.2em;
+}
+
+article header {
+  margin-bottom: 0;
+}
+
+article header h1 {
+}
+
+article header p.meta {
+  top: 0.7em;
+}
+article blockquote {
+  border-left: none;
+  font-size: 1.1em;
+}
