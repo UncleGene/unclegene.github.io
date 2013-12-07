@@ -75,141 +75,6 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2013/09/17/numeric-fun/">Numeric Fun</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-09-17T08:49:00-07:00" pubdate data-updated="true">Sep 17<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Today I was browsing Rails codebase (sometimes people do weird things for fun), and found an interesting piece of code:</p>
-
-<figure class='code'><figcaption><span>https://github.com/rails/rails/blob/master/activesupport/lib/active_support/core_ext/time/calculations.rb#L105 </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">options</span><span class="o">[</span><span class="ss">:days</span><span class="o">]</span><span class="p">,</span> <span class="n">partial_days</span> <span class="o">=</span> <span class="n">options</span><span class="o">[</span><span class="ss">:days</span><span class="o">].</span><span class="n">divmod</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This sparkled my interest: what is <em>divmod</em>, especially &ndash; its pretty harsh form <em>divmod(1)</em>? Quick search through documentation &ndash; and it starts to make perfect sense:
-<q>Returns an array containing the quotient and modulus obtained by dividing num by numeric</q>; especially if you instantly remember what is <q>quotient</q> and <q>modulus</q>. Looks like example table in documentation is designed to confuse (including expected output of multiple methods), but for the special case of a <em>positive float.divmod(1)</em> there is much simpler explanation: it just splits a positive floating point number to its integer and fractional parts (+/&ndash; error).</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2013/09/17/numeric-fun/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2013/09/15/curious-first/">Curious First</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-09-15T09:40:00-07:00" pubdate data-updated="true">Sep 15<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><figure class='code'><figcaption><span> (first_last.rb)</span> <a href='/downloads/code/first_last.rb'>download</a></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Schema</span><span class="o">.</span><span class="n">define</span> <span class="k">do</span>
-</span><span class='line'>  <span class="n">drop_table</span> <span class="ss">:records</span> <span class="k">if</span> <span class="n">table_exists?</span> <span class="ss">:records</span>
-</span><span class='line'>  <span class="n">create_table</span> <span class="ss">:records</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
-</span><span class='line'>    <span class="n">t</span><span class="o">.</span><span class="n">timestamps</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">Record</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">class</span> <span class="nc">CuriousFirstTest</span> <span class="o">&lt;</span> <span class="ss">MiniTest</span><span class="p">:</span><span class="ss">:Unit</span><span class="o">::</span><span class="no">TestCase</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">test_first_last</span>
-</span><span class='line'>    <span class="n">r</span> <span class="o">=</span> <span class="no">Record</span><span class="o">.</span><span class="n">create</span>
-</span><span class='line'>    <span class="no">Record</span><span class="o">.</span><span class="n">create</span>
-</span><span class='line'>    <span class="n">r</span><span class="o">.</span><span class="n">touch</span>
-</span><span class='line'>    <span class="n">assert_equal</span> <span class="mi">2</span><span class="p">,</span> <span class="no">Record</span><span class="o">.</span><span class="n">count</span>
-</span><span class='line'>    <span class="n">assert</span> <span class="no">Record</span><span class="o">.</span><span class="n">first</span> <span class="o">!=</span> <span class="no">Record</span><span class="o">.</span><span class="n">last</span><span class="p">,</span> <span class="s1">&#39;The first of 2 records is also the last!&#39;</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>What are we doing here? We create two records, touching first (this updates the record timestamps), and making sure that the first record is not the same as the last one. Perfectly valid assumption, that <strong><em>almost</em></strong> works.</p>
-
-<p>The test succeeds on SQLite and MySQL (latter &ndash; with various engines), but fails on PostgreSQL.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2013/09/15/curious-first/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
       <h1 class="entry-title"><a href="/2013/09/13/design-process/">Design Process</a></h1>
     
     
@@ -275,8 +140,207 @@
   
   
     <footer>
-      <a rel="full-article" href="/2013/09/13/design-process/">Read on &rarr;</a>
+      <a rel="full-article" href="/2013/09/13/design-process/">More &rarr;</a>
     </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2013/08/30/confident-code-by-avdi-grimm/">Confident Code by Avdi Grimm</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-30T15:06:00-07:00" pubdate data-updated="true">Aug 30<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class="embed-video-container"><iframe src="http://www.youtube.com/embed/T8J0j2xJFgQ "></iframe></div>
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2013/08/30/confident-code-by-avdi-grimm/">More &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2013/08/30/howto-reset-your-mysql-root-password/">HowTo: Reset Your MySQL Root Password</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-30T11:06:00-07:00" pubdate data-updated="true">Aug 30<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In case you forgot your root password for MySQL installed with <a href="http://brew.sh/">Homebrew</a> on OS X Mountain Lion.</p>
+
+<figure class='code'><figcaption><span> (reroot.sh)</span> <a href='/downloads/code/reroot.sh'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+</span><span class='line'>/usr/local/opt/mysql/bin/mysqld_safe --skip-grant-tables --skip-networking &amp;
+</span><span class='line'>mysql -e <span class="s2">&quot;UPDATE mysql.user SET Password=PASSWORD(&#39;new password&#39;) WHERE User=&#39;root&#39;; FLUSH PRIVILEGES;&quot;</span>
+</span><span class='line'>/usr/local/bin/mysql.server stop
+</span><span class='line'>launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Different versions may have different paths to be used with launchctl load/unload</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2013/08/12/boundaries-by-gary-bernhardt/">Boundaries by Gary Bernhardt</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-12T10:50:00-07:00" pubdate data-updated="true">Aug 12<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class="embed-video-container"><iframe src="http://www.youtube.com/embed/yTkzNHF6rMs "></iframe></div>
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2013/08/12/boundaries-by-gary-bernhardt/">More &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2013/07/11/split-the-difference/">Split the Difference</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-11T09:01:00-07:00" pubdate data-updated="true">Jul 11<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><figure class='code'><figcaption><span> (split.rb)</span> <a href='/downloads/code/split.rb'>download</a></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot; To</span><span class="se">\t</span><span class="s2">be  or</span><span class="se">\n</span><span class="s2">not</span><span class="se">\t</span><span class="s2">to  be  &quot;</span>
+</span><span class='line'><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sr">/ /</span><span class="p">)</span>
+</span><span class='line'><span class="c1">#=&gt; [&quot;&quot;, &quot;To\tbe&quot;, &quot;&quot;, &quot;or\nnot\tto&quot;, &quot;&quot;, &quot;be&quot;]</span>
+</span><span class='line'><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sr">/( )/</span><span class="p">)</span>
+</span><span class='line'><span class="c1">#=&gt; [&quot;&quot;, &quot; &quot;, &quot;To\tbe&quot;, &quot; &quot;, &quot;&quot;, &quot; &quot;, &quot;or\nnot\tto&quot;, &quot; &quot;, &quot;&quot;, &quot; &quot;, &quot;be&quot;, &quot; &quot;, &quot;&quot;, &quot; &quot;]</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span> <span class="sr">/\s+/</span>
+</span><span class='line'><span class="c1">#=&gt; [&quot;&quot;, &quot;To&quot;, &quot;be&quot;, &quot;or&quot;, &quot;not&quot;, &quot;to&quot;, &quot;be&quot;]</span>
+</span><span class='line'><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+</span><span class='line'><span class="c1">#=&gt; [&quot;To&quot;, &quot;be&quot;, &quot;or&quot;, &quot;not&quot;, &quot;to&quot;, &quot;be&quot;]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>From the ruby docs:</p>
+
+<blockquote><p>If pattern is a single space, str is split on whitespace, with leading whitespace and runs of contiguous whitespace characters ignored.</p></blockquote>
+
+
+<p>Note that split by regex without groups omits trailing matches. Undocumented?</p>
+</div>
+  
   
 
 
@@ -335,6 +399,10 @@
     
       <li class="post">
         <a href="/2013/09/15/curious-first/">Curious First</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2013/09/13/design-process/">Design Process</a>
       </li>
     
   </ul>
