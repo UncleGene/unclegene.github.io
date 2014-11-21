@@ -1,0 +1,75 @@
+---
+layout: post
+title: "WTH is SOA?"
+date: 2014-11-21 14:51:49 -0800
+comments: true
+categories: Architecture, Software 
+---
+To start with, we are not discussing [Sons of Anarchy](http://en.wikipedia.org/wiki/Sons_of_Anarchy) or [Society of Actuaries](http://en.wikipedia.org/wiki/Society_of_Actuaries). This is about Service-Oriented Architecture. But what is Service-Oriented Architecture?
+ 
+ 
+Our usual suspect, wikipedia, says:
+>Service-oriented architecture (SOA) is a software design and software architecture design pattern based on distinct pieces of software providing application functionality as services to other applications. This is known as service-orientation. It is independent of any vendor, product or technology.[[1](https://en.wikipedia.org/wiki/Service-oriented_architecture#cite_note-1)]
+>-- http://en.wikipedia.org/wiki/Service-oriented_architecture, 09/18/2014
+
+Let try to digest. 
+> architecture [...] is a software design and software architecture design pattern 
+
+Awesome! After all these years of debates about differences between architecture and design, in one phrase we can see that they are not only the same, but, at least in the case of SOA, also the same as design pattern!
+
+> pieces of software providing application functionality as services to other applications
+
+OK. Got it. Services are providing functionality as services. And they are pieces of software. And, looking at definition, they are not necessarily applications, but have to provide application functionality, and have to be used by applications. Basically, "application of service applications as services to application services"        
+
+ > This is known as service-orientation.
+ 
+What "this"? SOA?
+
+<!--more-->
+
+The only clear and unambiguous part is "It is independent of any vendor, product or technology", so we'll set it aside for the future reuse.
+
+Curiously enough, the reference there points to the first chapter of "[SOA in the Real World](http://msdn.microsoft.com/en-us/library/bb833022.aspx)" book  by some anonymous author, that gives absolutely different, and much more vague definition:
+
+>[SOA is] A loosely-coupled architecture designed to meet the business needs of the organization.
+
+Whoa, whoa, is it assuming that there can be an architecture that is designed not to meet business needs? Quite possible, but as we do not want get fired, let skip this part:
+
+>SOA is a loosely-coupled architecture.
+
+Nice. Does everybody understand now what are we going to talk about? 
+
+Let look for other definitions. Here is the [next one](http://www.opengroup.org/soa/source-book/togaf/soadef.htm), and as it is compound definition, let consume it piece-by-piece.
+
+>Service-Oriented Architecture (SOA) is an architectural style that supports service-orientation.
+
+I absolutely and completely agree. I can continue the line: Object-Oriented Design (OOD) is a design style that supports object-orientation.  Test-Driven Development (TDD) is a development style that is driven by tests. Central Intelligence Agency is an intelligence agency that is central (or an agency whose intelligence is central? Looks like this one may benefit from such definition).
+
+Let continue:
+
+>Service-orientation is a way of thinking in terms of services and service-based development and the outcomes of services.
+
+No comments. Though to make it better, I'd rather mention services couple more times. Going forward.
+
+>A service:
+>- Is a logical representation of a repeatable business activity that has a specified outcome (e.g., check customer - credit, provide weather data, consolidate drilling reports)
+- Is self-contained
+- May be composed of other services
+- Is a “black box” to consumers of the service
+
+When I first started to read this, I've stumbled on the first point's "business activity". Not being sure what is really meant here, I looked couple paragraphs below, and found some clarification. Here is  a statement about "SOA architectural style" (yes, defined separately):
+
+> It is based on the design of the services – ***which mirror real-world business activities*** – comprising the enterprise (or inter-enterprise) business processes.
+
+Seriously? Services are required to mirror what exists in the "real world"? Let replay this statement in other direction: "Hello, operator? Could you please help me with transcoding my video file? Here are my bits: 1,0,0,1,0...." 
+
+Honestly, I have no clue what "self-contained" and "may be composed of other services" mean, especially - in combination. "Black box" is fine, we'll add it to our collection.
+  
+BTW,
+> This definition of SOA was produced by the SOA Definition team of The Open Group SOA Working Group.
+
+This phrase itself, IMHO, deserves pretty long meditation. Even parsing and tokenization are not trivial.
+
+Let combining all pieces (that we decided to keep) together. SOA is:
+
+>A loosely-coupled architecture created with black boxes, independent of any vendor, product or technology
