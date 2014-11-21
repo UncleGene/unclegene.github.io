@@ -5,6 +5,10 @@ html {
      background-color: #eee;
 }
 
+body>header {
+  display: none;
+}
+
 #main {
   border-left: 1px solid $border-ep;
   border-right: 1px solid $border-ep;
@@ -35,13 +39,15 @@ figure.code figcaption {
   font-size: 1.6em;  
 }
 
+@import "custom/rve";
+
 .embed-video-container {
-  padding-bottom: 30%;
   margin-bottom: 0.5em;
   margin-top: 0.5em;
   margin-right: 30px;
   width: 50%;
   float: left;
+  padding-bottom: 36%;
 }
 
 #content .blog-index article {

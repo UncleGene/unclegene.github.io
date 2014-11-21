@@ -3,12 +3,12 @@
 # ----------------------- #
 
 url: http://203.softover.com
-title: 203
+title: "203"
 subtitle: "HTTP code 203: Non-Authoritative Information" 
 author: Eugene Kalenkovich
 simple_search: http://google.com/search
 description: "HTTP code 203: Non-Authoritative Information"
-keywords: 203, softover, software, ruby, rails, design
+keywords: softover, architecture, design, soa, service, software, ruby, rails, design
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -40,12 +40,13 @@ rdiscount:
     - autolink
     - footnotes
     - smart
-pygments: false # default python pygments have been replaced by pygments.rb
+highlighter: pygments # default python pygments have been replaced by pygments.rb
 
-paginate: 5          # Posts per page on the blog index
-pagination_dir: blog  # Directory base for pagination URLs eg. /blog/page/2/
-recent_posts: 6       # Posts in the sidebar Recent Posts section
+paginate: 10          # Posts per page on the blog index
+paginate_path: "posts/:num"  # Directory base for pagination URLs eg. /posts/2/
+recent_posts: 5       # Posts in the sidebar Recent Posts section
 excerpt_link: "More &rarr;"  # "Continue reading" link text at the bottom of excerpted articles
+excerpt_separator: "<!--more-->"
 
 titlecase: true       # Converts page and post titles to titlecase
 

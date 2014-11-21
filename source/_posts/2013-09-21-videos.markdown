@@ -1,0 +1,52 @@
+---
+layout: post
+title: "Videos to Watch"
+date: 2013-09-21 16:22
+comments: true
+categories: [Video]
+description: Hand-picked technical presentations
+---
+Good presentations, deserve watching:
+
+- Deconstructing the Framework by Gary Bernhardt
+- Agile is the new black by Fred George
+- Confident Code by Avdi Grimm
+- Delicious Controversy: Docs &amp; Tests by Thomas Meeks
+- Boundaries by Gary Bernhardt
+
+<!--more-->
+---
+## Deconstructing the Framework by Gary Bernhardt
+{% youtube iUe6tacW3JE %}
+
+> Rails gives us M, V, C, routes, and helpers. Some people add observers and concerns, among others. We've standardized on presenters. Service objects are gaining popularity. Uncle Bob wants you to add interactors, request models, response models, and entities.
+
+> That's a lot of stuff! Let's step back: ideally, how do all of these things fit together? Does it make sense to have so many different components? How do different web frameworks project these onto actual components? Most importantly: how does this explain the tangled mess in Rails controllers and how we might fix it?
+
+
+## Agile is the new black by Fred George
+{% vimeo 68689393 %}
+
+> "This mid­ 80’s declaration from the fashion industry has become synonymous with radical shifts in the norm of any field. Agile provided such a radical shift for traditional waterfall processes. Yet as Agile has matured, it is redefining itself at a pace that rivals the whims of the fashion industry.
+
+> This presentation presents not only the (somewhat obvious) shifts from waterfall to Agile, but the second and third generation of shifts within the Agile community itself. Basics such as automated unit tests are falling away (“Deployment is the new unit test”).
+
+> The overall message is to continue to question practices, and strive to understand the reasons behind a practice so that you know when it is safe to discard."
+
+## Confident Code by Avdi Grimm
+{% youtube T8J0j2xJFgQ %}
+
+> Are your methods timid? Do they constantly second-guess themselves, checking for nil values, errors, and unexpected input? Even the cleanest Ruby codebases can become littered over time with nil checks, error handling, and other interruptions which steal attention away from the essential purpose of the code. This talk will discuss strategies for writing your Ruby classes and methods in a confident, straightforward style; without sacrificing functionality or robustness. In the process, we'll cover concepts and techniques points including: The narrative style of method construction The four parts of a method Three strategies for dealing with uncertain input Massaging input with coercion and the Decorator pattern Lightweight preconditions Exterminating nils from your code The chaining and iterative styles of method construction Eliminating conditionals with the Special Case and Null Object patterns Isolating errors with the Bouncer and Checked Method patterns
+
+## Delicious Controversy: Docs &amp; Tests by Thomas Meeks
+{% youtube 9md-GTF_Th8 %}
+
+> Self-documenting code is a pipe dream. TDD (or BDD) is not the panacea of testing. In the pursuit of test coverage we've forgotten what really matters: getting things done. Lets talk about putting documentation and testing into their proper place. Tools that ease maintenance, help other developers join a project, and reduce bugs.
+
+> I'm going to go over lessons learned in writing, maintaining, and introducing new developers to 20,000 lines of code. Specifically, how we are testing, documenting, and refactoring our code to stay sane, make the team happier, and get more done.
+
+## Boundaries by Gary Bernhardt
+{% youtube yTkzNHF6rMs %}
+
+> Some people test in isolation, mocking everything except the class under test. We'll start with that idea, quickly examine the drawbacks, and ask how we might fix them without losing the benefits. This will send us on a trip through behavior vs. data, mutation vs. immutability, interface vs. data dependencies, how data shape affords parallelism, and what a system optimizing each of these for natural isolation might look like.
+
