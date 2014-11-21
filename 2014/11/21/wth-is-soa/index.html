@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>203</title>
+  <title>WTH Is SOA? - 203</title>
   <meta name="author" content="Eugene Kalenkovich">
 
   
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://203.softover.com">
+  <link rel="canonical" href="http://203.softover.com/2014/11/21/wth-is-soa">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="203" type="application/atom+xml">
@@ -75,15 +75,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/2014/11/21/wth-is-soa/">WTH Is SOA?</a></h1>
+      <h1 class="entry-title">WTH Is SOA?</h1>
     
     
       <p class="meta">
@@ -99,7 +96,7 @@
   </header>
 
 
-  <div class="entry-content"><p>To start with, we are not discussing <a href="http://en.wikipedia.org/wiki/Sons_of_Anarchy">Sons of Anarchy</a> or <a href="http://en.wikipedia.org/wiki/Society_of_Actuaries">Society of Actuaries</a>. This is about Service-Oriented Architecture. But what is Service-Oriented Architecture?</p>
+<div class="entry-content"><p>To start with, we are not discussing <a href="http://en.wikipedia.org/wiki/Sons_of_Anarchy">Sons of Anarchy</a> or <a href="http://en.wikipedia.org/wiki/Society_of_Actuaries">Society of Actuaries</a>. This is about Service-Oriented Architecture. But what is Service-Oriented Architecture?</p>
 
 <p>Our usual suspect, wikipedia, says:</p>
 
@@ -120,148 +117,111 @@
 
 <p>What &ldquo;this&rdquo;? SOA?</p>
 
+<!--more-->
+
+
+<p>The only clear and unambiguous part is &ldquo;It is independent of any vendor, product or technology&rdquo;, so we&rsquo;ll set it aside for the future reuse.</p>
+
+<p>Curiously enough, the reference there points to the first chapter of &ldquo;<a href="http://msdn.microsoft.com/en-us/library/bb833022.aspx">SOA in the Real World</a>&rdquo; book  by some anonymous author, that gives absolutely different, and much more vague definition:</p>
+
+<blockquote><p>[SOA is] A loosely-coupled architecture designed to meet the business needs of the organization.</p></blockquote>
+
+<p>Whoa, whoa, is it assuming that there can be an architecture that is designed not to meet business needs? Quite possible, but as we do not want get fired, let skip this part:</p>
+
+<blockquote><p>SOA is a loosely-coupled architecture.</p></blockquote>
+
+<p>Nice. Does everybody understand now what are we going to talk about?</p>
+
+<p>Let look for other definitions. Here is the <a href="http://www.opengroup.org/soa/source-book/togaf/soadef.htm">next one</a>, and as it is compound definition, let consume it piece-by-piece.</p>
+
+<blockquote><p>Service-Oriented Architecture (SOA) is an architectural style that supports service-orientation.</p></blockquote>
+
+<p>I absolutely and completely agree. I can continue the line: Object-Oriented Design (OOD) is a design style that supports object-orientation.  Test-Driven Development (TDD) is a development style that is driven by tests. Central Intelligence Agency is an intelligence agency that is central (or an agency whose intelligence is central? Looks like this one may benefit from such definition).</p>
+
+<p>Let continue:</p>
+
+<blockquote><p>Service-orientation is a way of thinking in terms of services and service-based development and the outcomes of services.</p></blockquote>
+
+<p>No comments. Though to make it better, I&rsquo;d rather mention services couple more times. Going forward.</p>
+
+<blockquote><p>A service:
+- Is a logical representation of a repeatable business activity that has a specified outcome (e.g., check customer - credit, provide weather data, consolidate drilling reports)
+- Is self-contained
+- May be composed of other services
+- Is a “black box” to consumers of the service</p></blockquote>
+
+<p>When I first started to read this, I&rsquo;ve stumbled on the first point&rsquo;s &ldquo;business activity&rdquo;. Not being sure what is really meant here, I looked couple paragraphs below, and found some clarification. Here is  a statement about &ldquo;SOA architectural style&rdquo; (yes, defined separately):</p>
+
+<blockquote><p>It is based on the design of the services – <strong><em>which mirror real-world business activities</em></strong> – comprising the enterprise (or inter-enterprise) business processes.</p></blockquote>
+
+<p>Seriously? Services are required to mirror what exists in the &ldquo;real world&rdquo;? Let replay this statement in other direction: &ldquo;Hello, operator? Could you please help me with transcoding my video file? Here are my bits: 1,0,0,1,0&hellip;.&rdquo;</p>
+
+<p>Honestly, I have no clue what &ldquo;self-contained&rdquo; and &ldquo;may be composed of other services&rdquo; mean, especially - in combination. &ldquo;Black box&rdquo; is fine, we&rsquo;ll add it to our collection.</p>
+
+<p>BTW,</p>
+
+<blockquote><p>This definition of SOA was produced by the SOA Definition team of The Open Group SOA Working Group.</p></blockquote>
+
+<p>This phrase itself, IMHO, deserves pretty long meditation. Even parsing and tokenization are not trivial.</p>
+
+<p>Let combining all pieces (that we decided to keep) together. SOA is:</p>
+
+<blockquote><p>A loosely-coupled architecture created with black boxes, independent of any vendor, product or technology</p></blockquote>
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2014/11/21/wth-is-soa/">More &rarr;</a>
-    </footer>
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/2013/12/07/rails-shadow-facets-of-concurrency/">Rails: Shadow Facets of Concurrency</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2013-12-07T09:32:00-08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>7</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>9:32 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class="embed-video-container"><iframe src="//www.youtube.com/embed/TV5LEjN6d1U" allowfullscreen></iframe></div>
-
-
-<p>This is my talk at <a href="http://rockymntruby.com">Rocky Mountain Ruby 2013</a>. Slides are available <a href="/concur/rency">here</a>.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2013/12/07/rails-shadow-facets-of-concurrency/">More &rarr;</a>
-    </footer>
   
 
+<span class="byline author vcard">Posted by <span class="fn">Eugene Kalenkovich</span></span>
 
-    </article>
-  
-  
-    <article>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/2013/09/21/videos/">Videos to Watch</a></h1>
-    
-    
-      <p class="meta">
-        
 
 
 
 
-<time class='entry-date' datetime='2013-09-21T16:22:00-07:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2013</span></span> <span class='time'>4:22 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Good presentations, deserve watching:</p>
-
-<ul>
-<li>Deconstructing the Framework by Gary Bernhardt</li>
-<li>Agile is the new black by Fred George</li>
-<li>Confident Code by Avdi Grimm</li>
-<li>Delicious Controversy: Docs &amp; Tests by Thomas Meeks</li>
-<li>Boundaries by Gary Bernhardt</li>
-</ul>
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2013/09/21/videos/">More &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
+<time class='entry-date' datetime='2014-11-21T14:51:49-08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2014</span></span> <span class='time'>2:51 pm</span></time>
       
-  <header>
+
+<span class="categories">
+  
+    <a class='category' href='/categories/architecture/'>architecture,</a>, <a class='category' href='/categories/software/'>software</a>
+  
+</span>
+
+
+    </p>
     
-      <h1 class="entry-title"><a href="/2013/09/17/numeric-fun/">Numeric Fun</a></h1>
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://203.softover.com/2014/11/21/wth-is-soa/" data-via="UncleGene" data-counturl="http://203.softover.com/2014/11/21/wth-is-soa/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="small"></div>
+  
+  
+</div>
+
     
-    
-      <p class="meta">
-        
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2013/12/07/rails-shadow-facets-of-concurrency/" title="Previous Post: Rails: Shadow Facets of Concurrency">&laquo; Rails: Shadow Facets of Concurrency</a>
+      
+      
+    </p>
+  </footer>
+</article>
 
-
-
-
-<time class='entry-date' datetime='2013-09-17T08:49:00-07:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>17</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>8:49 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Today I was browsing Rails codebase (sometimes people do weird things for fun), and found an interesting piece of code:</p>
-
-<figure class='code'><figcaption><span>https://github.com/rails/rails/blob/master/activesupport/lib/active_support/core_ext/time/calculations.rb#L105 </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">options</span><span class="o">[</span><span class="ss">:days</span><span class="o">]</span><span class="p">,</span> <span class="n">partial_days</span> <span class="o">=</span> <span class="n">options</span><span class="o">[</span><span class="ss">:days</span><span class="o">].</span><span class="n">divmod</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This sparkled my interest: what is <em>divmod</em>, especially - its pretty harsh form <em>divmod(1)</em>? Quick search through documentation - and it starts to make perfect sense:
-<q>Returns an array containing the quotient and modulus obtained by dividing num by numeric</q>; especially if you instantly remember what is <q>quotient</q> and <q>modulus</q>. Looks like example table in documentation is designed to confuse (including expected output of multiple methods), but for the special case of a <em>positive float.divmod(1)</em> there is much simpler explanation: it just splits a positive floating point number to its integer and fractional parts (+/- error).</p>
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2013/09/17/numeric-fun/">More &rarr;</a>
-    </footer>
-  
 
-
-    </article>
-  
-  <div class="pagination">
-    
-      <a class="prev" href="/posts/2">&larr; Older</a>
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
 <aside class="sidebar">
   
     
@@ -350,6 +310,7 @@
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -364,7 +325,10 @@
       var disqus_shortname = 'unclegenegithubio';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://203.softover.com/2014/11/21/wth-is-soa/';
+        var disqus_url = 'http://203.softover.com/2014/11/21/wth-is-soa/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

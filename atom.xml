@@ -4,7 +4,7 @@
   <title><![CDATA[203]]></title>
   <link href="http://203.softover.com/atom.xml" rel="self"/>
   <link href="http://203.softover.com/"/>
-  <updated>2014-11-21T14:34:42-08:00</updated>
+  <updated>2014-11-21T15:02:11-08:00</updated>
   <id>http://203.softover.com/</id>
   <author>
     <name><![CDATA[Eugene Kalenkovich]]></name>
@@ -12,6 +12,85 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[WTH Is SOA?]]></title>
+    <link href="http://203.softover.com/2014/11/21/wth-is-soa/"/>
+    <updated>2014-11-21T14:51:49-08:00</updated>
+    <id>http://203.softover.com/2014/11/21/wth-is-soa</id>
+    <content type="html"><![CDATA[<p>To start with, we are not discussing <a href="http://en.wikipedia.org/wiki/Sons_of_Anarchy">Sons of Anarchy</a> or <a href="http://en.wikipedia.org/wiki/Society_of_Actuaries">Society of Actuaries</a>. This is about Service-Oriented Architecture. But what is Service-Oriented Architecture?</p>
+
+<p>Our usual suspect, wikipedia, says:</p>
+
+<blockquote><p>Service-oriented architecture (SOA) is a software design and software architecture design pattern based on distinct pieces of software providing application functionality as services to other applications. This is known as service-orientation. It is independent of any vendor, product or technology.[<a href="https://en.wikipedia.org/wiki/Service-oriented_architecture#cite_note-1">1</a>]
+&ndash; <a href="http://en.wikipedia.org/wiki/Service-oriented_architecture,">http://en.wikipedia.org/wiki/Service-oriented_architecture,</a> 09/18/2014</p></blockquote>
+
+<p>Let try to digest.</p>
+
+<blockquote><p>architecture [&hellip;] is a software design and software architecture design pattern</p></blockquote>
+
+<p>Awesome! After all these years of debates about differences between architecture and design, in one phrase we can see that they are not only the same, but, at least in the case of SOA, also the same as design pattern!</p>
+
+<blockquote><p>pieces of software providing application functionality as services to other applications</p></blockquote>
+
+<p>OK. Got it. Services are providing functionality as services. And they are pieces of software. And, looking at definition, they are not necessarily applications, but have to provide application functionality, and have to be used by applications. Basically, &ldquo;application of service applications as services to application services&rdquo;</p>
+
+<blockquote><p>This is known as service-orientation.</p></blockquote>
+
+<p>What &ldquo;this&rdquo;? SOA?</p>
+
+<!--more-->
+
+
+<p>The only clear and unambiguous part is &ldquo;It is independent of any vendor, product or technology&rdquo;, so we&rsquo;ll set it aside for the future reuse.</p>
+
+<p>Curiously enough, the reference there points to the first chapter of &ldquo;<a href="http://msdn.microsoft.com/en-us/library/bb833022.aspx">SOA in the Real World</a>&rdquo; book  by some anonymous author, that gives absolutely different, and much more vague definition:</p>
+
+<blockquote><p>[SOA is] A loosely-coupled architecture designed to meet the business needs of the organization.</p></blockquote>
+
+<p>Whoa, whoa, is it assuming that there can be an architecture that is designed not to meet business needs? Quite possible, but as we do not want get fired, let skip this part:</p>
+
+<blockquote><p>SOA is a loosely-coupled architecture.</p></blockquote>
+
+<p>Nice. Does everybody understand now what are we going to talk about?</p>
+
+<p>Let look for other definitions. Here is the <a href="http://www.opengroup.org/soa/source-book/togaf/soadef.htm">next one</a>, and as it is compound definition, let consume it piece-by-piece.</p>
+
+<blockquote><p>Service-Oriented Architecture (SOA) is an architectural style that supports service-orientation.</p></blockquote>
+
+<p>I absolutely and completely agree. I can continue the line: Object-Oriented Design (OOD) is a design style that supports object-orientation.  Test-Driven Development (TDD) is a development style that is driven by tests. Central Intelligence Agency is an intelligence agency that is central (or an agency whose intelligence is central? Looks like this one may benefit from such definition).</p>
+
+<p>Let continue:</p>
+
+<blockquote><p>Service-orientation is a way of thinking in terms of services and service-based development and the outcomes of services.</p></blockquote>
+
+<p>No comments. Though to make it better, I&rsquo;d rather mention services couple more times. Going forward.</p>
+
+<blockquote><p>A service:
+- Is a logical representation of a repeatable business activity that has a specified outcome (e.g., check customer - credit, provide weather data, consolidate drilling reports)
+- Is self-contained
+- May be composed of other services
+- Is a “black box” to consumers of the service</p></blockquote>
+
+<p>When I first started to read this, I&rsquo;ve stumbled on the first point&rsquo;s &ldquo;business activity&rdquo;. Not being sure what is really meant here, I looked couple paragraphs below, and found some clarification. Here is  a statement about &ldquo;SOA architectural style&rdquo; (yes, defined separately):</p>
+
+<blockquote><p>It is based on the design of the services – <strong><em>which mirror real-world business activities</em></strong> – comprising the enterprise (or inter-enterprise) business processes.</p></blockquote>
+
+<p>Seriously? Services are required to mirror what exists in the &ldquo;real world&rdquo;? Let replay this statement in other direction: &ldquo;Hello, operator? Could you please help me with transcoding my video file? Here are my bits: 1,0,0,1,0&hellip;.&rdquo;</p>
+
+<p>Honestly, I have no clue what &ldquo;self-contained&rdquo; and &ldquo;may be composed of other services&rdquo; mean, especially - in combination. &ldquo;Black box&rdquo; is fine, we&rsquo;ll add it to our collection.</p>
+
+<p>BTW,</p>
+
+<blockquote><p>This definition of SOA was produced by the SOA Definition team of The Open Group SOA Working Group.</p></blockquote>
+
+<p>This phrase itself, IMHO, deserves pretty long meditation. Even parsing and tokenization are not trivial.</p>
+
+<p>Let combining all pieces (that we decided to keep) together. SOA is:</p>
+
+<blockquote><p>A loosely-coupled architecture created with black boxes, independent of any vendor, product or technology</p></blockquote>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Rails: Shadow Facets of Concurrency]]></title>
