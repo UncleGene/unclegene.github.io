@@ -4,7 +4,7 @@
   <title><![CDATA[203]]></title>
   <link href="http://203.softover.com/atom.xml" rel="self"/>
   <link href="http://203.softover.com/"/>
-  <updated>2013-12-07T11:22:04-08:00</updated>
+  <updated>2014-11-21T14:34:42-08:00</updated>
   <id>http://203.softover.com/</id>
   <author>
     <name><![CDATA[Eugene Kalenkovich]]></name>
@@ -18,7 +18,7 @@
     <link href="http://203.softover.com/2013/12/07/rails-shadow-facets-of-concurrency/"/>
     <updated>2013-12-07T09:32:00-08:00</updated>
     <id>http://203.softover.com/2013/12/07/rails-shadow-facets-of-concurrency</id>
-    <content type="html"><![CDATA[<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/TV5LEjN6d1U "></iframe></div>
+    <content type="html"><![CDATA[<div class="embed-video-container"><iframe src="//www.youtube.com/embed/TV5LEjN6d1U" allowfullscreen></iframe></div>
 
 
 <p>This is my talk at <a href="http://rockymntruby.com">Rocky Mountain Ruby 2013</a>. Slides are available <a href="http://203.softover.com/concur/rency">here</a>.</p>
@@ -31,55 +31,72 @@
 <blockquote><p>Rails is a framework well known for ease of development. This ease is achieved by a lot of &#8216;magic&#8217; that happens behind the scenes. One of pitfalls of such magic is a false sense of safety it gives, including sense of safety from concurrency issues for single-threaded environments. You may never discover any problems before the launch, or even after, while your site traffic is pretty sparse. But here comes a glorious moment of popularity - and together with more traffic it brings more and more concurrency-related problems.</p><p>In this talk we will look at different aspects of concurrency, from simple ones that are even mentioned in Rails documentation, to more complex problems that even seasoned developers tend to miss or fail to pay sufficient attention to.</p></blockquote>
 
 ]]></content>
-    
-    <category scheme="http://203.softover.com/categories/" term="rails" />
-    
-    <category scheme="http://203.softover.com/categories/" term="video" />
-    
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Agile is the new black by Fred George]]></title>
-    <link href="http://203.softover.com/2013/09/21/agile-is-the-new-black/"/>
-    <updated>2013-09-21T17:01:00-07:00</updated>
-    <id>http://203.softover.com/2013/09/21/agile-is-the-new-black</id>
-    <content type="html"><![CDATA[<div class="embed-video-container"><iframe src="http://player.vimeo.com/video/68689393 "></iframe></div>
+    <title type="html"><![CDATA[Videos to Watch]]></title>
+    <link href="http://203.softover.com/2013/09/21/videos/"/>
+    <updated>2013-09-21T16:22:00-07:00</updated>
+    <id>http://203.softover.com/2013/09/21/videos</id>
+    <content type="html"><![CDATA[<p>Good presentations, deserve watching:</p>
+
+<ul>
+<li>Deconstructing the Framework by Gary Bernhardt</li>
+<li>Agile is the new black by Fred George</li>
+<li>Confident Code by Avdi Grimm</li>
+<li>Delicious Controversy: Docs &amp; Tests by Thomas Meeks</li>
+<li>Boundaries by Gary Bernhardt</li>
+</ul>
 
 
 <!--more-->
 
 
-<blockquote><p>&#8220;This mid­ 80’s declaration from the fashion industry has become synonymous with radical shifts in the norm of any field. Agile provided such a radical shift for traditional waterfall processes. Yet as Agile has matured, it is redefining itself at a pace that rivals the whims of the fashion industry.</p><p>This presentation presents not only the (somewhat obvious) shifts from waterfall to Agile, but the second and third generation of shifts within the Agile community itself. Basics such as automated unit tests are falling away (“Deployment is the new unit test”).</p><p>The overall message is to continue to question practices, and strive to understand the reasons behind a practice so that you know when it is safe to discard.&#8221;</p></blockquote>
+<hr />
 
+<h2>Deconstructing the Framework by Gary Bernhardt</h2>
+
+<div class="embed-video-container"><iframe src="//www.youtube.com/embed/iUe6tacW3JE" allowfullscreen></iframe></div>
+
+
+<blockquote><p>Rails gives us M, V, C, routes, and helpers. Some people add observers and concerns, among others. We&rsquo;ve standardized on presenters. Service objects are gaining popularity. Uncle Bob wants you to add interactors, request models, response models, and entities.</p>
+
+<p>That&rsquo;s a lot of stuff! Let&rsquo;s step back: ideally, how do all of these things fit together? Does it make sense to have so many different components? How do different web frameworks project these onto actual components? Most importantly: how does this explain the tangled mess in Rails controllers and how we might fix it?</p></blockquote>
+
+<h2>Agile is the new black by Fred George</h2>
+
+<div class="embed-video-container"><iframe src="//player.vimeo.com/video/68689393 "></iframe></div>
+
+
+<blockquote><p>&ldquo;This mid­ 80’s declaration from the fashion industry has become synonymous with radical shifts in the norm of any field. Agile provided such a radical shift for traditional waterfall processes. Yet as Agile has matured, it is redefining itself at a pace that rivals the whims of the fashion industry.</p>
+
+<p>This presentation presents not only the (somewhat obvious) shifts from waterfall to Agile, but the second and third generation of shifts within the Agile community itself. Basics such as automated unit tests are falling away (“Deployment is the new unit test”).</p>
+
+<p>The overall message is to continue to question practices, and strive to understand the reasons behind a practice so that you know when it is safe to discard.&#8221;</p></blockquote>
+
+<h2>Confident Code by Avdi Grimm</h2>
+
+<div class="embed-video-container"><iframe src="//www.youtube.com/embed/T8J0j2xJFgQ" allowfullscreen></iframe></div>
+
+
+<blockquote><p>Are your methods timid? Do they constantly second-guess themselves, checking for nil values, errors, and unexpected input? Even the cleanest Ruby codebases can become littered over time with nil checks, error handling, and other interruptions which steal attention away from the essential purpose of the code. This talk will discuss strategies for writing your Ruby classes and methods in a confident, straightforward style; without sacrificing functionality or robustness. In the process, we&rsquo;ll cover concepts and techniques points including: The narrative style of method construction The four parts of a method Three strategies for dealing with uncertain input Massaging input with coercion and the Decorator pattern Lightweight preconditions Exterminating nils from your code The chaining and iterative styles of method construction Eliminating conditionals with the Special Case and Null Object patterns Isolating errors with the Bouncer and Checked Method patterns</p></blockquote>
+
+<h2>Delicious Controversy: Docs &amp; Tests by Thomas Meeks</h2>
+
+<div class="embed-video-container"><iframe src="//www.youtube.com/embed/9md-GTF_Th8" allowfullscreen></iframe></div>
+
+
+<blockquote><p>Self-documenting code is a pipe dream. TDD (or BDD) is not the panacea of testing. In the pursuit of test coverage we&rsquo;ve forgotten what really matters: getting things done. Lets talk about putting documentation and testing into their proper place. Tools that ease maintenance, help other developers join a project, and reduce bugs.</p>
+
+<p>I&rsquo;m going to go over lessons learned in writing, maintaining, and introducing new developers to 20,000 lines of code. Specifically, how we are testing, documenting, and refactoring our code to stay sane, make the team happier, and get more done.</p></blockquote>
+
+<h2>Boundaries by Gary Bernhardt</h2>
+
+<div class="embed-video-container"><iframe src="//www.youtube.com/embed/yTkzNHF6rMs" allowfullscreen></iframe></div>
+
+
+<blockquote><p>Some people test in isolation, mocking everything except the class under test. We&rsquo;ll start with that idea, quickly examine the drawbacks, and ask how we might fix them without losing the benefits. This will send us on a trip through behavior vs. data, mutation vs. immutability, interface vs. data dependencies, how data shape affords parallelism, and what a system optimizing each of these for natural isolation might look like.</p></blockquote>
 ]]></content>
-    
-    <category scheme="http://203.softover.com/categories/" term="process" />
-    
-    <category scheme="http://203.softover.com/categories/" term="video" />
-    
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Deconstructing the Framework by Gary Bernhardt]]></title>
-    <link href="http://203.softover.com/2013/09/21/deconstructing-the-framework-by-gary-bernhardt/"/>
-    <updated>2013-09-21T16:22:00-07:00</updated>
-    <id>http://203.softover.com/2013/09/21/deconstructing-the-framework-by-gary-bernhardt</id>
-    <content type="html"><![CDATA[<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/iUe6tacW3JE "></iframe></div>
-
-
-<!-- more -->
-
-
-<blockquote><p>Rails gives us M, V, C, routes, and helpers. Some people add observers and concerns, among others. We&#8217;ve standardized on presenters. Service objects are gaining popularity. Uncle Bob wants you to add interactors, request models, response models, and entities.</p><p>That&#8217;s a lot of stuff! Let&#8217;s step back: ideally, how do all of these things fit together? Does it make sense to have so many different components? How do different web frameworks project these onto actual components? Most importantly: how does this explain the tangled mess in Rails controllers and how we might fix it?</p></blockquote>
-
-
-
-]]></content>
-    
-    <category scheme="http://203.softover.com/categories/" term="rails" />
-    
-    <category scheme="http://203.softover.com/categories/" term="video" />
-    
   </entry>
   
   <entry>
@@ -90,25 +107,35 @@
     <content type="html"><![CDATA[<p>Today I was browsing Rails codebase (sometimes people do weird things for fun), and found an interesting piece of code:</p>
 
 <figure class='code'><figcaption><span>https://github.com/rails/rails/blob/master/activesupport/lib/active_support/core_ext/time/calculations.rb#L105 </span></figcaption>
- <div class="highlight"><table><tr> <td class='code'><pre><code class='ruby'><span class='line'><span class="n">options</span><span class="o">[</span><span class="ss">:days</span><span class="o">]</span><span class="p">,</span> <span class="n">partial_days</span> <span class="o">=</span> <span class="n">options</span><span class="o">[</span><span class="ss">:days</span><span class="o">].</span><span class="n">divmod</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">options</span><span class="o">[</span><span class="ss">:days</span><span class="o">]</span><span class="p">,</span> <span class="n">partial_days</span> <span class="o">=</span> <span class="n">options</span><span class="o">[</span><span class="ss">:days</span><span class="o">].</span><span class="n">divmod</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>This sparkled my interest: what is <em>divmod</em>, especially &ndash; its pretty harsh form <em>divmod(1)</em>? Quick search through documentation &ndash; and it starts to make perfect sense:
-<q>Returns an array containing the quotient and modulus obtained by dividing num by numeric</q>; especially if you instantly remember what is <q>quotient</q> and <q>modulus</q>. Looks like example table in documentation is designed to confuse (including expected output of multiple methods), but for the special case of a <em>positive float.divmod(1)</em> there is much simpler explanation: it just splits a positive floating point number to its integer and fractional parts (+/&ndash; error).</p>
+<p>This sparkled my interest: what is <em>divmod</em>, especially - its pretty harsh form <em>divmod(1)</em>? Quick search through documentation - and it starts to make perfect sense:
+<q>Returns an array containing the quotient and modulus obtained by dividing num by numeric</q>; especially if you instantly remember what is <q>quotient</q> and <q>modulus</q>. Looks like example table in documentation is designed to confuse (including expected output of multiple methods), but for the special case of a <em>positive float.divmod(1)</em> there is much simpler explanation: it just splits a positive floating point number to its integer and fractional parts (+/- error).</p>
 
 <!--more-->
 
 
 <p>Or, in other &ldquo;words&rdquo; (this one is true for negative numbers too):</p>
 
-<figure class='code'> <div class="highlight"><table><tr> <td class='code'><pre><code class='ruby'><span class='line'><span class="n">float</span><span class="o">.</span><span class="n">divmod</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="o">[</span><span class="n">float</span><span class="o">.</span><span class="n">floor</span><span class="p">,</span> <span class="n">float</span> <span class="o">-</span> <span class="n">float</span><span class="o">.</span><span class="n">floor</span><span class="o">]</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">float</span><span class="o">.</span><span class="n">divmod</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="o">[</span><span class="n">float</span><span class="o">.</span><span class="n">floor</span><span class="p">,</span> <span class="n">float</span> <span class="o">-</span> <span class="n">float</span><span class="o">.</span><span class="n">floor</span><span class="o">]</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
 <p>Examples:</p>
 
-<figure class='code'> <div class="highlight"><table><tr> <td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="mi">1</span><span class="o">.</span><span class="mi">5</span><span class="o">.</span><span class="n">divmod</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="mi">1</span><span class="o">.</span><span class="mi">5</span><span class="o">.</span><span class="n">divmod</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </span><span class='line'><span class="o">=&gt;</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="o">.</span><span class="mi">5</span><span class="o">]</span>
 </span><span class='line'><span class="o">&gt;</span> <span class="mi">1</span><span class="o">.</span><span class="mi">4</span><span class="o">.</span><span class="n">divmod</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </span><span class='line'><span class="o">=&gt;</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="o">.</span><span class="mi">3999999999999999</span><span class="o">]</span>
@@ -131,24 +158,34 @@
 
 <h3>#conj, #conjugate</h3>
 
-<p>Returns self for Numeric. Probably &ndash; no use for non-Complex numbers</p>
+<p>Returns self for Numeric. Probably - no use for non-Complex numbers</p>
 
 <h3>#numerator, #denominator</h3>
 
-<p>I am excited about this pair, and really want to find a practical use for them. Documentation is <em>extremely</em> clear: it states that denominator returns denominator, and numerator &ndash; surprise! &ndash; numerator. Makes perfect sense for Rational, but sounds weird for all other types. In reality these methods return numerator and denominator of a Numeric converted to a Rational</p>
+<p>I am excited about this pair, and really want to find a practical use for them. Documentation is <em>extremely</em> clear: it states that denominator returns denominator, and numerator - surprise! - numerator. Makes perfect sense for Rational, but sounds weird for all other types. In reality these methods return numerator and denominator of a Numeric converted to a Rational</p>
 
-<p>Taking out of the context &ndash; try to make sense out of these results:</p>
+<p>Taking out of the context - try to make sense out of these results:</p>
 
-<figure class='code'> <div class="highlight"><table><tr> <td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="mi">1</span><span class="o">.</span><span class="mi">2345</span><span class="o">.</span><span class="n">denominator</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="mi">1</span><span class="o">.</span><span class="mi">2345</span><span class="o">.</span><span class="n">denominator</span>
 </span><span class='line'><span class="o">=&gt;</span> <span class="mi">4503599627370496</span>
 </span><span class='line'><span class="o">&gt;</span> <span class="mi">1</span><span class="o">.</span><span class="mi">2345</span><span class="o">.</span><span class="n">numerator</span>
 </span><span class='line'><span class="o">=&gt;</span> <span class="mi">5559693739988877</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Together &ndash; much better</p>
+<p>Together - much better</p>
 
-<figure class='code'> <div class="highlight"><table><tr> <td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="o">.</span><span class="mi">2345</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="o">.</span><span class="mi">2345</span>
 </span><span class='line'><span class="o">=&gt;</span> <span class="mi">1</span><span class="o">.</span><span class="mi">2345</span>
 </span><span class='line'><span class="o">&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">to_r</span>
 </span><span class='line'><span class="o">=&gt;</span> <span class="p">(</span><span class="mi">5559693739988877</span><span class="o">/</span><span class="mi">4503599627370496</span><span class="p">)</span>
@@ -157,9 +194,15 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>I could find only one &ldquo;valid&rdquo; use for <em>#denominator</em> for non-rational numbers &ndash; simplify (is it really simplification?) the check if any number is &ldquo;practically an integer&rdquo;</p>
+<p>I could find only one &ldquo;valid&rdquo; use for <em>#denominator</em> for non-rational numbers - simplify (is it really simplification?) the check if any number is &ldquo;practically an integer&rdquo;</p>
 
-<figure class='code'> <div class="highlight"><table><tr> <td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">123</span><span class="o">.</span><span class="mi">0</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">123</span><span class="o">.</span><span class="mi">0</span>
 </span><span class='line'><span class="o">=&gt;</span> <span class="mi">123</span><span class="o">.</span><span class="mi">0</span>
 </span><span class='line'><span class="o">&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">to_i</span><span class="o">.</span><span class="n">to_f</span> <span class="o">==</span> <span class="n">a</span>
 </span><span class='line'><span class="o">=&gt;</span> <span class="kp">true</span>
@@ -170,7 +213,10 @@
 
 <p>For <em>#numerator</em> I was able to find only pretty bad usage (not sure who started it as a pattern):</p>
 
-<figure class='code'> <div class="highlight"><table><tr> <td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">days_until</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">days_until</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
 </span><span class='line'>  <span class="p">(</span><span class="n">date</span> <span class="o">-</span> <span class="no">Date</span><span class="o">.</span><span class="n">today</span><span class="p">)</span><span class="o">.</span><span class="n">numerator</span>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
@@ -180,11 +226,13 @@
 
 <ul>
 <li>for a non-manipulated Date input, it is no better than <em>#.to_i</em></li>
-<li>for calculated dates &ndash; it is much worse than <em>#to_i</em> as it will purely lie to you.</li>
+<li>for calculated dates - it is much worse than <em>#to_i</em> as it will purely lie to you.</li>
 </ul>
 
 
-<figure class='code'> <div class="highlight"><table><tr> <td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="n">days_until</span><span class="p">(</span><span class="no">Date</span><span class="o">.</span><span class="n">today</span> <span class="o">+</span> <span class="mi">1</span><span class="o">.</span><span class="mi">3</span><span class="p">)</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="n">days_until</span><span class="p">(</span><span class="no">Date</span><span class="o">.</span><span class="n">today</span> <span class="o">+</span> <span class="mi">1</span><span class="o">.</span><span class="mi">3</span><span class="p">)</span>
 </span><span class='line'><span class="o">=&gt;</span> <span class="mi">13</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -192,13 +240,16 @@
 <h3>#fdiv</h3>
 
 <p>Float division. Not sure yet, but I think I like it better than its practical equivalents
-<em>a / b.to_f</em> or <em>a.to_f / b</em> &ndash; seems more explicit.</p>
+<em>a / b.to_f</em> or <em>a.to_f / b</em> - seems more explicit.</p>
 
 <h3>#nonzero?</h3>
 
 <p>Thank you, Ruby, for consistency! All other xxx? methods return <em>true</em> or <em>false</em>. But not this one. Returns <em>self</em> where you&rsquo;d expect true, and <em>nil</em> for <em>false</em>. Usage example in documentation</p>
 
-<figure class='code'> <div class="highlight"><table><tr> <td class='code'><pre><code class='ruby'><span class='line'><span class="n">a</span> <span class="o">=</span> <span class="sx">%w( z Bb bB bb BB a aA Aa AA A )</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">a</span> <span class="o">=</span> <span class="sx">%w( z Bb bB bb BB a aA Aa AA A )</span>
 </span><span class='line'><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">sort</span> <span class="p">{</span><span class="o">|</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">|</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">downcase</span> <span class="o">&lt;=&gt;</span> <span class="n">b</span><span class="o">.</span><span class="n">downcase</span><span class="p">)</span><span class="o">.</span><span class="n">nonzero?</span> <span class="o">||</span> <span class="n">a</span> <span class="o">&lt;=&gt;</span> <span class="n">b</span> <span class="p">}</span>
 </span><span class='line'><span class="n">b</span>   <span class="c1">#=&gt; [&quot;A&quot;, &quot;a&quot;, &quot;AA&quot;, &quot;Aa&quot;, &quot;aA&quot;, &quot;BB&quot;, &quot;Bb&quot;, &quot;bB&quot;, &quot;bb&quot;, &quot;z&quot;]</span>
 </span></code></pre></td></tr></table></div></figure>
@@ -206,9 +257,6 @@
 
 <p>does not give any clarity for why this inconsistency is necessary. This metthod would make much more sense to me without &ldquo;?&rdquo;&#8221;</p>
 ]]></content>
-    
-    <category scheme="http://203.softover.com/categories/" term="ruby" />
-    
   </entry>
   
   <entry>
@@ -217,7 +265,26 @@
     <updated>2013-09-15T09:40:00-07:00</updated>
     <id>http://203.softover.com/2013/09/15/curious-first</id>
     <content type="html"><![CDATA[<figure class='code'><figcaption><span> (first_last.rb)</span> <a href='http://203.softover.com/downloads/code/first_last.rb'>download</a></figcaption>
- <div class="highlight"><table><tr> <td class='code'><pre><code class='rb'><span class='line'><span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Schema</span><span class="o">.</span><span class="n">define</span> <span class="k">do</span>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Schema</span><span class="o">.</span><span class="n">define</span> <span class="k">do</span>
 </span><span class='line'>  <span class="n">drop_table</span> <span class="ss">:records</span> <span class="k">if</span> <span class="n">table_exists?</span> <span class="ss">:records</span>
 </span><span class='line'>  <span class="n">create_table</span> <span class="ss">:records</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
 </span><span class='line'>    <span class="n">t</span><span class="o">.</span><span class="n">timestamps</span>
@@ -241,7 +308,7 @@
 
 <p>What are we doing here? We create two records, touching first (this updates the record timestamps), and making sure that the first record is not the same as the last one. Perfectly valid assumption, that <strong><em>almost</em></strong> works.</p>
 
-<p>The test succeeds on SQLite and MySQL (latter &ndash; with various engines), but fails on PostgreSQL.</p>
+<p>The test succeeds on SQLite and MySQL (latter - with various engines), but fails on PostgreSQL.</p>
 
 <!--more-->
 
@@ -250,13 +317,6 @@
 
 <p>Bug? I’d say yes, but… This is not the bug that is going to be fixed. Apparently there are developers “in the wild” that managed to rely on this behavior. Thus – this behavior was effectively <a href="https://github.com/rails/rails/issues/11774#issuecomment-24336831">declared “a feature, not a bug”</a>&hellip;</p>
 ]]></content>
-    
-    <category scheme="http://203.softover.com/categories/" term="db" />
-    
-    <category scheme="http://203.softover.com/categories/" term="rails" />
-    
-    <category scheme="http://203.softover.com/categories/" term="ruby" />
-    
   </entry>
   
   <entry>
@@ -311,7 +371,7 @@
 
 <h4>1. State the Problem</h4>
 
-<p>Describe in your words what is the problem you are trying to address. If you cannot clearly describe the problem – you do not understand it. If your friend does not understand your description &ndash; <strong><em>you</em></strong> do not understand it.</p>
+<p>Describe in your words what is the problem you are trying to address. If you cannot clearly describe the problem – you do not understand it. If your friend does not understand your description - <strong><em>you</em></strong> do not understand it.</p>
 
 <h4>2. Gather Information</h4>
 
@@ -358,30 +418,6 @@
 </ol>
 
 ]]></content>
-    
-    <category scheme="http://203.softover.com/categories/" term="process" />
-    
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Confident Code by Avdi Grimm]]></title>
-    <link href="http://203.softover.com/2013/08/30/confident-code-by-avdi-grimm/"/>
-    <updated>2013-08-30T15:06:00-07:00</updated>
-    <id>http://203.softover.com/2013/08/30/confident-code-by-avdi-grimm</id>
-    <content type="html"><![CDATA[<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/T8J0j2xJFgQ "></iframe></div>
-
-
-<!-- more -->
-
-
-<blockquote><p>Are your methods timid? Do they constantly second-guess themselves, checking for nil values, errors, and unexpected input? Even the cleanest Ruby codebases can become littered over time with nil checks, error handling, and other interruptions which steal attention away from the essential purpose of the code. This talk will discuss strategies for writing your Ruby classes and methods in a confident, straightforward style; without sacrificing functionality or robustness. In the process, we&#8217;ll cover concepts and techniques points including: The narrative style of method construction The four parts of a method Three strategies for dealing with uncertain input Massaging input with coercion and the Decorator pattern Lightweight preconditions Exterminating nils from your code The chaining and iterative styles of method construction Eliminating conditionals with the Special Case and Null Object patterns Isolating errors with the Bouncer and Checked Method patterns</p></blockquote>
-
-]]></content>
-    
-    <category scheme="http://203.softover.com/categories/" term="ruby" />
-    
-    <category scheme="http://203.softover.com/categories/" term="video" />
-    
   </entry>
   
   <entry>
@@ -392,7 +428,12 @@
     <content type="html"><![CDATA[<p>In case you forgot your root password for MySQL installed with <a href="http://brew.sh/">Homebrew</a> on OS X Mountain Lion.</p>
 
 <figure class='code'><figcaption><span> (reroot.sh)</span> <a href='http://203.softover.com/downloads/code/reroot.sh'>download</a></figcaption>
- <div class="highlight"><table><tr> <td class='code'><pre><code class='sh'><span class='line'>launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
 </span><span class='line'>/usr/local/opt/mysql/bin/mysqld_safe --skip-grant-tables --skip-networking &amp;
 </span><span class='line'>mysql -e <span class="s2">&quot;UPDATE mysql.user SET Password=PASSWORD(&#39;new password&#39;) WHERE User=&#39;root&#39;; FLUSH PRIVILEGES;&quot;</span>
 </span><span class='line'>/usr/local/bin/mysql.server stop
@@ -402,32 +443,6 @@
 
 <p>Different versions may have different paths to be used with launchctl load/unload</p>
 ]]></content>
-    
-    <category scheme="http://203.softover.com/categories/" term="db" />
-    
-    <category scheme="http://203.softover.com/categories/" term="osx" />
-    
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Boundaries by Gary Bernhardt]]></title>
-    <link href="http://203.softover.com/2013/08/12/boundaries-by-gary-bernhardt/"/>
-    <updated>2013-08-12T10:50:00-07:00</updated>
-    <id>http://203.softover.com/2013/08/12/boundaries-by-gary-bernhardt</id>
-    <content type="html"><![CDATA[<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/yTkzNHF6rMs "></iframe></div>
-
-
-<!-- more -->
-
-
-<blockquote><p>Some people test in isolation, mocking everything except the class under test. We&#8217;ll start with that idea, quickly examine the drawbacks, and ask how we might fix them without losing the benefits. This will send us on a trip through behavior vs. data, mutation vs. immutability, interface vs. data dependencies, how data shape affords parallelism, and what a system optimizing each of these for natural isolation might look like.</p></blockquote>
-
-]]></content>
-    
-    <category scheme="http://203.softover.com/categories/" term="ruby" />
-    
-    <category scheme="http://203.softover.com/categories/" term="video" />
-    
   </entry>
   
   <entry>
@@ -436,7 +451,16 @@
     <updated>2013-07-11T09:01:00-07:00</updated>
     <id>http://203.softover.com/2013/07/11/split-the-difference</id>
     <content type="html"><![CDATA[<figure class='code'><figcaption><span> (split.rb)</span> <a href='http://203.softover.com/downloads/code/split.rb'>download</a></figcaption>
- <div class="highlight"><table><tr> <td class='code'><pre><code class='rb'><span class='line'><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot; To</span><span class="se">\t</span><span class="s2">be  or</span><span class="se">\n</span><span class="s2">not</span><span class="se">\t</span><span class="s2">to  be  &quot;</span>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot; To</span><span class="se">\t</span><span class="s2">be  or</span><span class="se">\n</span><span class="s2">not</span><span class="se">\t</span><span class="s2">to  be  &quot;</span>
 </span><span class='line'><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sr">/ /</span><span class="p">)</span>
 </span><span class='line'><span class="c1">#=&gt; [&quot;&quot;, &quot;To\tbe&quot;, &quot;&quot;, &quot;or\nnot\tto&quot;, &quot;&quot;, &quot;be&quot;]</span>
 </span><span class='line'><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sr">/( )/</span><span class="p">)</span>
@@ -455,30 +479,6 @@
 
 <p>Note that split by regex without groups omits trailing matches. Undocumented?</p>
 ]]></content>
-    
-    <category scheme="http://203.softover.com/categories/" term="ruby" />
-    
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Delicious Controversy: Docs &amp; Tests by Thomas Meeks]]></title>
-    <link href="http://203.softover.com/2013/07/01/delicious-controversy-docs-and-tests-by-thomas-meeks/"/>
-    <updated>2013-07-01T08:46:00-07:00</updated>
-    <id>http://203.softover.com/2013/07/01/delicious-controversy-docs-and-tests-by-thomas-meeks</id>
-    <content type="html"><![CDATA[<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/9md-GTF_Th8 "></iframe></div>
-
-
-<!-- more -->
-
-
-<blockquote><p>Self-documenting code is a pipe dream. TDD (or BDD) is not the panacea of testing. In the pursuit of test coverage we&#8217;ve forgotten what really matters: getting things done. Lets talk about putting documentation and testing into their proper place. Tools that ease maintenance, help other developers join a project, and reduce bugs.<br/>I&#8217;m going to go over lessons learned in writing, maintaining, and introducing new developers to 20,000 lines of code. Specifically, how we are testing, documenting, and refactoring our code to stay sane, make the team happier, and get more done.</p></blockquote>
-
-]]></content>
-    
-    <category scheme="http://203.softover.com/categories/" term="ruby" />
-    
-    <category scheme="http://203.softover.com/categories/" term="video" />
-    
   </entry>
   
 </feed>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Rails | 203]]></title>
+  <title><![CDATA[Category: rails | 203]]></title>
   <link href="http://203.softover.com/categories/rails/atom.xml" rel="self"/>
   <link href="http://203.softover.com/"/>
-  <updated>2013-12-07T11:22:04-08:00</updated>
+  <updated>2014-11-21T14:34:42-08:00</updated>
   <id>http://203.softover.com/</id>
   <author>
     <name><![CDATA[Eugene Kalenkovich]]></name>
@@ -18,28 +18,14 @@
     <link href="http://203.softover.com/2013/12/07/rails-shadow-facets-of-concurrency/"/>
     <updated>2013-12-07T09:32:00-08:00</updated>
     <id>http://203.softover.com/2013/12/07/rails-shadow-facets-of-concurrency</id>
-    <content type="html"><![CDATA[<p><div class="embed-video-container"><iframe src="http://www.youtube.com/embed/TV5LEjN6d1U "></iframe></div></p>
+    <content type="html"><![CDATA[<p><div class="embed-video-container"><iframe src="//www.youtube.com/embed/TV5LEjN6d1U" allowfullscreen></iframe></div></p>
 
 <p>This is my talk at <a href="http://rockymntruby.com">Rocky Mountain Ruby 2013</a>. Slides are available <a href="/concur/rency">here</a>.</p>
 
 <!-- more -->
 
 
-<p><blockquote><p>Rails is a framework well known for ease of development. This ease is achieved by a lot of &lsquo;magic&rsquo; that happens behind the scenes. One of pitfalls of such magic is a false sense of safety it gives, including sense of safety from concurrency issues for single-threaded environments. You may never discover any problems before the launch, or even after, while your site traffic is pretty sparse. But here comes a glorious moment of popularity &ndash; and together with more traffic it brings more and more concurrency-related problems.</p></p><p><p>In this talk we will look at different aspects of concurrency, from simple ones that are even mentioned in Rails documentation, to more complex problems that even seasoned developers tend to miss or fail to pay sufficient attention to.</p></blockquote></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Deconstructing the Framework by Gary Bernhardt]]></title>
-    <link href="http://203.softover.com/2013/09/21/deconstructing-the-framework-by-gary-bernhardt/"/>
-    <updated>2013-09-21T16:22:00-07:00</updated>
-    <id>http://203.softover.com/2013/09/21/deconstructing-the-framework-by-gary-bernhardt</id>
-    <content type="html"><![CDATA[<p><div class="embed-video-container"><iframe src="http://www.youtube.com/embed/iUe6tacW3JE "></iframe></div></p>
-
-<!-- more -->
-
-
-<p><blockquote><p>Rails gives us M, V, C, routes, and helpers. Some people add observers and concerns, among others. We&rsquo;ve standardized on presenters. Service objects are gaining popularity. Uncle Bob wants you to add interactors, request models, response models, and entities.</p></p><p><p>That&rsquo;s a lot of stuff! Let&rsquo;s step back: ideally, how do all of these things fit together? Does it make sense to have so many different components? How do different web frameworks project these onto actual components? Most importantly: how does this explain the tangled mess in Rails controllers and how we might fix it?</p></blockquote></p>
+<p><blockquote><p>Rails is a framework well known for ease of development. This ease is achieved by a lot of &lsquo;magic&rsquo; that happens behind the scenes. One of pitfalls of such magic is a false sense of safety it gives, including sense of safety from concurrency issues for single-threaded environments. You may never discover any problems before the launch, or even after, while your site traffic is pretty sparse. But here comes a glorious moment of popularity - and together with more traffic it brings more and more concurrency-related problems.</p></p><p><p>In this talk we will look at different aspects of concurrency, from simple ones that are even mentioned in Rails documentation, to more complex problems that even seasoned developers tend to miss or fail to pay sufficient attention to.</p></blockquote></p>
 ]]></content>
   </entry>
   
@@ -48,8 +34,8 @@
     <link href="http://203.softover.com/2013/09/15/curious-first/"/>
     <updated>2013-09-15T09:40:00-07:00</updated>
     <id>http://203.softover.com/2013/09/15/curious-first</id>
-    <content type="html"><![CDATA[<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span> (first_last.rb)</span> <a href='/downloads/code/first_last.rb'>download</a></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+    <content type="html"><![CDATA[<p><figure class='code'><figcaption><span> (first_last.rb)</span> <a href='/downloads/code/first_last.rb'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -87,11 +73,11 @@
 </span><span class='line'>    <span class="n">assert</span> <span class="no">Record</span><span class="o">.</span><span class="n">first</span> <span class="o">!=</span> <span class="no">Record</span><span class="o">.</span><span class="n">last</span><span class="p">,</span> <span class="s1">&#39;The first of 2 records is also the last!&#39;</span>
 </span><span class='line'>  <span class="k">end</span>
 </span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+</span></code></pre></td></tr></table></div></figure></p>
 
 <p>What are we doing here? We create two records, touching first (this updates the record timestamps), and making sure that the first record is not the same as the last one. Perfectly valid assumption, that <strong><em>almost</em></strong> works.</p>
 
-<p>The test succeeds on SQLite and MySQL (latter &ndash; with various engines), but fails on PostgreSQL.</p>
+<p>The test succeeds on SQLite and MySQL (latter - with various engines), but fails on PostgreSQL.</p>
 
 <!--more-->
 
