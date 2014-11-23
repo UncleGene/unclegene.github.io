@@ -9,7 +9,7 @@
   <meta name="author" content="Eugene Kalenkovich">
 
   
-  <meta name="description" content="To start with, we are not discussing Sons of Anarchy or Society of Actuaries. This is about Service-Oriented Architecture. But what is Service- &hellip;">
+  <meta name="description" content="Over the last few years the new hype took over the software industry: &ldquo;Microservices&rdquo;. It started slowly, with articles and presentations &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +77,42 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2014/11/22/shmackroservices/">Microservices, Macroservices, Shmackroservices: What&#8217;s in a Name?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2014-11-22T18:05:38-08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>22</span><span class='date-suffix'>nd</span>, <span class='date-year'>2014</span></span> <span class='time'>6:05 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Over the last few years the new hype took over the software industry: &ldquo;Microservices&rdquo;. It started slowly, with articles and presentations popping here and there, and now it is everywhere. The most interesting part is that the industry still cannot agree on what &ldquo;Microservices&rdquo; really are (or even, how to write them - Microservices, Micro-services or Micro Services)</p>
+
+<p>In March of 2014 James Lewis and Martin Fowler published an <a href="http://martinfowler.com/articles/microservices.html">article</a> in an attempt to summarize the meaning of this term (and contributing to the hype wide spread).</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2014/11/22/shmackroservices/">More &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -211,49 +247,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2013/09/17/numeric-fun/">Numeric Fun</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2013-09-17T08:49:00-07:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>17</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>8:49 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Today I was browsing Rails codebase (sometimes people do weird things for fun), and found an interesting piece of code:</p>
-
-<figure class='code'><figcaption><span>https://github.com/rails/rails/blob/master/activesupport/lib/active_support/core_ext/time/calculations.rb#L105 </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">options</span><span class="o">[</span><span class="ss">:days</span><span class="o">]</span><span class="p">,</span> <span class="n">partial_days</span> <span class="o">=</span> <span class="n">options</span><span class="o">[</span><span class="ss">:days</span><span class="o">].</span><span class="n">divmod</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This sparkled my interest: what is <em>divmod</em>, especially - its pretty harsh form <em>divmod(1)</em>? Quick search through documentation - and it starts to make perfect sense:
-<q>Returns an array containing the quotient and modulus obtained by dividing num by numeric</q>; especially if you instantly remember what is <q>quotient</q> and <q>modulus</q>. Looks like example table in documentation is designed to confuse (including expected output of multiple methods), but for the special case of a <em>positive float.divmod(1)</em> there is much simpler explanation: it just splits a positive floating point number to its integer and fractional parts (+/- error).</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2013/09/17/numeric-fun/">More &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/2">&larr; Older</a>
@@ -280,6 +273,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2014/11/22/shmackroservices/">Microservices, Macroservices, Shmackroservices: What&#8217;s in a Name?</a>
+      </li>
+    
+      <li class="post">
         <a href="/2014/11/21/wth-is-soa/">WTH Is SOA?</a>
       </li>
     
@@ -293,10 +290,6 @@
     
       <li class="post">
         <a href="/2013/09/17/numeric-fun/">Numeric Fun</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/09/15/curious-first/">Curious First</a>
       </li>
     
   </ul>

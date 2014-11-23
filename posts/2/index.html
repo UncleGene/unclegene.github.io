@@ -9,27 +9,7 @@
   <meta name="author" content="Eugene Kalenkovich">
 
   
-  <meta name="description" content="(first_last.rb) download
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-ActiveRecord::Schema.define do drop_table :records if table_exists? : &hellip;">
+  <meta name="description" content="Today I was browsing Rails codebase (sometimes people do weird things for fun), and found an interesting piece of code: https://github.com/rails/ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -97,6 +77,49 @@ ActiveRecord::Schema.define do drop_table :records if table_exists? : &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2013/09/17/numeric-fun/">Numeric Fun</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2013-09-17T08:49:00-07:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>17</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>8:49 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Today I was browsing Rails codebase (sometimes people do weird things for fun), and found an interesting piece of code:</p>
+
+<figure class='code'><figcaption><span>https://github.com/rails/rails/blob/master/activesupport/lib/active_support/core_ext/time/calculations.rb#L105 </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">options</span><span class="o">[</span><span class="ss">:days</span><span class="o">]</span><span class="p">,</span> <span class="n">partial_days</span> <span class="o">=</span> <span class="n">options</span><span class="o">[</span><span class="ss">:days</span><span class="o">].</span><span class="n">divmod</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This sparkled my interest: what is <em>divmod</em>, especially - its pretty harsh form <em>divmod(1)</em>? Quick search through documentation - and it starts to make perfect sense:
+<q>Returns an array containing the quotient and modulus obtained by dividing num by numeric</q>; especially if you instantly remember what is <q>quotient</q> and <q>modulus</q>. Looks like example table in documentation is designed to confuse (including expected output of multiple methods), but for the special case of a <em>positive float.divmod(1)</em> there is much simpler explanation: it just splits a positive floating point number to its integer and fractional parts (+/- error).</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2013/09/17/numeric-fun/">More &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -291,63 +314,9 @@ ActiveRecord::Schema.define do drop_table :records if table_exists? : &hellip;">
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2013/07/11/split-the-difference/">Split the Difference</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2013-07-11T09:01:00-07:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>11</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>9:01 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><figure class='code'><figcaption><span> (split.rb)</span> <a href='/downloads/code/split.rb'>download</a></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot; To</span><span class="se">\t</span><span class="s2">be  or</span><span class="se">\n</span><span class="s2">not</span><span class="se">\t</span><span class="s2">to  be  &quot;</span>
-</span><span class='line'><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sr">/ /</span><span class="p">)</span>
-</span><span class='line'><span class="c1">#=&gt; [&quot;&quot;, &quot;To\tbe&quot;, &quot;&quot;, &quot;or\nnot\tto&quot;, &quot;&quot;, &quot;be&quot;]</span>
-</span><span class='line'><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sr">/( )/</span><span class="p">)</span>
-</span><span class='line'><span class="c1">#=&gt; [&quot;&quot;, &quot; &quot;, &quot;To\tbe&quot;, &quot; &quot;, &quot;&quot;, &quot; &quot;, &quot;or\nnot\tto&quot;, &quot; &quot;, &quot;&quot;, &quot; &quot;, &quot;be&quot;, &quot; &quot;, &quot;&quot;, &quot; &quot;]</span>
-</span><span class='line'><span class="o">&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span> <span class="sr">/\s+/</span>
-</span><span class='line'><span class="c1">#=&gt; [&quot;&quot;, &quot;To&quot;, &quot;be&quot;, &quot;or&quot;, &quot;not&quot;, &quot;to&quot;, &quot;be&quot;]</span>
-</span><span class='line'><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
-</span><span class='line'><span class="c1">#=&gt; [&quot;To&quot;, &quot;be&quot;, &quot;or&quot;, &quot;not&quot;, &quot;to&quot;, &quot;be&quot;]</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>From the ruby docs:</p>
-
-<blockquote><p>If pattern is a single space, str is split on whitespace, with leading whitespace and runs of contiguous whitespace characters ignored.</p></blockquote>
-
-
-<p>Note that split by regex without groups omits trailing matches. Undocumented?</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
+    
+      <a class="prev" href="/posts/3">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
     
@@ -373,6 +342,10 @@ ActiveRecord::Schema.define do drop_table :records if table_exists? : &hellip;">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2014/11/22/shmackroservices/">Microservices, Macroservices, Shmackroservices: What&#8217;s in a Name?</a>
+      </li>
+    
+      <li class="post">
         <a href="/2014/11/21/wth-is-soa/">WTH Is SOA?</a>
       </li>
     
@@ -386,10 +359,6 @@ ActiveRecord::Schema.define do drop_table :records if table_exists? : &hellip;">
     
       <li class="post">
         <a href="/2013/09/17/numeric-fun/">Numeric Fun</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/09/15/curious-first/">Curious First</a>
       </li>
     
   </ul>
