@@ -33,3 +33,5 @@ With "Micro" semantics dropped out of the picture, it became obvious (to many pe
 So, to understand what "Microservices" really are, we should first understand what is SOA (and what is SOA done properly). Rose may smell sweet by any name, but if you step into [something] - you can name it a rose (or micro[something]), but smell will not change until you clean up your shoes. 
 
 You can see my "tongue-in-cheek" definition [here](http://203.softover.com/2014/11/21/wth-is-soa/), please stay tuned for the real one coming soon.
+
+But for now, just one takeaway: "Micro" in "Microservices" means **absolutely nothing**.
