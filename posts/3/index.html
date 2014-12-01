@@ -9,19 +9,13 @@
   <meta name="author" content="Eugene Kalenkovich">
 
   
-  <meta name="description" content="(split.rb) download
+  <meta name="description" content="In case you forgot your root password for MySQL installed with Homebrew on OS X Mountain Lion. (reroot.sh) download
 1
 2
 3
 4
 5
-6
-7
-8
-9
-s = &quot; To\tbe or\nnot\tto be &quot;
-s.split(/ /)
-#=&gt; [&quot;&quot;, &quot;To\tbe&quot;, &quot;&quot;, & &hellip;">
+launchctl unload ~/ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -89,6 +83,51 @@ s.split(/ /)
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2013/08/30/howto-reset-your-mysql-root-password/">HowTo: Reset Your MySQL Root Password</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2013-08-30T11:06:00-07:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>30</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>11:06 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In case you forgot your root password for MySQL installed with <a href="http://brew.sh/">Homebrew</a> on OS X Mountain Lion.</p>
+
+<figure class='code'><figcaption><span> (reroot.sh)</span> <a href='/downloads/code/reroot.sh'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+</span><span class='line'>/usr/local/opt/mysql/bin/mysqld_safe --skip-grant-tables --skip-networking &amp;
+</span><span class='line'>mysql -e <span class="s2">&quot;UPDATE mysql.user SET Password=PASSWORD(&#39;new password&#39;) WHERE User=&#39;root&#39;; FLUSH PRIVILEGES;&quot;</span>
+</span><span class='line'>/usr/local/bin/mysql.server stop
+</span><span class='line'>launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Different versions may have different paths to be used with launchctl load/unload</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -172,6 +211,10 @@ s.split(/ /)
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2014/12/01/ultra-srevices-and-declaration-of-independence/">Can I Haz Name?</a>
+      </li>
+    
+      <li class="post">
         <a href="/2014/11/22/shmackroservices/">Microservices, Macroservices, Shmackroservices: What&#8217;s in a Name?</a>
       </li>
     
@@ -185,10 +228,6 @@ s.split(/ /)
     
       <li class="post">
         <a href="/2013/09/21/videos/">Videos to Watch</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/09/17/numeric-fun/">Numeric Fun</a>
       </li>
     
   </ul>
