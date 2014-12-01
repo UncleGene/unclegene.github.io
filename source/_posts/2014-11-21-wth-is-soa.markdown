@@ -3,7 +3,7 @@ layout: post
 title: "WTH is SOA?"
 date: 2014-11-21 14:51:49 -0800
 comments: true
-categories: Architecture, Software 
+categories: Architecture, Software, SOA 
 ---
 To start with, we are not discussing [Sons of Anarchy](http://en.wikipedia.org/wiki/Sons_of_Anarchy) or [Society of Actuaries](http://en.wikipedia.org/wiki/Society_of_Actuaries). This is about Service-Oriented Architecture. But what is Service-Oriented Architecture?
  
