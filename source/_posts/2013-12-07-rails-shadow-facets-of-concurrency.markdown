@@ -12,8 +12,6 @@ keywords: rails, concurrency, video
 
 This is my talk at [Rocky Mountain Ruby 2013](http://rockymntruby.com). Slides are available [here](/concur/rency).
 
-<!-- more -->
-
 {% blockquote %}
 Rails is a framework well known for ease of development. This ease is achieved by a lot of 'magic' that happens behind the scenes. One of pitfalls of such magic is a false sense of safety it gives, including sense of safety from concurrency issues for single-threaded environments. You may never discover any problems before the launch, or even after, while your site traffic is pretty sparse. But here comes a glorious moment of popularity - and together with more traffic it brings more and more concurrency-related problems.
 
