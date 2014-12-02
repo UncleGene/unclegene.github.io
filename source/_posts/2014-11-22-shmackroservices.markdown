@@ -3,7 +3,7 @@ layout: post
 title: "Microservices, Macroservices, Shmackroservices: What's in a Name?"
 date: 2014-11-22 18:05:38 -0800
 comments: true
-categories: Architecture, SOA
+categories: [SOA]
 ---
 Over the last few years the new hype took over the software industry: "Microservices". It started slowly, with articles and presentations popping here and there, and now it is everywhere. The most interesting part is that the industry still cannot agree on what "Microservices" really are (or even, how to write them - Microservices, Micro-services or Micro Services)
 

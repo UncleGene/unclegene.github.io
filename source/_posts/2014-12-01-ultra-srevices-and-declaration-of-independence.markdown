@@ -3,7 +3,7 @@ layout: post
 title: "Can I Haz Name?"
 date: 2014-12-01 08:57:59 -0800
 comments: true
-categories: Architecture, Software, SOA
+categories: [SOA]
 ---
 All this hype about microservices makes me sad. And not about the concept, but about the name. As I wrote [before](http://203.softover.com/2014/11/22/shmackroservices/), "micro" in "microservices" means absolutely nothing. What is worse, it confuses everybody. Again and again I see people focusing on "micro" and falling into [nanoservices](http://arnon.me/wp-content/uploads/2010/10/Nanoservices.pdf) trap.
 > <p>Nanoservice is an antipattern where a service is too fine-grained. A nanoservice is a service whose overhead (communications, maintenance, and so on) outweighs its utility.</p>&mdash;Arnon Rotem-Gal-Oz
