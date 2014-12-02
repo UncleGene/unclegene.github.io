@@ -4,7 +4,7 @@
   <title><![CDATA[Category: rails | 203]]></title>
   <link href="http://203.softover.com/categories/rails/atom.xml" rel="self"/>
   <link href="http://203.softover.com/"/>
-  <updated>2014-12-02T10:58:45-08:00</updated>
+  <updated>2014-12-02T11:00:22-08:00</updated>
   <id>http://203.softover.com/</id>
   <author>
     <name><![CDATA[Eugene Kalenkovich]]></name>
@@ -21,9 +21,6 @@
     <content type="html"><![CDATA[<p><div class="embed-video-container"><iframe src="//www.youtube.com/embed/TV5LEjN6d1U" allowfullscreen></iframe></div></p>
 
 <p>This is my talk at <a href="http://rockymntruby.com">Rocky Mountain Ruby 2013</a>. Slides are available <a href="/concur/rency">here</a>.</p>
-
-<!-- more -->
-
 
 <p><blockquote><p>Rails is a framework well known for ease of development. This ease is achieved by a lot of &lsquo;magic&rsquo; that happens behind the scenes. One of pitfalls of such magic is a false sense of safety it gives, including sense of safety from concurrency issues for single-threaded environments. You may never discover any problems before the launch, or even after, while your site traffic is pretty sparse. But here comes a glorious moment of popularity - and together with more traffic it brings more and more concurrency-related problems.</p></p><p><p>In this talk we will look at different aspects of concurrency, from simple ones that are even mentioned in Rails documentation, to more complex problems that even seasoned developers tend to miss or fail to pay sufficient attention to.</p></blockquote></p>
 ]]></content>
