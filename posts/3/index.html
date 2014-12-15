@@ -9,13 +9,27 @@
   <meta name="author" content="Eugene Kalenkovich">
 
   
-  <meta name="description" content="In case you forgot your root password for MySQL installed with Homebrew on OS X Mountain Lion. (reroot.sh) download
+  <meta name="description" content="(first_last.rb) download
 1
 2
 3
 4
 5
-launchctl unload ~/ &hellip;">
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+ActiveRecord::Schema.define do drop_table :records if table_exists? : &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,6 +97,154 @@ launchctl unload ~/ &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2013/09/15/curious-first/">Curious First</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2013-09-15T09:40:00-07:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>9:40 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><figure class='code'><figcaption><span> (first_last.rb)</span> <a href='/downloads/code/first_last.rb'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Schema</span><span class="o">.</span><span class="n">define</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">drop_table</span> <span class="ss">:records</span> <span class="k">if</span> <span class="n">table_exists?</span> <span class="ss">:records</span>
+</span><span class='line'>  <span class="n">create_table</span> <span class="ss">:records</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
+</span><span class='line'>    <span class="n">t</span><span class="o">.</span><span class="n">timestamps</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Record</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">CuriousFirstTest</span> <span class="o">&lt;</span> <span class="ss">MiniTest</span><span class="p">:</span><span class="ss">:Unit</span><span class="o">::</span><span class="no">TestCase</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">test_first_last</span>
+</span><span class='line'>    <span class="n">r</span> <span class="o">=</span> <span class="no">Record</span><span class="o">.</span><span class="n">create</span>
+</span><span class='line'>    <span class="no">Record</span><span class="o">.</span><span class="n">create</span>
+</span><span class='line'>    <span class="n">r</span><span class="o">.</span><span class="n">touch</span>
+</span><span class='line'>    <span class="n">assert_equal</span> <span class="mi">2</span><span class="p">,</span> <span class="no">Record</span><span class="o">.</span><span class="n">count</span>
+</span><span class='line'>    <span class="n">assert</span> <span class="no">Record</span><span class="o">.</span><span class="n">first</span> <span class="o">!=</span> <span class="no">Record</span><span class="o">.</span><span class="n">last</span><span class="p">,</span> <span class="s1">&#39;The first of 2 records is also the last!&#39;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>What are we doing here? We create two records, touching first (this updates the record timestamps), and making sure that the first record is not the same as the last one. Perfectly valid assumption, that <strong><em>almost</em></strong> works.</p>
+
+<p>The test succeeds on SQLite and MySQL (latter - with various engines), but fails on PostgreSQL.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2013/09/15/curious-first/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2013/09/13/design-process/">Design Process</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2013-09-13T12:41:00-07:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>13</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>12:41 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Yesterday I&rsquo;ve attended my daughter&rsquo;s &ldquo;Curriculum Night&rdquo; (yes, I am a very good and responsible dad, I even managed not only to recall where the school is, but also to successfully follow my wife&rsquo;s instructions on how to find the classroom).</p>
+
+<p>Listening to the teacher&rsquo;s presentation, I was surprised by how process-oriented the education is (not having US education experience myself). Here is one of the processes that were presented by the teacher as a part of 5th grade curriculum:</p>
+
+<h3>Design Process</h3>
+
+<ol>
+<li>State the Problem</li>
+<li>Gather Information</li>
+<li>Explore Ideas</li>
+<li>Select a Solution</li>
+<li>Test and Evaluate</li>
+<li>Redesign</li>
+</ol>
+
+
+<p>And this is taught in elementary school! One question that I have now is: did most of software engineers skip the 5th grade? Or this is something new that was added to curriculum less than twenty-something years ago? The &ldquo;Design Process&rdquo; I see again and again, not only with interns or junior engineers, but also with some experienced people:</p>
+
+<ol>
+<li>Pick the Task (or Get Assignment)</li>
+<li>Pick a Solution</li>
+<li>Implement</li>
+<li>Try if it Works (sometimes)</li>
+<li>Implement Whitebox Tests (only if forced to do testing. In a lot of cases tests are matching implementation one-to-one; if code has bugs – tests are ensuring that bugs are there)</li>
+</ol>
+
+
+<p>Sometimes it even extends to:</p>
+
+<ol start="6">
+<li>Restlessly Defend Picked Solution as the Best One</li>
+</ol>
+
+
+<p></p>
+
+<p>Nope. Please, go back to elementaruy school. They can teach you how to do your job!</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2013/09/13/design-process/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -211,6 +373,14 @@ launchctl unload ~/ &hellip;">
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2014/12/15/what-soa-actually-meant/">What SOA Actually Meant</a>
+      </li>
+    
+      <li class="post">
+        <a href="/2014/12/15/videos-december/">Videos - Picks for December, 2014</a>
+      </li>
+    
+      <li class="post">
         <a href="/2014/12/01/ultra-srevices-and-declaration-of-independence/">Can I Haz Name?</a>
       </li>
     
@@ -220,14 +390,6 @@ launchctl unload ~/ &hellip;">
     
       <li class="post">
         <a href="/2014/11/21/wth-is-soa/">WTH Is SOA?</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/12/07/rails-shadow-facets-of-concurrency/">Rails: Shadow Facets of Concurrency</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2013/09/21/videos/">Videos to Watch</a>
       </li>
     
   </ul>

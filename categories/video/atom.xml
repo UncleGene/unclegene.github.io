@@ -4,7 +4,7 @@
   <title><![CDATA[Category: video | 203]]></title>
   <link href="http://203.softover.com/categories/video/atom.xml" rel="self"/>
   <link href="http://203.softover.com/"/>
-  <updated>2014-12-02T11:00:22-08:00</updated>
+  <updated>2014-12-15T08:22:06-08:00</updated>
   <id>http://203.softover.com/</id>
   <author>
     <name><![CDATA[Eugene Kalenkovich]]></name>
@@ -12,6 +12,51 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Videos - Picks for December, 2014]]></title>
+    <link href="http://203.softover.com/2014/12/15/videos-december/"/>
+    <updated>2014-12-15T07:40:12-08:00</updated>
+    <id>http://203.softover.com/2014/12/15/videos-december</id>
+    <content type="html"><![CDATA[<ul>
+<li><a href="/2014/12/15/videos-december#debt">The Technical Debt Trap</a> by Doc Norton</li>
+<li><a href="/2014/12/15/videos-december#brown">Software Architecture vs Code</a> by Simon Brown</li>
+<li><a href="/2014/12/15/videos-december#hacker">One Hacker Way</a> by Erik Meijer</li>
+</ul>
+
+
+<!--more-->
+
+
+<p><a name="debt"></a></p>
+
+<h2>The Technical Debt Trap by Doc Norton</h2>
+
+<p><div class="embed-video-container"><iframe src="//www.youtube.com/embed/S2pS9hN2Fws" allowfullscreen></iframe></div></p>
+
+<blockquote><p>Technical Debt has become a catch-all phrase for any code that needs to be re-worked. Much like Refactoring has become a catch-all phrase for any activity that involves changing code. These fundamental misunderstandings and comfortable yet mis-applied metaphors have resulted in a plethora of poor decisions. What is technical debt? What is not technical debt? Why should we care? What is the cost of misunderstanding? What do we do about it? Doc discusses the origins of the metaphor, what it means today, and how we properly identify and manage technical debt.</p></blockquote>
+
+<p><a name="brown"></a></p>
+
+<h2>Software Architecture vs Code by Simon Brown</h2>
+
+<p><div class="embed-video-container"><iframe src="//www.youtube.com/embed/ehH3UGdSwPo" allowfullscreen></iframe></div></p>
+
+<blockquote><p>Software architecture and coding are often seen as mutually exclusive disciplines, despite us referring to higher level abstractions when we talk about our software. You&rsquo;ve probably heard others on your team talking about components, services and layers rather than objects when they&rsquo;re having discussions. Take a look at the codebase though. Can you clearly see these abstractions or does the code reflect some other structure? If so, why is there no clear mapping between the architecture and the code? Why do those architecture diagrams that you have on the wall say one thing whereas your code says another? In fact, why is it so hard to automatically generate a decent architecture diagram from an existing codebase? Join us to explore this topic further.</p></blockquote>
+
+<p><a name="hacker"></a></p>
+
+<h2>One Hacker Way by Erik Meijer</h2>
+
+<p><div class="embed-video-container"><iframe src="//player.vimeo.com/video/110554082 "></iframe></div></p>
+
+<p>One Hacker Way, a Rational Alternative to Agile</p>
+
+<p>Presented at Reaktor Dev Day 2014</p>
+
+<p><a href="http://reaktor.fi/blog/erik-meijer-software-eating-world/">reaktor.fi/blog/erik-meijer-software-eating-world/</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Rails: Shadow Facets of Concurrency]]></title>

@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://203.softover.com/2014/12/15/what-soa-actually-meant/</loc>
+    <lastmod>2014-12-15T07:48:06-08:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://203.softover.com/2014/12/15/videos-december/</loc>
+    <lastmod>2014-12-15T07:40:12-08:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>http://203.softover.com/2014/12/01/ultra-srevices-and-declaration-of-independence/</loc>
     <lastmod>2014-12-01T08:57:59-08:00</lastmod>
     <priority>0.8</priority>
@@ -52,25 +62,25 @@
   </url>
   <url>
     <loc>http://203.softover.com/blog/archives/</loc>
-    <lastmod>2014-12-02T11:00:22-08:00</lastmod>
+    <lastmod>2014-12-15T08:22:06-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://203.softover.com/archives/</loc>
-    <lastmod>2014-12-02T11:00:22-08:00</lastmod>
+    <lastmod>2014-12-15T08:22:06-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>http://203.softover.com/</loc>
-    <lastmod>2014-12-02T11:00:22-08:00</lastmod>
+    <lastmod>2014-12-15T08:22:06-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>http://203.softover.com/categories/</loc>
-    <lastmod>2014-12-02T11:00:22-08:00</lastmod>
+    <lastmod>2014-12-15T08:22:06-08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

@@ -4,7 +4,7 @@
   <title><![CDATA[203]]></title>
   <link href="http://203.softover.com/atom.xml" rel="self"/>
   <link href="http://203.softover.com/"/>
-  <updated>2014-12-02T11:00:22-08:00</updated>
+  <updated>2014-12-15T08:22:06-08:00</updated>
   <id>http://203.softover.com/</id>
   <author>
     <name><![CDATA[Eugene Kalenkovich]]></name>
@@ -12,6 +12,106 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[What SOA Actually Meant]]></title>
+    <link href="http://203.softover.com/2014/12/15/what-soa-actually-meant/"/>
+    <updated>2014-12-15T07:48:06-08:00</updated>
+    <id>http://203.softover.com/2014/12/15/what-soa-actually-meant</id>
+    <content type="html"><![CDATA[<blockquote><p><p>I guess it is easier to use a new name (Microservices) rather than say that this is what SOA actually meant</p>&mdash; Arnon Rotem-Gal-Oz (@arnonrgo) <a href="https://twitter.com/arnonrgo/status/445188642727034880">March 16, 2014</a></p></blockquote>
+
+<p>I guess it may be even easier to say what SOA actually meant. Or, at least - what <strong>I</strong> believe it had in its heart. In this post I am going to try to see how can we define SOA the way that:</p>
+
+<ul>
+<li>captures its spirit</li>
+<li>does not have elements that damaged the whole idea (WS-*, ESB, etc.)</li>
+<li>goes even further and does not include anything that overly-limit SOA application</li>
+</ul>
+
+
+<p>In essence, we are looking for a lean SOA definition (to make sure, it is not &ldquo;lean SOA&rdquo;, but &ldquo;lean definition&rdquo;).</p>
+
+<!--more-->
+
+
+<p>Here is the SOA definition from one of my favorite books on the subject, <a href="http://www.amazon.com/SOA-Patterns-Arnon-Rotem-Gal-Oz/dp/1933988266">SOA Patterns</a> by (the same) Arnon Rotem-Gal-Oz:</p>
+
+<blockquote><p>Service-oriented architecture (SOA) is an architectural style for building systems based on interactions of loosely coupled coarse-grained, and autonomous components called services. Each service exposes processes and behavior through contracts, which are composed of messages at discoverable addresses called endpoints. A service&rsquo;s behavior is governed by policies that are external to the service itself. The contracts and messages are used by external components called service consumers.</p></blockquote>
+
+<p>Pretty close to this is description from &ldquo;<a href="http://msdn.microsoft.com/en-us/library/bb833022.aspx">SOA in the Real World</a>&rdquo;</p>
+
+<blockquote><p>With a Service Oriented Architecture the application’s functionality is exposed through a collection of services. These services are independent and encapsulate both the business logic and its associated data. The services are interconnected via messages with a schema defining their format; a contract defining their interchanges and a policy defining how they should be exchanged.</p></blockquote>
+
+<p>Let try to be pragmatic - these definitions already got rid of all &ldquo;vendory&rdquo; and &ldquo;enterprisy&rdquo; SOA rubbish; but are there any parts that are still optional? And is there anything missing? We want our definition to be flexible enough, to be able to capture all styles that still can be categorized as an SOA.</p>
+
+<p>Key components of these definitions:</p>
+
+<ul>
+<li><p><strong>Service</strong> - loosely coupled, coarse-grained, autonomous, independent components in the first defenition; independent and encapsulate business logic and data in the second. Autonomity and encapsulation of logic and data map very well to the <a href="http://martinfowler.com/bliki/BoundedContext.html">bounded context</a>. Coause-grained - seems to be directly size-prescriptive, we do not want to fall into the same trap as microservices did.</p>
+
+<p>It also seems that one characteristic is missing. There is nothing about what makes services so flexible and powerful - ability to horizontally scale them.</p></li>
+<li><p><strong>Contract</strong> - scoped differently in these definitions. In the first one it captures messages and endpoints, in the second - definition of interchanges. There is one aspect that in both cases is not included explicitly in the definition, but described outside of it - both assume contract being a software artifact. Having experience with different styles and incarnations of SOA, I&rsquo;d characterize explicit artifact-based contract as a good, but optional practice. Without artifact - clients should know how to call service and what to expect in return.</p></li>
+<li><p><strong>Endpoint</strong> (only in the first definition, component of a contract). Where to call a service. I&rsquo;d move it out of definition too - particular frameworks may hide notion of an endpoint from clients completely. Again, clients should be able to reach services - common sense.</p></li>
+<li><p><strong>Message</strong> - both definitions assume that communication happens with the help of messages. Arnon explicitly distinguishes them from RPC. I&rsquo;ve seen in the past architectures that managed to use RPC without sacrificing any other important qualities.. As we want to give as much freedom as possible in our definition, let drop it too. But we cannot drop them completely, as they cover one of the most important aspects - communication between services. Without communication services are just &hellip; services. Defined communication makes them architecture.</p></li>
+<li><p><strong>Policy</strong> - this is a non-functional element of a contract. It can capture aspects like availability, latency, security, etc. The same as with the contract, requiring policies as a software artifact unnecessarily limits application of SOA; without artifact - they are good practices and common sense elements.</p></li>
+</ul>
+
+
+<p>If we remove everything that is not required, and add missing element, we can see our new lean definition of [what] SOA [actually meant]:</p>
+
+<blockquote><p>SOA is an architecture defined in terms of services and their communications. Services are independent, loosely coupled and horizontally scalable software components organized around bounded contexts.</p></blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Videos - Picks for December, 2014]]></title>
+    <link href="http://203.softover.com/2014/12/15/videos-december/"/>
+    <updated>2014-12-15T07:40:12-08:00</updated>
+    <id>http://203.softover.com/2014/12/15/videos-december</id>
+    <content type="html"><![CDATA[<ul>
+<li><a href="http://203.softover.com/2014/12/15/videos-december#debt">The Technical Debt Trap</a> by Doc Norton</li>
+<li><a href="http://203.softover.com/2014/12/15/videos-december#brown">Software Architecture vs Code</a> by Simon Brown</li>
+<li><a href="http://203.softover.com/2014/12/15/videos-december#hacker">One Hacker Way</a> by Erik Meijer</li>
+</ul>
+
+
+<!--more-->
+
+
+<p><a name="debt"></a></p>
+
+<h2>The Technical Debt Trap by Doc Norton</h2>
+
+<div class="embed-video-container"><iframe src="//www.youtube.com/embed/S2pS9hN2Fws" allowfullscreen></iframe></div>
+
+
+<blockquote><p>Technical Debt has become a catch-all phrase for any code that needs to be re-worked. Much like Refactoring has become a catch-all phrase for any activity that involves changing code. These fundamental misunderstandings and comfortable yet mis-applied metaphors have resulted in a plethora of poor decisions. What is technical debt? What is not technical debt? Why should we care? What is the cost of misunderstanding? What do we do about it? Doc discusses the origins of the metaphor, what it means today, and how we properly identify and manage technical debt.</p></blockquote>
+
+<p><a name="brown"></a></p>
+
+<h2>Software Architecture vs Code by Simon Brown</h2>
+
+<div class="embed-video-container"><iframe src="//www.youtube.com/embed/ehH3UGdSwPo" allowfullscreen></iframe></div>
+
+
+<p></p>
+
+<blockquote><p>Software architecture and coding are often seen as mutually exclusive disciplines, despite us referring to higher level abstractions when we talk about our software. You&rsquo;ve probably heard others on your team talking about components, services and layers rather than objects when they&rsquo;re having discussions. Take a look at the codebase though. Can you clearly see these abstractions or does the code reflect some other structure? If so, why is there no clear mapping between the architecture and the code? Why do those architecture diagrams that you have on the wall say one thing whereas your code says another? In fact, why is it so hard to automatically generate a decent architecture diagram from an existing codebase? Join us to explore this topic further.</p></blockquote>
+
+<p><a name="hacker"></a></p>
+
+<h2>One Hacker Way by Erik Meijer</h2>
+
+<div class="embed-video-container"><iframe src="//player.vimeo.com/video/110554082 "></iframe></div>
+
+
+<p>One Hacker Way, a Rational Alternative to Agile</p>
+
+<p>Presented at Reaktor Dev Day 2014</p>
+
+<p><a href="http://reaktor.fi/blog/erik-meijer-software-eating-world/">reaktor.fi/blog/erik-meijer-software-eating-world/</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Can I Haz Name?]]></title>

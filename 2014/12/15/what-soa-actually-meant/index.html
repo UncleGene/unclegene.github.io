@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Microservices, Macroservices, Shmackroservices: What&#8217;s in a Name? - 203</title>
+  <title>What SOA Actually Meant - 203</title>
   <meta name="author" content="Eugene Kalenkovich">
 
   
-  <meta name="description" content="Over the last few years the new hype took over the software industry: &ldquo;Microservices&rdquo;. It started slowly, with articles and presentations &hellip;">
+  <meta name="description" content="I guess it is easier to use a new name (Microservices) rather than say that this is what SOA actually meant&mdash; Arnon Rotem-Gal-Oz (@arnonrgo) &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://203.softover.com/2014/11/22/shmackroservices">
+  <link rel="canonical" href="http://203.softover.com/2014/12/15/what-soa-actually-meant">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="203" type="application/atom+xml">
@@ -80,7 +80,7 @@
   
   <header>
     
-      <h1 class="entry-title">Microservices, Macroservices, Shmackroservices: What&#8217;s in a Name?</h1>
+      <h1 class="entry-title">What SOA Actually Meant</h1>
     
     
       <p class="meta">
@@ -89,57 +89,55 @@
 
 
 
-<time class='entry-date' datetime='2014-11-22T18:05:38-08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>22</span><span class='date-suffix'>nd</span>, <span class='date-year'>2014</span></span> <span class='time'>6:05 pm</span></time>
+<time class='entry-date' datetime='2014-12-15T07:48:06-08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>7:48 am</span></time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Over the last few years the new hype took over the software industry: &ldquo;Microservices&rdquo;. It started slowly, with articles and presentations popping here and there, and now it is everywhere. The most interesting part is that the industry still cannot agree on what &ldquo;Microservices&rdquo; really are (or even, how to write them - Microservices, Micro-services or Micro Services)</p>
+<div class="entry-content"><blockquote><p><p>I guess it is easier to use a new name (Microservices) rather than say that this is what SOA actually meant</p>&mdash; Arnon Rotem-Gal-Oz (@arnonrgo) <a href="https://twitter.com/arnonrgo/status/445188642727034880">March 16, 2014</a></p></blockquote>
 
-<p>In March of 2014 James Lewis and Martin Fowler published an <a href="http://martinfowler.com/articles/microservices.html">article</a> in an attempt to summarize the meaning of this term (and contributing to the hype wide spread).</p>
+<p>I guess it may be even easier to say what SOA actually meant. Or, at least - what <strong>I</strong> believe it had in its heart. In this post I am going to try to see how can we define SOA the way that:</p>
+
+<ul>
+<li>captures its spirit</li>
+<li>does not have elements that damaged the whole idea (WS-*, ESB, etc.)</li>
+<li>goes even further and does not include anything that overly-limit SOA application</li>
+</ul>
+
+
+<p>In essence, we are looking for a lean SOA definition (to make sure, it is not &ldquo;lean SOA&rdquo;, but &ldquo;lean definition&rdquo;).</p>
 
 <!--more-->
 
 
-<hr />
+<p>Here is the SOA definition from one of my favorite books on the subject, <a href="http://www.amazon.com/SOA-Patterns-Arnon-Rotem-Gal-Oz/dp/1933988266">SOA Patterns</a> by (the same) Arnon Rotem-Gal-Oz:</p>
 
-<h3>Interlude: Conspiracy Theory</h3>
+<blockquote><p>Service-oriented architecture (SOA) is an architectural style for building systems based on interactions of loosely coupled coarse-grained, and autonomous components called services. Each service exposes processes and behavior through contracts, which are composed of messages at discoverable addresses called endpoints. A service&rsquo;s behavior is governed by policies that are external to the service itself. The contracts and messages are used by external components called service consumers.</p></blockquote>
 
-<blockquote><p><p>The term &ldquo;microservice&rdquo; was discussed at a workshop of software architects near Venice in May, 2011 to describe what the participants saw as a common architectural style that many of them had been recently exploring. In May 2012, the same group decided on &ldquo;microservices&rdquo; as the most appropriate name.</p> &mdash; James Lewis &amp; Martin Fowler, <a href="http://martinfowler.com/articles/microservices.html">March 25, 2014</a></p></blockquote>
+<p>Pretty close to this is description from &ldquo;<a href="http://msdn.microsoft.com/en-us/library/bb833022.aspx">SOA in the Real World</a>&rdquo;</p>
 
-<p>Yep, anonymous workshop of anonymous architects anonymously decided on &ldquo;microservices&rdquo; as the most appropriate name&hellip; BTW, were they all from the same anonymous company?</p>
+<blockquote><p>With a Service Oriented Architecture the application’s functionality is exposed through a collection of services. These services are independent and encapsulate both the business logic and its associated data. The services are interconnected via messages with a schema defining their format; a contract defining their interchanges and a policy defining how they should be exchanged.</p></blockquote>
 
-<hr />
+<p>Let try to be pragmatic - these definitions already got rid of all &ldquo;vendory&rdquo; and &ldquo;enterprisy&rdquo; SOA rubbish; but are there any parts that are still optional? And is there anything missing? We want our definition to be flexible enough, to be able to capture all styles that still can be categorized as an SOA.</p>
 
-<p>Originally (and, AFAIK, even in the first revision of the Lewis &amp; Fowler article) Microservices had a strong emphasis on Micro, and even referred to a 10-100 LOC size guideline. After getting pretty strong pushback on any size limitations from many practitioners, all the size references were gone (finally a reality check?), and &ldquo;Micro&rdquo; part started to be more and more frequently referred as being &ldquo;just a name&rdquo;</p>
+<p>Key components of these definitions:</p>
 
-<p>With &ldquo;Micro&rdquo; semantics dropped out of the picture, it became obvious (to many people, though there is no real consensus here neither) that Microservices are just SOA striving for a new identity, because an old one had too bad reputation.</p>
+<ul>
+<li><p><strong>Service</strong> - loosely coupled, coarse-grained, autonomous, independent components in the first defenition; independent and encapsulate business logic and data in the second. Autonomity and encapsulation of logic and data map very well to the <a href="http://martinfowler.com/bliki/BoundedContext.html">bounded context</a>. Coause-grained - seems to be directly size-prescriptive, we do not want to fall into the same trap as microservices did.</p>
 
-<blockquote class="twitter-tweet" data-cards="hidden" lang="en"><p>I guess it is easier to use a new name (Microservices) rather than say that this is what SOA actually meant - re <a href="http://t.co/gvhxDfDWLG">http://t.co/gvhxDfDWLG</a></p>&mdash; Arnon Rotem-Gal-Oz (@arnonrgo) <a href="https://twitter.com/arnonrgo/status/445188642727034880">March 16, 2014</a></blockquote>
-
-
-
-
-<blockquote class="twitter-tweet" data-conversation="none" lang="en"><p><a href="https://twitter.com/martinfowler">@martinfowler</a> <a href="https://twitter.com/boicy">@boicy</a> but these are the very principles of SOA before vendors does pushed the hub in the middle, i.e. ESB</p>&mdash; Clemens Vasters (@clemensv) <a href="https://twitter.com/clemensv/status/445216182757756929">March 16, 2014</a></blockquote>
-
-
-
-
-<blockquote class="twitter-tweet" data-conversation="none" lang="en"><p><a href="https://twitter.com/UncleGene">@UncleGene</a> Micro-Services are just SOA done properly &#8211; simple functionality, well-defined interfaces, minimal dependencies</p>&mdash; Randy Shoup (@randyshoup) <a href="https://twitter.com/randyshoup/status/530820576810926080">November 7, 2014</a></blockquote>
+<p>It also seems that one characteristic is missing. There is nothing about what makes services so flexible and powerful - ability to horizontally scale them.</p></li>
+<li><p><strong>Contract</strong> - scoped differently in these definitions. In the first one it captures messages and endpoints, in the second - definition of interchanges. There is one aspect that in both cases is not included explicitly in the definition, but described outside of it - both assume contract being a software artifact. Having experience with different styles and incarnations of SOA, I&rsquo;d characterize explicit artifact-based contract as a good, but optional practice. Without artifact - clients should know how to call service and what to expect in return.</p></li>
+<li><p><strong>Endpoint</strong> (only in the first definition, component of a contract). Where to call a service. I&rsquo;d move it out of definition too - particular frameworks may hide notion of an endpoint from clients completely. Again, clients should be able to reach services - common sense.</p></li>
+<li><p><strong>Message</strong> - both definitions assume that communication happens with the help of messages. Arnon explicitly distinguishes them from RPC. I&rsquo;ve seen in the past architectures that managed to use RPC without sacrificing any other important qualities.. As we want to give as much freedom as possible in our definition, let drop it too. But we cannot drop them completely, as they cover one of the most important aspects - communication between services. Without communication services are just &hellip; services. Defined communication makes them architecture.</p></li>
+<li><p><strong>Policy</strong> - this is a non-functional element of a contract. It can capture aspects like availability, latency, security, etc. The same as with the contract, requiring policies as a software artifact unnecessarily limits application of SOA; without artifact - they are good practices and common sense elements.</p></li>
+</ul>
 
 
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>If we remove everything that is not required, and add missing element, we can see our new lean definition of [what] SOA [actually meant]:</p>
 
-
-<blockquote><p><p><a href="http://service-architecture.blogspot.co.uk/2014/03/microservices-is-soa-for-those-who-know.html">Microservices is SOA, for those who know what SOA is.</a></p> &mdash; Steve Jones March 18, 2014</p></blockquote>
-
-<p>So, to understand what &ldquo;Microservices&rdquo; really are, we should first understand what is SOA (and what is SOA done properly). Rose may smell sweet by any name, but if you step into [something] - you can name it a rose (or micro[something]), but smell will not change until you clean up your shoes.</p>
-
-<p>You can see my &ldquo;tongue-in-cheek&rdquo; definition <a href="http://203.softover.com/2014/11/21/wth-is-soa/">here</a>, please stay tuned for the real one coming soon.</p>
-
-<p>But for now, just one takeaway: &ldquo;Micro&rdquo; in &ldquo;Microservices&rdquo; means <strong>absolutely nothing</strong>.</p>
+<blockquote><p>SOA is an architecture defined in terms of services and their communications. Services are independent, loosely coupled and horizontally scalable software components organized around bounded contexts.</p></blockquote>
 </div>
 
 
@@ -155,7 +153,7 @@
 
 
 
-<time class='entry-date' datetime='2014-11-22T18:05:38-08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>22</span><span class='date-suffix'>nd</span>, <span class='date-year'>2014</span></span> <span class='time'>6:05 pm</span></time>
+<time class='entry-date' datetime='2014-12-15T07:48:06-08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>7:48 am</span></time>
       
 
 <span class="categories">
@@ -169,7 +167,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://203.softover.com/2014/11/22/shmackroservices/" data-via="UncleGene" data-counturl="http://203.softover.com/2014/11/22/shmackroservices/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://203.softover.com/2014/12/15/what-soa-actually-meant/" data-via="UncleGene" data-counturl="http://203.softover.com/2014/12/15/what-soa-actually-meant/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="small"></div>
@@ -180,10 +178,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/2014/11/21/wth-is-soa/" title="Previous Post: WTH is SOA?">&laquo; WTH is SOA?</a>
+        <a class="basic-alignment left" href="/2014/12/15/videos-december/" title="Previous Post: Videos - Picks for December, 2014">&laquo; Videos - Picks for December, 2014</a>
       
-      
-        <a class="basic-alignment right" href="/2014/12/01/ultra-srevices-and-declaration-of-independence/" title="Next Post: Can I Haz Name?">Can I Haz Name? &raquo;</a>
       
     </p>
   </footer>
@@ -301,8 +297,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://203.softover.com/2014/11/22/shmackroservices/';
-        var disqus_url = 'http://203.softover.com/2014/11/22/shmackroservices/';
+        var disqus_identifier = 'http://203.softover.com/2014/12/15/what-soa-actually-meant/';
+        var disqus_url = 'http://203.softover.com/2014/12/15/what-soa-actually-meant/';
         var disqus_script = 'embed.js';
       
     (function () {
