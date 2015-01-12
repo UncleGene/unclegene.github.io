@@ -4,7 +4,7 @@
   <title><![CDATA[203]]></title>
   <link href="http://203.softover.com/atom.xml" rel="self"/>
   <link href="http://203.softover.com/"/>
-  <updated>2015-01-11T17:44:01-08:00</updated>
+  <updated>2015-01-11T18:06:52-08:00</updated>
   <id>http://203.softover.com/</id>
   <author>
     <name><![CDATA[Eugene Kalenkovich]]></name>
@@ -37,27 +37,27 @@
 
 <blockquote><p>The wider the communication channel is, the higher the software system cohesion <strong><em>and</em></strong> coupling will become in time.</p></blockquote>
 
-<p> There is a scientific term for a software system with both high cohesion and coupling: it is called a <strong><em>mess</em></strong></p>
+<p>There is a scientific term for a software system with both high cohesion and coupling: it is called a <strong><em>mess</em></strong>.</p>
 
-<p> Let say we are talking about a good organization, where intra-team communication channels are the widest.</p>
+<p>Let say we are talking about a good organization, where intra-team communication channels are the widest.</p>
 
 <blockquote><p>Any evolving software system managed by a single team will eventually become a mess.</p></blockquote>
 
-<p> Please do not fool yourself that you can avoid this eventual mess by applying some discipline and/or practices. The law is the law!</p>
+<p>Please do not fool yourself that you can avoid this eventual mess by applying some discipline and/or practices. The law is the law!</p>
 
-<p> If this software system is composed of multiple components, this mess is architectural. And we all know that the architectural mess is the most expensive one to fix.</p>
+<p>If this software system is composed of multiple components, this mess is architectural. And we all know that the architectural mess is the most expensive one to fix.</p>
 
 <blockquote><p>To reduce the cost of the mess created, each team should manage as little software components as possible (preferably - a single component)</p></blockquote>
 
-<p> But there is another aspect of a team that has its important impact: the size. The more team members we have, the more communication channels are intermingled in a single high-bandwidth communication ball. It means that:</p>
+<p>But there is another aspect of a team that has its important impact: the size. The more team members we have, the more communication channels are intermingled in a single high-bandwidth communication ball. It means that:</p>
 
 <blockquote><p>The bigger teams are, the bigger mess they eventually create.</p></blockquote>
 
-<p> So, is minimizing team (and component) size the way to reduce the eventual mess? Probably - yes, but here is another impact of the communication structure: the smaller the components are, the more of them are impacted by any single change in the system. And communication channels between teams have much lower bandwidth. Leading to:</p>
+<p>So, is minimizing team (and component) size the way to reduce the eventual mess? Probably - yes, but here is another impact of the communication structure: the smaller the components are, the more of them are impacted by any single change in the system. And communication channels between teams have much lower bandwidth. Leading to:</p>
 
 <blockquote><p>The smaller teams are, the longer it will take to do a change.</p></blockquote>
 
-<p> So, small teams are bad. Big teams are bad. And we are again playing the balancing game. The goal of this game is to compare the impacts of intra-component mess and inter-team communication on the delivery speed. Which one slows you more?</p>
+<p>So, small teams are bad. Big teams are bad. And we are again playing the balancing game. The goal of this game is to compare the impacts of intra-component mess and inter-team communication on the delivery speed. Which one slows you more?</p>
 
 <h2>Bonus. Quotes from the original Melvin E. Conway&rsquo;s article</h2>
 
