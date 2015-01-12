@@ -21,29 +21,29 @@ When system needs to change, the change can usually happen in multiple places. W
 
 This means that in time changes tend to group around communication "islands" in the organization structure. As there is always some randomness element in determination of who owns the change (being in reality the first design decision, usually made with lack of sufficient information), it results in mix of hits and misses. Hits result in high cohesion of the software solution, misses - in tight coupling.
  
- > The wider the communication channel is, the higher the software system cohesion ***and*** coupling will become in time.
+> The wider the communication channel is, the higher the software system cohesion ***and*** coupling will become in time.
 
- There is a scientific term for a software system with both high cohesion and coupling: it is called a ***mess***
+There is a scientific term for a software system with both high cohesion and coupling: it is called a ***mess***.
 
- Let say we are talking about a good organization, where intra-team communication channels are the widest.
+Let say we are talking about a good organization, where intra-team communication channels are the widest.
 
- > Any evolving software system managed by a single team will eventually become a mess.
+> Any evolving software system managed by a single team will eventually become a mess.
 
- Please do not fool yourself that you can avoid this eventual mess by applying some discipline and/or practices. The law is the law! 
+Please do not fool yourself that you can avoid this eventual mess by applying some discipline and/or practices. The law is the law! 
 
- If this software system is composed of multiple components, this mess is architectural. And we all know that the architectural mess is the most expensive one to fix.
+If this software system is composed of multiple components, this mess is architectural. And we all know that the architectural mess is the most expensive one to fix.
 
- > To reduce the cost of the mess created, each team should manage as little software components as possible (preferably - a single component)
+> To reduce the cost of the mess created, each team should manage as little software components as possible (preferably - a single component)
 
- But there is another aspect of a team that has its important impact: the size. The more team members we have, the more communication channels are intermingled in a single high-bandwidth communication ball. It means that:
+But there is another aspect of a team that has its important impact: the size. The more team members we have, the more communication channels are intermingled in a single high-bandwidth communication ball. It means that:
 
- > The bigger teams are, the bigger mess they eventually create.
+> The bigger teams are, the bigger mess they eventually create.
 
- So, is minimizing team (and component) size the way to reduce the eventual mess? Probably - yes, but here is another impact of the communication structure: the smaller the components are, the more of them are impacted by any single change in the system. And communication channels between teams have much lower bandwidth. Leading to:
+So, is minimizing team (and component) size the way to reduce the eventual mess? Probably - yes, but here is another impact of the communication structure: the smaller the components are, the more of them are impacted by any single change in the system. And communication channels between teams have much lower bandwidth. Leading to:
 
- > The smaller teams are, the longer it will take to do a change.
+> The smaller teams are, the longer it will take to do a change.
 
- So, small teams are bad. Big teams are bad. And we are again playing the balancing game. The goal of this game is to compare the impacts of intra-component mess and inter-team communication on the delivery speed. Which one slows you more?
+So, small teams are bad. Big teams are bad. And we are again playing the balancing game. The goal of this game is to compare the impacts of intra-component mess and inter-team communication on the delivery speed. Which one slows you more?
   
 
 ## Bonus. Quotes from the original Melvin E. Conway's article
