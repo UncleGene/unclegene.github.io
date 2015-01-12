@@ -9,7 +9,19 @@
   <meta name="author" content="Eugene Kalenkovich">
 
   
-  <meta name="description" content="Over the last few years the new hype took over the software industry: &ldquo;Microservices&rdquo;. It started slowly, with articles and presentations &hellip;">
+  <meta name="description" content="(split.rb) download
+1
+2
+3
+4
+5
+6
+7
+8
+9
+s = &quot; To\tbe or\nnot\tto be &quot;
+s.split(/ /)
+#=&gt; [&quot;&quot;, &quot;To\tbe&quot;, &quot;&quot;, & &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +30,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://203.softover.com/posts/2">
+  <link rel="canonical" href="http://203.softover.com/posts/4">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="203" type="application/atom+xml">
@@ -83,7 +95,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2014/11/22/shmackroservices/">Microservices, Macroservices, Shmackroservices: What&#8217;s in a Name?</a></h1>
+      <h1 class="entry-title"><a href="/2013/07/11/split-the-difference/">Split the Difference</a></h1>
     
     
       <p class="meta">
@@ -92,154 +104,43 @@
 
 
 
-<time class='entry-date' datetime='2014-11-22T18:05:38-08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>22</span><span class='date-suffix'>nd</span>, <span class='date-year'>2014</span></span> <span class='time'>6:05 pm</span></time>
+<time class='entry-date' datetime='2013-07-11T09:01:00-07:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>11</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>9:01 am</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>Over the last few years the new hype took over the software industry: &ldquo;Microservices&rdquo;. It started slowly, with articles and presentations popping here and there, and now it is everywhere. The most interesting part is that the industry still cannot agree on what &ldquo;Microservices&rdquo; really are (or even, how to write them - Microservices, Micro-services or Micro Services)</p>
+  <div class="entry-content"><figure class='code'><figcaption><span> (split.rb)</span> <a href='/downloads/code/split.rb'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot; To</span><span class="se">\t</span><span class="s2">be  or</span><span class="se">\n</span><span class="s2">not</span><span class="se">\t</span><span class="s2">to  be  &quot;</span>
+</span><span class='line'><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sr">/ /</span><span class="p">)</span>
+</span><span class='line'><span class="c1">#=&gt; [&quot;&quot;, &quot;To\tbe&quot;, &quot;&quot;, &quot;or\nnot\tto&quot;, &quot;&quot;, &quot;be&quot;]</span>
+</span><span class='line'><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sr">/( )/</span><span class="p">)</span>
+</span><span class='line'><span class="c1">#=&gt; [&quot;&quot;, &quot; &quot;, &quot;To\tbe&quot;, &quot; &quot;, &quot;&quot;, &quot; &quot;, &quot;or\nnot\tto&quot;, &quot; &quot;, &quot;&quot;, &quot; &quot;, &quot;be&quot;, &quot; &quot;, &quot;&quot;, &quot; &quot;]</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span> <span class="sr">/\s+/</span>
+</span><span class='line'><span class="c1">#=&gt; [&quot;&quot;, &quot;To&quot;, &quot;be&quot;, &quot;or&quot;, &quot;not&quot;, &quot;to&quot;, &quot;be&quot;]</span>
+</span><span class='line'><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+</span><span class='line'><span class="c1">#=&gt; [&quot;To&quot;, &quot;be&quot;, &quot;or&quot;, &quot;not&quot;, &quot;to&quot;, &quot;be&quot;]</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<p>In March of 2014 James Lewis and Martin Fowler published an <a href="http://martinfowler.com/articles/microservices.html">article</a> in an attempt to summarize the meaning of this term (and contributing to the hype wide spread).</p>
 
+<p>From the ruby docs:</p>
+
+<blockquote><p>If pattern is a single space, str is split on whitespace, with leading whitespace and runs of contiguous whitespace characters ignored.</p></blockquote>
+
+
+<p>Note that split by regex without groups omits trailing matches. Undocumented?</p>
 </div>
   
-  
-    <footer>
-      <a rel="full-article" href="/2014/11/22/shmackroservices/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2014/11/21/wth-is-soa/">WTH Is SOA?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2014-11-21T14:51:49-08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2014</span></span> <span class='time'>2:51 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>To start with, we are not discussing <a href="http://en.wikipedia.org/wiki/Sons_of_Anarchy">Sons of Anarchy</a> or <a href="http://en.wikipedia.org/wiki/Society_of_Actuaries">Society of Actuaries</a>. This is about Service-Oriented Architecture. But what is Service-Oriented Architecture?</p>
-
-<p>Our usual suspect, wikipedia, says:</p>
-
-<blockquote><p>Service-oriented architecture (SOA) is a software design and software architecture design pattern based on distinct pieces of software providing application functionality as services to other applications. This is known as service-orientation. It is independent of any vendor, product or technology.[<a href="https://en.wikipedia.org/wiki/Service-oriented_architecture#cite_note-1">1</a>]
-&ndash; <a href="http://en.wikipedia.org/wiki/Service-oriented_architecture,">http://en.wikipedia.org/wiki/Service-oriented_architecture,</a> 09/18/2014</p></blockquote>
-
-<p>Let try to digest.</p>
-
-<blockquote><p>architecture [&hellip;] is a software design and software architecture design pattern</p></blockquote>
-
-<p>Awesome! After all these years of debates about differences between architecture and design, in one phrase we can see that they are not only the same, but, at least in the case of SOA, also the same as design pattern!</p>
-
-<blockquote><p>pieces of software providing application functionality as services to other applications</p></blockquote>
-
-<p>OK. Got it. Services are providing functionality as services. And they are pieces of software. And, looking at definition, they are not necessarily applications, but have to provide application functionality, and have to be used by applications. Basically, &ldquo;application of service applications as services to application services&rdquo;</p>
-
-<blockquote><p>This is known as service-orientation.</p></blockquote>
-
-<p>What &ldquo;this&rdquo;? SOA?</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2014/11/21/wth-is-soa/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2013/12/07/rails-shadow-facets-of-concurrency/">Rails: Shadow Facets of Concurrency</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2013-12-07T09:32:00-08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>7</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>9:32 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class="embed-video-container"><iframe src="//www.youtube.com/embed/TV5LEjN6d1U" allowfullscreen></iframe></div>
-
-
-<p>This is my talk at <a href="http://rockymntruby.com">Rocky Mountain Ruby 2013</a>. Slides are available <a href="/concur/rency">here</a>.</p>
-
-<blockquote><p>Rails is a framework well known for ease of development. This ease is achieved by a lot of &#8216;magic&#8217; that happens behind the scenes. One of pitfalls of such magic is a false sense of safety it gives, including sense of safety from concurrency issues for single-threaded environments. You may never discover any problems before the launch, or even after, while your site traffic is pretty sparse. But here comes a glorious moment of popularity - and together with more traffic it brings more and more concurrency-related problems.</p><p>In this talk we will look at different aspects of concurrency, from simple ones that are even mentioned in Rails documentation, to more complex problems that even seasoned developers tend to miss or fail to pay sufficient attention to.</p></blockquote>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2013/09/21/videos/">Videos to Watch</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2013-09-21T16:22:00-07:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2013</span></span> <span class='time'>4:22 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Good presentations, deserve watching:</p>
-
-<ul>
-<li>Deconstructing the Framework by Gary Bernhardt</li>
-<li>Agile is the new black by Fred George</li>
-<li>Confident Code by Avdi Grimm</li>
-<li>Delicious Controversy: Docs &amp; Tests by Thomas Meeks</li>
-<li>Boundaries by Gary Bernhardt</li>
-</ul>
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/2013/09/21/videos/">Read on &rarr;</a>
-    </footer>
   
 
 
@@ -247,11 +148,9 @@
   
   <div class="pagination">
     
-      <a class="prev" href="/posts/3">&larr; Older</a>
-    
     <a href="/blog/archives">Blog Archives</a>
     
-    <a class="next" href="/index.html">Newer &rarr;</a>
+    <a class="next" href="/posts/3">Newer &rarr;</a>
     
   </div>
 </div>
