@@ -4,7 +4,7 @@
   <title><![CDATA[Category: soa | 203]]></title>
   <link href="http://203.softover.com/categories/soa/atom.xml" rel="self"/>
   <link href="http://203.softover.com/"/>
-  <updated>2015-01-11T18:06:52-08:00</updated>
+  <updated>2015-02-02T08:36:26-08:00</updated>
   <id>http://203.softover.com/</id>
   <author>
     <name><![CDATA[Eugene Kalenkovich]]></name>
@@ -12,6 +12,46 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[First Rule of Services - Don’t]]></title>
+    <link href="http://203.softover.com/2015/02/02/first-rule-of-services-dont/"/>
+    <updated>2015-02-02T08:30:49-08:00</updated>
+    <id>http://203.softover.com/2015/02/02/first-rule-of-services-dont</id>
+    <content type="html"><![CDATA[<blockquote><p><p>My First Law of Distributed Object Design: Don&rsquo;t distribute your objects</p>&mdash; Martin Fowler</p></blockquote>
+
+<p>Everything in our life has its price. Services give a lot of benefits, but you are not getting them for free. One should always very carefully consider the price, and readiness to pay it. There are visible and hidden costs of services, including, but not limited to Latency, Complexity and MPOFs</p>
+
+<h2>Latency</h2>
+
+<p>Services need to talk to each other. It means that each request will have to be transferred over the network. Messages have to go through series of transformations - from client&rsquo;s &ldquo;language&rdquo;, to network one, and to one that service understands (and the same on the way back, if your request needs a reply). If you have (and I hope you have) security policies applied to communication - add expenses for authentication, potentially - for encryption and decryption too. All these elements add precious milliseconds (tens? hundreds?) to each request processing. Multiply this by amount of services involved - and you can get pretty significant delays. Are you ready?</p>
+
+<!--more-->
+
+
+<h2>Complexity</h2>
+
+<p>Each time you are adding a new service to your system, you add one more entity to think and care about. Reasoning about architecture is like juggling knives. How many can you do? How many you can add without cutting yourself? What about the case when you <em>have to</em> add one more?</p>
+
+<p>The latter pretty often leads to an opposite extreme - attempts to piggy-back unrelated functionality on existing services (creating new monoliths).</p>
+
+<h2>MPOF</h2>
+
+<p>This is common understanding that a single point of failure is bad. But multiple points of failures may be even worse, and each of your services becomes such point. First of all, the more points of failure you have, the higher is the probability of failure. And, with SPOF, the state of your system is just &ldquo;failed&rdquo;. With MPOFs in case of failure your system is &ldquo;partially failed&rdquo; - and you need to understand what it means and how to manage your system&rsquo;s consistency.</p>
+
+<h2>Simple Service Oxymoron</h2>
+
+<p>Not once in my practice I&rsquo;ve asked &ldquo;Why did you create this service instead of embedding component that would do the same?&rdquo; and heard &ldquo;Why not? This service is so simple!&rdquo;</p>
+
+<p>There ain&rsquo;t no such thing as a &ldquo;simple service&rdquo;. Each service brings in <em>a lot</em> of baggage. You need to manage tests, builds, deployments, logging, monitoring, etc. This is not even counting for what is probably makes your service a service - all the messaging infrastructure with its own dependencies. Somebody will have to maintain it.</p>
+
+<p>And you are paying all the latency, complexity and MPOF taxes.</p>
+
+<h2>Conclusion</h2>
+
+<p>Just don&rsquo;t. Only <strong><em>real</em></strong> scalability and/or extensibility bottlenecks should force you to add new services to your system.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[What SOA Actually Meant]]></title>

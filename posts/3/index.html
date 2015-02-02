@@ -9,7 +9,9 @@
   <meta name="author" content="Eugene Kalenkovich">
 
   
-  <meta name="description" content="Today I was browsing Rails codebase (sometimes people do weird things for fun), and found an interesting piece of code: https://github.com/rails/ &hellip;">
+  <meta name="description" content="Good presentations, deserve watching: Deconstructing the Framework by Gary Bernhardt
+Agile is the new black by Fred George
+Confident Code by Avdi &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -77,6 +79,49 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2013/09/21/videos/">Videos to Watch</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2013-09-21T16:22:00-07:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2013</span></span> <span class='time'>4:22 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Good presentations, deserve watching:</p>
+
+<ul>
+<li>Deconstructing the Framework by Gary Bernhardt</li>
+<li>Agile is the new black by Fred George</li>
+<li>Confident Code by Avdi Grimm</li>
+<li>Delicious Controversy: Docs &amp; Tests by Thomas Meeks</li>
+<li>Boundaries by Gary Bernhardt</li>
+</ul>
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/2013/09/21/videos/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -269,51 +314,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2013/08/30/howto-reset-your-mysql-root-password/">HowTo: Reset Your MySQL Root Password</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2013-08-30T11:06:00-07:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>30</span><span class='date-suffix'>th</span>, <span class='date-year'>2013</span></span> <span class='time'>11:06 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>In case you forgot your root password for MySQL installed with <a href="http://brew.sh/">Homebrew</a> on OS X Mountain Lion.</p>
-
-<figure class='code'><figcaption><span> (reroot.sh)</span> <a href='/downloads/code/reroot.sh'>download</a></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
-</span><span class='line'>/usr/local/opt/mysql/bin/mysqld_safe --skip-grant-tables --skip-networking &amp;
-</span><span class='line'>mysql -e <span class="s2">&quot;UPDATE mysql.user SET Password=PASSWORD(&#39;new password&#39;) WHERE User=&#39;root&#39;; FLUSH PRIVILEGES;&quot;</span>
-</span><span class='line'>/usr/local/bin/mysql.server stop
-</span><span class='line'>launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Different versions may have different paths to be used with launchctl load/unload</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/posts/4">&larr; Older</a>
@@ -342,6 +342,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2015/02/02/first-rule-of-services-dont/">First Rule of Services - Don’t</a>
+      </li>
+    
+      <li class="post">
         <a href="/2015/01/11/corollaries-to-the-conways-law/">Corollaries to the Conway&#8217;s Law</a>
       </li>
     
@@ -355,10 +359,6 @@
     
       <li class="post">
         <a href="/2014/12/01/ultra-srevices-and-declaration-of-independence/">Can I Haz Name?</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2014/11/22/shmackroservices/">Microservices, Macroservices, Shmackroservices: What&#8217;s in a Name?</a>
       </li>
     
   </ul>
