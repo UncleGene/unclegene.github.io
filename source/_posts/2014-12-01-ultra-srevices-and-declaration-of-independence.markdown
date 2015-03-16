@@ -53,3 +53,6 @@ And making your data independent (by defining a bounded context and moving it to
 BTW, please do not be fooled by the semi-jocking tone of the USA part of the post. I've started to work on these independence principles way before microservices fad have started, so there was no need for a name. 
 
 TL;DR: Name them however you want (though probably not microservices), but always follow three rules of service independence  - Independent Scalability, Independent Lifecycle and Independent Data
+
+_You can see an updated version of this declaration at [Services: Declaration of Independence](/2015/03/16/services-declaration-of-independence/)_
+
