@@ -2,8 +2,8 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[203]]></title>
-  <link href="http://203.softover.com/atom.xml" rel="self"/>
-  <link href="http://203.softover.com/"/>
+  <link href="https://unclegene.github.io/atom.xml" rel="self"/>
+  <link href="https://unclegene.github.io/blog/"/>
   <updated>2015-03-16T08:48:06-07:00</updated>
   <id>http://203.softover.com/</id>
   <author>
@@ -15,14 +15,14 @@
   
   <entry>
     <title type="html"><![CDATA[Services: Declaration of Independence]]></title>
-    <link href="http://203.softover.com/2015/03/16/services-declaration-of-independence/"/>
+    <link href="https://unclegene.github.io/blog/2015/03/16/services-declaration-of-independence/"/>
     <updated>2015-03-16T08:29:30-07:00</updated>
     <id>http://203.softover.com/2015/03/16/services-declaration-of-independence</id>
     <content type="html"><![CDATA[<blockquote><p>When in the Course of human events, <strong><em>it becomes necessary</em></strong> for one people <strong><em>to dissolve the</em></strong> political <strong><em>bands which have connected them with another, and to assume</em></strong> among the powers of the earth, <strong><em>the separate and equal station</em></strong> to which the Laws of Nature and of Nature&rsquo;s God entitle them, a decent respect to the opinions of mankind requires that they <strong><em>should declare the causes which impel them to the separation.</em></strong></p></blockquote>
 
 <p>Services have to be independent. They can achieve <strong>Independent Scalability</strong> and <strong>Independent Lifecycle</strong> by having <strong>Independent Data</strong>, <strong>Independent Code</strong> and <strong>Independent Deployments</strong>.</p>
 
-<p><img class="centered" src="http://203.softover.com/images/Independence.png" /></p>
+<p><img class="centered" src="https://unclegene.github.io/blog/images/Independence.png" /></p>
 
 <!--more-->
 
@@ -70,13 +70,13 @@
 </ul>
 </blockquote>
 
-<p><em>This is an updated version of declaration that hat its first appearence in the <a href="http://203.softover.com/2014/12/01/ultra-srevices-and-declaration-of-independence/">Can I Haz Name?</a> post</em></p>
+<p><em>This is an updated version of declaration that hat its first appearence in the <a href="https://unclegene.github.io/blog/2014/12/01/ultra-srevices-and-declaration-of-independence/">Can I Haz Name?</a> post</em></p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[First Rule of Services - Don’t]]></title>
-    <link href="http://203.softover.com/2015/02/02/first-rule-of-services-dont/"/>
+    <link href="https://unclegene.github.io/blog/2015/02/02/first-rule-of-services-dont/"/>
     <updated>2015-02-02T08:30:49-08:00</updated>
     <id>http://203.softover.com/2015/02/02/first-rule-of-services-dont</id>
     <content type="html"><![CDATA[<blockquote><p><p>My First Law of Distributed Object Design: Don&rsquo;t distribute your objects</p>&mdash; Martin Fowler</p></blockquote>
@@ -116,7 +116,7 @@
   
   <entry>
     <title type="html"><![CDATA[Corollaries to the Conway's Law]]></title>
-    <link href="http://203.softover.com/2015/01/11/corollaries-to-the-conways-law/"/>
+    <link href="https://unclegene.github.io/blog/2015/01/11/corollaries-to-the-conways-law/"/>
     <updated>2015-01-11T17:38:57-08:00</updated>
     <id>http://203.softover.com/2015/01/11/corollaries-to-the-conways-law</id>
     <content type="html"><![CDATA[<blockquote><p>Any organization that designs a system (defined more broadly here than just information systems) will inevitably produce a design whose structure is a copy of the organization&rsquo;s communication structure.</p>
@@ -218,7 +218,7 @@
   
   <entry>
     <title type="html"><![CDATA[What SOA Actually Meant]]></title>
-    <link href="http://203.softover.com/2014/12/15/what-soa-actually-meant/"/>
+    <link href="https://unclegene.github.io/blog/2014/12/15/what-soa-actually-meant/"/>
     <updated>2014-12-15T07:48:06-08:00</updated>
     <id>http://203.softover.com/2014/12/15/what-soa-actually-meant</id>
     <content type="html"><![CDATA[<blockquote><p><p>I guess it is easier to use a new name (Microservices) rather than say that this is what SOA actually meant</p>&mdash; Arnon Rotem-Gal-Oz (@arnonrgo) <a href="https://twitter.com/arnonrgo/status/445188642727034880">March 16, 2014</a></p></blockquote>
@@ -268,13 +268,13 @@
   
   <entry>
     <title type="html"><![CDATA[Videos - Picks for December, 2014]]></title>
-    <link href="http://203.softover.com/2014/12/15/videos-december/"/>
+    <link href="https://unclegene.github.io/blog/2014/12/15/videos-december/"/>
     <updated>2014-12-15T07:40:12-08:00</updated>
     <id>http://203.softover.com/2014/12/15/videos-december</id>
     <content type="html"><![CDATA[<ul>
-<li><a href="http://203.softover.com/2014/12/15/videos-december#debt">The Technical Debt Trap</a> by Doc Norton</li>
-<li><a href="http://203.softover.com/2014/12/15/videos-december#brown">Software Architecture vs Code</a> by Simon Brown</li>
-<li><a href="http://203.softover.com/2014/12/15/videos-december#hacker">One Hacker Way</a> by Erik Meijer</li>
+<li><a href="https://unclegene.github.io/blog/2014/12/15/videos-december/#debt">The Technical Debt Trap</a> by Doc Norton</li>
+<li><a href="https://unclegene.github.io/blog/2014/12/15/videos-december/#brown">Software Architecture vs Code</a> by Simon Brown</li>
+<li><a href="https://unclegene.github.io/blog/2014/12/15/videos-december/#hacker">One Hacker Way</a> by Erik Meijer</li>
 </ul>
 
 
@@ -318,10 +318,10 @@
   
   <entry>
     <title type="html"><![CDATA[Can I Haz Name?]]></title>
-    <link href="http://203.softover.com/2014/12/01/ultra-srevices-and-declaration-of-independence/"/>
+    <link href="https://unclegene.github.io/blog/2014/12/01/ultra-srevices-and-declaration-of-independence/"/>
     <updated>2014-12-01T08:57:59-08:00</updated>
     <id>http://203.softover.com/2014/12/01/ultra-srevices-and-declaration-of-independence</id>
-    <content type="html"><![CDATA[<p>All this hype about microservices makes me sad. And not about the concept, but about the name. As I wrote <a href="http://203.softover.com/2014/11/22/shmackroservices/">before</a>, &ldquo;micro&rdquo; in &ldquo;microservices&rdquo; means absolutely nothing. What is worse, it confuses everybody. Again and again I see people focusing on &ldquo;micro&rdquo; and falling into <a href="http://arnon.me/wp-content/uploads/2010/10/Nanoservices.pdf">nanoservices</a> trap.</p>
+    <content type="html"><![CDATA[<p>All this hype about microservices makes me sad. And not about the concept, but about the name. As I wrote <a href="https://unclegene.github.io/blog/2014/11/22/shmackroservices/">before</a>, &ldquo;micro&rdquo; in &ldquo;microservices&rdquo; means absolutely nothing. What is worse, it confuses everybody. Again and again I see people focusing on &ldquo;micro&rdquo; and falling into <a href="http://arnon.me/wp-content/uploads/2010/10/Nanoservices.pdf">nanoservices</a> trap.</p>
 
 <blockquote><p><p>Nanoservice is an antipattern where a service is too fine-grained. A nanoservice is a service whose overhead (communications, maintenance, and so on) outweighs its utility.</p>&mdash;Arnon Rotem-Gal-Oz</p></blockquote>
 
@@ -386,13 +386,13 @@ And ultra is a good prefix for #ultraservices. It can mean anything you want! Ul
 
 <p>TL;DR: Name them however you want (though probably not microservices), but always follow three rules of service independence  - Independent Scalability, Independent Lifecycle and Independent Data</p>
 
-<p><em>You can see an updated version of this declaration at <a href="http://203.softover.com/2015/03/16/services-declaration-of-independence/">Services: Declaration of Independence</a></em></p>
+<p><em>You can see an updated version of this declaration at <a href="https://unclegene.github.io/blog/2015/03/16/services-declaration-of-independence/">Services: Declaration of Independence</a></em></p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Microservices, Macroservices, Shmackroservices: What's in a Name?]]></title>
-    <link href="http://203.softover.com/2014/11/22/shmackroservices/"/>
+    <link href="https://unclegene.github.io/blog/2014/11/22/shmackroservices/"/>
     <updated>2014-11-22T18:05:38-08:00</updated>
     <id>http://203.softover.com/2014/11/22/shmackroservices</id>
     <content type="html"><![CDATA[<p>Over the last few years the new hype took over the software industry: &ldquo;Microservices&rdquo;. It started slowly, with articles and presentations popping here and there, and now it is everywhere. The most interesting part is that the industry still cannot agree on what &ldquo;Microservices&rdquo; really are (or even, how to write them - Microservices, Micro-services or Micro Services)</p>
@@ -429,14 +429,14 @@ And ultra is a good prefix for #ultraservices. It can mean anything you want! Ul
 <blockquote class="twitter-tweet" data-conversation="none" lang="en"><p><a href="https://twitter.com/UncleGene">@UncleGene</a> Micro-Services are just SOA done properly &#8211; simple functionality, well-defined interfaces, minimal dependencies</p>&mdash; Randy Shoup (@randyshoup) <a href="https://twitter.com/randyshoup/status/530820576810926080">November 7, 2014</a></blockquote>
 
 
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 
 
 <blockquote><p><p><a href="http://service-architecture.blogspot.co.uk/2014/03/microservices-is-soa-for-those-who-know.html">Microservices is SOA, for those who know what SOA is.</a></p> &mdash; Steve Jones March 18, 2014</p></blockquote>
 
 <p>So, to understand what &ldquo;Microservices&rdquo; really are, we should first understand what is SOA (and what is SOA done properly). Rose may smell sweet by any name, but if you step into [something] - you can name it a rose (or micro[something]), but smell will not change until you clean up your shoes.</p>
 
-<p>You can see my &ldquo;tongue-in-cheek&rdquo; definition <a href="http://203.softover.com/2014/11/21/wth-is-soa/">here</a>, please stay tuned for the real one coming soon.</p>
+<p>You can see my &ldquo;tongue-in-cheek&rdquo; definition <a href="https://unclegene.github.io/blog/2014/11/21/wth-is-soa/">here</a>, please stay tuned for the real one coming soon.</p>
 
 <p>But for now, just one takeaway: &ldquo;Micro&rdquo; in &ldquo;Microservices&rdquo; means <strong>absolutely nothing</strong>.</p>
 ]]></content>
@@ -444,7 +444,7 @@ And ultra is a good prefix for #ultraservices. It can mean anything you want! Ul
   
   <entry>
     <title type="html"><![CDATA[WTH Is SOA?]]></title>
-    <link href="http://203.softover.com/2014/11/21/wth-is-soa/"/>
+    <link href="https://unclegene.github.io/blog/2014/11/21/wth-is-soa/"/>
     <updated>2014-11-21T14:51:49-08:00</updated>
     <id>http://203.softover.com/2014/11/21/wth-is-soa</id>
     <content type="html"><![CDATA[<p>To start with, we are not discussing <a href="http://en.wikipedia.org/wiki/Sons_of_Anarchy">Sons of Anarchy</a> or <a href="http://en.wikipedia.org/wiki/Society_of_Actuaries">Society of Actuaries</a>. This is about Service-Oriented Architecture. But what is Service-Oriented Architecture?</p>
@@ -523,13 +523,13 @@ And ultra is a good prefix for #ultraservices. It can mean anything you want! Ul
   
   <entry>
     <title type="html"><![CDATA[Rails: Shadow Facets of Concurrency]]></title>
-    <link href="http://203.softover.com/2013/12/07/rails-shadow-facets-of-concurrency/"/>
+    <link href="https://unclegene.github.io/blog/2013/12/07/rails-shadow-facets-of-concurrency/"/>
     <updated>2013-12-07T09:32:00-08:00</updated>
     <id>http://203.softover.com/2013/12/07/rails-shadow-facets-of-concurrency</id>
     <content type="html"><![CDATA[<div class="embed-video-container"><iframe src="//www.youtube.com/embed/TV5LEjN6d1U" allowfullscreen></iframe></div>
 
 
-<p>This is my talk at <a href="http://rockymntruby.com">Rocky Mountain Ruby 2013</a>. Slides are available <a href="http://203.softover.com/concur/rency">here</a>.</p>
+<p>This is my talk at <a href="http://rockymntruby.com">Rocky Mountain Ruby 2013</a>. Slides are available <a href="https://unclegene.github.io/concur/rency">here</a>.</p>
 
 <blockquote><p>Rails is a framework well known for ease of development. This ease is achieved by a lot of &#8216;magic&#8217; that happens behind the scenes. One of pitfalls of such magic is a false sense of safety it gives, including sense of safety from concurrency issues for single-threaded environments. You may never discover any problems before the launch, or even after, while your site traffic is pretty sparse. But here comes a glorious moment of popularity - and together with more traffic it brings more and more concurrency-related problems.</p><p>In this talk we will look at different aspects of concurrency, from simple ones that are even mentioned in Rails documentation, to more complex problems that even seasoned developers tend to miss or fail to pay sufficient attention to.</p></blockquote>
 
@@ -538,7 +538,7 @@ And ultra is a good prefix for #ultraservices. It can mean anything you want! Ul
   
   <entry>
     <title type="html"><![CDATA[Videos to Watch]]></title>
-    <link href="http://203.softover.com/2013/09/21/videos/"/>
+    <link href="https://unclegene.github.io/blog/2013/09/21/videos/"/>
     <updated>2013-09-21T16:22:00-07:00</updated>
     <id>http://203.softover.com/2013/09/21/videos</id>
     <content type="html"><![CDATA[<p>Good presentations, deserve watching:</p>
@@ -604,7 +604,7 @@ And ultra is a good prefix for #ultraservices. It can mean anything you want! Ul
   
   <entry>
     <title type="html"><![CDATA[Numeric Fun]]></title>
-    <link href="http://203.softover.com/2013/09/17/numeric-fun/"/>
+    <link href="https://unclegene.github.io/blog/2013/09/17/numeric-fun/"/>
     <updated>2013-09-17T08:49:00-07:00</updated>
     <id>http://203.softover.com/2013/09/17/numeric-fun</id>
     <content type="html"><![CDATA[<p>Today I was browsing Rails codebase (sometimes people do weird things for fun), and found an interesting piece of code:</p>
@@ -764,10 +764,10 @@ And ultra is a good prefix for #ultraservices. It can mean anything you want! Ul
   
   <entry>
     <title type="html"><![CDATA[Curious First]]></title>
-    <link href="http://203.softover.com/2013/09/15/curious-first/"/>
+    <link href="https://unclegene.github.io/blog/2013/09/15/curious-first/"/>
     <updated>2013-09-15T09:40:00-07:00</updated>
     <id>http://203.softover.com/2013/09/15/curious-first</id>
-    <content type="html"><![CDATA[<figure class='code'><figcaption><span> (first_last.rb)</span> <a href='http://203.softover.com/downloads/code/first_last.rb'>download</a></figcaption>
+    <content type="html"><![CDATA[<figure class='code'><figcaption><span> (first_last.rb)</span> <a href='https://unclegene.github.io/blog/downloads/code/first_last.rb'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -824,7 +824,7 @@ And ultra is a good prefix for #ultraservices. It can mean anything you want! Ul
   
   <entry>
     <title type="html"><![CDATA[Design Process]]></title>
-    <link href="http://203.softover.com/2013/09/13/design-process/"/>
+    <link href="https://unclegene.github.io/blog/2013/09/13/design-process/"/>
     <updated>2013-09-13T12:41:00-07:00</updated>
     <id>http://203.softover.com/2013/09/13/design-process</id>
     <content type="html"><![CDATA[<p>Yesterday I&rsquo;ve attended my daughter&rsquo;s &ldquo;Curriculum Night&rdquo; (yes, I am a very good and responsible dad, I even managed not only to recall where the school is, but also to successfully follow my wife&rsquo;s instructions on how to find the classroom).</p>
@@ -925,12 +925,12 @@ And ultra is a good prefix for #ultraservices. It can mean anything you want! Ul
   
   <entry>
     <title type="html"><![CDATA[HowTo: Reset Your MySQL Root Password]]></title>
-    <link href="http://203.softover.com/2013/08/30/howto-reset-your-mysql-root-password/"/>
+    <link href="https://unclegene.github.io/blog/2013/08/30/howto-reset-your-mysql-root-password/"/>
     <updated>2013-08-30T11:06:00-07:00</updated>
     <id>http://203.softover.com/2013/08/30/howto-reset-your-mysql-root-password</id>
     <content type="html"><![CDATA[<p>In case you forgot your root password for MySQL installed with <a href="http://brew.sh/">Homebrew</a> on OS X Mountain Lion.</p>
 
-<figure class='code'><figcaption><span> (reroot.sh)</span> <a href='http://203.softover.com/downloads/code/reroot.sh'>download</a></figcaption>
+<figure class='code'><figcaption><span> (reroot.sh)</span> <a href='https://unclegene.github.io/blog/downloads/code/reroot.sh'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -950,10 +950,10 @@ And ultra is a good prefix for #ultraservices. It can mean anything you want! Ul
   
   <entry>
     <title type="html"><![CDATA[Split the Difference]]></title>
-    <link href="http://203.softover.com/2013/07/11/split-the-difference/"/>
+    <link href="https://unclegene.github.io/blog/2013/07/11/split-the-difference/"/>
     <updated>2013-07-11T09:01:00-07:00</updated>
     <id>http://203.softover.com/2013/07/11/split-the-difference</id>
-    <content type="html"><![CDATA[<figure class='code'><figcaption><span> (split.rb)</span> <a href='http://203.softover.com/downloads/code/split.rb'>download</a></figcaption>
+    <content type="html"><![CDATA[<figure class='code'><figcaption><span> (split.rb)</span> <a href='https://unclegene.github.io/blog/downloads/code/split.rb'>download</a></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>

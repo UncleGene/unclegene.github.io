@@ -1,0 +1,144 @@
+{
+  "checked_at": "2026-10-18",
+  "repositories": [
+    {
+      "name": "bise",
+      "html_url": "https://github.com/UncleGene/bise",
+      "description": "Binary search in presorted text files",
+      "language": "Ruby",
+      "fork": false,
+      "archived": false,
+      "has_pages": false,
+      "pages": null
+    },
+    {
+      "name": "bullseye_encyclopedia",
+      "html_url": "https://github.com/UncleGene/bullseye_encyclopedia",
+      "description": null,
+      "language": "HTML",
+      "fork": false,
+      "archived": false,
+      "has_pages": true,
+      "pages": {
+        "url": "https://unclegene.github.io/bullseye_encyclopedia/",
+        "status": 200
+      }
+    },
+    {
+      "name": "concur",
+      "html_url": "https://github.com/UncleGene/concur",
+      "description": "Rails concurrency sample app",
+      "language": "JavaScript",
+      "fork": false,
+      "archived": false,
+      "has_pages": true,
+      "pages": {
+        "url": "https://unclegene.github.io/concur/rency/",
+        "status": 200
+      }
+    },
+    {
+      "name": "drill",
+      "html_url": "https://github.com/UncleGene/drill",
+      "description": "Drill Manager - evolving Sinatra application example",
+      "language": "Ruby",
+      "fork": false,
+      "archived": false,
+      "has_pages": false,
+      "pages": null
+    },
+    {
+      "name": "flay-actionpack",
+      "html_url": "https://github.com/UncleGene/flay-actionpack",
+      "description": "Flay your rails ERB",
+      "language": "Ruby",
+      "fork": false,
+      "archived": false,
+      "has_pages": false,
+      "pages": null
+    },
+    {
+      "name": "flay-haml",
+      "html_url": "https://github.com/UncleGene/flay-haml",
+      "description": "HAML plugin for flay",
+      "language": "Ruby",
+      "fork": false,
+      "archived": false,
+      "has_pages": false,
+      "pages": null
+    },
+    {
+      "name": "flay-js",
+      "html_url": "https://github.com/UncleGene/flay-js",
+      "description": "Flay your JavaScript",
+      "language": "Ruby",
+      "fork": false,
+      "archived": false,
+      "has_pages": false,
+      "pages": null
+    },
+    {
+      "name": "flay_haml",
+      "html_url": "https://github.com/UncleGene/flay_haml",
+      "description": "Renamed to flay-haml ",
+      "language": "Ruby",
+      "fork": false,
+      "archived": false,
+      "has_pages": false,
+      "pages": null
+    },
+    {
+      "name": "last_line",
+      "html_url": "https://github.com/UncleGene/last_line",
+      "description": "Add last line of XSRF defense to your controllers ",
+      "language": "Ruby",
+      "fork": false,
+      "archived": false,
+      "has_pages": false,
+      "pages": null
+    },
+    {
+      "name": "rhymeapp",
+      "html_url": "https://github.com/UncleGene/rhymeapp",
+      "description": "Showcase for rhyme gem",
+      "language": "Ruby",
+      "fork": false,
+      "archived": false,
+      "has_pages": false,
+      "pages": null
+    },
+    {
+      "name": "rhymes",
+      "html_url": "https://github.com/UncleGene/rhymes",
+      "description": "Lookup perfect and identical rhymes",
+      "language": "Ruby",
+      "fork": false,
+      "archived": false,
+      "has_pages": false,
+      "pages": null
+    },
+    {
+      "name": "tax_code",
+      "html_url": "https://github.com/UncleGene/tax_code",
+      "description": "Calculate your code churn tax",
+      "language": "Ruby",
+      "fork": false,
+      "archived": false,
+      "has_pages": false,
+      "pages": null
+    },
+    {
+      "name": "unclegene.github.io",
+      "html_url": "https://github.com/UncleGene/unclegene.github.io",
+      "description": "Octopress blog",
+      "language": "HTML",
+      "fork": false,
+      "archived": false,
+      "has_pages": true,
+      "pages": {
+        "url": "https://unclegene.github.io/",
+        "status": 200
+      }
+    }
+  ]
+}

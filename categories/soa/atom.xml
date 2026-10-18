@@ -2,8 +2,8 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: soa | 203]]></title>
-  <link href="http://203.softover.com/categories/soa/atom.xml" rel="self"/>
-  <link href="http://203.softover.com/"/>
+  <link href="https://unclegene.github.io/categories/soa/atom.xml" rel="self"/>
+  <link href="https://unclegene.github.io/blog/"/>
   <updated>2015-03-16T08:48:06-07:00</updated>
   <id>http://203.softover.com/</id>
   <author>
@@ -15,7 +15,7 @@
   
   <entry>
     <title type="html"><![CDATA[Services: Declaration of Independence]]></title>
-    <link href="http://203.softover.com/2015/03/16/services-declaration-of-independence/"/>
+    <link href="https://unclegene.github.io/blog/2015/03/16/services-declaration-of-independence/"/>
     <updated>2015-03-16T08:29:30-07:00</updated>
     <id>http://203.softover.com/2015/03/16/services-declaration-of-independence</id>
     <content type="html"><![CDATA[<blockquote><p>When in the Course of human events, <strong><em>it becomes necessary</em></strong> for one people <strong><em>to dissolve the</em></strong> political <strong><em>bands which have connected them with another, and to assume</em></strong> among the powers of the earth, <strong><em>the separate and equal station</em></strong> to which the Laws of Nature and of Nature&rsquo;s God entitle them, a decent respect to the opinions of mankind requires that they <strong><em>should declare the causes which impel them to the separation.</em></strong></p></blockquote>
@@ -76,7 +76,7 @@
   
   <entry>
     <title type="html"><![CDATA[First Rule of Services - Don’t]]></title>
-    <link href="http://203.softover.com/2015/02/02/first-rule-of-services-dont/"/>
+    <link href="https://unclegene.github.io/blog/2015/02/02/first-rule-of-services-dont/"/>
     <updated>2015-02-02T08:30:49-08:00</updated>
     <id>http://203.softover.com/2015/02/02/first-rule-of-services-dont</id>
     <content type="html"><![CDATA[<blockquote><p><p>My First Law of Distributed Object Design: Don&rsquo;t distribute your objects</p>&mdash; Martin Fowler</p></blockquote>
@@ -116,7 +116,7 @@
   
   <entry>
     <title type="html"><![CDATA[What SOA Actually Meant]]></title>
-    <link href="http://203.softover.com/2014/12/15/what-soa-actually-meant/"/>
+    <link href="https://unclegene.github.io/blog/2014/12/15/what-soa-actually-meant/"/>
     <updated>2014-12-15T07:48:06-08:00</updated>
     <id>http://203.softover.com/2014/12/15/what-soa-actually-meant</id>
     <content type="html"><![CDATA[<blockquote><p><p>I guess it is easier to use a new name (Microservices) rather than say that this is what SOA actually meant</p>&mdash; Arnon Rotem-Gal-Oz (@arnonrgo) <a href="https://twitter.com/arnonrgo/status/445188642727034880">March 16, 2014</a></p></blockquote>
@@ -166,10 +166,10 @@
   
   <entry>
     <title type="html"><![CDATA[Can I Haz Name?]]></title>
-    <link href="http://203.softover.com/2014/12/01/ultra-srevices-and-declaration-of-independence/"/>
+    <link href="https://unclegene.github.io/blog/2014/12/01/ultra-srevices-and-declaration-of-independence/"/>
     <updated>2014-12-01T08:57:59-08:00</updated>
     <id>http://203.softover.com/2014/12/01/ultra-srevices-and-declaration-of-independence</id>
-    <content type="html"><![CDATA[<p>All this hype about microservices makes me sad. And not about the concept, but about the name. As I wrote <a href="http://203.softover.com/2014/11/22/shmackroservices/">before</a>, &ldquo;micro&rdquo; in &ldquo;microservices&rdquo; means absolutely nothing. What is worse, it confuses everybody. Again and again I see people focusing on &ldquo;micro&rdquo; and falling into <a href="http://arnon.me/wp-content/uploads/2010/10/Nanoservices.pdf">nanoservices</a> trap.</p>
+    <content type="html"><![CDATA[<p>All this hype about microservices makes me sad. And not about the concept, but about the name. As I wrote <a href="https://unclegene.github.io/blog/2014/11/22/shmackroservices/">before</a>, &ldquo;micro&rdquo; in &ldquo;microservices&rdquo; means absolutely nothing. What is worse, it confuses everybody. Again and again I see people focusing on &ldquo;micro&rdquo; and falling into <a href="http://arnon.me/wp-content/uploads/2010/10/Nanoservices.pdf">nanoservices</a> trap.</p>
 
 <blockquote><p><p>Nanoservice is an antipattern where a service is too fine-grained. A nanoservice is a service whose overhead (communications, maintenance, and so on) outweighs its utility.</p>&mdash;Arnon Rotem-Gal-Oz</p></blockquote>
 
@@ -240,7 +240,7 @@ And ultra is a good prefix for #ultraservices. It can mean anything you want! Ul
   
   <entry>
     <title type="html"><![CDATA[Microservices, Macroservices, Shmackroservices: What's in a Name?]]></title>
-    <link href="http://203.softover.com/2014/11/22/shmackroservices/"/>
+    <link href="https://unclegene.github.io/blog/2014/11/22/shmackroservices/"/>
     <updated>2014-11-22T18:05:38-08:00</updated>
     <id>http://203.softover.com/2014/11/22/shmackroservices</id>
     <content type="html"><![CDATA[<p>Over the last few years the new hype took over the software industry: &ldquo;Microservices&rdquo;. It started slowly, with articles and presentations popping here and there, and now it is everywhere. The most interesting part is that the industry still cannot agree on what &ldquo;Microservices&rdquo; really are (or even, how to write them - Microservices, Micro-services or Micro Services)</p>
@@ -277,14 +277,14 @@ And ultra is a good prefix for #ultraservices. It can mean anything you want! Ul
 <blockquote class="twitter-tweet" data-conversation="none" lang="en"><p><a href="https://twitter.com/UncleGene">@UncleGene</a> Micro-Services are just SOA done properly &#8211; simple functionality, well-defined interfaces, minimal dependencies</p>&mdash; Randy Shoup (@randyshoup) <a href="https://twitter.com/randyshoup/status/530820576810926080">November 7, 2014</a></blockquote>
 
 
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 
 
 <blockquote><p><p><a href="http://service-architecture.blogspot.co.uk/2014/03/microservices-is-soa-for-those-who-know.html">Microservices is SOA, for those who know what SOA is.</a></p> &mdash; Steve Jones March 18, 2014</p></blockquote>
 
 <p>So, to understand what &ldquo;Microservices&rdquo; really are, we should first understand what is SOA (and what is SOA done properly). Rose may smell sweet by any name, but if you step into [something] - you can name it a rose (or micro[something]), but smell will not change until you clean up your shoes.</p>
 
-<p>You can see my &ldquo;tongue-in-cheek&rdquo; definition <a href="http://203.softover.com/2014/11/21/wth-is-soa/">here</a>, please stay tuned for the real one coming soon.</p>
+<p>You can see my &ldquo;tongue-in-cheek&rdquo; definition <a href="https://unclegene.github.io/blog/2014/11/21/wth-is-soa/">here</a>, please stay tuned for the real one coming soon.</p>
 
 <p>But for now, just one takeaway: &ldquo;Micro&rdquo; in &ldquo;Microservices&rdquo; means <strong>absolutely nothing</strong>.</p>
 ]]></content>

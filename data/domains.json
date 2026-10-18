@@ -1,0 +1,72 @@
+{
+  "groups": [
+    {
+      "id": "preservation",
+      "title": "Digital preservation",
+      "description": "Keeping useful knowledge accessible.",
+      "repos": [
+        "bullseye_encyclopedia"
+      ]
+    },
+    {
+      "id": "code-quality",
+      "title": "Code quality & analysis",
+      "description": "Tools for understanding and improving a codebase.",
+      "repos": [
+        "flay-actionpack",
+        "flay-haml",
+        "flay-js",
+        "tax_code",
+        "flay_haml"
+      ]
+    },
+    {
+      "id": "web",
+      "title": "Web & concurrency",
+      "description": "Experiments in web applications, safety, and concurrent systems.",
+      "repos": [
+        "concur",
+        "drill",
+        "last_line"
+      ]
+    },
+    {
+      "id": "language",
+      "title": "Search & language",
+      "description": "Finding words, rhymes, and the right line in a file.",
+      "repos": [
+        "bise",
+        "rhymes",
+        "rhymeapp"
+      ]
+    },
+    {
+      "id": "writing",
+      "title": "Writing & personal site",
+      "description": "A home for projects and notes from the archive.",
+      "repos": [
+        "unclegene.github.io"
+      ]
+    }
+  ],
+  "overrides": {
+    "bullseye_encyclopedia": {
+      "description": "Preserving The Encyclopedia of Bullseye Pistol: recovered articles, historical pages, and reading editions.",
+      "pages_url": "https://unclegene.github.io/bullseye_encyclopedia/"
+    },
+    "concur": {
+      "description": "A Rails concurrency sandbox, with the Rails vs Real Life presentation.",
+      "pages_url": "https://unclegene.github.io/concur/rency/",
+      "pages_label": "View slides",
+      "video_url": "https://youtu.be/TV5LEjN6d1U"
+    },
+    "unclegene.github.io": {
+      "description": "This project directory and the 203 blog archive: notes on services, software design, Ruby, and Rails.",
+      "pages_url": "https://unclegene.github.io/"
+    },
+    "flay_haml": {
+      "description": "The original HAML plugin for Flay; renamed to flay-haml.",
+      "note": "Renamed to flay-haml"
+    }
+  }
+}

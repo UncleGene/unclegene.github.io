@@ -1,0 +1,249 @@
+{
+  "baseline_commit": "ea70b0d",
+  "routes": {
+    "/": "/blog/",
+    "/archives/": "/blog/archives/",
+    "/categories/": "/blog/categories/",
+    "/categories/video/": "/blog/categories/video/",
+    "/categories/osx/": "/blog/categories/osx/",
+    "/categories/db/": "/blog/categories/db/",
+    "/categories/soa/": "/blog/categories/soa/",
+    "/categories/ruby/": "/blog/categories/ruby/",
+    "/categories/process/": "/blog/categories/process/",
+    "/categories/rails/": "/blog/categories/rails/",
+    "/blog/archives/": "/blog/archives/",
+    "/posts/4/": "/blog/posts/4/",
+    "/posts/3/": "/blog/posts/3/",
+    "/posts/2/": "/blog/posts/2/",
+    "/2015/01/11/corollaries-to-the-conways-law/": "/blog/2015/01/11/corollaries-to-the-conways-law/",
+    "/2015/02/02/first-rule-of-services-dont/": "/blog/2015/02/02/first-rule-of-services-dont/",
+    "/2015/03/16/services-declaration-of-independence/": "/blog/2015/03/16/services-declaration-of-independence/",
+    "/2014/12/15/what-soa-actually-meant/": "/blog/2014/12/15/what-soa-actually-meant/",
+    "/2014/12/15/videos-december/": "/blog/2014/12/15/videos-december/",
+    "/2014/12/01/ultra-srevices-and-declaration-of-independence/": "/blog/2014/12/01/ultra-srevices-and-declaration-of-independence/",
+    "/2014/11/22/shmackroservices/": "/blog/2014/11/22/shmackroservices/",
+    "/2014/11/21/wth-is-soa/": "/blog/2014/11/21/wth-is-soa/",
+    "/2013/12/07/rails-shadow-facets-of-concurrency/": "/blog/2013/12/07/rails-shadow-facets-of-concurrency/",
+    "/2013/08/30/howto-reset-your-mysql-root-password/": "/blog/2013/08/30/howto-reset-your-mysql-root-password/",
+    "/2013/09/13/design-process/": "/blog/2013/09/13/design-process/",
+    "/2013/09/15/curious-first/": "/blog/2013/09/15/curious-first/",
+    "/2013/09/21/videos/": "/blog/2013/09/21/videos/",
+    "/2013/09/17/numeric-fun/": "/blog/2013/09/17/numeric-fun/",
+    "/2013/07/11/split-the-difference/": "/blog/2013/07/11/split-the-difference/"
+  },
+  "articles": {
+    "2015/01/11/corollaries-to-the-conways-law/index.html": {
+      "text_sha256": "2230cb8bb213defda20436cc833dd88debf1caf0403d5a0f55a31a18ab9b390d",
+      "comment_identifiers": [
+        "http://203.softover.com/2015/01/11/corollaries-to-the-conways-law/"
+      ]
+    },
+    "2015/02/02/first-rule-of-services-dont/index.html": {
+      "text_sha256": "0d9c13278ab299b9a5a3ccf5f584911db8e2bf0a85685748d42597147cde8e75",
+      "comment_identifiers": [
+        "http://203.softover.com/2015/02/02/first-rule-of-services-dont/"
+      ]
+    },
+    "2015/03/16/services-declaration-of-independence/index.html": {
+      "text_sha256": "3e45b68da3808cd5a5a8216d06c86e9d33614ec9e3732029e987a5b939287aed",
+      "comment_identifiers": [
+        "http://203.softover.com/2015/03/16/services-declaration-of-independence/"
+      ]
+    },
+    "2014/12/15/what-soa-actually-meant/index.html": {
+      "text_sha256": "2970666b3c3ebb0619380033a6842f37d3acbe9c35de8894e5acc48430e4de6c",
+      "comment_identifiers": [
+        "http://203.softover.com/2014/12/15/what-soa-actually-meant/"
+      ]
+    },
+    "2014/12/15/videos-december/index.html": {
+      "text_sha256": "215b20a99dfd4dfafbf28b8fa6a2494bd125de2841a56ffe851d79b5c707d4bf",
+      "comment_identifiers": [
+        "http://203.softover.com/2014/12/15/videos-december/"
+      ]
+    },
+    "2014/12/01/ultra-srevices-and-declaration-of-independence/index.html": {
+      "text_sha256": "2388023bf290ce579d71a5df3f184973058c00a81c86fa199f37b39ccc23b6b6",
+      "comment_identifiers": [
+        "http://203.softover.com/2014/12/01/ultra-srevices-and-declaration-of-independence/"
+      ]
+    },
+    "2014/11/22/shmackroservices/index.html": {
+      "text_sha256": "8fa4e0a0adc1a1d294b260abfa8b6b6945ad88630ee1271e5ceace0739fbe3dc",
+      "comment_identifiers": [
+        "http://203.softover.com/2014/11/22/shmackroservices/"
+      ]
+    },
+    "2014/11/21/wth-is-soa/index.html": {
+      "text_sha256": "7d41fee3e4aa4d5431e45921d44e61d3988e0155bee5473611ba784cdd938da5",
+      "comment_identifiers": [
+        "http://203.softover.com/2014/11/21/wth-is-soa/"
+      ]
+    },
+    "2013/12/07/rails-shadow-facets-of-concurrency/index.html": {
+      "text_sha256": "92144ce415f7206c5811dd60633fa5ac7053b4e186083de6281bfce39f16c45f",
+      "comment_identifiers": [
+        "http://203.softover.com/2013/12/07/rails-shadow-facets-of-concurrency/"
+      ]
+    },
+    "2013/08/30/howto-reset-your-mysql-root-password/index.html": {
+      "text_sha256": "8909ca5e234eb5411fac1d07d7a592db1fc3bbcdc66cc073aed08118a13be1f2",
+      "comment_identifiers": [
+        "http://203.softover.com/2013/08/30/howto-reset-your-mysql-root-password/"
+      ]
+    },
+    "2013/09/13/design-process/index.html": {
+      "text_sha256": "72c8bf7b5c91996c01d7e1a138fcccb6a9c3f6c5938cf565197828a542585eea",
+      "comment_identifiers": [
+        "http://203.softover.com/2013/09/13/design-process/"
+      ]
+    },
+    "2013/09/15/curious-first/index.html": {
+      "text_sha256": "cbf904d85f466bd024feaceca4b76815d6de63459668baa798c07084fa60fbd2",
+      "comment_identifiers": [
+        "http://203.softover.com/2013/09/15/curious-first/"
+      ]
+    },
+    "2013/09/21/videos/index.html": {
+      "text_sha256": "c461f146c6a7501c72678a078cab37cd0f26d385434de207bd372c9c6ba0f9a9",
+      "comment_identifiers": [
+        "http://203.softover.com/2013/09/21/videos/"
+      ]
+    },
+    "2013/09/17/numeric-fun/index.html": {
+      "text_sha256": "e3ec1bd0dd0c40274c53dd8eda914f4fd0b12d5844f84a33128fb835dbcf7a93",
+      "comment_identifiers": [
+        "http://203.softover.com/2013/09/17/numeric-fun/"
+      ]
+    },
+    "2013/07/11/split-the-difference/index.html": {
+      "text_sha256": "84974506e2b24960ffc0f1696ef2eab441d1dc187e8c5b26c454f46102f7a38f",
+      "comment_identifiers": [
+        "http://203.softover.com/2013/07/11/split-the-difference/"
+      ]
+    }
+  },
+  "assets": {
+    "images/Independence.png": "c06b2c843f40330af81b790b2053aa664cf3824b0de28c9cd9b08c45b96e482c",
+    "images/email.png": "9915acf54078d7d5329be6b9326fbec6bcd8f0a3bc3da85fd65a59a278d7fd65",
+    "images/rss.png": "2d0fd9132cd69b98f37a92525d0151e1dab2144886e0aea942adb8ede4b39ff8",
+    "images/bird_32_gray_fail.png": "5eee580731d055bdc07f1f019b94410ab489dbf261f19b04b67452755b29b590",
+    "images/line-tile.png": "800e5f6d9be9d67dec3206a7106ed7be09257c24240bda8ebfcc84681ba74290",
+    "images/search.png": "9ccbe85908746abb9b510675f3e5a020f6199244dca92c15fa1be9d6323308e5",
+    "images/bird_32_gray.png": "1522b5bfb760b2fc3178caf18894fe3f7560d4db41392ae906b9c8bca6e69b18",
+    "images/glyphicons-halflings.png": "d99e3fa32c641032f08149914b28c2dc6acf2ec62f70987f2259eabbfa7fc0de",
+    "images/glyphicons-halflings-white.png": "f0e0d95a9c8abcdfabf46348e2d4285829bb0491f5f6af0e05af52bffb6324c4",
+    "images/noise.png": "4ed23eedcffab565677aac0e6a13aa69b5a86b9bbb154a2be0018f2d23a308df",
+    "images/code_bg.png": "e387624162b119371814ddd9002dac30512664fd43774e5cc1c98f46ef8ed83d",
+    "images/dotted-border.png": "00e9749b0c80174d5cc5e743710c37e3aa639fd17f2030cb9b8b199ca3bada68",
+    "stylesheets/screen.css": "677be73878b8d975802793ab37fb1b39c3dcb571fe4dd136e80aeebefc2ed509",
+    "stylesheets/bootstrap/bootstrap.css": "62ed9d3df1b508510a506db3c0c1a9c4c9ee72fab25053c4a0ccf0edfd80321b",
+    "stylesheets/bootstrap/responsive.css": "40cc516bb71ec1bf34240af863e58d92b86b231f362f2c441d9021a49b87eb92",
+    "stylesheets/syntax/syntax.css": "472b74ad30d1cc84bdaf2903d9ad46a5778dfd363a0d5f8b6e52f4dce8d8ff83",
+    "javascripts/modernizr-2.0.js": "424fe2d7003c5f5a37b3552fbfbc64a6f3a42442a63085b1dd29f8a48aaf15b5",
+    "javascripts/pinboard.js": "625d64e80f8ec337f6f0fc5263646d2e63140dc8a606ce785b1e45ee06e49598",
+    "javascripts/github.js": "f234a39c802cb005895008dc4e34a08303b2fd585030117d689fed23997dbb8d",
+    "javascripts/twitter.js": "fd907d80d331f5b7b7b127984fe6ee85c1ebe67c93d263492eba82db0a43ff24",
+    "javascripts/octopress.js": "6eb9058dd09da6a21782d0daf73cf6a24df35bc9038f8440115096585e453cff",
+    "javascripts/libs/modernizr-2.0.js": "4e72a14e4afce8e78f542723a18e80ab6c7ea44ca9c370733f8ed819710efa05",
+    "javascripts/libs/swfobject-dynamic.js": "3ff08f5be9c620e73d6e0e311da2474ce8ffc47de20754e4670f48a8f60d7ecd",
+    "javascripts/libs/bootstrap.js": "1851f70cb4ca574c42c7c1afc80fcfb66e635c7b0de86705437a312f8bb8efde",
+    "javascripts/libs/jquery.min.js": "aa084d3968ab19898ebbed807ebc134b622fab78a888e7b36ae8386841636801",
+    "javascripts/libs/jXHR.js": "c138860f49dd99e2d507b8dcc6e8ce356cc91f4a5bcaef65e8e43f24437dcad9",
+    "javascripts/libs/jquery.js": "47b68dce8cb6805ad5b3ea4d27af92a241f4e29a5c12a274c852e4346a0500b4",
+    "javascripts/asides/pinboard.js": "aca465eabc1b4d6499ecf627f153276ab5ed8bacaa071807b163877c174596a5",
+    "javascripts/asides/github.js": "adb6f5878ee139ff8fe74dae15db741daa0b10f917d3e808588d39600cafcfb5",
+    "javascripts/asides/twitter.js": "8715d67c351c5fa63ff0a32984beb5f0a8ee46e7ff3aff3e51b577ac7ef54547",
+    "downloads/code/split.rb": "ed3395980bc58e9589ce6307a98e057416a0d89b6b42de8ebdf9dbaa534f2e6b",
+    "downloads/code/first_last.rb": "cb62a9ad3e79e14b638ea80ac974e20926b221aaeff7e0928479caa4c57234b1",
+    "downloads/code/reroot.sh": "1f1cd4440cee66f2d5d0fca822953f64571a3a1ee35637aa645e62c809a99620",
+    "assets/jwplayer/player.swf": "a1d511839f8fd1dfba44b93ae952ba0a79ea3f7e3d13b4d537005b39acf3d2ad",
+    "assets/jwplayer/glow/glow.xml": "99ee6df0b38c469fb2d1e0e993033016bd83f2106bb385c7eb17f7e106814666",
+    "assets/jwplayer/glow/playlist/sliderCapBottom.png": "e0d9bc38fede5c2f901517091b0de6fcfdab6a4ee104a46b6611bfe43e56131e",
+    "assets/jwplayer/glow/playlist/sliderThumb.png": "fc96c5ff84cd9df990dd21ce68bafe187b73d9a38e85cb9c2869810cff6de95c",
+    "assets/jwplayer/glow/playlist/item.png": "0b3a132b47f3628dd7fd583c233a1bceb782f13c9dcddecee5f36c38c4eacb7f",
+    "assets/jwplayer/glow/playlist/sliderCapTop.png": "cbcb6bd04bedec38e97b0d847c3cd1ad4b6b527388f4d8289090ddbc012fb54f",
+    "assets/jwplayer/glow/playlist/itemOver.png": "179ed5ec5c0486d8a7523dd3f28eea23c9f46a643fa5e70e17624685d0e64bc3",
+    "assets/jwplayer/glow/playlist/sliderRail.png": "12075d328bc2f3a1f2cabc4b9338038f82319343e70fd356e987d8b4575c3419",
+    "assets/jwplayer/glow/sharing/shareIcon.png": "6430e255028fc71fbb2dd6e4a672cbb3a85d842dff298409f1c78e728b85a191",
+    "assets/jwplayer/glow/sharing/embedIcon.png": "ed3eff648ee4d1192c36d499af89550ca5bef10ef977e5a9dd00d0016241b768",
+    "assets/jwplayer/glow/sharing/embedScreen.png": "bd5c84407a6d964770dd559d53042cc9011424f3bfe6382bc40700a2f4169936",
+    "assets/jwplayer/glow/sharing/shareScreen.png": "f8f17733d428063967762b704e023839984990d28df0d4ebe34468f34a490a6b",
+    "assets/jwplayer/glow/display/bufferIcon.png": "3a382898687804350aad0e94fbc17a318b914ac8fb6b11471173393fb36acaca",
+    "assets/jwplayer/glow/display/playIcon.png": "7c6d440f772511fc7f26da824ad0668120baa7118cba5d36076901c4f06ac2e4",
+    "assets/jwplayer/glow/display/background.png": "c6ad4d11d560191f3b4c330f7d88b9752dca97d15bbf3136ee572edbc23e9a0f",
+    "assets/jwplayer/glow/display/muteIcon.png": "3987abe0ed3d356efeb9d714eafc2934c92a55138dd5a5c1d8ba2b6dbcf20a74",
+    "assets/jwplayer/glow/controlbar/unmuteButtonOver.png": "011559127100b99a9094e815826568c1e105eef52ce694bd744016074d5ca126",
+    "assets/jwplayer/glow/controlbar/normalscreenButton.png": "1a6ce557f9f854e94f6f0cd8ed0904c1b2c1cbbb9ba107f12c7134b619f72e66",
+    "assets/jwplayer/glow/controlbar/muteButtonOver.png": "df2c556731ad2e97e44131bcf43675ea285750713854f9cf045dad46d50f975e",
+    "assets/jwplayer/glow/controlbar/muteButton.png": "ba9168b43807e31f429e7876fd041b2de30a07952e3d12690ee2ded0c1f5f3d9",
+    "assets/jwplayer/glow/controlbar/timeSliderBuffer.png": "9c1bd6ac03cbaca277173a539c0bd9c8a19aa40a9bc5f00bc825fa37925ecd75",
+    "assets/jwplayer/glow/controlbar/divider.png": "140c2ffb79866c15c34daa4fa5d5c53714fc192323ca09263d34f748125554ba",
+    "assets/jwplayer/glow/controlbar/fullscreenButton.png": "5d884ca0c4383a641064a1a3fe8dd5a71df3326b0594218a8b93efe3402917a3",
+    "assets/jwplayer/glow/controlbar/unmuteButton.png": "c0dd1a005658a2a7edfd619e8aec5e9753ebb03ae50351460eee46bcb5d921ba",
+    "assets/jwplayer/glow/controlbar/timeSliderCapLeft.png": "c7f01e9581076ed4576e9b71d19c4888b3b486b6be809d27f00451367476c36e",
+    "assets/jwplayer/glow/controlbar/pauseButton.png": "70792d31cc23cbca9bc50cc30973fcdca2c363fe097a963204aa1ff83f1a4660",
+    "assets/jwplayer/glow/controlbar/timeSliderRail.png": "23b5c7dd58a575b3cac83ba486fb04802b0c16d5a002e0c1a335a770fde6ba52",
+    "assets/jwplayer/glow/controlbar/background.png": "665b822a570827437ca965533a5933fae63c96e25664ee0d54fa0842954b0c3c",
+    "assets/jwplayer/glow/controlbar/timeSliderCapRight.png": "30626eca43f2899b1e1dc03cbcd03f73619ffa27160e471ab8c480b0e3a7915b",
+    "assets/jwplayer/glow/controlbar/playButtonOver.png": "7c26a72ae759f5f8a2043a299b6d5790d5d59826e67ff99552c948711a8cb086",
+    "assets/jwplayer/glow/controlbar/pauseButtonOver.png": "dbf6f508bdf9938e6dff9f5cf1b675a9009b960cfa82e5e1e1818b8509dae675",
+    "assets/jwplayer/glow/controlbar/fullscreenButtonOver.png": "8400455da3034489d04bf1f654bc4475750c7e527abe45014e08087229a2f435",
+    "assets/jwplayer/glow/controlbar/timeSliderProgress.png": "a4e3ca2ca8966ac5ce592ce07412ce53b785f08d53d447b26a851a6b222264ff",
+    "assets/jwplayer/glow/controlbar/normalscreenButtonOver.png": "71b6208aa3835ce925aff5e867e47638483ecca4e8f1a5109d29b1420d11e939",
+    "assets/jwplayer/glow/controlbar/blankButton.png": "00be0554ce94c1a89939abbc9bb18d39be143be7d316fb68bc88271618648875",
+    "assets/jwplayer/glow/controlbar/playButton.png": "b18cc3cd720e71d3f199cb9b0c549eb6de6a030235bd83aaf0a28bce06cc2fe5",
+    "assets/jwplayer/glow/dock/button.png": "c6ad4d11d560191f3b4c330f7d88b9752dca97d15bbf3136ee572edbc23e9a0f",
+    "favicon.png": "5744080a1cb671b9d3118fb32a9581fc19fc3b964b7fc14b93024b9bd192b029"
+  },
+  "feed_entry_ids": [
+    "http://203.softover.com/2015/03/16/services-declaration-of-independence",
+    "http://203.softover.com/2015/02/02/first-rule-of-services-dont",
+    "http://203.softover.com/2015/01/11/corollaries-to-the-conways-law",
+    "http://203.softover.com/2014/12/15/what-soa-actually-meant",
+    "http://203.softover.com/2014/12/15/videos-december",
+    "http://203.softover.com/2014/12/01/ultra-srevices-and-declaration-of-independence",
+    "http://203.softover.com/2014/11/22/shmackroservices",
+    "http://203.softover.com/2014/11/21/wth-is-soa",
+    "http://203.softover.com/2013/12/07/rails-shadow-facets-of-concurrency",
+    "http://203.softover.com/2013/09/21/videos",
+    "http://203.softover.com/2013/09/17/numeric-fun",
+    "http://203.softover.com/2013/09/15/curious-first",
+    "http://203.softover.com/2013/09/13/design-process",
+    "http://203.softover.com/2013/08/30/howto-reset-your-mysql-root-password",
+    "http://203.softover.com/2013/07/11/split-the-difference"
+  ],
+  "category_feeds": {
+    "categories/video/atom.xml": [
+      "http://203.softover.com/2014/12/15/videos-december",
+      "http://203.softover.com/2013/12/07/rails-shadow-facets-of-concurrency",
+      "http://203.softover.com/2013/09/21/videos"
+    ],
+    "categories/osx/atom.xml": [
+      "http://203.softover.com/2013/08/30/howto-reset-your-mysql-root-password"
+    ],
+    "categories/db/atom.xml": [
+      "http://203.softover.com/2013/09/15/curious-first",
+      "http://203.softover.com/2013/08/30/howto-reset-your-mysql-root-password"
+    ],
+    "categories/soa/atom.xml": [
+      "http://203.softover.com/2015/03/16/services-declaration-of-independence",
+      "http://203.softover.com/2015/02/02/first-rule-of-services-dont",
+      "http://203.softover.com/2014/12/15/what-soa-actually-meant",
+      "http://203.softover.com/2014/12/01/ultra-srevices-and-declaration-of-independence",
+      "http://203.softover.com/2014/11/22/shmackroservices"
+    ],
+    "categories/ruby/atom.xml": [
+      "http://203.softover.com/2013/09/17/numeric-fun",
+      "http://203.softover.com/2013/09/15/curious-first",
+      "http://203.softover.com/2013/07/11/split-the-difference"
+    ],
+    "categories/process/atom.xml": [
+      "http://203.softover.com/2013/09/13/design-process"
+    ],
+    "categories/rails/atom.xml": [
+      "http://203.softover.com/2013/12/07/rails-shadow-facets-of-concurrency",
+      "http://203.softover.com/2013/09/15/curious-first"
+    ]
+  }
+}

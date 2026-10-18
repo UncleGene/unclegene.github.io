@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: soa | 203]]></title>
+  <link href="https://unclegene.github.io/blog/categories/soa/atom.xml" rel="self"/>
+  <link href="https://unclegene.github.io/blog/"/>
+  <updated>2015-03-16T08:48:06-07:00</updated>
+  <id>http://203.softover.com/</id>
+  <author>
+    <name><![CDATA[Eugene Kalenkovich]]></name>
+
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+
+  <entry>
+    <title type="html"><![CDATA[Services: Declaration of Independence]]></title>
+    <link href="https://unclegene.github.io/blog/2015/03/16/services-declaration-of-independence/"/>
+    <updated>2015-03-16T08:29:30-07:00</updated>
+    <id>http://203.softover.com/2015/03/16/services-declaration-of-independence</id>
+    <content type="html"><![CDATA[<blockquote><p>When in the Course of human events, <strong><em>it becomes necessary</em></strong> for one people <strong><em>to dissolve the</em></strong> political <strong><em>bands which have connected them with another, and to assume</em></strong> among the powers of the earth, <strong><em>the separate and equal station</em></strong> to which the Laws of Nature and of Nature&rsquo;s God entitle them, a decent respect to the opinions of mankind requires that they <strong><em>should declare the causes which impel them to the separation.</em></strong></p></blockquote>
+
+<p>Services have to be independent. They can achieve <strong>Independent Scalability</strong> and <strong>Independent Lifecycle</strong> by having <strong>Independent Data</strong>, <strong>Independent Code</strong> and <strong>Independent Deployments</strong>.</p>
+
+<p><img class="centered" src="/images/Independence.png" /></p>
+
+<!--more-->
+
+
+<h3>Independent Scalability</h3>
+
+<p>The only way to scale monolithic system is to scale it horizontally. Splitting to independent components allows to scale each component individually. This not only saves your resources, but, most importantly, does not allow parts of the system to starve other parts. You may need to think about independent scalability when you have independent operations (APIs) with:</p>
+
+<ul>
+<li>different resource needs (e.g. CPU- vs. memory-bound).</li>
+<li>different SLAs (fast vs. slow).</li>
+<li>different load (request rate)</li>
+<li>different reliability requirements</li>
+<li>different clients (e.g. end users vs. API clients)</li>
+</ul>
+
+
+<h3>Independent Lifecycle</h3>
+
+<p>When you have parts of your system evolving at a different pace, you do not want to tie together their delivery cycles.</p>
+
+<p>Independent lifecycle of services gives us an ability to update any service without impacting the whole system, as long as the change is backwards-compatible. And, with <strong><em>well designed</em></strong> services, we are getting also encapsulation of the risk &mdash; failing service should fail only some of system functionality, failing component inside a monolith will crash everything.</p>
+
+<h3>Independent Data</h3>
+
+<p>We should never depend on internals of data managed by the services. It is their &ldquo;implementation details&rdquo;. Service should be always free to change underlying data format and/or storage.  Services accessing the same data directly (or even having an easy way to do so) either are already too tightly coupled, or will be tomorrow.</p>
+
+<p>There are only two ways to achieve data independence: to have well-defined <a href="http://martinfowler.com/bliki/BoundedContext.html">bounded context</a> for a service, managed in the independent data store; or to have no data at all (stateless services).</p>
+
+<h3>Independent Code</h3>
+
+<p>Services should never have code dependencies on each other. Code for each service is its implementation detail, and should be completely hidden from any other service. They can depend on common libraries, but only if these libraries have much higher stability than services themselves. Strictly speaking, one can achieve independent scalability even with code dependencies, but independent lifecycle is impossible if code of one service depends on another&rsquo;s.</p>
+
+<h3>Independent Deployments</h3>
+
+<p>Services have to be deployable independently.  As soon as you are in a situation where you need simultaneous/orchestrated deployment of multiple services, you are doing something wrong.</p>
+
+<h2>Applying Independence Test</h2>
+
+<p>With all these independence clauses we can create a rule for when, why and how to make your services independent:</p>
+
+<blockquote><ul>
+<li>You should look at splitting your monoliths to services when and if you need (and I mean it, need, not want) <strong>Independent Scalability</strong> and <strong>Independent Lifecycle</strong></li>
+<li>To do this, you have to make your <strong>Data</strong>, <strong>Code</strong> and <strong>Deployments Independent</strong></li>
+</ul>
+</blockquote>
+
+<p><em>This is an updated version of declaration that hat its first appearence in the <a href="/2014/12/01/ultra-srevices-and-declaration-of-independence/">Can I Haz Name?</a> post</em></p>
+]]></content>
+  </entry>
+
+  <entry>
+    <title type="html"><![CDATA[First Rule of Services - Don’t]]></title>
+    <link href="https://unclegene.github.io/blog/2015/02/02/first-rule-of-services-dont/"/>
+    <updated>2015-02-02T08:30:49-08:00</updated>
+    <id>http://203.softover.com/2015/02/02/first-rule-of-services-dont</id>
+    <content type="html"><![CDATA[<blockquote><p><p>My First Law of Distributed Object Design: Don&rsquo;t distribute your objects</p>&mdash; Martin Fowler</p></blockquote>
+
+<p>Everything in our life has its price. Services give a lot of benefits, but you are not getting them for free. One should always very carefully consider the price, and readiness to pay it. There are visible and hidden costs of services, including, but not limited to Latency, Complexity and MPOFs</p>
+
+<h2>Latency</h2>
+
+<p>Services need to talk to each other. It means that each request will have to be transferred over the network. Messages have to go through series of transformations - from client&rsquo;s &ldquo;language&rdquo;, to network one, and to one that service understands (and the same on the way back, if your request needs a reply). If you have (and I hope you have) security policies applied to communication - add expenses for authentication, potentially - for encryption and decryption too. All these elements add precious milliseconds (tens? hundreds?) to each request processing. Multiply this by amount of services involved - and you can get pretty significant delays. Are you ready?</p>
+
+<!--more-->
+
+
+<h2>Complexity</h2>
+
+<p>Each time you are adding a new service to your system, you add one more entity to think and care about. Reasoning about architecture is like juggling knives. How many can you do? How many you can add without cutting yourself? What about the case when you <em>have to</em> add one more?</p>
+
+<p>The latter pretty often leads to an opposite extreme - attempts to piggy-back unrelated functionality on existing services (creating new monoliths).</p>
+
+<h2>MPOF</h2>
+
+<p>This is common understanding that a single point of failure is bad. But multiple points of failures may be even worse, and each of your services becomes such point. First of all, the more points of failure you have, the higher is the probability of failure. And, with SPOF, the state of your system is just &ldquo;failed&rdquo;. With MPOFs in case of failure your system is &ldquo;partially failed&rdquo; - and you need to understand what it means and how to manage your system&rsquo;s consistency.</p>
+
+<h2>Simple Service Oxymoron</h2>
+
+<p>Not once in my practice I&rsquo;ve asked &ldquo;Why did you create this service instead of embedding component that would do the same?&rdquo; and heard &ldquo;Why not? This service is so simple!&rdquo;</p>
+
+<p>There ain&rsquo;t no such thing as a &ldquo;simple service&rdquo;. Each service brings in <em>a lot</em> of baggage. You need to manage tests, builds, deployments, logging, monitoring, etc. This is not even counting for what is probably makes your service a service - all the messaging infrastructure with its own dependencies. Somebody will have to maintain it.</p>
+
+<p>And you are paying all the latency, complexity and MPOF taxes.</p>
+
+<h2>Conclusion</h2>
+
+<p>Just don&rsquo;t. Only <strong><em>real</em></strong> scalability and/or extensibility bottlenecks should force you to add new services to your system.</p>
+]]></content>
+  </entry>
+
+  <entry>
+    <title type="html"><![CDATA[What SOA Actually Meant]]></title>
+    <link href="https://unclegene.github.io/blog/2014/12/15/what-soa-actually-meant/"/>
+    <updated>2014-12-15T07:48:06-08:00</updated>
+    <id>http://203.softover.com/2014/12/15/what-soa-actually-meant</id>
+    <content type="html"><![CDATA[<blockquote><p><p>I guess it is easier to use a new name (Microservices) rather than say that this is what SOA actually meant</p>&mdash; Arnon Rotem-Gal-Oz (@arnonrgo) <a href="https://twitter.com/arnonrgo/status/445188642727034880">March 16, 2014</a></p></blockquote>
+
+<p>I guess it may be even easier to say what SOA actually meant. Or, at least - what <strong>I</strong> believe it had in its heart. In this post I am going to try to see how can we define SOA the way that:</p>
+
+<ul>
+<li>captures its spirit</li>
+<li>does not have elements that damaged the whole idea (WS-*, ESB, etc.)</li>
+<li>goes even further and does not include anything that overly-limit SOA application</li>
+</ul>
+
+
+<p>In essence, we are looking for a lean SOA definition (to make sure, it is not &ldquo;lean SOA&rdquo;, but &ldquo;lean definition&rdquo;).</p>
+
+<!--more-->
+
+
+<p>Here is the SOA definition from one of my favorite books on the subject, <a href="http://www.amazon.com/SOA-Patterns-Arnon-Rotem-Gal-Oz/dp/1933988266">SOA Patterns</a> by (the same) Arnon Rotem-Gal-Oz:</p>
+
+<blockquote><p>Service-oriented architecture (SOA) is an architectural style for building systems based on interactions of loosely coupled coarse-grained, and autonomous components called services. Each service exposes processes and behavior through contracts, which are composed of messages at discoverable addresses called endpoints. A service&rsquo;s behavior is governed by policies that are external to the service itself. The contracts and messages are used by external components called service consumers.</p></blockquote>
+
+<p>Pretty close to this is description from &ldquo;<a href="http://msdn.microsoft.com/en-us/library/bb833022.aspx">SOA in the Real World</a>&rdquo;</p>
+
+<blockquote><p>With a Service Oriented Architecture the application’s functionality is exposed through a collection of services. These services are independent and encapsulate both the business logic and its associated data. The services are interconnected via messages with a schema defining their format; a contract defining their interchanges and a policy defining how they should be exchanged.</p></blockquote>
+
+<p>Let try to be pragmatic - these definitions already got rid of all &ldquo;vendory&rdquo; and &ldquo;enterprisy&rdquo; SOA rubbish; but are there any parts that are still optional? And is there anything missing? We want our definition to be flexible enough, to be able to capture all styles that still can be categorized as an SOA.</p>
+
+<p>Key components of these definitions:</p>
+
+<ul>
+<li><p><strong>Service</strong> - loosely coupled, coarse-grained, autonomous, independent components in the first defenition; independent and encapsulate business logic and data in the second. Autonomity and encapsulation of logic and data map very well to the <a href="http://martinfowler.com/bliki/BoundedContext.html">bounded context</a>. Coause-grained - seems to be directly size-prescriptive, we do not want to fall into the same trap as microservices did.</p>
+
+<p>It also seems that one characteristic is missing. There is nothing about what makes services so flexible and powerful - ability to horizontally scale them.</p></li>
+<li><p><strong>Contract</strong> - scoped differently in these definitions. In the first one it captures messages and endpoints, in the second - definition of interchanges. There is one aspect that in both cases is not included explicitly in the definition, but described outside of it - both assume contract being a software artifact. Having experience with different styles and incarnations of SOA, I&rsquo;d characterize explicit artifact-based contract as a good, but optional practice. Without artifact - clients should know how to call service and what to expect in return.</p></li>
+<li><p><strong>Endpoint</strong> (only in the first definition, component of a contract). Where to call a service. I&rsquo;d move it out of definition too - particular frameworks may hide notion of an endpoint from clients completely. Again, clients should be able to reach services - common sense.</p></li>
+<li><p><strong>Message</strong> - both definitions assume that communication happens with the help of messages. Arnon explicitly distinguishes them from RPC. I&rsquo;ve seen in the past architectures that managed to use RPC without sacrificing any other important qualities.. As we want to give as much freedom as possible in our definition, let drop it too. But we cannot drop them completely, as they cover one of the most important aspects - communication between services. Without communication services are just &hellip; services. Defined communication makes them architecture.</p></li>
+<li><p><strong>Policy</strong> - this is a non-functional element of a contract. It can capture aspects like availability, latency, security, etc. The same as with the contract, requiring policies as a software artifact unnecessarily limits application of SOA; without artifact - they are good practices and common sense elements.</p></li>
+</ul>
+
+
+<p>If we remove everything that is not required, and add missing element, we can see our new lean definition of [what] SOA [actually meant]:</p>
+
+<blockquote><p>SOA is an architecture defined in terms of services and their communications. Services are independent, loosely coupled and horizontally scalable software components organized around bounded contexts.</p></blockquote>
+]]></content>
+  </entry>
+
+  <entry>
+    <title type="html"><![CDATA[Can I Haz Name?]]></title>
+    <link href="https://unclegene.github.io/blog/2014/12/01/ultra-srevices-and-declaration-of-independence/"/>
+    <updated>2014-12-01T08:57:59-08:00</updated>
+    <id>http://203.softover.com/2014/12/01/ultra-srevices-and-declaration-of-independence</id>
+    <content type="html"><![CDATA[<p>All this hype about microservices makes me sad. And not about the concept, but about the name. As I wrote <a href="https://unclegene.github.io/blog/2014/11/22/shmackroservices/">before</a>, &ldquo;micro&rdquo; in &ldquo;microservices&rdquo; means absolutely nothing. What is worse, it confuses everybody. Again and again I see people focusing on &ldquo;micro&rdquo; and falling into <a href="http://arnon.me/wp-content/uploads/2010/10/Nanoservices.pdf">nanoservices</a> trap.</p>
+
+<blockquote><p><p>Nanoservice is an antipattern where a service is too fine-grained. A nanoservice is a service whose overhead (communications, maintenance, and so on) outweighs its utility.</p>&mdash;Arnon Rotem-Gal-Oz</p></blockquote>
+
+<p>So I decided to look for a better name. It should be sticky and easy to remember. It should not focus on size, or any other questionable aspect. And it may be fine if it still means nothing - as long as this nothing does not have confusing semantics.</p>
+
+<p>Let start with abbreviation. It probably will end with SA - Service Architecture. Let leave RSA to <a href="http://www.reactivemanifesto.org/">Reactive Manifesto</a> camp. NSA - too bad association. BSA - should be reserved for BS Architecture.</p>
+
+<p>I think I like <strong>USA</strong>. Let create <strong><em>Ultra Services Architecture</em></strong>!</p>
+
+<!--more-->
+
+
+<p>
+And ultra is a good prefix for #ultraservices. It can mean anything you want! Ultra-scalable, Ultra-fast. Ultra-happy. And, if you feel very adventurous, you can still try to do ultra-small (just let me know upfront before I try to use your app)</p>
+
+<p>And, as we are talking about USA, it needs</p>
+
+<h3>Declaration of Independence</h3>
+
+<blockquote><p>When in the Course of human events, <strong><em>it becomes necessary</em></strong> for one people <strong><em>to dissolve the</em></strong> political <strong><em>bands which have connected them with another, and to assume</em></strong> among the powers of the earth, <strong><em>the separate and equal station</em></strong> to which the Laws of Nature and of Nature&rsquo;s God entitle them, a decent respect to the opinions of mankind requires that they <strong><em>should declare the causes which impel them to the separation.</em></strong></p></blockquote>
+
+<p>[Ultra] Services have to be independent. Their independence is governed by three main aspects:</p>
+
+<h3>Independent Scalability</h3>
+
+<p>The only way to scale monolithic system is to scale it horizontally. Splitting to independent components allows to scale each component individually. This not only saves your resources, but, most importantly, does not allow parts of the system to starve other parts. You may need to think about independent scalability when you have independent operations (APIs) with:</p>
+
+<ul>
+<li>different resource needs (e.g. CPU- vs. memory-bound).</li>
+<li>different SLAs (fast vs. slow).</li>
+<li>different load (request rate)</li>
+<li>different reliability requirements</li>
+<li>different clients (e.g. end users vs. API clients)</li>
+</ul>
+
+
+<h3>Independent Lifecycle</h3>
+
+<p>When you have parts of your system evolving at a different pace, you do not want to tie together their delivery cycles. Independent deployment of services gives us an ability to update any service without impacting the whole system, as long as the change is backwards-compatible. And, with <strong><em>well designed</em></strong> services, we are getting also encapsulation of the risk - failing service should fail only some of system functionality, failing component inside a monolith will crash everything.</p>
+
+<h3>Independent Data</h3>
+
+<p>We should never depend on internals of data managed by the services. It is their &ldquo;implementation details&rdquo;. Service should be always free to change underlying data format and/or storage.  Services accessing the same data directly (or even having an easy way to do so) either are already too tightly coupled, or will be tomorrow.</p>
+
+<p>There are only two ways to achieve data independence: to have well-defined <a href="http://martinfowler.com/bliki/BoundedContext.html">bounded context</a> for a service, managed in the independent data store; or to have no data at all (stateless services).</p>
+
+<h2>Applying Independence Test</h2>
+
+<p>With three independence clauses we can create a rule for when it may be a good idea to look at Ultra Services Architecture</p>
+
+<blockquote><p>You should look at splitting your monoliths to services if:</p>
+
+<ul>
+<li>you need (and I mean it, need, not want) Independent Scalability and Independent Lifecycle</li>
+<li>you can make your Data Independent</li>
+</ul>
+</blockquote>
+
+<p>And making your data independent (by defining a bounded context and moving it to a separate store) should always be the first step.</p>
+
+<p>BTW, please do not be fooled by the semi-jocking tone of the USA part of the post. I&rsquo;ve started to work on these independence principles way before microservices fad have started, so there was no need for a name.</p>
+
+<p>TL;DR: Name them however you want (though probably not microservices), but always follow three rules of service independence  - Independent Scalability, Independent Lifecycle and Independent Data</p>
+
+<p><em>You can see an updated version of this declaration at <a href="/2015/03/16/services-declaration-of-independence/">Services: Declaration of Independence</a></em></p>
+]]></content>
+  </entry>
+
+  <entry>
+    <title type="html"><![CDATA[Microservices, Macroservices, Shmackroservices: What's in a Name?]]></title>
+    <link href="https://unclegene.github.io/blog/2014/11/22/shmackroservices/"/>
+    <updated>2014-11-22T18:05:38-08:00</updated>
+    <id>http://203.softover.com/2014/11/22/shmackroservices</id>
+    <content type="html"><![CDATA[<p>Over the last few years the new hype took over the software industry: &ldquo;Microservices&rdquo;. It started slowly, with articles and presentations popping here and there, and now it is everywhere. The most interesting part is that the industry still cannot agree on what &ldquo;Microservices&rdquo; really are (or even, how to write them - Microservices, Micro-services or Micro Services)</p>
+
+<p>In March of 2014 James Lewis and Martin Fowler published an <a href="http://martinfowler.com/articles/microservices.html">article</a> in an attempt to summarize the meaning of this term (and contributing to the hype wide spread).</p>
+
+<!--more-->
+
+
+<hr />
+
+<h3>Interlude: Conspiracy Theory</h3>
+
+<blockquote><p><p>The term &ldquo;microservice&rdquo; was discussed at a workshop of software architects near Venice in May, 2011 to describe what the participants saw as a common architectural style that many of them had been recently exploring. In May 2012, the same group decided on &ldquo;microservices&rdquo; as the most appropriate name.</p> &mdash; James Lewis &amp; Martin Fowler, <a href="http://martinfowler.com/articles/microservices.html">March 25, 2014</a></p></blockquote>
+
+<p>Yep, anonymous workshop of anonymous architects anonymously decided on &ldquo;microservices&rdquo; as the most appropriate name&hellip; BTW, were they all from the same anonymous company?</p>
+
+<hr />
+
+<p>Originally (and, AFAIK, even in the first revision of the Lewis &amp; Fowler article) Microservices had a strong emphasis on Micro, and even referred to a 10-100 LOC size guideline. After getting pretty strong pushback on any size limitations from many practitioners, all the size references were gone (finally a reality check?), and &ldquo;Micro&rdquo; part started to be more and more frequently referred as being &ldquo;just a name&rdquo;</p>
+
+<p>With &ldquo;Micro&rdquo; semantics dropped out of the picture, it became obvious (to many people, though there is no real consensus here neither) that Microservices are just SOA striving for a new identity, because an old one had too bad reputation.</p>
+
+<blockquote class="twitter-tweet" data-cards="hidden" lang="en"><p>I guess it is easier to use a new name (Microservices) rather than say that this is what SOA actually meant - re <a href="http://t.co/gvhxDfDWLG">http://t.co/gvhxDfDWLG</a></p>&mdash; Arnon Rotem-Gal-Oz (@arnonrgo) <a href="https://twitter.com/arnonrgo/status/445188642727034880">March 16, 2014</a></blockquote>
+
+
+
+
+<blockquote class="twitter-tweet" data-conversation="none" lang="en"><p><a href="https://twitter.com/martinfowler">@martinfowler</a> <a href="https://twitter.com/boicy">@boicy</a> but these are the very principles of SOA before vendors does pushed the hub in the middle, i.e. ESB</p>&mdash; Clemens Vasters (@clemensv) <a href="https://twitter.com/clemensv/status/445216182757756929">March 16, 2014</a></blockquote>
+
+
+
+
+<blockquote class="twitter-tweet" data-conversation="none" lang="en"><p><a href="https://twitter.com/UncleGene">@UncleGene</a> Micro-Services are just SOA done properly &#8211; simple functionality, well-defined interfaces, minimal dependencies</p>&mdash; Randy Shoup (@randyshoup) <a href="https://twitter.com/randyshoup/status/530820576810926080">November 7, 2014</a></blockquote>
+
+
+
+
+
+<blockquote><p><p><a href="http://service-architecture.blogspot.co.uk/2014/03/microservices-is-soa-for-those-who-know.html">Microservices is SOA, for those who know what SOA is.</a></p> &mdash; Steve Jones March 18, 2014</p></blockquote>
+
+<p>So, to understand what &ldquo;Microservices&rdquo; really are, we should first understand what is SOA (and what is SOA done properly). Rose may smell sweet by any name, but if you step into [something] - you can name it a rose (or micro[something]), but smell will not change until you clean up your shoes.</p>
+
+<p>You can see my &ldquo;tongue-in-cheek&rdquo; definition <a href="https://unclegene.github.io/blog/2014/11/21/wth-is-soa/">here</a>, please stay tuned for the real one coming soon.</p>
+
+<p>But for now, just one takeaway: &ldquo;Micro&rdquo; in &ldquo;Microservices&rdquo; means <strong>absolutely nothing</strong>.</p>
+]]></content>
+  </entry>
+
+</feed>

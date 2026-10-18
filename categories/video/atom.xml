@@ -2,8 +2,8 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: video | 203]]></title>
-  <link href="http://203.softover.com/categories/video/atom.xml" rel="self"/>
-  <link href="http://203.softover.com/"/>
+  <link href="https://unclegene.github.io/categories/video/atom.xml" rel="self"/>
+  <link href="https://unclegene.github.io/blog/"/>
   <updated>2015-03-16T08:48:06-07:00</updated>
   <id>http://203.softover.com/</id>
   <author>
@@ -15,7 +15,7 @@
   
   <entry>
     <title type="html"><![CDATA[Videos - Picks for December, 2014]]></title>
-    <link href="http://203.softover.com/2014/12/15/videos-december/"/>
+    <link href="https://unclegene.github.io/blog/2014/12/15/videos-december/"/>
     <updated>2014-12-15T07:40:12-08:00</updated>
     <id>http://203.softover.com/2014/12/15/videos-december</id>
     <content type="html"><![CDATA[<ul>
@@ -60,7 +60,7 @@
   
   <entry>
     <title type="html"><![CDATA[Rails: Shadow Facets of Concurrency]]></title>
-    <link href="http://203.softover.com/2013/12/07/rails-shadow-facets-of-concurrency/"/>
+    <link href="https://unclegene.github.io/blog/2013/12/07/rails-shadow-facets-of-concurrency/"/>
     <updated>2013-12-07T09:32:00-08:00</updated>
     <id>http://203.softover.com/2013/12/07/rails-shadow-facets-of-concurrency</id>
     <content type="html"><![CDATA[<p><div class="embed-video-container"><iframe src="//www.youtube.com/embed/TV5LEjN6d1U" allowfullscreen></iframe></div></p>
@@ -73,7 +73,7 @@
   
   <entry>
     <title type="html"><![CDATA[Videos to Watch]]></title>
-    <link href="http://203.softover.com/2013/09/21/videos/"/>
+    <link href="https://unclegene.github.io/blog/2013/09/21/videos/"/>
     <updated>2013-09-21T16:22:00-07:00</updated>
     <id>http://203.softover.com/2013/09/21/videos</id>
     <content type="html"><![CDATA[<p>Good presentations, deserve watching:</p>

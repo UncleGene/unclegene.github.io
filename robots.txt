@@ -1,4 +1,4 @@
 User-agent: *
-Disallow: 
+Disallow:
 
-Sitemap: http://203.softover.com/sitemap.xml 
+Sitemap: https://unclegene.github.io/sitemap.xml

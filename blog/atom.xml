@@ -1,0 +1,987 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[203]]></title>
+  <link href="https://unclegene.github.io/blog/atom.xml" rel="self"/>
+  <link href="https://unclegene.github.io/blog/"/>
+  <updated>2015-03-16T08:48:06-07:00</updated>
+  <id>http://203.softover.com/</id>
+  <author>
+    <name><![CDATA[Eugene Kalenkovich]]></name>
+
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+
+  <entry>
+    <title type="html"><![CDATA[Services: Declaration of Independence]]></title>
+    <link href="https://unclegene.github.io/blog/2015/03/16/services-declaration-of-independence/"/>
+    <updated>2015-03-16T08:29:30-07:00</updated>
+    <id>http://203.softover.com/2015/03/16/services-declaration-of-independence</id>
+    <content type="html"><![CDATA[<blockquote><p>When in the Course of human events, <strong><em>it becomes necessary</em></strong> for one people <strong><em>to dissolve the</em></strong> political <strong><em>bands which have connected them with another, and to assume</em></strong> among the powers of the earth, <strong><em>the separate and equal station</em></strong> to which the Laws of Nature and of Nature&rsquo;s God entitle them, a decent respect to the opinions of mankind requires that they <strong><em>should declare the causes which impel them to the separation.</em></strong></p></blockquote>
+
+<p>Services have to be independent. They can achieve <strong>Independent Scalability</strong> and <strong>Independent Lifecycle</strong> by having <strong>Independent Data</strong>, <strong>Independent Code</strong> and <strong>Independent Deployments</strong>.</p>
+
+<p><img class="centered" src="https://unclegene.github.io/blog/images/Independence.png" /></p>
+
+<!--more-->
+
+
+<h3>Independent Scalability</h3>
+
+<p>The only way to scale monolithic system is to scale it horizontally. Splitting to independent components allows to scale each component individually. This not only saves your resources, but, most importantly, does not allow parts of the system to starve other parts. You may need to think about independent scalability when you have independent operations (APIs) with:</p>
+
+<ul>
+<li>different resource needs (e.g. CPU- vs. memory-bound).</li>
+<li>different SLAs (fast vs. slow).</li>
+<li>different load (request rate)</li>
+<li>different reliability requirements</li>
+<li>different clients (e.g. end users vs. API clients)</li>
+</ul>
+
+
+<h3>Independent Lifecycle</h3>
+
+<p>When you have parts of your system evolving at a different pace, you do not want to tie together their delivery cycles.</p>
+
+<p>Independent lifecycle of services gives us an ability to update any service without impacting the whole system, as long as the change is backwards-compatible. And, with <strong><em>well designed</em></strong> services, we are getting also encapsulation of the risk &mdash; failing service should fail only some of system functionality, failing component inside a monolith will crash everything.</p>
+
+<h3>Independent Data</h3>
+
+<p>We should never depend on internals of data managed by the services. It is their &ldquo;implementation details&rdquo;. Service should be always free to change underlying data format and/or storage.  Services accessing the same data directly (or even having an easy way to do so) either are already too tightly coupled, or will be tomorrow.</p>
+
+<p>There are only two ways to achieve data independence: to have well-defined <a href="http://martinfowler.com/bliki/BoundedContext.html">bounded context</a> for a service, managed in the independent data store; or to have no data at all (stateless services).</p>
+
+<h3>Independent Code</h3>
+
+<p>Services should never have code dependencies on each other. Code for each service is its implementation detail, and should be completely hidden from any other service. They can depend on common libraries, but only if these libraries have much higher stability than services themselves. Strictly speaking, one can achieve independent scalability even with code dependencies, but independent lifecycle is impossible if code of one service depends on another&rsquo;s.</p>
+
+<h3>Independent Deployments</h3>
+
+<p>Services have to be deployable independently.  As soon as you are in a situation where you need simultaneous/orchestrated deployment of multiple services, you are doing something wrong.</p>
+
+<h2>Applying Independence Test</h2>
+
+<p>With all these independence clauses we can create a rule for when, why and how to make your services independent:</p>
+
+<blockquote><ul>
+<li>You should look at splitting your monoliths to services when and if you need (and I mean it, need, not want) <strong>Independent Scalability</strong> and <strong>Independent Lifecycle</strong></li>
+<li>To do this, you have to make your <strong>Data</strong>, <strong>Code</strong> and <strong>Deployments Independent</strong></li>
+</ul>
+</blockquote>
+
+<p><em>This is an updated version of declaration that hat its first appearence in the <a href="https://unclegene.github.io/blog/2014/12/01/ultra-srevices-and-declaration-of-independence/">Can I Haz Name?</a> post</em></p>
+]]></content>
+  </entry>
+
+  <entry>
+    <title type="html"><![CDATA[First Rule of Services - Don’t]]></title>
+    <link href="https://unclegene.github.io/blog/2015/02/02/first-rule-of-services-dont/"/>
+    <updated>2015-02-02T08:30:49-08:00</updated>
+    <id>http://203.softover.com/2015/02/02/first-rule-of-services-dont</id>
+    <content type="html"><![CDATA[<blockquote><p><p>My First Law of Distributed Object Design: Don&rsquo;t distribute your objects</p>&mdash; Martin Fowler</p></blockquote>
+
+<p>Everything in our life has its price. Services give a lot of benefits, but you are not getting them for free. One should always very carefully consider the price, and readiness to pay it. There are visible and hidden costs of services, including, but not limited to Latency, Complexity and MPOFs</p>
+
+<h2>Latency</h2>
+
+<p>Services need to talk to each other. It means that each request will have to be transferred over the network. Messages have to go through series of transformations - from client&rsquo;s &ldquo;language&rdquo;, to network one, and to one that service understands (and the same on the way back, if your request needs a reply). If you have (and I hope you have) security policies applied to communication - add expenses for authentication, potentially - for encryption and decryption too. All these elements add precious milliseconds (tens? hundreds?) to each request processing. Multiply this by amount of services involved - and you can get pretty significant delays. Are you ready?</p>
+
+<!--more-->
+
+
+<h2>Complexity</h2>
+
+<p>Each time you are adding a new service to your system, you add one more entity to think and care about. Reasoning about architecture is like juggling knives. How many can you do? How many you can add without cutting yourself? What about the case when you <em>have to</em> add one more?</p>
+
+<p>The latter pretty often leads to an opposite extreme - attempts to piggy-back unrelated functionality on existing services (creating new monoliths).</p>
+
+<h2>MPOF</h2>
+
+<p>This is common understanding that a single point of failure is bad. But multiple points of failures may be even worse, and each of your services becomes such point. First of all, the more points of failure you have, the higher is the probability of failure. And, with SPOF, the state of your system is just &ldquo;failed&rdquo;. With MPOFs in case of failure your system is &ldquo;partially failed&rdquo; - and you need to understand what it means and how to manage your system&rsquo;s consistency.</p>
+
+<h2>Simple Service Oxymoron</h2>
+
+<p>Not once in my practice I&rsquo;ve asked &ldquo;Why did you create this service instead of embedding component that would do the same?&rdquo; and heard &ldquo;Why not? This service is so simple!&rdquo;</p>
+
+<p>There ain&rsquo;t no such thing as a &ldquo;simple service&rdquo;. Each service brings in <em>a lot</em> of baggage. You need to manage tests, builds, deployments, logging, monitoring, etc. This is not even counting for what is probably makes your service a service - all the messaging infrastructure with its own dependencies. Somebody will have to maintain it.</p>
+
+<p>And you are paying all the latency, complexity and MPOF taxes.</p>
+
+<h2>Conclusion</h2>
+
+<p>Just don&rsquo;t. Only <strong><em>real</em></strong> scalability and/or extensibility bottlenecks should force you to add new services to your system.</p>
+]]></content>
+  </entry>
+
+  <entry>
+    <title type="html"><![CDATA[Corollaries to the Conway's Law]]></title>
+    <link href="https://unclegene.github.io/blog/2015/01/11/corollaries-to-the-conways-law/"/>
+    <updated>2015-01-11T17:38:57-08:00</updated>
+    <id>http://203.softover.com/2015/01/11/corollaries-to-the-conways-law</id>
+    <content type="html"><![CDATA[<blockquote><p>Any organization that designs a system (defined more broadly here than just information systems) will inevitably produce a design whose structure is a copy of the organization&rsquo;s communication structure.</p>
+
+<p><a href="http://www.melconway.com/Home/Committees_Paper.html">http://www.melconway.com/Home/Committees_Paper.html</a></p></blockquote>
+
+<p>Let look a little closer at what it really means for software organizations, and how communication structure impacts the software system.</p>
+
+<p>Initial design of a software system may have nothing to do with the communication structure. But most (if not all) software systems are evolving in time, and that&rsquo;s where the Conway&rsquo;s Law really starts to take its effects. Very similar to the second law of thermodynamics, the evolving software system entropy always increases. And this increase happens in the framework of the communication structure.</p>
+
+<!--more-->
+
+
+<p>When system needs to change, the change can usually happen in multiple places. When person or group decides where to make the change, this decision is influenced by how the information flows inside the organization:</p>
+
+<blockquote><p>When a change can happen in multiple places, the place closest in communication framework to the change owner (person or group responsible for making the change) will be chosen.</p></blockquote>
+
+<p>This means that in time changes tend to group around communication &ldquo;islands&rdquo; in the organization structure. As there is always some randomness element in determination of who owns the change (being in reality the first design decision, usually made with lack of sufficient information), it results in mix of hits and misses. Hits result in high cohesion of the software solution, misses - in tight coupling.</p>
+
+<blockquote><p>The wider the communication channel is, the higher the software system cohesion <strong><em>and</em></strong> coupling will become in time.</p></blockquote>
+
+<p>There is a scientific term for a software system with both high cohesion and coupling: it is called a <strong><em>mess</em></strong>.</p>
+
+<p>Let say we are talking about a good organization, where intra-team communication channels are the widest.</p>
+
+<blockquote><p>Any evolving software system managed by a single team will eventually become a mess.</p></blockquote>
+
+<p>Please do not fool yourself that you can avoid this eventual mess by applying some discipline and/or practices. The law is the law!</p>
+
+<p>If this software system is composed of multiple components, this mess is architectural. And we all know that the architectural mess is the most expensive one to fix.</p>
+
+<blockquote><p>To reduce the cost of the mess created, each team should manage as little software components as possible (preferably - a single component)</p></blockquote>
+
+<p>But there is another aspect of a team that has its important impact: the size. The more team members we have, the more communication channels are intermingled in a single high-bandwidth communication ball. It means that:</p>
+
+<blockquote><p>The bigger teams are, the bigger mess they eventually create.</p></blockquote>
+
+<p>So, is minimizing team (and component) size the way to reduce the eventual mess? Probably - yes, but here is another impact of the communication structure: the smaller the components are, the more of them are impacted by any single change in the system. And communication channels between teams have much lower bandwidth. Leading to:</p>
+
+<blockquote><p>The smaller teams are, the longer it will take to do a change.</p></blockquote>
+
+<p>So, small teams are bad. Big teams are bad. And we are again playing the balancing game. The goal of this game is to compare the impacts of intra-component mess and inter-team communication on the delivery speed. Which one slows you more?</p>
+
+<h2>Bonus. Quotes from the original Melvin E. Conway&rsquo;s article</h2>
+
+<blockquote><p>That kind of intellectual activity which creates a whole from its diverse parts may be called the design of a system.</p></blockquote>
+
+<hr />
+
+<blockquote><p>Most design activity requires continually making choices, Many of these choices may be more than design decisions; they may also be personal decisions the designer makes about his own future.</p></blockquote>
+
+<hr />
+
+<blockquote><p>The full-blown design activity cannot proceed until certain preliminary milestones are passed. These include:
+1. Understanding of the boundaries, both on the design activity and on the system to be designed, placed by the sponsor and by the world&rsquo;s realities,
+2. Achievement of a preliminary notion of the system&rsquo;s organization so that design task groups can be meaningfully assigned.</p></blockquote>
+
+<hr />
+
+<blockquote><p>the very act of organizing a design team means that certain design decisions have already been made, explicitly or otherwise.</p></blockquote>
+
+<hr />
+
+<blockquote><p>Once the organization of the design team is chosen, it is possible to delegate activities to the subgroups of the organization. Every time a delegation is made and somebody&rsquo;s scope of inquiry is narrowed, the class of design alternatives which can be effectively pursued is also narrowed.</p></blockquote>
+
+<hr />
+
+<blockquote><p>Any system of consequence is structured from smaller subsystems which are interconnected. A description of a system, if it is to describe what goes on inside that system, must describe the system&rsquo;s connections to the outside world, and it must delineate each of the subsystems and how they are interconnected. Dropping down one level, we can say the same for each of the subsystems, viewing it as a system. This reduction in scope can continue until we are down to a system which is simple enough to be understood without further subdivision.</p></blockquote>
+
+<hr />
+
+<blockquote><p>It is a natural temptation of the initial designer &ndash; the one whose preliminary design concepts influence the organization of the design effort &ndash; to delegate tasks when the apparent complexity of the system approaches his limits of comprehension. This is the turning point in the course of the design. Either he struggles to reduce the system to comprehensibility and wins, or else he loses control of it. The outcome is almost predictable if there is schedule pressure and a budget to be managed.</p></blockquote>
+
+<hr />
+
+<blockquote><p>As long as the manager&rsquo;s prestige and power are tied to the size of his budget, he will be motivated to expand his organization. This is an inappropriate motive in the management of a system design activity.</p></blockquote>
+
+<hr />
+
+<blockquote><p>Probably the greatest single common factor behind many poorly designed systems now in existence has been the availability of a design organization in need of work.</p></blockquote>
+
+<hr />
+
+<blockquote><p>To the extent that organizational protocol restricts communication along lines of command, the communication structure of an organization will resemble its administrative structure. This is one reason why military-style organizations design systems which look like their organization charts.</p></blockquote>
+
+<hr />
+
+<blockquote><p>organizations which design systems (in the broad sense used here) are constrained to produce designs which are copies of the communication structures of these organizations.</p></blockquote>
+
+<hr />
+
+<blockquote><p>a design effort should be organized according to the need for communication.</p></blockquote>
+
+<hr />
+
+<blockquote><p>Because the design which occurs first is almost never the best possible, the prevailing system concept may need to change. Therefore, flexibility of organization is important to effective design.</p></blockquote>
+]]></content>
+  </entry>
+
+  <entry>
+    <title type="html"><![CDATA[What SOA Actually Meant]]></title>
+    <link href="https://unclegene.github.io/blog/2014/12/15/what-soa-actually-meant/"/>
+    <updated>2014-12-15T07:48:06-08:00</updated>
+    <id>http://203.softover.com/2014/12/15/what-soa-actually-meant</id>
+    <content type="html"><![CDATA[<blockquote><p><p>I guess it is easier to use a new name (Microservices) rather than say that this is what SOA actually meant</p>&mdash; Arnon Rotem-Gal-Oz (@arnonrgo) <a href="https://twitter.com/arnonrgo/status/445188642727034880">March 16, 2014</a></p></blockquote>
+
+<p>I guess it may be even easier to say what SOA actually meant. Or, at least - what <strong>I</strong> believe it had in its heart. In this post I am going to try to see how can we define SOA the way that:</p>
+
+<ul>
+<li>captures its spirit</li>
+<li>does not have elements that damaged the whole idea (WS-*, ESB, etc.)</li>
+<li>goes even further and does not include anything that overly-limit SOA application</li>
+</ul>
+
+
+<p>In essence, we are looking for a lean SOA definition (to make sure, it is not &ldquo;lean SOA&rdquo;, but &ldquo;lean definition&rdquo;).</p>
+
+<!--more-->
+
+
+<p>Here is the SOA definition from one of my favorite books on the subject, <a href="http://www.amazon.com/SOA-Patterns-Arnon-Rotem-Gal-Oz/dp/1933988266">SOA Patterns</a> by (the same) Arnon Rotem-Gal-Oz:</p>
+
+<blockquote><p>Service-oriented architecture (SOA) is an architectural style for building systems based on interactions of loosely coupled coarse-grained, and autonomous components called services. Each service exposes processes and behavior through contracts, which are composed of messages at discoverable addresses called endpoints. A service&rsquo;s behavior is governed by policies that are external to the service itself. The contracts and messages are used by external components called service consumers.</p></blockquote>
+
+<p>Pretty close to this is description from &ldquo;<a href="http://msdn.microsoft.com/en-us/library/bb833022.aspx">SOA in the Real World</a>&rdquo;</p>
+
+<blockquote><p>With a Service Oriented Architecture the application’s functionality is exposed through a collection of services. These services are independent and encapsulate both the business logic and its associated data. The services are interconnected via messages with a schema defining their format; a contract defining their interchanges and a policy defining how they should be exchanged.</p></blockquote>
+
+<p>Let try to be pragmatic - these definitions already got rid of all &ldquo;vendory&rdquo; and &ldquo;enterprisy&rdquo; SOA rubbish; but are there any parts that are still optional? And is there anything missing? We want our definition to be flexible enough, to be able to capture all styles that still can be categorized as an SOA.</p>
+
+<p>Key components of these definitions:</p>
+
+<ul>
+<li><p><strong>Service</strong> - loosely coupled, coarse-grained, autonomous, independent components in the first defenition; independent and encapsulate business logic and data in the second. Autonomity and encapsulation of logic and data map very well to the <a href="http://martinfowler.com/bliki/BoundedContext.html">bounded context</a>. Coause-grained - seems to be directly size-prescriptive, we do not want to fall into the same trap as microservices did.</p>
+
+<p>It also seems that one characteristic is missing. There is nothing about what makes services so flexible and powerful - ability to horizontally scale them.</p></li>
+<li><p><strong>Contract</strong> - scoped differently in these definitions. In the first one it captures messages and endpoints, in the second - definition of interchanges. There is one aspect that in both cases is not included explicitly in the definition, but described outside of it - both assume contract being a software artifact. Having experience with different styles and incarnations of SOA, I&rsquo;d characterize explicit artifact-based contract as a good, but optional practice. Without artifact - clients should know how to call service and what to expect in return.</p></li>
+<li><p><strong>Endpoint</strong> (only in the first definition, component of a contract). Where to call a service. I&rsquo;d move it out of definition too - particular frameworks may hide notion of an endpoint from clients completely. Again, clients should be able to reach services - common sense.</p></li>
+<li><p><strong>Message</strong> - both definitions assume that communication happens with the help of messages. Arnon explicitly distinguishes them from RPC. I&rsquo;ve seen in the past architectures that managed to use RPC without sacrificing any other important qualities.. As we want to give as much freedom as possible in our definition, let drop it too. But we cannot drop them completely, as they cover one of the most important aspects - communication between services. Without communication services are just &hellip; services. Defined communication makes them architecture.</p></li>
+<li><p><strong>Policy</strong> - this is a non-functional element of a contract. It can capture aspects like availability, latency, security, etc. The same as with the contract, requiring policies as a software artifact unnecessarily limits application of SOA; without artifact - they are good practices and common sense elements.</p></li>
+</ul>
+
+
+<p>If we remove everything that is not required, and add missing element, we can see our new lean definition of [what] SOA [actually meant]:</p>
+
+<blockquote><p>SOA is an architecture defined in terms of services and their communications. Services are independent, loosely coupled and horizontally scalable software components organized around bounded contexts.</p></blockquote>
+]]></content>
+  </entry>
+
+  <entry>
+    <title type="html"><![CDATA[Videos - Picks for December, 2014]]></title>
+    <link href="https://unclegene.github.io/blog/2014/12/15/videos-december/"/>
+    <updated>2014-12-15T07:40:12-08:00</updated>
+    <id>http://203.softover.com/2014/12/15/videos-december</id>
+    <content type="html"><![CDATA[<ul>
+<li><a href="https://unclegene.github.io/blog/2014/12/15/videos-december/#debt">The Technical Debt Trap</a> by Doc Norton</li>
+<li><a href="https://unclegene.github.io/blog/2014/12/15/videos-december/#brown">Software Architecture vs Code</a> by Simon Brown</li>
+<li><a href="https://unclegene.github.io/blog/2014/12/15/videos-december/#hacker">One Hacker Way</a> by Erik Meijer</li>
+</ul>
+
+
+<!--more-->
+
+
+<p><a name="debt"></a></p>
+
+<h2>The Technical Debt Trap by Doc Norton</h2>
+
+<div class="embed-video-container"><iframe src="//www.youtube.com/embed/S2pS9hN2Fws" allowfullscreen></iframe></div>
+
+
+<blockquote><p>Technical Debt has become a catch-all phrase for any code that needs to be re-worked. Much like Refactoring has become a catch-all phrase for any activity that involves changing code. These fundamental misunderstandings and comfortable yet mis-applied metaphors have resulted in a plethora of poor decisions. What is technical debt? What is not technical debt? Why should we care? What is the cost of misunderstanding? What do we do about it? Doc discusses the origins of the metaphor, what it means today, and how we properly identify and manage technical debt.</p></blockquote>
+
+<p><a name="brown"></a></p>
+
+<h2>Software Architecture vs Code by Simon Brown</h2>
+
+<div class="embed-video-container"><iframe src="//www.youtube.com/embed/ehH3UGdSwPo" allowfullscreen></iframe></div>
+
+
+<p></p>
+
+<blockquote><p>Software architecture and coding are often seen as mutually exclusive disciplines, despite us referring to higher level abstractions when we talk about our software. You&rsquo;ve probably heard others on your team talking about components, services and layers rather than objects when they&rsquo;re having discussions. Take a look at the codebase though. Can you clearly see these abstractions or does the code reflect some other structure? If so, why is there no clear mapping between the architecture and the code? Why do those architecture diagrams that you have on the wall say one thing whereas your code says another? In fact, why is it so hard to automatically generate a decent architecture diagram from an existing codebase? Join us to explore this topic further.</p></blockquote>
+
+<p><a name="hacker"></a></p>
+
+<h2>One Hacker Way by Erik Meijer</h2>
+
+<div class="embed-video-container"><iframe src="//player.vimeo.com/video/110554082 "></iframe></div>
+
+
+<p>One Hacker Way, a Rational Alternative to Agile</p>
+
+<p>Presented at Reaktor Dev Day 2014</p>
+
+<p><a href="http://reaktor.fi/blog/erik-meijer-software-eating-world/">reaktor.fi/blog/erik-meijer-software-eating-world/</a></p>
+]]></content>
+  </entry>
+
+  <entry>
+    <title type="html"><![CDATA[Can I Haz Name?]]></title>
+    <link href="https://unclegene.github.io/blog/2014/12/01/ultra-srevices-and-declaration-of-independence/"/>
+    <updated>2014-12-01T08:57:59-08:00</updated>
+    <id>http://203.softover.com/2014/12/01/ultra-srevices-and-declaration-of-independence</id>
+    <content type="html"><![CDATA[<p>All this hype about microservices makes me sad. And not about the concept, but about the name. As I wrote <a href="https://unclegene.github.io/blog/2014/11/22/shmackroservices/">before</a>, &ldquo;micro&rdquo; in &ldquo;microservices&rdquo; means absolutely nothing. What is worse, it confuses everybody. Again and again I see people focusing on &ldquo;micro&rdquo; and falling into <a href="http://arnon.me/wp-content/uploads/2010/10/Nanoservices.pdf">nanoservices</a> trap.</p>
+
+<blockquote><p><p>Nanoservice is an antipattern where a service is too fine-grained. A nanoservice is a service whose overhead (communications, maintenance, and so on) outweighs its utility.</p>&mdash;Arnon Rotem-Gal-Oz</p></blockquote>
+
+<p>So I decided to look for a better name. It should be sticky and easy to remember. It should not focus on size, or any other questionable aspect. And it may be fine if it still means nothing - as long as this nothing does not have confusing semantics.</p>
+
+<p>Let start with abbreviation. It probably will end with SA - Service Architecture. Let leave RSA to <a href="http://www.reactivemanifesto.org/">Reactive Manifesto</a> camp. NSA - too bad association. BSA - should be reserved for BS Architecture.</p>
+
+<p>I think I like <strong>USA</strong>. Let create <strong><em>Ultra Services Architecture</em></strong>!</p>
+
+<!--more-->
+
+
+<p>
+And ultra is a good prefix for #ultraservices. It can mean anything you want! Ultra-scalable, Ultra-fast. Ultra-happy. And, if you feel very adventurous, you can still try to do ultra-small (just let me know upfront before I try to use your app)</p>
+
+<p>And, as we are talking about USA, it needs</p>
+
+<h3>Declaration of Independence</h3>
+
+<blockquote><p>When in the Course of human events, <strong><em>it becomes necessary</em></strong> for one people <strong><em>to dissolve the</em></strong> political <strong><em>bands which have connected them with another, and to assume</em></strong> among the powers of the earth, <strong><em>the separate and equal station</em></strong> to which the Laws of Nature and of Nature&rsquo;s God entitle them, a decent respect to the opinions of mankind requires that they <strong><em>should declare the causes which impel them to the separation.</em></strong></p></blockquote>
+
+<p>[Ultra] Services have to be independent. Their independence is governed by three main aspects:</p>
+
+<h3>Independent Scalability</h3>
+
+<p>The only way to scale monolithic system is to scale it horizontally. Splitting to independent components allows to scale each component individually. This not only saves your resources, but, most importantly, does not allow parts of the system to starve other parts. You may need to think about independent scalability when you have independent operations (APIs) with:</p>
+
+<ul>
+<li>different resource needs (e.g. CPU- vs. memory-bound).</li>
+<li>different SLAs (fast vs. slow).</li>
+<li>different load (request rate)</li>
+<li>different reliability requirements</li>
+<li>different clients (e.g. end users vs. API clients)</li>
+</ul>
+
+
+<h3>Independent Lifecycle</h3>
+
+<p>When you have parts of your system evolving at a different pace, you do not want to tie together their delivery cycles. Independent deployment of services gives us an ability to update any service without impacting the whole system, as long as the change is backwards-compatible. And, with <strong><em>well designed</em></strong> services, we are getting also encapsulation of the risk - failing service should fail only some of system functionality, failing component inside a monolith will crash everything.</p>
+
+<h3>Independent Data</h3>
+
+<p>We should never depend on internals of data managed by the services. It is their &ldquo;implementation details&rdquo;. Service should be always free to change underlying data format and/or storage.  Services accessing the same data directly (or even having an easy way to do so) either are already too tightly coupled, or will be tomorrow.</p>
+
+<p>There are only two ways to achieve data independence: to have well-defined <a href="http://martinfowler.com/bliki/BoundedContext.html">bounded context</a> for a service, managed in the independent data store; or to have no data at all (stateless services).</p>
+
+<h2>Applying Independence Test</h2>
+
+<p>With three independence clauses we can create a rule for when it may be a good idea to look at Ultra Services Architecture</p>
+
+<blockquote><p>You should look at splitting your monoliths to services if:</p>
+
+<ul>
+<li>you need (and I mean it, need, not want) Independent Scalability and Independent Lifecycle</li>
+<li>you can make your Data Independent</li>
+</ul>
+</blockquote>
+
+<p>And making your data independent (by defining a bounded context and moving it to a separate store) should always be the first step.</p>
+
+<p>BTW, please do not be fooled by the semi-jocking tone of the USA part of the post. I&rsquo;ve started to work on these independence principles way before microservices fad have started, so there was no need for a name.</p>
+
+<p>TL;DR: Name them however you want (though probably not microservices), but always follow three rules of service independence  - Independent Scalability, Independent Lifecycle and Independent Data</p>
+
+<p><em>You can see an updated version of this declaration at <a href="https://unclegene.github.io/blog/2015/03/16/services-declaration-of-independence/">Services: Declaration of Independence</a></em></p>
+]]></content>
+  </entry>
+
+  <entry>
+    <title type="html"><![CDATA[Microservices, Macroservices, Shmackroservices: What's in a Name?]]></title>
+    <link href="https://unclegene.github.io/blog/2014/11/22/shmackroservices/"/>
+    <updated>2014-11-22T18:05:38-08:00</updated>
+    <id>http://203.softover.com/2014/11/22/shmackroservices</id>
+    <content type="html"><![CDATA[<p>Over the last few years the new hype took over the software industry: &ldquo;Microservices&rdquo;. It started slowly, with articles and presentations popping here and there, and now it is everywhere. The most interesting part is that the industry still cannot agree on what &ldquo;Microservices&rdquo; really are (or even, how to write them - Microservices, Micro-services or Micro Services)</p>
+
+<p>In March of 2014 James Lewis and Martin Fowler published an <a href="http://martinfowler.com/articles/microservices.html">article</a> in an attempt to summarize the meaning of this term (and contributing to the hype wide spread).</p>
+
+<!--more-->
+
+
+<hr />
+
+<h3>Interlude: Conspiracy Theory</h3>
+
+<blockquote><p><p>The term &ldquo;microservice&rdquo; was discussed at a workshop of software architects near Venice in May, 2011 to describe what the participants saw as a common architectural style that many of them had been recently exploring. In May 2012, the same group decided on &ldquo;microservices&rdquo; as the most appropriate name.</p> &mdash; James Lewis &amp; Martin Fowler, <a href="http://martinfowler.com/articles/microservices.html">March 25, 2014</a></p></blockquote>
+
+<p>Yep, anonymous workshop of anonymous architects anonymously decided on &ldquo;microservices&rdquo; as the most appropriate name&hellip; BTW, were they all from the same anonymous company?</p>
+
+<hr />
+
+<p>Originally (and, AFAIK, even in the first revision of the Lewis &amp; Fowler article) Microservices had a strong emphasis on Micro, and even referred to a 10-100 LOC size guideline. After getting pretty strong pushback on any size limitations from many practitioners, all the size references were gone (finally a reality check?), and &ldquo;Micro&rdquo; part started to be more and more frequently referred as being &ldquo;just a name&rdquo;</p>
+
+<p>With &ldquo;Micro&rdquo; semantics dropped out of the picture, it became obvious (to many people, though there is no real consensus here neither) that Microservices are just SOA striving for a new identity, because an old one had too bad reputation.</p>
+
+<blockquote class="twitter-tweet" data-cards="hidden" lang="en"><p>I guess it is easier to use a new name (Microservices) rather than say that this is what SOA actually meant - re <a href="http://t.co/gvhxDfDWLG">http://t.co/gvhxDfDWLG</a></p>&mdash; Arnon Rotem-Gal-Oz (@arnonrgo) <a href="https://twitter.com/arnonrgo/status/445188642727034880">March 16, 2014</a></blockquote>
+
+
+
+
+<blockquote class="twitter-tweet" data-conversation="none" lang="en"><p><a href="https://twitter.com/martinfowler">@martinfowler</a> <a href="https://twitter.com/boicy">@boicy</a> but these are the very principles of SOA before vendors does pushed the hub in the middle, i.e. ESB</p>&mdash; Clemens Vasters (@clemensv) <a href="https://twitter.com/clemensv/status/445216182757756929">March 16, 2014</a></blockquote>
+
+
+
+
+<blockquote class="twitter-tweet" data-conversation="none" lang="en"><p><a href="https://twitter.com/UncleGene">@UncleGene</a> Micro-Services are just SOA done properly &#8211; simple functionality, well-defined interfaces, minimal dependencies</p>&mdash; Randy Shoup (@randyshoup) <a href="https://twitter.com/randyshoup/status/530820576810926080">November 7, 2014</a></blockquote>
+
+
+
+
+
+<blockquote><p><p><a href="http://service-architecture.blogspot.co.uk/2014/03/microservices-is-soa-for-those-who-know.html">Microservices is SOA, for those who know what SOA is.</a></p> &mdash; Steve Jones March 18, 2014</p></blockquote>
+
+<p>So, to understand what &ldquo;Microservices&rdquo; really are, we should first understand what is SOA (and what is SOA done properly). Rose may smell sweet by any name, but if you step into [something] - you can name it a rose (or micro[something]), but smell will not change until you clean up your shoes.</p>
+
+<p>You can see my &ldquo;tongue-in-cheek&rdquo; definition <a href="https://unclegene.github.io/blog/2014/11/21/wth-is-soa/">here</a>, please stay tuned for the real one coming soon.</p>
+
+<p>But for now, just one takeaway: &ldquo;Micro&rdquo; in &ldquo;Microservices&rdquo; means <strong>absolutely nothing</strong>.</p>
+]]></content>
+  </entry>
+
+  <entry>
+    <title type="html"><![CDATA[WTH Is SOA?]]></title>
+    <link href="https://unclegene.github.io/blog/2014/11/21/wth-is-soa/"/>
+    <updated>2014-11-21T14:51:49-08:00</updated>
+    <id>http://203.softover.com/2014/11/21/wth-is-soa</id>
+    <content type="html"><![CDATA[<p>To start with, we are not discussing <a href="http://en.wikipedia.org/wiki/Sons_of_Anarchy">Sons of Anarchy</a> or <a href="http://en.wikipedia.org/wiki/Society_of_Actuaries">Society of Actuaries</a>. This is about Service-Oriented Architecture. But what is Service-Oriented Architecture?</p>
+
+<p>Our usual suspect, wikipedia, says:</p>
+
+<blockquote><p>Service-oriented architecture (SOA) is a software design and software architecture design pattern based on distinct pieces of software providing application functionality as services to other applications. This is known as service-orientation. It is independent of any vendor, product or technology.[<a href="https://en.wikipedia.org/wiki/Service-oriented_architecture#cite_note-1">1</a>]
+&ndash; <a href="http://en.wikipedia.org/wiki/Service-oriented_architecture,">http://en.wikipedia.org/wiki/Service-oriented_architecture,</a> 09/18/2014</p></blockquote>
+
+<p>Let try to digest.</p>
+
+<blockquote><p>architecture [&hellip;] is a software design and software architecture design pattern</p></blockquote>
+
+<p>Awesome! After all these years of debates about differences between architecture and design, in one phrase we can see that they are not only the same, but, at least in the case of SOA, also the same as design pattern!</p>
+
+<blockquote><p>pieces of software providing application functionality as services to other applications</p></blockquote>
+
+<p>OK. Got it. Services are providing functionality as services. And they are pieces of software. And, looking at definition, they are not necessarily applications, but have to provide application functionality, and have to be used by applications. Basically, &ldquo;application of service applications as services to application services&rdquo;</p>
+
+<blockquote><p>This is known as service-orientation.</p></blockquote>
+
+<p>What &ldquo;this&rdquo;? SOA?</p>
+
+<!--more-->
+
+
+<p>The only clear and unambiguous part is &ldquo;It is independent of any vendor, product or technology&rdquo;, so we&rsquo;ll set it aside for the future reuse.</p>
+
+<p>Curiously enough, the reference there points to the first chapter of &ldquo;<a href="http://msdn.microsoft.com/en-us/library/bb833022.aspx">SOA in the Real World</a>&rdquo; book  by some anonymous author, that gives absolutely different, and much more vague definition:</p>
+
+<blockquote><p>[SOA is] A loosely-coupled architecture designed to meet the business needs of the organization.</p></blockquote>
+
+<p>Whoa, whoa, is it assuming that there can be an architecture that is designed not to meet business needs? Quite possible, but as we do not want get fired, let skip this part:</p>
+
+<blockquote><p>SOA is a loosely-coupled architecture.</p></blockquote>
+
+<p>Nice. Does everybody understand now what are we going to talk about?</p>
+
+<p>Let look for other definitions. Here is the <a href="http://www.opengroup.org/soa/source-book/togaf/soadef.htm">next one</a>, and as it is compound definition, let consume it piece-by-piece.</p>
+
+<blockquote><p>Service-Oriented Architecture (SOA) is an architectural style that supports service-orientation.</p></blockquote>
+
+<p>I absolutely and completely agree. I can continue the line: Object-Oriented Design (OOD) is a design style that supports object-orientation.  Test-Driven Development (TDD) is a development style that is driven by tests. Central Intelligence Agency is an intelligence agency that is central (or an agency whose intelligence is central? Looks like this one may benefit from such definition).</p>
+
+<p>Let continue:</p>
+
+<blockquote><p>Service-orientation is a way of thinking in terms of services and service-based development and the outcomes of services.</p></blockquote>
+
+<p>No comments. Though to make it better, I&rsquo;d rather mention services couple more times. Going forward.</p>
+
+<blockquote><p>A service:
+- Is a logical representation of a repeatable business activity that has a specified outcome (e.g., check customer - credit, provide weather data, consolidate drilling reports)
+- Is self-contained
+- May be composed of other services
+- Is a “black box” to consumers of the service</p></blockquote>
+
+<p>When I first started to read this, I&rsquo;ve stumbled on the first point&rsquo;s &ldquo;business activity&rdquo;. Not being sure what is really meant here, I looked couple paragraphs below, and found some clarification. Here is  a statement about &ldquo;SOA architectural style&rdquo; (yes, defined separately):</p>
+
+<blockquote><p>It is based on the design of the services – <strong><em>which mirror real-world business activities</em></strong> – comprising the enterprise (or inter-enterprise) business processes.</p></blockquote>
+
+<p>Seriously? Services are required to mirror what exists in the &ldquo;real world&rdquo;? Let replay this statement in other direction: &ldquo;Hello, operator? Could you please help me with transcoding my video file? Here are my bits: 1,0,0,1,0&hellip;.&rdquo;</p>
+
+<p>Honestly, I have no clue what &ldquo;self-contained&rdquo; and &ldquo;may be composed of other services&rdquo; mean, especially - in combination. &ldquo;Black box&rdquo; is fine, we&rsquo;ll add it to our collection.</p>
+
+<p>BTW,</p>
+
+<blockquote><p>This definition of SOA was produced by the SOA Definition team of The Open Group SOA Working Group.</p></blockquote>
+
+<p>This phrase itself, IMHO, deserves pretty long meditation. Even parsing and tokenization are not trivial.</p>
+
+<p>Let combining all pieces (that we decided to keep) together. SOA is:</p>
+
+<blockquote><p>A loosely-coupled architecture created with black boxes, independent of any vendor, product or technology</p></blockquote>
+]]></content>
+  </entry>
+
+  <entry>
+    <title type="html"><![CDATA[Rails: Shadow Facets of Concurrency]]></title>
+    <link href="https://unclegene.github.io/blog/2013/12/07/rails-shadow-facets-of-concurrency/"/>
+    <updated>2013-12-07T09:32:00-08:00</updated>
+    <id>http://203.softover.com/2013/12/07/rails-shadow-facets-of-concurrency</id>
+    <content type="html"><![CDATA[<div class="embed-video-container"><iframe src="//www.youtube.com/embed/TV5LEjN6d1U" allowfullscreen></iframe></div>
+
+
+<p>This is my talk at <a href="http://rockymntruby.com">Rocky Mountain Ruby 2013</a>. Slides are available <a href="https://unclegene.github.io/concur/rency">here</a>.</p>
+
+<blockquote><p>Rails is a framework well known for ease of development. This ease is achieved by a lot of &#8216;magic&#8217; that happens behind the scenes. One of pitfalls of such magic is a false sense of safety it gives, including sense of safety from concurrency issues for single-threaded environments. You may never discover any problems before the launch, or even after, while your site traffic is pretty sparse. But here comes a glorious moment of popularity - and together with more traffic it brings more and more concurrency-related problems.</p><p>In this talk we will look at different aspects of concurrency, from simple ones that are even mentioned in Rails documentation, to more complex problems that even seasoned developers tend to miss or fail to pay sufficient attention to.</p></blockquote>
+
+]]></content>
+  </entry>
+
+  <entry>
+    <title type="html"><![CDATA[Videos to Watch]]></title>
+    <link href="https://unclegene.github.io/blog/2013/09/21/videos/"/>
+    <updated>2013-09-21T16:22:00-07:00</updated>
+    <id>http://203.softover.com/2013/09/21/videos</id>
+    <content type="html"><![CDATA[<p>Good presentations, deserve watching:</p>
+
+<ul>
+<li>Deconstructing the Framework by Gary Bernhardt</li>
+<li>Agile is the new black by Fred George</li>
+<li>Confident Code by Avdi Grimm</li>
+<li>Delicious Controversy: Docs &amp; Tests by Thomas Meeks</li>
+<li>Boundaries by Gary Bernhardt</li>
+</ul>
+
+
+<!--more-->
+
+
+<hr />
+
+<h2>Deconstructing the Framework by Gary Bernhardt</h2>
+
+<div class="embed-video-container"><iframe src="//www.youtube.com/embed/iUe6tacW3JE" allowfullscreen></iframe></div>
+
+
+<blockquote><p>Rails gives us M, V, C, routes, and helpers. Some people add observers and concerns, among others. We&rsquo;ve standardized on presenters. Service objects are gaining popularity. Uncle Bob wants you to add interactors, request models, response models, and entities.</p>
+
+<p>That&rsquo;s a lot of stuff! Let&rsquo;s step back: ideally, how do all of these things fit together? Does it make sense to have so many different components? How do different web frameworks project these onto actual components? Most importantly: how does this explain the tangled mess in Rails controllers and how we might fix it?</p></blockquote>
+
+<h2>Agile is the new black by Fred George</h2>
+
+<div class="embed-video-container"><iframe src="//player.vimeo.com/video/68689393 "></iframe></div>
+
+
+<blockquote><p>&ldquo;This mid­ 80’s declaration from the fashion industry has become synonymous with radical shifts in the norm of any field. Agile provided such a radical shift for traditional waterfall processes. Yet as Agile has matured, it is redefining itself at a pace that rivals the whims of the fashion industry.</p>
+
+<p>This presentation presents not only the (somewhat obvious) shifts from waterfall to Agile, but the second and third generation of shifts within the Agile community itself. Basics such as automated unit tests are falling away (“Deployment is the new unit test”).</p>
+
+<p>The overall message is to continue to question practices, and strive to understand the reasons behind a practice so that you know when it is safe to discard.&#8221;</p></blockquote>
+
+<h2>Confident Code by Avdi Grimm</h2>
+
+<div class="embed-video-container"><iframe src="//www.youtube.com/embed/T8J0j2xJFgQ" allowfullscreen></iframe></div>
+
+
+<blockquote><p>Are your methods timid? Do they constantly second-guess themselves, checking for nil values, errors, and unexpected input? Even the cleanest Ruby codebases can become littered over time with nil checks, error handling, and other interruptions which steal attention away from the essential purpose of the code. This talk will discuss strategies for writing your Ruby classes and methods in a confident, straightforward style; without sacrificing functionality or robustness. In the process, we&rsquo;ll cover concepts and techniques points including: The narrative style of method construction The four parts of a method Three strategies for dealing with uncertain input Massaging input with coercion and the Decorator pattern Lightweight preconditions Exterminating nils from your code The chaining and iterative styles of method construction Eliminating conditionals with the Special Case and Null Object patterns Isolating errors with the Bouncer and Checked Method patterns</p></blockquote>
+
+<h2>Delicious Controversy: Docs &amp; Tests by Thomas Meeks</h2>
+
+<div class="embed-video-container"><iframe src="//www.youtube.com/embed/9md-GTF_Th8" allowfullscreen></iframe></div>
+
+
+<blockquote><p>Self-documenting code is a pipe dream. TDD (or BDD) is not the panacea of testing. In the pursuit of test coverage we&rsquo;ve forgotten what really matters: getting things done. Lets talk about putting documentation and testing into their proper place. Tools that ease maintenance, help other developers join a project, and reduce bugs.</p>
+
+<p>I&rsquo;m going to go over lessons learned in writing, maintaining, and introducing new developers to 20,000 lines of code. Specifically, how we are testing, documenting, and refactoring our code to stay sane, make the team happier, and get more done.</p></blockquote>
+
+<h2>Boundaries by Gary Bernhardt</h2>
+
+<div class="embed-video-container"><iframe src="//www.youtube.com/embed/yTkzNHF6rMs" allowfullscreen></iframe></div>
+
+
+<blockquote><p>Some people test in isolation, mocking everything except the class under test. We&rsquo;ll start with that idea, quickly examine the drawbacks, and ask how we might fix them without losing the benefits. This will send us on a trip through behavior vs. data, mutation vs. immutability, interface vs. data dependencies, how data shape affords parallelism, and what a system optimizing each of these for natural isolation might look like.</p></blockquote>
+]]></content>
+  </entry>
+
+  <entry>
+    <title type="html"><![CDATA[Numeric Fun]]></title>
+    <link href="https://unclegene.github.io/blog/2013/09/17/numeric-fun/"/>
+    <updated>2013-09-17T08:49:00-07:00</updated>
+    <id>http://203.softover.com/2013/09/17/numeric-fun</id>
+    <content type="html"><![CDATA[<p>Today I was browsing Rails codebase (sometimes people do weird things for fun), and found an interesting piece of code:</p>
+
+<figure class='code'><figcaption><span>https://github.com/rails/rails/blob/master/activesupport/lib/active_support/core_ext/time/calculations.rb#L105 </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">options</span><span class="o">[</span><span class="ss">:days</span><span class="o">]</span><span class="p">,</span> <span class="n">partial_days</span> <span class="o">=</span> <span class="n">options</span><span class="o">[</span><span class="ss">:days</span><span class="o">].</span><span class="n">divmod</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This sparkled my interest: what is <em>divmod</em>, especially - its pretty harsh form <em>divmod(1)</em>? Quick search through documentation - and it starts to make perfect sense:
+<q>Returns an array containing the quotient and modulus obtained by dividing num by numeric</q>; especially if you instantly remember what is <q>quotient</q> and <q>modulus</q>. Looks like example table in documentation is designed to confuse (including expected output of multiple methods), but for the special case of a <em>positive float.divmod(1)</em> there is much simpler explanation: it just splits a positive floating point number to its integer and fractional parts (+/- error).</p>
+
+<!--more-->
+
+
+<p>Or, in other &ldquo;words&rdquo; (this one is true for negative numbers too):</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">float</span><span class="o">.</span><span class="n">divmod</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="o">[</span><span class="n">float</span><span class="o">.</span><span class="n">floor</span><span class="p">,</span> <span class="n">float</span> <span class="o">-</span> <span class="n">float</span><span class="o">.</span><span class="n">floor</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Examples:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="mi">1</span><span class="o">.</span><span class="mi">5</span><span class="o">.</span><span class="n">divmod</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="o">.</span><span class="mi">5</span><span class="o">]</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="mi">1</span><span class="o">.</span><span class="mi">4</span><span class="o">.</span><span class="n">divmod</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="o">.</span><span class="mi">3999999999999999</span><span class="o">]</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="o">-</span><span class="mi">5</span><span class="o">.</span><span class="mi">5</span><span class="o">.</span><span class="n">divmod</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="o">[-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="o">.</span><span class="mi">5</span><span class="o">]</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="o">-</span><span class="mi">5</span><span class="o">.</span><span class="mi">3</span><span class="o">.</span><span class="n">divmod</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="o">[-</span><span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="o">.</span><span class="mi">7000000000000002</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Let look at other surprising Numeric methods (ones that I either never saw or successfully forgot about).</p>
+
+<h3>#abs2</h3>
+
+<p>Returns square of self. Nothing to say, other than interesting choice of name. I would never guess what it means.</p>
+
+<h3>#coerce(numeric)</h3>
+
+<p>Returns an array of a target and an argument if they are of the same type, converts both to Float if they have different types. It would be interesting to see a practical (not in the core code) use of this.</p>
+
+<h3>#conj, #conjugate</h3>
+
+<p>Returns self for Numeric. Probably - no use for non-Complex numbers</p>
+
+<h3>#numerator, #denominator</h3>
+
+<p>I am excited about this pair, and really want to find a practical use for them. Documentation is <em>extremely</em> clear: it states that denominator returns denominator, and numerator - surprise! - numerator. Makes perfect sense for Rational, but sounds weird for all other types. In reality these methods return numerator and denominator of a Numeric converted to a Rational</p>
+
+<p>Taking out of the context - try to make sense out of these results:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="mi">1</span><span class="o">.</span><span class="mi">2345</span><span class="o">.</span><span class="n">denominator</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="mi">4503599627370496</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="mi">1</span><span class="o">.</span><span class="mi">2345</span><span class="o">.</span><span class="n">numerator</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="mi">5559693739988877</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Together - much better</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="o">.</span><span class="mi">2345</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="mi">1</span><span class="o">.</span><span class="mi">2345</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">to_r</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="p">(</span><span class="mi">5559693739988877</span><span class="o">/</span><span class="mi">4503599627370496</span><span class="p">)</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">numerator</span><span class="o">.</span><span class="n">fdiv</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">denominator</span><span class="p">)</span> <span class="o">==</span> <span class="n">a</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="kp">true</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I could find only one &ldquo;valid&rdquo; use for <em>#denominator</em> for non-rational numbers - simplify (is it really simplification?) the check if any number is &ldquo;practically an integer&rdquo;</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">123</span><span class="o">.</span><span class="mi">0</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="mi">123</span><span class="o">.</span><span class="mi">0</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">to_i</span><span class="o">.</span><span class="n">to_f</span> <span class="o">==</span> <span class="n">a</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="kp">true</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="n">a</span><span class="o">.</span><span class="n">denominator</span> <span class="o">==</span> <span class="mi">1</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="kp">true</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>For <em>#numerator</em> I was able to find only pretty bad usage (not sure who started it as a pattern):</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">days_until</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
+</span><span class='line'>  <span class="p">(</span><span class="n">date</span> <span class="o">-</span> <span class="no">Date</span><span class="o">.</span><span class="n">today</span><span class="p">)</span><span class="o">.</span><span class="n">numerator</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Problems here:</p>
+
+<ul>
+<li>for a non-manipulated Date input, it is no better than <em>#.to_i</em></li>
+<li>for calculated dates - it is much worse than <em>#to_i</em> as it will purely lie to you.</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&gt;</span> <span class="n">days_until</span><span class="p">(</span><span class="no">Date</span><span class="o">.</span><span class="n">today</span> <span class="o">+</span> <span class="mi">1</span><span class="o">.</span><span class="mi">3</span><span class="p">)</span>
+</span><span class='line'><span class="o">=&gt;</span> <span class="mi">13</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>#fdiv</h3>
+
+<p>Float division. Not sure yet, but I think I like it better than its practical equivalents
+<em>a / b.to_f</em> or <em>a.to_f / b</em> - seems more explicit.</p>
+
+<h3>#nonzero?</h3>
+
+<p>Thank you, Ruby, for consistency! All other xxx? methods return <em>true</em> or <em>false</em>. But not this one. Returns <em>self</em> where you&rsquo;d expect true, and <em>nil</em> for <em>false</em>. Usage example in documentation</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">a</span> <span class="o">=</span> <span class="sx">%w( z Bb bB bb BB a aA Aa AA A )</span>
+</span><span class='line'><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">sort</span> <span class="p">{</span><span class="o">|</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="o">|</span> <span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">downcase</span> <span class="o">&lt;=&gt;</span> <span class="n">b</span><span class="o">.</span><span class="n">downcase</span><span class="p">)</span><span class="o">.</span><span class="n">nonzero?</span> <span class="o">||</span> <span class="n">a</span> <span class="o">&lt;=&gt;</span> <span class="n">b</span> <span class="p">}</span>
+</span><span class='line'><span class="n">b</span>   <span class="c1">#=&gt; [&quot;A&quot;, &quot;a&quot;, &quot;AA&quot;, &quot;Aa&quot;, &quot;aA&quot;, &quot;BB&quot;, &quot;Bb&quot;, &quot;bB&quot;, &quot;bb&quot;, &quot;z&quot;]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>does not give any clarity for why this inconsistency is necessary. This metthod would make much more sense to me without &ldquo;?&rdquo;&#8221;</p>
+]]></content>
+  </entry>
+
+  <entry>
+    <title type="html"><![CDATA[Curious First]]></title>
+    <link href="https://unclegene.github.io/blog/2013/09/15/curious-first/"/>
+    <updated>2013-09-15T09:40:00-07:00</updated>
+    <id>http://203.softover.com/2013/09/15/curious-first</id>
+    <content type="html"><![CDATA[<figure class='code'><figcaption><span> (first_last.rb)</span> <a href='https://unclegene.github.io/blog/downloads/code/first_last.rb'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Schema</span><span class="o">.</span><span class="n">define</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">drop_table</span> <span class="ss">:records</span> <span class="k">if</span> <span class="n">table_exists?</span> <span class="ss">:records</span>
+</span><span class='line'>  <span class="n">create_table</span> <span class="ss">:records</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
+</span><span class='line'>    <span class="n">t</span><span class="o">.</span><span class="n">timestamps</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Record</span> <span class="o">&lt;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">CuriousFirstTest</span> <span class="o">&lt;</span> <span class="ss">MiniTest</span><span class="p">:</span><span class="ss">:Unit</span><span class="o">::</span><span class="no">TestCase</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">test_first_last</span>
+</span><span class='line'>    <span class="n">r</span> <span class="o">=</span> <span class="no">Record</span><span class="o">.</span><span class="n">create</span>
+</span><span class='line'>    <span class="no">Record</span><span class="o">.</span><span class="n">create</span>
+</span><span class='line'>    <span class="n">r</span><span class="o">.</span><span class="n">touch</span>
+</span><span class='line'>    <span class="n">assert_equal</span> <span class="mi">2</span><span class="p">,</span> <span class="no">Record</span><span class="o">.</span><span class="n">count</span>
+</span><span class='line'>    <span class="n">assert</span> <span class="no">Record</span><span class="o">.</span><span class="n">first</span> <span class="o">!=</span> <span class="no">Record</span><span class="o">.</span><span class="n">last</span><span class="p">,</span> <span class="s1">&#39;The first of 2 records is also the last!&#39;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>What are we doing here? We create two records, touching first (this updates the record timestamps), and making sure that the first record is not the same as the last one. Perfectly valid assumption, that <strong><em>almost</em></strong> works.</p>
+
+<p>The test succeeds on SQLite and MySQL (latter - with various engines), but fails on PostgreSQL.</p>
+
+<!--more-->
+
+
+<p>Is it a database fault? Not really. Rails (before 4.0) used a strange asymmetric approach: #last (when statement do not have any explicit order) adds ordering by primary key, but #first does not add anything, thus using default database ordering. No database actually guarantees what is implicit order, but there is still some consistency: at least in simple cases, MySQL always maintains primary key order, but PostgreSQL places most recently modified records at the end.</p>
+
+<p>Bug? I’d say yes, but… This is not the bug that is going to be fixed. Apparently there are developers “in the wild” that managed to rely on this behavior. Thus – this behavior was effectively <a href="https://github.com/rails/rails/issues/11774#issuecomment-24336831">declared “a feature, not a bug”</a>&hellip;</p>
+]]></content>
+  </entry>
+
+  <entry>
+    <title type="html"><![CDATA[Design Process]]></title>
+    <link href="https://unclegene.github.io/blog/2013/09/13/design-process/"/>
+    <updated>2013-09-13T12:41:00-07:00</updated>
+    <id>http://203.softover.com/2013/09/13/design-process</id>
+    <content type="html"><![CDATA[<p>Yesterday I&rsquo;ve attended my daughter&rsquo;s &ldquo;Curriculum Night&rdquo; (yes, I am a very good and responsible dad, I even managed not only to recall where the school is, but also to successfully follow my wife&rsquo;s instructions on how to find the classroom).</p>
+
+<p>Listening to the teacher&rsquo;s presentation, I was surprised by how process-oriented the education is (not having US education experience myself). Here is one of the processes that were presented by the teacher as a part of 5th grade curriculum:</p>
+
+<h3>Design Process</h3>
+
+<ol>
+<li>State the Problem</li>
+<li>Gather Information</li>
+<li>Explore Ideas</li>
+<li>Select a Solution</li>
+<li>Test and Evaluate</li>
+<li>Redesign</li>
+</ol>
+
+
+<p>And this is taught in elementary school! One question that I have now is: did most of software engineers skip the 5th grade? Or this is something new that was added to curriculum less than twenty-something years ago? The &ldquo;Design Process&rdquo; I see again and again, not only with interns or junior engineers, but also with some experienced people:</p>
+
+<ol>
+<li>Pick the Task (or Get Assignment)</li>
+<li>Pick a Solution</li>
+<li>Implement</li>
+<li>Try if it Works (sometimes)</li>
+<li>Implement Whitebox Tests (only if forced to do testing. In a lot of cases tests are matching implementation one-to-one; if code has bugs – tests are ensuring that bugs are there)</li>
+</ol>
+
+
+<p>Sometimes it even extends to:</p>
+
+<ol start="6">
+<li>Restlessly Defend Picked Solution as the Best One</li>
+</ol>
+
+
+<p></p>
+
+<p>Nope. Please, go back to elementaruy school. They can teach you how to do your job!</p>
+
+<!--more-->
+
+
+<p>All right, all right, I agree, we do not have time for this, and, more important,  our school district is not funded enough to bring you back to school. But I hope you did not skip classes when they tought reading. Or did you? If not, please read what these steps mean (or, at least, how I want you to understand them):</p>
+
+<h3>Design Process for Engineers</h3>
+
+<h4>1. State the Problem</h4>
+
+<p>Describe in your words what is the problem you are trying to address. If you cannot clearly describe the problem – you do not understand it. If your friend does not understand your description - <strong><em>you</em></strong> do not understand it.</p>
+
+<h4>2. Gather Information</h4>
+
+<p>Starting with the most important one – are you really stating the right problem? Or even: did the person that originally stated it understand what she wanted? Is there already a solution for either directly the problem or something similar? How well does it fit your case?</p>
+
+<h4>3. Explore Ideas</h4>
+
+<p>There is a very high probablility that the first idea that comes to your mind is the wrong one. And do not forget to continue exploring on all steps. And please, PLEASE, do not limit yourself to your ideas only. There are a lot of smart people around.</p>
+
+<h4>4. Select a Solution</h4>
+
+<p>Remember: there is no selection if you have only one solution.</p>
+
+<h4>5. Test and Evaluate</h4>
+
+<p>Test not what you did, but whether the problem was solved. Evaluate all steps that were done before – starting from restating the problem. Quite possible that with all new information you have now your understanding of the problem may change.</p>
+
+<p>And one of the most important evaluation aspects – decision whether you have to go to the step #6 or not. Understanding of what is &ldquo;good enough&rdquo; comes with experience, so do not trust yourself if you lack one.</p>
+
+<h4>6. Redesign</h4>
+
+<p>Return to #1. Always. Yes, I know, you think you are ready for #4. Forget what you see at this moment as a &ldquo;better solution&rdquo; – you are wrong (even if you are right!).</p>
+
+<h3>Bonus #1: Investigation Process (Elementary School Edition)</h3>
+
+<ol>
+<li>Question</li>
+<li>Prediction</li>
+<li>Materials</li>
+<li>Procedure</li>
+<li>Data/Results</li>
+<li>Conclusion</li>
+</ol>
+
+
+<h3>Bonus #2: Writing Process (Elemenatry School Edition)</h3>
+
+<ol>
+<li>Prewrite</li>
+<li>Rough Draft</li>
+<li>Revise</li>
+<li>Edit</li>
+<li>Publish</li>
+</ol>
+
+]]></content>
+  </entry>
+
+  <entry>
+    <title type="html"><![CDATA[HowTo: Reset Your MySQL Root Password]]></title>
+    <link href="https://unclegene.github.io/blog/2013/08/30/howto-reset-your-mysql-root-password/"/>
+    <updated>2013-08-30T11:06:00-07:00</updated>
+    <id>http://203.softover.com/2013/08/30/howto-reset-your-mysql-root-password</id>
+    <content type="html"><![CDATA[<p>In case you forgot your root password for MySQL installed with <a href="http://brew.sh/">Homebrew</a> on OS X Mountain Lion.</p>
+
+<figure class='code'><figcaption><span> (reroot.sh)</span> <a href='https://unclegene.github.io/blog/downloads/code/reroot.sh'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+</span><span class='line'>/usr/local/opt/mysql/bin/mysqld_safe --skip-grant-tables --skip-networking &amp;
+</span><span class='line'>mysql -e <span class="s2">&quot;UPDATE mysql.user SET Password=PASSWORD(&#39;new password&#39;) WHERE User=&#39;root&#39;; FLUSH PRIVILEGES;&quot;</span>
+</span><span class='line'>/usr/local/bin/mysql.server stop
+</span><span class='line'>launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Different versions may have different paths to be used with launchctl load/unload</p>
+]]></content>
+  </entry>
+
+  <entry>
+    <title type="html"><![CDATA[Split the Difference]]></title>
+    <link href="https://unclegene.github.io/blog/2013/07/11/split-the-difference/"/>
+    <updated>2013-07-11T09:01:00-07:00</updated>
+    <id>http://203.softover.com/2013/07/11/split-the-difference</id>
+    <content type="html"><![CDATA[<figure class='code'><figcaption><span> (split.rb)</span> <a href='https://unclegene.github.io/blog/downloads/code/split.rb'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='rb'><span class='line'><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot; To</span><span class="se">\t</span><span class="s2">be  or</span><span class="se">\n</span><span class="s2">not</span><span class="se">\t</span><span class="s2">to  be  &quot;</span>
+</span><span class='line'><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sr">/ /</span><span class="p">)</span>
+</span><span class='line'><span class="c1">#=&gt; [&quot;&quot;, &quot;To\tbe&quot;, &quot;&quot;, &quot;or\nnot\tto&quot;, &quot;&quot;, &quot;be&quot;]</span>
+</span><span class='line'><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sr">/( )/</span><span class="p">)</span>
+</span><span class='line'><span class="c1">#=&gt; [&quot;&quot;, &quot; &quot;, &quot;To\tbe&quot;, &quot; &quot;, &quot;&quot;, &quot; &quot;, &quot;or\nnot\tto&quot;, &quot; &quot;, &quot;&quot;, &quot; &quot;, &quot;be&quot;, &quot; &quot;, &quot;&quot;, &quot; &quot;]</span>
+</span><span class='line'><span class="o">&gt;</span> <span class="n">s</span><span class="o">.</span><span class="n">split</span> <span class="sr">/\s+/</span>
+</span><span class='line'><span class="c1">#=&gt; [&quot;&quot;, &quot;To&quot;, &quot;be&quot;, &quot;or&quot;, &quot;not&quot;, &quot;to&quot;, &quot;be&quot;]</span>
+</span><span class='line'><span class="n">s</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+</span><span class='line'><span class="c1">#=&gt; [&quot;To&quot;, &quot;be&quot;, &quot;or&quot;, &quot;not&quot;, &quot;to&quot;, &quot;be&quot;]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>From the ruby docs:</p>
+
+<blockquote><p>If pattern is a single space, str is split on whitespace, with leading whitespace and runs of contiguous whitespace characters ignored.</p></blockquote>
+
+
+<p>Note that split by regex without groups omits trailing matches. Undocumented?</p>
+]]></content>
+  </entry>
+
+</feed>

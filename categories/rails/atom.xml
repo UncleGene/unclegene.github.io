@@ -2,8 +2,8 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: rails | 203]]></title>
-  <link href="http://203.softover.com/categories/rails/atom.xml" rel="self"/>
-  <link href="http://203.softover.com/"/>
+  <link href="https://unclegene.github.io/categories/rails/atom.xml" rel="self"/>
+  <link href="https://unclegene.github.io/blog/"/>
   <updated>2015-03-16T08:48:06-07:00</updated>
   <id>http://203.softover.com/</id>
   <author>
@@ -15,7 +15,7 @@
   
   <entry>
     <title type="html"><![CDATA[Rails: Shadow Facets of Concurrency]]></title>
-    <link href="http://203.softover.com/2013/12/07/rails-shadow-facets-of-concurrency/"/>
+    <link href="https://unclegene.github.io/blog/2013/12/07/rails-shadow-facets-of-concurrency/"/>
     <updated>2013-12-07T09:32:00-08:00</updated>
     <id>http://203.softover.com/2013/12/07/rails-shadow-facets-of-concurrency</id>
     <content type="html"><![CDATA[<p><div class="embed-video-container"><iframe src="//www.youtube.com/embed/TV5LEjN6d1U" allowfullscreen></iframe></div></p>
@@ -28,7 +28,7 @@
   
   <entry>
     <title type="html"><![CDATA[Curious First]]></title>
-    <link href="http://203.softover.com/2013/09/15/curious-first/"/>
+    <link href="https://unclegene.github.io/blog/2013/09/15/curious-first/"/>
     <updated>2013-09-15T09:40:00-07:00</updated>
     <id>http://203.softover.com/2013/09/15/curious-first</id>
     <content type="html"><![CDATA[<p><figure class='code'><figcaption><span> (first_last.rb)</span> <a href='/downloads/code/first_last.rb'>download</a></figcaption>

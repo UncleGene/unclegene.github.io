@@ -2,8 +2,8 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: osx | 203]]></title>
-  <link href="http://203.softover.com/categories/osx/atom.xml" rel="self"/>
-  <link href="http://203.softover.com/"/>
+  <link href="https://unclegene.github.io/categories/osx/atom.xml" rel="self"/>
+  <link href="https://unclegene.github.io/blog/"/>
   <updated>2015-03-16T08:48:06-07:00</updated>
   <id>http://203.softover.com/</id>
   <author>
@@ -15,7 +15,7 @@
   
   <entry>
     <title type="html"><![CDATA[HowTo: Reset Your MySQL Root Password]]></title>
-    <link href="http://203.softover.com/2013/08/30/howto-reset-your-mysql-root-password/"/>
+    <link href="https://unclegene.github.io/blog/2013/08/30/howto-reset-your-mysql-root-password/"/>
     <updated>2013-08-30T11:06:00-07:00</updated>
     <id>http://203.softover.com/2013/08/30/howto-reset-your-mysql-root-password</id>
     <content type="html"><![CDATA[<p>In case you forgot your root password for MySQL installed with <a href="http://brew.sh/">Homebrew</a> on OS X Mountain Lion.</p>
