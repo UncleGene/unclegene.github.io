@@ -7,6 +7,7 @@ import tempfile
 from datetime import datetime, timezone
 from html import escape
 from pathlib import Path
+from statistics import median
 from urllib.error import HTTPError
 from urllib.parse import urlsplit
 from urllib.request import Request, urlopen
@@ -14,6 +15,7 @@ from urllib.request import Request, urlopen
 ROOT = Path(__file__).resolve().parents[1]
 OWNER = 'UncleGene'
 ORIGIN = 'https://unclegene.github.io'
+RECENCY_WINDOW = 10
 
 
 def https_url(value):
@@ -23,6 +25,18 @@ def https_url(value):
     if url.scheme != 'https' or not url.netloc or url.username or url.password:
         raise ValueError(f'Expected an absolute HTTPS URL: {value!r}')
     return value
+
+
+def commit_timestamp(value):
+    date = datetime.fromisoformat(value.replace('Z', '+00:00'))
+    if date.tzinfo is None:
+        raise ValueError('Commit timestamps must include a timezone')
+    return date.timestamp()
+
+
+def activity_midpoint(repo):
+    dates = [commit_timestamp(commit['date']) for commit in repo['recent_commits']]
+    return median(dates) if dates else float('-inf')
 
 
 def validate_repositories(repositories):
@@ -44,6 +58,15 @@ def validate_repositories(repositories):
         for key in ('description', 'language'):
             if repo[key] is not None and not isinstance(repo[key], str):
                 raise ValueError(f'{name}: {key} must be text or null')
+        commits = repo['recent_commits']
+        if not isinstance(commits, list) or len(commits) > RECENCY_WINDOW:
+            raise ValueError(f'{name}: expected at most {RECENCY_WINDOW} recent commits')
+        commit_shas = set()
+        for commit in commits:
+            if not re.fullmatch(r'[0-9a-f]{40}', commit['sha']) or commit['sha'] in commit_shas:
+                raise ValueError(f'{name}: invalid or duplicate commit SHA')
+            commit_shas.add(commit['sha'])
+            commit_timestamp(commit['date'])
         pages = repo['pages']
         if pages is not None:
             if not repo['has_pages']:
@@ -59,6 +82,19 @@ def fetch_json(url):
         return json.load(response)
 
 
+def fetch_recent_commits(name):
+    try:
+        rows = fetch_json(f'https://api.github.com/repos/{OWNER}/{name}/commits?per_page={RECENCY_WINDOW}')
+    except HTTPError as error:
+        with error:
+            if error.code == 409 and json.load(error).get('message') == 'Git Repository is empty.':
+                return []
+        raise
+    if not isinstance(rows, list):
+        raise ValueError(f'{name}: invalid commit listing')
+    return [{'sha': row['sha'], 'date': row['commit']['committer']['date']} for row in rows]
+
+
 def check_pages(url):
     request = Request(https_url(url), method='HEAD', headers={'User-Agent': 'UncleGene-showcase'})
     try:
@@ -66,7 +102,8 @@ def check_pages(url):
             https_url(response.url)
             return response.status
     except HTTPError as error:
-        return error.code
+        with error:
+            return error.code
 
 
 def fetch_repositories(domains):
@@ -87,6 +124,7 @@ def fetch_repositories(domains):
                 homepage = row.get('homepage')
                 candidate = override.get('pages_url') or (homepage if homepage and homepage.startswith('https://') else default)
                 repo['pages'] = {'url': https_url(candidate), 'status': check_pages(candidate)}
+            repo['recent_commits'] = fetch_recent_commits(repo['name'])
             repositories.append(repo)
         if len(rows) < 100:
             break
@@ -121,6 +159,8 @@ def render(catalog, domains):
     other = [r['name'] for r in repositories if r['name'] not in seen]
     if other:
         groups.append(({'id': 'other', 'title': 'Other projects', 'description': 'More public work, ready to explore.'}, other))
+    scores = {r['name']: activity_midpoint(r) for r in repositories}
+    groups.sort(key=lambda item: (-max(scores[name] for name in item[1]), item[0]['title'].casefold(), item[0]['id']))
     navigation = ''.join(f'<a href="#{escape(g["id"])}">{escape(g["title"])}</a>' for g, _ in groups)
     sections = []
     for number, (group, names) in enumerate(groups, 1):
@@ -145,15 +185,32 @@ def render(catalog, domains):
                 site_link = '<span class="unavailable">Pages URL not yet verified</span>'
             if override.get('video_url'):
                 site_link += f'<a href="{escape(https_url(override["video_url"]))}">Watch the talk <span aria-hidden="true">↗</span></a>'
-            cards.append(f'''<article class="project" data-repo="{escape(name)}">
+            links = f'<div class="project-links"><a href="{escape(repo["html_url"])}">Repository <span aria-hidden="true">↗</span></a>{site_link}</div>'
+            notice = f'<p class="compatibility-note">{escape(override["notice"])}</p>' if override.get('notice') else ''
+            if name == 'concur':
+                embed_url = https_url(override['video_embed_url'])
+                poster = f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="strict-origin-when-cross-origin"><title>Play the concurrency talk</title><style>html,body,a{{margin:0;width:100%;height:100%;display:block}}a{{position:relative;background:#17241a;color:white;font:600 16px system-ui}}img{{width:100%;height:100%;object-fit:cover}}span{{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#203e29;padding:14px 22px;border:1px solid #b8c9ac;border-radius:4px;white-space:nowrap}}a:focus-visible span{{outline:3px solid white;outline-offset:5px}}</style></head><body><a href="{escape(embed_url)}?autoplay=1" aria-label="Play Rails: Shadow Facets of Concurrency"><img src="/images/concur-talk.jpg" alt=""><span>▶ Play talk</span></a></body></html>'''
+                cards.append(f'''<article class="talk-feature" data-repo="concur">
+  <div class="talk-video"><iframe src="{escape(embed_url)}" srcdoc="{escape(poster)}" title="Rails: Shadow Facets of Concurrency — Eugene Kalenkovich at Rocky Mountain Ruby 2013" width="640" height="360" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+  <div class="talk-copy"><p class="eyebrow">Featured talk · Rocky Mountain Ruby 2013</p><h3>Rails: Shadow Facets of Concurrency</h3><p>Explore the concurrency pitfalls hidden behind Rails’ convenience, from simple surprises to problems that catch experienced developers.</p><p class="talk-context"><code>concur</code> · The recording, slides, and original Rails sandbox.</p>{links}</div>
+</article>''')
+            else:
+                cards.append(f'''<article class="project" data-repo="{escape(name)}">
   <div class="project-top"><span class="project-icon" aria-hidden="true">↗</span><span class="project-tags">{escape(' · '.join(tags))}</span></div>
   <h3>{escape(name)}</h3>
-  <p>{escape(description.strip())}</p>
-  <div class="project-links"><a href="{escape(repo['html_url'])}">Repository <span aria-hidden="true">↗</span></a>{site_link}</div>
+  <p>{escape(description.strip())}</p>{notice}
+  {links}
 </article>''')
+        score = max(scores[name] for name in names)
+        if score == float('-inf'):
+            activity = '<p class="activity-date">No commit history</p>'
+        else:
+            date = datetime.fromtimestamp(score, timezone.utc)
+            activity = f'<p class="activity-date">Activity midpoint · <time datetime="{date.isoformat()}">{date:%b %Y}</time></p>'
+        group_notice = f'<p class="domain-notice">{escape(group["notice"])}</p>' if group.get('notice') else ''
         sections.append(f'''<section class="domain" id="{escape(group['id'])}" aria-labelledby="{escape(group['id'])}-title">
-  <div class="domain-heading"><span class="section-number" aria-hidden="true">{number:02}</span><div><h2 id="{escape(group['id'])}-title">{escape(group['title'])}</h2><p>{escape(group['description'])}</p></div><span class="count">{len(names):02}</span></div>
-  <div class="project-grid">{''.join(cards)}</div>
+  <div class="domain-heading"><span class="section-number" aria-hidden="true">{number:02}</span><div><h2 id="{escape(group['id'])}-title">{escape(group['title'])}</h2><p>{escape(group['description'])}</p>{activity}</div><span class="count">{len(names):02}</span></div>
+  {group_notice}<div class="project-grid">{''.join(cards)}</div>
 </section>''')
     return f'''<!doctype html>
 <html lang="en">
@@ -173,7 +230,7 @@ def render(catalog, domains):
   <header class="site-header"><a class="wordmark" href="/">EK<span aria-hidden="true">.</span></a><span class="identity">Eugene Kalenkovich <span>/ UncleGene</span></span><nav aria-label="Main"><a href="#projects">Projects</a><a href="/blog/">Writing</a><a href="https://github.com/UncleGene">GitHub <span aria-hidden="true">↗</span></a></nav></header>
   <main id="main">
     <section class="intro" aria-labelledby="intro-title"><p class="eyebrow"><span aria-hidden="true">●</span> A collection of public work</p><h1 id="intro-title">Code, curiosity,<br>and things worth <em>keeping.</em></h1><div class="intro-bottom"><p>Tools, experiments, and recovered knowledge.<br>A directory of what I build, explore, and write.</p><a class="text-link" href="#projects">Explore {len(repositories)} repositories <span aria-hidden="true">↓</span></a></div></section>
-    <div class="directory" id="projects"><div class="directory-label"><h2>Project directory</h2><span>{len(repositories):02} repositories / {len(groups):02} domains</span></div><nav class="domain-nav" aria-label="Project domains">{navigation}</nav></div>
+    <div class="directory" id="projects"><div class="directory-label"><h2>Project directory</h2><span>{len(repositories):02} repositories / {len(groups):02} domains</span></div><p class="directory-note">Domains ordered by recent commit activity.</p><nav class="domain-nav" aria-label="Project domains">{navigation}</nav></div>
     {''.join(sections)}
     <section class="blog-feature" aria-labelledby="blog-title"><div class="blog-mark" aria-hidden="true">203<span>THE ARCHIVE</span></div><div><p class="eyebrow">Writing · 2013–2015</p><h2 id="blog-title">Notes from an earlier web.</h2><p>The original 203 blog. Fifteen posts on services, software design, Ruby, Rails, and a few things in between.</p><a class="text-link" href="/blog/">Read the blog archive <span aria-hidden="true">↗</span></a></div></section>
   </main>

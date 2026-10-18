@@ -5,9 +5,11 @@ import tempfile
 import unittest
 import xml.etree.ElementTree as ET
 from html.parser import HTMLParser
+from io import BytesIO
 from pathlib import Path
 from unittest.mock import patch
 from urllib.parse import urljoin, urlsplit
+from urllib.error import HTTPError
 
 from tools import site
 
@@ -20,10 +22,16 @@ class HTML(HTMLParser):
         self.links = []
         self.repositories = []
         self.ids = []
+        self.frames = []
+        self.domains = []
         self.feed(source)
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
+        if tag == 'iframe':
+            self.frames.append(attrs)
+        if tag == 'section' and attrs.get('class') == 'domain':
+            self.domains.append(attrs['id'])
         if 'data-repo' in attrs:
             self.repositories.append(attrs['data-repo'])
         if 'id' in attrs:
@@ -108,16 +116,95 @@ class GeneratorTests(unittest.TestCase):
         self.assertIn('href="https://youtu.be/TV5LEjN6d1U"', source)
         self.assertNotIn('<script', source)
 
+    def test_correct_domains_and_historical_compatibility_notes(self):
+        source = site.render(self.catalog, self.groups)
+        group_of = {name: group['id'] for group in self.groups['groups'] for name in group['repos']}
+        self.assertEqual(group_of['drill'], 'learning')
+        self.assertEqual(group_of['last_line'], 'security')
+        self.assertIn('Historical tools', source)
+        self.assertIn('modern Ruby, Rails, and tooling has not been verified', source)
+        self.assertIn('Rails 3-era', source)
+        self.assertIn('~&gt; 3.1', source)
+
+    def test_talk_has_accessible_embed_and_fallback(self):
+        source = site.render(self.catalog, self.groups)
+        self.assertIn('<article class="talk-feature" data-repo="concur">', source)
+        parsed = HTML(source)
+        self.assertEqual(len(parsed.frames), 1)
+        frame = parsed.frames[0]
+        self.assertEqual(frame['src'], 'https://www.youtube-nocookie.com/embed/TV5LEjN6d1U')
+        self.assertIn('Shadow Facets of Concurrency', frame['title'])
+        self.assertEqual(frame['referrerpolicy'], 'strict-origin-when-cross-origin')
+        poster = HTML(frame['srcdoc'])
+        self.assertIn('/images/concur-talk.jpg', poster.links)
+        self.assertIn('https://www.youtube-nocookie.com/embed/TV5LEjN6d1U?autoplay=1', poster.links)
+        self.assertTrue((ROOT / 'images/concur-talk.jpg').is_file())
+        self.assertIn('href="https://youtu.be/TV5LEjN6d1U"', source)
+        self.assertIn('href="https://unclegene.github.io/concur/rency/"', source)
+        self.assertNotIn('<script', source)
+
+    def test_recency_is_median_not_latest_and_handles_even_short_history(self):
+        def history(days):
+            return [{'sha': f'{i:040x}', 'date': f'2020-01-{day:02}T00:00:00Z'} for i, day in enumerate(days)]
+        self.assertEqual(site.activity_midpoint({'recent_commits': history([1, 2, 3])}),
+                         site.activity_midpoint({'recent_commits': history([2])}))
+        self.assertEqual(site.activity_midpoint({'recent_commits': history([1, 3])}),
+                         site.activity_midpoint({'recent_commits': history([2])}))
+        self.assertEqual(site.activity_midpoint({'recent_commits': []}), float('-inf'))
+
+    def test_domains_rank_by_newest_member_median_with_stable_ties(self):
+        for repo in self.catalog['repositories']:
+            repo['recent_commits'] = []
+        by_name = {r['name']: r for r in self.catalog['repositories']}
+        def history(years):
+            return [{'sha': f'{i:040x}', 'date': f'{year}-01-01T00:00:00Z'} for i, year in enumerate(years)]
+        by_name['concur']['recent_commits'] = history([2026, 2010, 2010])
+        by_name['bullseye_encyclopedia']['recent_commits'] = history([2020, 2020, 2020])
+        by_name['flay-js']['recent_commits'] = history([2018, 2018])
+        by_name['rhymes']['recent_commits'] = history([2018])
+        rendered = HTML(site.render(self.catalog, self.groups)).domains
+        self.assertEqual(rendered, ['preservation', 'code-quality', 'language', 'talks', 'learning', 'security', 'writing'])
+        self.groups['groups'].reverse()
+        self.assertEqual(HTML(site.render(self.catalog, self.groups)).domains, rendered)
+
+    def test_history_input_rejects_invalid_dates_and_duplicates(self):
+        repos = self.catalog['repositories']
+        for history in ([{'sha': 'a' * 40, 'date': 'not-a-date'}],
+                        [{'sha': 'a' * 40, 'date': '2020-01-01'}],
+                        [{'sha': 'a' * 40, 'date': '2020-01-01T00:00:00Z'}] * 2):
+            bad = dict(repos[0], recent_commits=history)
+            with self.subTest(history=history), self.assertRaises(ValueError):
+                site.validate_repositories([bad])
+
+    def test_commit_fetch_captures_ten_default_branch_commits(self):
+        rows = [{'sha': f'{i:040x}', 'commit': {'committer': {'date': '2020-01-01T00:00:00Z'}}} for i in range(10)]
+        with patch.object(site, 'fetch_json', return_value=rows) as fetch:
+            result = site.fetch_recent_commits('concur')
+        self.assertEqual(result, [{'sha': row['sha'], 'date': row['commit']['committer']['date']} for row in rows])
+        self.assertEqual(fetch.call_args.args[0], 'https://api.github.com/repos/UncleGene/concur/commits?per_page=10')
+
+    def test_empty_git_repository_is_valid_but_other_conflicts_fail(self):
+        for message, empty in [('Git Repository is empty.', True), ('Unexpected conflict', False)]:
+            error = HTTPError('https://api.github.com/', 409, 'Conflict', None,
+                              BytesIO(json.dumps({'message': message}).encode()))
+            with self.subTest(message=message), patch.object(site, 'fetch_json', side_effect=error):
+                if empty:
+                    self.assertEqual(site.fetch_recent_commits('empty'), [])
+                else:
+                    with self.assertRaises(HTTPError):
+                        site.fetch_recent_commits('conflict')
+
     def test_refresh_fetches_every_page(self):
         rows = api_rows(101)
-        with patch.object(site, 'fetch_json', side_effect=[rows[:100], rows[100:]]) as fetch:
+        with patch.object(site, 'fetch_json', side_effect=[rows[:100], rows[100:]]) as fetch, \
+                patch.object(site, 'fetch_recent_commits', return_value=[]):
             result = site.fetch_repositories(self.groups)
         self.assertEqual(len(result), 101)
         self.assertEqual(fetch.call_count, 2)
         self.assertIn('page=2', fetch.call_args.args[0])
 
     def test_failed_refresh_preserves_last_good_inventory(self):
-        for stage in ('first page', 'second page', 'Pages probe'):
+        for stage in ('first page', 'second page', 'Pages probe', 'commit history'):
             with self.subTest(stage=stage), tempfile.TemporaryDirectory() as directory:
                 path = Path(directory) / 'repositories.json'
                 path.write_text('last good inventory')
@@ -127,9 +214,10 @@ class GeneratorTests(unittest.TestCase):
                     responses = [api_rows(100), OSError('network failure')]
                 else:
                     rows = api_rows(1)
-                    rows[0]['has_pages'] = True
+                    rows[0]['has_pages'] = stage == 'Pages probe'
                     responses = [rows]
-                with patch.object(site, 'fetch_json', side_effect=responses):
+                with patch.object(site, 'fetch_json', side_effect=responses), \
+                        patch.object(site, 'fetch_recent_commits', side_effect=OSError('history failure') if stage == 'commit history' else None, return_value=[]):
                     with patch.object(site, 'urlopen', side_effect=OSError('Pages network failure')):
                         with self.assertRaises(OSError):
                             site.refresh(path, self.groups)

@@ -1,33 +1,19 @@
 {
   "groups": [
     {
+      "id": "talks",
+      "title": "Talks & concurrency",
+      "description": "Presentations and experiments in concurrent systems.",
+      "repos": [
+        "concur"
+      ]
+    },
+    {
       "id": "preservation",
       "title": "Digital preservation",
       "description": "Keeping useful knowledge accessible.",
       "repos": [
         "bullseye_encyclopedia"
-      ]
-    },
-    {
-      "id": "code-quality",
-      "title": "Code quality & analysis",
-      "description": "Tools for understanding and improving a codebase.",
-      "repos": [
-        "flay-actionpack",
-        "flay-haml",
-        "flay-js",
-        "tax_code",
-        "flay_haml"
-      ]
-    },
-    {
-      "id": "web",
-      "title": "Web & concurrency",
-      "description": "Experiments in web applications, safety, and concurrent systems.",
-      "repos": [
-        "concur",
-        "drill",
-        "last_line"
       ]
     },
     {
@@ -41,12 +27,41 @@
       ]
     },
     {
+      "id": "learning",
+      "title": "Learning & practice",
+      "description": "Small applications built around exercises and learning.",
+      "repos": [
+        "drill"
+      ]
+    },
+    {
       "id": "writing",
       "title": "Writing & personal site",
       "description": "A home for projects and notes from the archive.",
       "repos": [
         "unclegene.github.io"
       ]
+    },
+    {
+      "id": "security",
+      "title": "Web security",
+      "description": "Historical work on request handling and application security.",
+      "repos": [
+        "last_line"
+      ]
+    },
+    {
+      "id": "code-quality",
+      "title": "Legacy code quality & analysis",
+      "description": "Early experiments in code analysis and developer tooling.",
+      "repos": [
+        "flay-actionpack",
+        "flay-haml",
+        "flay-js",
+        "tax_code",
+        "flay_haml"
+      ],
+      "notice": "Historical tools. Compatibility with modern Ruby, Rails, and tooling has not been verified; these projects may need substantial updates."
     }
   ],
   "overrides": {
@@ -58,7 +73,8 @@
       "description": "A Rails concurrency sandbox, with the Rails vs Real Life presentation.",
       "pages_url": "https://unclegene.github.io/concur/rency/",
       "pages_label": "View slides",
-      "video_url": "https://youtu.be/TV5LEjN6d1U"
+      "video_url": "https://youtu.be/TV5LEjN6d1U",
+      "video_embed_url": "https://www.youtube-nocookie.com/embed/TV5LEjN6d1U"
     },
     "unclegene.github.io": {
       "description": "This project directory and the 203 blog archive: notes on services, software design, Ruby, and Rails.",
@@ -67,6 +83,14 @@
     "flay_haml": {
       "description": "The original HAML plugin for Flay; renamed to flay-haml.",
       "note": "Renamed to flay-haml"
+    },
+    "drill": {
+      "description": "A Sinatra example application for managing student drills, exercises, and practice."
+    },
+    "last_line": {
+      "description": "Controller-level GET whitelisting and CSRF checks for older Rails applications.",
+      "note": "Historical · Rails 3-era",
+      "notice": "Declares Rails ~> 3.1. Compatibility with modern Rails has not been verified."
     }
   }
 }

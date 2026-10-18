@@ -1,6 +1,6 @@
 # User homepage and legacy blog
 
-Status: M1 complete locally; acceptance and independent review passed; not published.
+Status: M1 and M2 acceptance complete locally; independent review passed; not published.
 Full `/blog/` migration approved on 2026-10-18.
 Request: replace the root blog with a showcase of all public repositories,
 grouped by topic/domain, including project Pages links and the legacy blog.
@@ -26,7 +26,7 @@ Remove the blog's Twitter and Delicious sections.
   `2013/12/07/rails-shadow-facets-of-concurrency/index.html:267`.
   Preserve identifiers to avoid detaching existing comment threads.
 
-## Repository inventory and proposed groups
+## Repository inventory and current groups
 
 Source: public [GitHub repositories API](https://api.github.com/users/UncleGene/repos?type=owner&per_page=100&sort=full_name).
 The response contains 13 repositories (fewer than one full 100-item page),
@@ -36,11 +36,13 @@ they are not presented as GitHub-supplied topics.
 
 | Domain | Repositories | Pages status |
 | --- | --- | --- |
-| Code quality and analysis | `flay-actionpack`, `flay-haml`, `flay-js`, `flay_haml`, `tax_code` | No Pages flag |
-| Web applications and concurrency | `concur`, `drill`, `last_line` | `concur`: default URL returns 404; `/concur/rency/` returns 200 |
-| Search and language | `bise`, `rhymes`, `rhymeapp` | No Pages flag |
+| Talks and concurrency | `concur` | Featured embedded talk; `/concur/rency/` returns 200 |
 | Digital preservation and shooting sports | `bullseye_encyclopedia` | [Published site](https://unclegene.github.io/bullseye_encyclopedia/) returns 200 |
+| Search and language | `bise`, `rhymes`, `rhymeapp` | No Pages flag |
+| Learning and practice | `drill` | No Pages flag |
 | Writing and personal site | `unclegene.github.io` | [Root site](https://unclegene.github.io/) returns 200; include blog link |
+| Web security | `last_line` | Historical Rails 3-era library |
+| Legacy code quality and analysis | `flay-actionpack`, `flay-haml`, `flay-js`, `flay_haml`, `tax_code` | Historical tools, activity-ordered; compatibility unverified |
 
 `flay_haml` remains included because all public repositories are in scope;
 its description identifies it as renamed to `flay-haml`. Label that status
@@ -66,6 +68,11 @@ receive a curated factual summary; do not invent product capabilities.
 Given the captured inventory, when the homepage renders, then all 13 unique
 repositories appear exactly once and the groups explain their subject areas.
 Use responsive semantic HTML with keyboard-visible focus and readable contrast.
+Separate practice applications from security libraries and concurrency work.
+Order sections by accepted D2 activity scoring and retain a visible legacy
+analysis compatibility note independently of their position. Identify
+`last_line` as Rails 3-era (`rails ~> 3.1`); do not imply verified support for
+modern Rails. The Rails constraint is verified in its public gemspec.
 
 ### R2 — Reach published project sites
 
@@ -82,7 +89,11 @@ The `concur` Pages branch has no root `index.html`, but does contain
 `rency/index.html`. The verified slides destination is
 `https://unclegene.github.io/concur/rency/`; use it instead of the project root.
 Its entry also links to the user-supplied recording at
-`https://youtu.be/TV5LEjN6d1U` (a link, keeping the homepage free of embeds).
+`https://youtu.be/TV5LEjN6d1U`. Under M2, give this a featured layout within its activity-ordered section
+with an accessible, responsive YouTube embed, no playback on page load, and visible
+slides, repository and direct video links when playback is unavailable.
+Embed construction follows [YouTube player documentation](https://developers.google.com/youtube/player_parameters)
+and [privacy-enhanced mode documentation](https://support.google.com/youtube/answer/171780).
 
 ### R3 — Preserve writing and access
 
@@ -196,7 +207,7 @@ Checks required before acceptance:
 - Run the full new validation suite, simplify the implementation, review the
   final diff for correctness and scope, and update this plan with evidence.
 
-Implementation quality review: all 13 public repositories render in five
+M1 implementation quality review: all 13 public repositories render in five
 domains; every original HTML route is accounted for; 15 article texts,
 historical comment IDs, feed entry IDs and 71 compatibility assets are
 verified against the baseline manifest. The main and seven category feeds
@@ -224,7 +235,7 @@ Consequences: rewrite and validate blog-owned paths, retain historical IDs, and
 maintain static compatibility files. Redirect responses remain HTTP 200.
 Follow-up: implement M1 and record validation evidence before acceptance.
 
-## Acceptance evidence
+## M1 acceptance evidence
 
 - `python3 tools/site.py refresh`: 13 public repositories; all three configured
   Pages destinations returned successful responses, including concur's slides.
@@ -246,9 +257,112 @@ and compatibility checks; all feed entry IDs and self/entry URLs are verified.
 Inherited whitespace is normalized in new text asset copies; root compatibility
 asset bytes remain unchanged.
 
-Final gates: documentation sync and scope checks passed for R1–R4/D1/M1.
+M1 final gates: documentation sync and scope checks passed for R1–R4/D1/M1.
 Simplification retained the dependency-free generator, shared test fixtures,
 and explicit configuration; no unused infrastructure was introduced. Independent
 review passed after the category-feed correction and added network-failure
 coverage. All 13 tests, full-repository Ruff checks and staged whitespace checks
 pass. Keyboard testing confirmed visible focus on the homepage's skip link.
+
+## M2 — Correct taxonomy and highlight the concurrency talk
+
+Status: acceptance complete locally; independent review passed. Trigger: user feedback on drill/last_line classification,
+aging developer tools, and talk visibility. Requirements affected: R1, R2;
+R3 and the accepted D1 migration stay unchanged.
+
+Evidence: `drill`'s `app.rb` handles student practice/exercise actions; its README
+calls it an evolving Sinatra example. `last_line.gemspec` declares
+`rails ~> 3.1`; its README describes controller GET whitelisting and CSRF
+checks. Sources: [drill source](https://github.com/UncleGene/drill/blob/master/app.rb),
+[last_line gemspec](https://github.com/UncleGene/last_line/blob/master/last_line.gemspec).
+User confirms the analysis projects are old; modern compatibility is unverified,
+not established broken. Do not equate a curated historical label with GitHub's
+archived flag.
+
+Selected slice: one homepage presentation correction. Ranked candidates:
+1. Correct misleading categorization/compatibility expectations (R1).
+2. Make the requested talk prominent and embeddable (R2).
+3. Recheck generated output, responsive layout and documentation.
+These form a single reviewable M2 release. No backend, custom player scripts,
+blog changes, external repository writes or publishing changes are needed.
+
+Acceptance: all 13 public repositories still appear once; drill is in Learning
+& practice, last_line in Web security with its Rails constraint; Legacy code
+quality & analysis explicitly says modern compatibility is unverified. Sections
+follow the D2 activity rule. Concur retains its featured layout with the supplied recording
+embedded at a usable mobile/desktop size, accessible title, no page-load playback and
+working direct-video/slides links. Full tests, lint, simplification, delegated
+review and local commit remain completion gates.
+
+Quality guard: pass; the user's requested corrections resolve the prior
+editorial assumptions. Next action: review the local preview; publish when authorized.
+
+M2 presentation evidence (before recency amendment, independent review passed): 15 tests passed, including new
+red/green checks for corrected categories, legacy ordering and notes, and the
+featured embed. Full-repository Ruff and whitespace checks pass. Chrome
+verified the local poster, its play action loading the YouTube player, and
+actual video playback (then paused). The feature fits a 390px screen with a
+344×200 player and a 320px screen with a 274×200 player; no horizontal overflow.
+A local poster in the iframe's `srcdoc` provides a visible play target before
+the external player loads. Selecting it navigates the iframe to YouTube;
+playback may require the provider's Play control as well. The source thumbnail
+is YouTube's public thumbnail for the user-specified video.
+
+Simplification: repository/slides/video links share one rendering path; the
+existing HTML parser now checks frame attributes too. The single featured talk
+uses native iframe navigation with no new scripts or player framework.
+M2 scope covers homepage taxonomy, compatibility labels, talk presentation and
+activity ordering; all blog and compatibility files remain untouched.
+
+M2 presentation review checkpoint (before recency amendment): independent
+review passed with no blocking findings; 15 tests, Ruff and whitespace checks
+passed. No correction commit was created before the user added the recency
+requirement. The pending M2 release now includes the D2 amendment below.
+
+## D2 — Order domains by contribution midpoint
+
+Status: accepted. Date: 2026-10-18. Context: the user identified that concur is
+old and requested section ordering by the midpoint of the last N contributions,
+superseding the earlier fixed first-talk/last-tools presentation.
+Decision: the user accepted the proposed N=10 rule with “go”: use the median
+UTC committer timestamp of the last ten default-branch commits per repository,
+without author filtering. An even sample averages its middle two timestamps;
+a shorter history uses all available commits. A domain uses the newest member
+repository midpoint. Sort descending, then by domain title and ID for ties;
+empty histories come last. Card order within a domain remains curated.
+
+Consequences: refresh needs one public commit-list request per repository,
+stores SHA/date evidence, and fails without replacing inventory if history
+retrieval fails. Only GitHub's explicit empty-repository response is treated
+as an empty history. The featured talk moves with its domain. Historical
+compatibility statements remain independent: the measured code-quality
+midpoint is May 2018 due to flay-actionpack's history, placing it second in the
+current snapshot. Dates are activity midpoints, not last-updated claims.
+
+Alternatives: latest-commit dates overreact to isolated updates; fixed domain
+positions contradict the user's recency request. A wider N=20 window would
+weight older work more; the user accepted N=10. This is a transparent activity
+heuristic rather than a judgment of software compatibility.
+
+Follow-up: R1/R2 and M2 use D2; refresh/build implementation and tests must prove
+median scoring, newest-member aggregation, deterministic ties, short/empty
+history, input validation and atomic failure behavior. Reference:
+[GitHub list commits](https://docs.github.com/en/rest/commits/commits#list-commits).
+
+M2 amendment validation: current tests cover the accepted scoring rule and
+retained featured embed. Renewed independent review passed with no blocking
+findings. No publishing or remote repository edits are included.
+
+D2 verification: the full public refresh completed successfully for all 13
+repositories, capturing up to ten commit SHAs/timestamps each. All 20 tests,
+full-repository Ruff and whitespace checks passed. Chrome confirmed the seven
+sections and their visible midpoint dates are in descending score order;
+concur remains a featured player within the fourth section in this snapshot.
+The presentation-only review was followed by a renewed review of the scoring
+and refresh changes; its final verdict is pass, including documentation
+corrections. The accepted release is ready for its local commit. No type checker is configured.
+
+Final M2 checkpoint: `master`, base `c8c2ddf`; accepted R1/R2 and D2 scope.
+No remaining product questions or validation blockers. All website changes
+remain local until publication is explicitly requested. Recommended next
+action: review the activity-ordered local preview.
