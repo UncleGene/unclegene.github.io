@@ -1,6 +1,6 @@
 # User homepage and legacy blog
 
-Status: M1 and M2 acceptance complete locally; independent review passed; not published.
+Status: M1 and M2 published to GitHub Pages on 2026-10-19; live checks passed.
 Full `/blog/` migration approved on 2026-10-18.
 Request: replace the root blog with a showcase of all public repositories,
 grouped by topic/domain, including project Pages links and the legacy blog.
@@ -362,7 +362,13 @@ The presentation-only review was followed by a renewed review of the scoring
 and refresh changes; its final verdict is pass, including documentation
 corrections. The accepted release is ready for its local commit. No type checker is configured.
 
-Final M2 checkpoint: `master`, base `c8c2ddf`; accepted R1/R2 and D2 scope.
-No remaining product questions or validation blockers. All website changes
-remain local until publication is explicitly requested. Recommended next
-action: review the activity-ordered local preview.
+Final M2 publication checkpoint: `master`, release `b7cd150`. User authorized
+publication on 2026-10-19. The release was pushed to `origin/master`, and
+[Pages deployment](https://github.com/UncleGene/unclegene.github.io/actions/runs/39266995141)
+completed successfully for that revision. The live homepage contains all 13
+repositories and activity-based ordering. Ten additional live checks passed
+for the blog, a migrated article, its old redirect, main/category feed pairs,
+showcase CSS, talk poster, and a blog image. All 20 tests and full-repository
+Ruff passed again before pushing. No remaining release action is required.
+Live site: https://unclegene.github.io/ ; archive: https://unclegene.github.io/blog/ .
+Earlier local-only checkpoints above describe their state before publication.
