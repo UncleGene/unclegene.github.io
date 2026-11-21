@@ -380,6 +380,34 @@
       ]
     },
     {
+      "name": "genreator",
+      "html_url": "https://github.com/UncleGene/genreator",
+      "description": "Lightroom Classic plugin that suggests a photographic genre for each photo, plus star-rating and keyword suggestions, with a small model that runs locally on Apple silicon. Trained on one photographer's judgements; you review every suggestion before anything is written.",
+      "language": "Lua",
+      "fork": false,
+      "archived": false,
+      "has_pages": false,
+      "pages": null,
+      "recent_commits": [
+        {
+          "sha": "29e671cdba6b2d5b67dd052be9c71cc7d60b8841",
+          "date": "2026-11-21T16:58:25Z"
+        },
+        {
+          "sha": "07b2a81e73817fb78c8aa7fe6dfb9bf24f37c382",
+          "date": "2026-11-21T16:19:33Z"
+        },
+        {
+          "sha": "c806716fc760c1ca727e6a7973422a7ca21edd9c",
+          "date": "2026-11-21T16:08:37Z"
+        },
+        {
+          "sha": "4d993e98ed838539307b3a9a3dca38f8df706e95",
+          "date": "2026-11-21T06:03:19Z"
+        }
+      ]
+    },
+    {
       "name": "last_line",
       "html_url": "https://github.com/UncleGene/last_line",
       "description": "Add last line of XSRF defense to your controllers ",
@@ -637,6 +665,10 @@
       },
       "recent_commits": [
         {
+          "sha": "d8683ca36d6f95651ce45fa8874edade8b8b9a03",
+          "date": "2026-11-21T00:44:44Z"
+        },
+        {
           "sha": "cedbe89ec41e44a7b77b59dc036227fd4bbac9a2",
           "date": "2026-10-19T14:52:57Z"
         },
@@ -671,10 +703,6 @@
         {
           "sha": "8a447149a4b71121279c1f5946601fa3f3afe9aa",
           "date": "2015-01-12T01:42:17Z"
-        },
-        {
-          "sha": "80a86cf7aa79d4a11a5a0013b4070d6cf95501e3",
-          "date": "2014-12-15T16:22:20Z"
         }
       ]
     }

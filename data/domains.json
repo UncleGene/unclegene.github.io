@@ -76,6 +76,7 @@
       "title": "Photography tools",
       "description": "Tools for organizing and working with photographs.",
       "repos": [
+        "genreator",
         "lrc-external-score"
       ]
     }
@@ -113,6 +114,9 @@
     },
     "lrc-external-score": {
       "description": "A Lightroom Classic plugin for recording external photo scores and finding photos by score."
+    },
+    "genreator": {
+      "description": "A Lightroom Classic plugin with a local Apple silicon model for photographic genre, star-rating, and keyword suggestions, with a review workflow."
     }
   }
 }
