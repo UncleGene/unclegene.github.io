@@ -79,6 +79,14 @@
         "genreator",
         "lrc-external-score"
       ]
+    },
+    {
+      "id": "health",
+      "title": "Personal health records",
+      "description": "Organizing family health information and its sources.",
+      "repos": [
+        "famed"
+      ]
     }
   ],
   "overrides": {
@@ -117,6 +125,9 @@
     },
     "genreator": {
       "description": "A Lightroom Classic plugin with a local Apple silicon model for photographic genre, star-rating, and keyword suggestions, with a review workflow."
+    },
+    "famed": {
+      "description": "A local family medical record in Obsidian, maintained by an AI coding agent, with validated facts linked to their source documents."
     }
   }
 }

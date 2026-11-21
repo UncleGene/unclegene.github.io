@@ -208,6 +208,58 @@
       ]
     },
     {
+      "name": "famed",
+      "html_url": "https://github.com/UncleGene/famed",
+      "description": "Local-first family medical record in Obsidian, maintained by your AI coding agent. AI proposes, deterministic code validates; every fact traces to its source.",
+      "language": "Python",
+      "fork": false,
+      "archived": false,
+      "has_pages": false,
+      "pages": null,
+      "recent_commits": [
+        {
+          "sha": "0967d2bb194ade090509117a19adb601dfe25c3f",
+          "date": "2026-11-21T23:27:45Z"
+        },
+        {
+          "sha": "d6fa8cc1084648e6ef93d54a7f4d5ea3b55a05c7",
+          "date": "2026-11-21T23:17:48Z"
+        },
+        {
+          "sha": "dc07f13b74a10764d4ebd1be41339fd2c700b088",
+          "date": "2026-11-21T23:17:05Z"
+        },
+        {
+          "sha": "034d0db6d0573ac0951ae4d1feabfa37e21bdaae",
+          "date": "2026-11-21T22:15:02Z"
+        },
+        {
+          "sha": "11ba08455b2ed2b0414f9c2b64cd77622b73ddf7",
+          "date": "2026-10-17T01:49:37Z"
+        },
+        {
+          "sha": "cf89fb12a230733c7b8b0430461e0bc5b3739925",
+          "date": "2026-10-17T01:49:13Z"
+        },
+        {
+          "sha": "39f6433ee30c90953d7c3644318397dba0ff73cc",
+          "date": "2026-10-17T01:37:46Z"
+        },
+        {
+          "sha": "d11115d3414bf92d0dfcaf27f76ecc00d9233e27",
+          "date": "2026-10-16T18:43:54Z"
+        },
+        {
+          "sha": "ebd34790fbd6960adf4fd14758f972afd17ca75c",
+          "date": "2026-10-16T13:46:07Z"
+        },
+        {
+          "sha": "c7d8047828aa0c40affa37d52cc211d6ea776337",
+          "date": "2026-10-16T13:46:07Z"
+        }
+      ]
+    },
+    {
       "name": "flay-actionpack",
       "html_url": "https://github.com/UncleGene/flay-actionpack",
       "description": "Flay your rails ERB",
@@ -389,6 +441,10 @@
       "has_pages": false,
       "pages": null,
       "recent_commits": [
+        {
+          "sha": "518a7fa4c8a9b8abf1e418fca0fff1ef8cbb5661",
+          "date": "2026-11-21T17:48:51Z"
+        },
         {
           "sha": "29e671cdba6b2d5b67dd052be9c71cc7d60b8841",
           "date": "2026-11-21T16:58:25Z"
@@ -665,6 +721,10 @@
       },
       "recent_commits": [
         {
+          "sha": "ac5bbc977f98b130e94e5e9b753ea21ad8b49e1d",
+          "date": "2026-11-21T17:44:10Z"
+        },
+        {
           "sha": "d8683ca36d6f95651ce45fa8874edade8b8b9a03",
           "date": "2026-11-21T00:44:44Z"
         },
@@ -699,10 +759,6 @@
         {
           "sha": "ba702c2b567274894181fe51d2f849b07cfddcda",
           "date": "2015-01-12T01:44:10Z"
-        },
-        {
-          "sha": "8a447149a4b71121279c1f5946601fa3f3afe9aa",
-          "date": "2015-01-12T01:42:17Z"
         }
       ]
     }

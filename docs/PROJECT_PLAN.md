@@ -395,3 +395,21 @@ Added the newly public `genreator` to Photography tools, using its public
 README for the description. The refreshed directory contains 16 non-fork
 repositories. All three configured Pages destinations returned HTTP 200.
 The user requested updating and pushing this refresh.
+
+
+## Directory growth — 2026-11-21
+
+Added newly public `famed` under Personal health records, using its public
+README for the description. Inventory now contains 17 non-fork repositories
+across ten domains; all three configured Pages links returned HTTP 200.
+
+The many single-project domains left unused columns in the card grid. Replaced
+cards with compact project rows and a desktop column for each domain heading;
+mobile stacks headings and rows. Retained activity scoring, curated order,
+visible compatibility notes, the featured talk and blog access. Increased
+project descriptions to 16px and domain navigation to 14px.
+
+Verification: 21 unit tests, including completeness, ordering, links and blog
+compatibility; full-repository Ruff; deterministic rebuild; whitespace checks.
+Browser preview could not run because the browser access host was unavailable,
+so responsive visual verification remains outstanding.

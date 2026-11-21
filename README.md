@@ -67,7 +67,8 @@ A project's activity midpoint is the median UTC committer timestamp of its last
 filter. Fewer than 10 commits use the available history; empty histories sort
 last. For an even count, use the midpoint of the two central timestamps. Equal
 domain scores sort by title, then ID, so build results are deterministic.
-Repository cards within a domain retain their curated order.
+Project rows within a domain retain their curated order. Desktop sections pair
+a domain heading with a compact list; narrow screens stack the same content.
 
 The date displayed on a domain is its activity midpoint, not its last update.
 Later maintenance commits can give an old library a newer score, so the

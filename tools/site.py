@@ -165,7 +165,7 @@ def render(catalog, domains):
     groups.sort(key=lambda item: (-max(scores[name] for name in item[1]), item[0]['title'].casefold(), item[0]['id']))
     navigation = ''.join(f'<a href="#{escape(g["id"])}">{escape(g["title"])}</a>' for g, _ in groups)
     sections = []
-    for number, (group, names) in enumerate(groups, 1):
+    for group, names in groups:
         cards = []
         for name in names:
             repo = by_name[name]
@@ -180,14 +180,14 @@ def render(catalog, domains):
             if pages:
                 if 200 <= pages['status'] < 300:
                     label = override.get('pages_label', 'Visit site')
-                    site_link = f'<a class="site-link" href="{escape(pages["url"])}">{escape(label)} <span aria-hidden="true">↗</span></a>'
+                    site_link = f'<a class="site-link" href="{escape(pages["url"])}">{escape(label)}</a>'
                 else:
                     site_link = f'<span class="unavailable">Pages unavailable (HTTP {pages["status"]})</span>'
             elif repo['has_pages']:
                 site_link = '<span class="unavailable">Pages URL not yet verified</span>'
             if override.get('video_url'):
-                site_link += f'<a href="{escape(https_url(override["video_url"]))}">Watch the talk <span aria-hidden="true">↗</span></a>'
-            links = f'<div class="project-links"><a href="{escape(repo["html_url"])}">Repository <span aria-hidden="true">↗</span></a>{site_link}</div>'
+                site_link += f'<a href="{escape(https_url(override["video_url"]))}">Watch the talk</a>'
+            links = f'<div class="project-links"><a href="{escape(repo["html_url"])}">Repository</a>{site_link}</div>'
             notice = f'<p class="compatibility-note">{escape(override["notice"])}</p>' if override.get('notice') else ''
             if name == 'concur':
                 embed_url = https_url(override['video_embed_url'])
@@ -198,10 +198,8 @@ def render(catalog, domains):
 </article>''')
             else:
                 cards.append(f'''<article class="project" data-repo="{escape(name)}">
-  <div class="project-top"><span class="project-icon" aria-hidden="true">↗</span><span class="project-tags">{escape(' · '.join(tags))}</span></div>
-  <h3>{escape(name)}</h3>
-  <p>{escape(description.strip())}</p>{notice}
-  {links}
+  <div class="project-summary"><h3>{escape(name)}</h3><p>{escape(description.strip())}</p>{notice}</div>
+  <div class="project-meta"><span class="project-tags">{escape(' · '.join(tags))}</span>{links}</div>
 </article>''')
         score = max(scores[name] for name in names)
         if score == float('-inf'):
@@ -211,15 +209,15 @@ def render(catalog, domains):
             activity = f'<p class="activity-date">Activity midpoint · <time datetime="{date.isoformat()}">{date:%b %Y}</time></p>'
         group_notice = f'<p class="domain-notice">{escape(group["notice"])}</p>' if group.get('notice') else ''
         sections.append(f'''<section class="domain" id="{escape(group['id'])}" aria-labelledby="{escape(group['id'])}-title">
-  <div class="domain-heading"><span class="section-number" aria-hidden="true">{number:02}</span><div><h2 id="{escape(group['id'])}-title">{escape(group['title'])}</h2><p>{escape(group['description'])}</p>{activity}</div><span class="count">{len(names):02}</span></div>
-  {group_notice}<div class="project-grid">{''.join(cards)}</div>
+  <div class="domain-heading"><div><h2 id="{escape(group['id'])}-title">{escape(group['title'])}</h2><p>{escape(group['description'])}</p>{activity}</div><span class="count">{len(names):02}</span></div>
+  <div class="domain-content">{group_notice}<div class="project-grid">{''.join(cards)}</div></div>
 </section>''')
     return f'''<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Eugene Kalenkovich's public projects: code quality, concurrency, search, digital preservation, and the 203 blog archive.">
+  <meta name="description" content="Eugene Kalenkovich's public projects: photography, AI development tools, personal health records, digital preservation, and the 203 blog archive.">
   <title>Eugene Kalenkovich — Projects & writing</title>
   <link rel="canonical" href="{ORIGIN}/">
   <link rel="icon" href="/favicon.png">
@@ -229,14 +227,14 @@ def render(catalog, domains):
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <div class="shell">
-  <header class="site-header"><a class="wordmark" href="/">EK<span aria-hidden="true">.</span></a><span class="identity">Eugene Kalenkovich <span>/ UncleGene</span></span><nav aria-label="Main"><a href="#projects">Projects</a><a href="/blog/">Writing</a><a href="https://github.com/UncleGene">GitHub <span aria-hidden="true">↗</span></a></nav></header>
+  <header class="site-header"><a class="wordmark" href="/">EK<span aria-hidden="true">.</span></a><span class="identity">Eugene Kalenkovich <span>/ UncleGene</span></span><nav aria-label="Main"><a href="#projects">Projects</a><a href="/blog/">Writing</a><a href="https://github.com/UncleGene">GitHub</a></nav></header>
   <main id="main">
-    <section class="intro" aria-labelledby="intro-title"><p class="eyebrow"><span aria-hidden="true">●</span> A collection of public work</p><h1 id="intro-title">Code, curiosity,<br>and things worth <em>keeping.</em></h1><div class="intro-bottom"><p>Tools, experiments, and recovered knowledge.<br>A directory of what I build, explore, and write.</p><a class="text-link" href="#projects">Explore {len(repositories)} repositories <span aria-hidden="true">↓</span></a></div></section>
+    <section class="intro" aria-labelledby="intro-title"><p class="eyebrow"><span aria-hidden="true">●</span> A collection of public work</p><h1 id="intro-title">Code, curiosity,<br>and things worth <em>keeping.</em></h1><div class="intro-bottom"><p>Tools, experiments, and recovered knowledge.<br>A directory of what I build, explore, and write.</p><a class="text-link" href="#projects">Explore {len(repositories)} repositories</a></div></section>
     <div class="directory" id="projects"><div class="directory-label"><h2>Project directory</h2><span>{len(repositories):02} repositories / {len(groups):02} domains</span></div><p class="directory-note">Domains ordered by recent commit activity.</p><nav class="domain-nav" aria-label="Project domains">{navigation}</nav></div>
     {''.join(sections)}
-    <section class="blog-feature" aria-labelledby="blog-title"><div class="blog-mark" aria-hidden="true">203<span>THE ARCHIVE</span></div><div><p class="eyebrow">Writing · 2013–2015</p><h2 id="blog-title">Notes from an earlier web.</h2><p>The original 203 blog. Fifteen posts on services, software design, Ruby, Rails, and a few things in between.</p><a class="text-link" href="/blog/">Read the blog archive <span aria-hidden="true">↗</span></a></div></section>
+    <section class="blog-feature" aria-labelledby="blog-title"><div class="blog-mark" aria-hidden="true">203<span>THE ARCHIVE</span></div><div><p class="eyebrow">Writing · 2013–2015</p><h2 id="blog-title">Notes from an earlier web.</h2><p>The original 203 blog. Fifteen posts on services, software design, Ruby, Rails, and a few things in between.</p><a class="text-link" href="/blog/">Read the blog archive</a></div></section>
   </main>
-  <footer class="site-footer"><p>Eugene Kalenkovich <span>/ Built with curiosity.</span></p><p>Public repository directory · Checked {escape(catalog['checked_at'])} <a href="https://github.com/UncleGene">GitHub ↗</a></p></footer>
+  <footer class="site-footer"><p>Eugene Kalenkovich <span>/ Built with curiosity.</span></p><p>Public repository directory · Checked {escape(catalog['checked_at'])} <a href="https://github.com/UncleGene">GitHub</a></p></footer>
 </div>
 </body>
 </html>

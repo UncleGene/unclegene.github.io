@@ -163,7 +163,7 @@ class GeneratorTests(unittest.TestCase):
         by_name['flay-js']['recent_commits'] = history([2018, 2018])
         by_name['rhymes']['recent_commits'] = history([2018])
         rendered = HTML(site.render(self.catalog, self.groups)).domains
-        self.assertEqual(rendered, ['preservation', 'code-quality', 'language', 'talks', 'agent-tools', 'learning', 'photography', 'security', 'writing'])
+        self.assertEqual(rendered, ['preservation', 'code-quality', 'language', 'talks', 'agent-tools', 'learning', 'health', 'photography', 'security', 'writing'])
         self.groups['groups'].reverse()
         self.assertEqual(HTML(site.render(self.catalog, self.groups)).domains, rendered)
 
