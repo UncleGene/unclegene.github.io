@@ -152,7 +152,7 @@ class GeneratorTests(unittest.TestCase):
                          site.activity_midpoint({'recent_commits': history([2])}))
         self.assertEqual(site.activity_midpoint({'recent_commits': []}), float('-inf'))
 
-    def test_domains_rank_by_newest_member_median_with_stable_ties(self):
+    def test_pinned_domains_lead_then_activity_with_stable_ties(self):
         for repo in self.catalog['repositories']:
             repo['recent_commits'] = []
         by_name = {r['name']: r for r in self.catalog['repositories']}
@@ -163,7 +163,7 @@ class GeneratorTests(unittest.TestCase):
         by_name['flay-js']['recent_commits'] = history([2018, 2018])
         by_name['rhymes']['recent_commits'] = history([2018])
         rendered = HTML(site.render(self.catalog, self.groups)).domains
-        self.assertEqual(rendered, ['preservation', 'code-quality', 'language', 'talks', 'agent-tools', 'learning', 'health', 'photography', 'security', 'writing'])
+        self.assertEqual(rendered, ['agent-tools', 'health', 'preservation', 'code-quality', 'language', 'talks', 'learning', 'photography', 'security', 'writing'])
         self.groups['groups'].reverse()
         self.assertEqual(HTML(site.render(self.catalog, self.groups)).domains, rendered)
 

@@ -34,7 +34,6 @@ h1 em { color: var(--green); font-weight: normal; }
 .domain-heading { display: flex; gap: 12px; align-items: baseline; }
 .domain-heading h2 { font: 400 27px/1.2 var(--serif); margin: 0; letter-spacing: -.025em; }
 .domain-heading p { font-size: 14px; color: var(--muted); margin: 8px 0 0; }
-.count { font: 12px ui-monospace, monospace; margin-left: auto; color: var(--muted); }
 .domain-content { min-width: 0; }
 .project-grid { display: grid; }
 .project { min-width: 0; padding: 22px 0; display: grid; grid-template-columns: minmax(0, 1fr) 145px; gap: 24px; border-top: 1px solid var(--line); }

@@ -162,7 +162,8 @@ def render(catalog, domains):
     if other:
         groups.append(({'id': 'other', 'title': 'Other projects', 'description': 'More public work, ready to explore.'}, other))
     scores = {r['name']: activity_midpoint(r) for r in repositories}
-    groups.sort(key=lambda item: (-max(scores[name] for name in item[1]), item[0]['title'].casefold(), item[0]['id']))
+    priority = {'agent-tools': 0, 'health': 1}
+    groups.sort(key=lambda item: (priority.get(item[0]['id'], 2), -max(scores[name] for name in item[1]), item[0]['title'].casefold(), item[0]['id']))
     navigation = ''.join(f'<a href="#{escape(g["id"])}">{escape(g["title"])}</a>' for g, _ in groups)
     sections = []
     for group, names in groups:
@@ -209,7 +210,7 @@ def render(catalog, domains):
             activity = f'<p class="activity-date">Activity midpoint · <time datetime="{date.isoformat()}">{date:%b %Y}</time></p>'
         group_notice = f'<p class="domain-notice">{escape(group["notice"])}</p>' if group.get('notice') else ''
         sections.append(f'''<section class="domain" id="{escape(group['id'])}" aria-labelledby="{escape(group['id'])}-title">
-  <div class="domain-heading"><div><h2 id="{escape(group['id'])}-title">{escape(group['title'])}</h2><p>{escape(group['description'])}</p>{activity}</div><span class="count">{len(names):02}</span></div>
+  <div class="domain-heading"><div><h2 id="{escape(group['id'])}-title">{escape(group['title'])}</h2><p>{escape(group['description'])}</p>{activity}</div></div>
   <div class="domain-content">{group_notice}<div class="project-grid">{''.join(cards)}</div></div>
 </section>''')
     return f'''<!doctype html>
@@ -230,7 +231,7 @@ def render(catalog, domains):
   <header class="site-header"><a class="wordmark" href="/">UG<span aria-hidden="true">.</span></a><span class="identity">Eugene Kalenkovich <span>/ UncleGene</span></span><nav aria-label="Main"><a href="#projects">Projects</a><a href="/blog/">Writing</a><a href="https://github.com/UncleGene">GitHub</a></nav></header>
   <main id="main">
     <section class="intro" aria-labelledby="intro-title"><p class="eyebrow"><span aria-hidden="true">●</span> A collection of public work</p><h1 id="intro-title">Code, curiosity,<br>and things worth <em>keeping.</em></h1><div class="intro-bottom"><p>Tools, experiments, and recovered knowledge.<br>A directory of what I build, explore, and write.</p><a class="text-link" href="#projects">Explore {len(repositories)} repositories</a></div></section>
-    <div class="directory" id="projects"><div class="directory-label"><h2>Project directory</h2><span>{len(repositories):02} repositories / {len(groups):02} domains</span></div><p class="directory-note">Domains ordered by recent commit activity.</p><nav class="domain-nav" aria-label="Project domains">{navigation}</nav></div>
+    <div class="directory" id="projects"><div class="directory-label"><h2>Project directory</h2><span>{len(repositories):02} repositories / {len(groups):02} domains</span></div><p class="directory-note">MiniMe and famed first; remaining domains ordered by recent commit activity.</p><nav class="domain-nav" aria-label="Project domains">{navigation}</nav></div>
     {''.join(sections)}
     <section class="blog-feature" aria-labelledby="blog-title"><div class="blog-mark" aria-hidden="true">203<span>THE ARCHIVE</span></div><div><p class="eyebrow">Writing · 2013–2015</p><h2 id="blog-title">Notes from an earlier web.</h2><p>The original 203 blog. Fifteen posts on services, software design, Ruby, Rails, and a few things in between.</p><a class="text-link" href="/blog/">Read the blog archive</a></div></section>
   </main>

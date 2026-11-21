@@ -61,7 +61,9 @@ settings or claim the tools have been tested against modern applications.
 
 ## Activity ordering
 
-Domains are ordered newest first by their most recently active member project.
+AI development tools (MiniMe) appears first, followed by Personal health records
+(famed). Remaining domains are ordered newest first by their most recently
+active member project.
 A project's activity midpoint is the median UTC committer timestamp of its last
 10 default-branch commits, using the history GitHub returns without an author
 filter. Fewer than 10 commits use the available history; empty histories sort

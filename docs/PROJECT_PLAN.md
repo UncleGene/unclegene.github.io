@@ -69,7 +69,8 @@ Given the captured inventory, when the homepage renders, then all eligible
 repositories appear exactly once and the groups explain their subject areas.
 Use responsive semantic HTML with keyboard-visible focus and readable contrast.
 Separate practice applications from security libraries and concurrency work.
-Order sections by accepted D2 activity scoring and retain a visible legacy
+Order sections by accepted D2 activity scoring, with its pinned-domain amendment,
+and retain a visible legacy
 analysis compatibility note independently of their position. Identify
 `last_line` as Rails 3-era (`rails ~> 3.1`); do not imply verified support for
 modern Rails. The Rails constraint is verified in its public gemspec.
@@ -413,3 +414,12 @@ Verification: 21 unit tests, including completeness, ordering, links and blog
 compatibility; full-repository Ruff; deterministic rebuild; whitespace checks.
 Browser preview could not run because the browser access host was unavailable,
 so responsive visual verification remains outstanding.
+
+
+### D2 amendment — pinned projects, 2026-11-21
+
+User requested MiniMe first, followed by famed. Pin their existing domains
+(AI development tools, Personal health records) in that order in both navigation
+and content. Apply D2 activity ordering to the remaining domains. Activity dates
+still use the unchanged median rule. Remove per-domain project count badges
+as separately requested; retain the overall directory total.
