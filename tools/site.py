@@ -220,14 +220,14 @@ def render(catalog, domains):
   <meta name="description" content="Eugene Kalenkovich's public projects: photography, AI development tools, personal health records, digital preservation, and the 203 blog archive.">
   <title>Eugene Kalenkovich — Projects & writing</title>
   <link rel="canonical" href="{ORIGIN}/">
-  <link rel="icon" href="/favicon.png">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="stylesheet" href="/stylesheets/showcase.css">
   <link rel="alternate" type="application/atom+xml" title="203 blog" href="/blog/atom.xml">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <div class="shell">
-  <header class="site-header"><a class="wordmark" href="/">EK<span aria-hidden="true">.</span></a><span class="identity">Eugene Kalenkovich <span>/ UncleGene</span></span><nav aria-label="Main"><a href="#projects">Projects</a><a href="/blog/">Writing</a><a href="https://github.com/UncleGene">GitHub</a></nav></header>
+  <header class="site-header"><a class="wordmark" href="/">UG<span aria-hidden="true">.</span></a><span class="identity">Eugene Kalenkovich <span>/ UncleGene</span></span><nav aria-label="Main"><a href="#projects">Projects</a><a href="/blog/">Writing</a><a href="https://github.com/UncleGene">GitHub</a></nav></header>
   <main id="main">
     <section class="intro" aria-labelledby="intro-title"><p class="eyebrow"><span aria-hidden="true">●</span> A collection of public work</p><h1 id="intro-title">Code, curiosity,<br>and things worth <em>keeping.</em></h1><div class="intro-bottom"><p>Tools, experiments, and recovered knowledge.<br>A directory of what I build, explore, and write.</p><a class="text-link" href="#projects">Explore {len(repositories)} repositories</a></div></section>
     <div class="directory" id="projects"><div class="directory-label"><h2>Project directory</h2><span>{len(repositories):02} repositories / {len(groups):02} domains</span></div><p class="directory-note">Domains ordered by recent commit activity.</p><nav class="domain-nav" aria-label="Project domains">{navigation}</nav></div>
