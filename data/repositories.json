@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-18",
+  "checked_at": "2026-11-21",
   "repositories": [
     {
       "name": "bise",
@@ -416,6 +416,74 @@
       ]
     },
     {
+      "name": "lrc-external-score",
+      "html_url": "https://github.com/UncleGene/lrc-external-score",
+      "description": "LightRoom Classic plugin for storing external scores for photos",
+      "language": "Lua",
+      "fork": false,
+      "archived": false,
+      "has_pages": false,
+      "pages": null,
+      "recent_commits": [
+        {
+          "sha": "fdb642656722f4ce0c90bf0bf7c2b851b7983144",
+          "date": "2026-11-21T00:39:15Z"
+        }
+      ]
+    },
+    {
+      "name": "MiniMe",
+      "html_url": "https://github.com/UncleGene/MiniMe",
+      "description": "Development process skillset",
+      "language": "Python",
+      "fork": false,
+      "archived": false,
+      "has_pages": false,
+      "pages": null,
+      "recent_commits": [
+        {
+          "sha": "7be023cc402bb300da3bb3fa315fe5d8c3fafd30",
+          "date": "2026-11-20T21:07:11Z"
+        },
+        {
+          "sha": "c2e96d52d29f349c52e52f61f09993e4256721d8",
+          "date": "2026-11-20T20:26:14Z"
+        },
+        {
+          "sha": "50a7942204834189087b27800aa99fc5679f71b8",
+          "date": "2026-11-20T20:15:48Z"
+        },
+        {
+          "sha": "85c38a828f12f7ec6ae5c5c8574f80941d9968a5",
+          "date": "2026-11-20T19:41:16Z"
+        },
+        {
+          "sha": "9dae39deee4767d7c18526f31a1b42af7d8c833f",
+          "date": "2026-11-20T19:41:16Z"
+        },
+        {
+          "sha": "ab4914068c26b3d4420003039afe2ce4540a1156",
+          "date": "2026-11-20T19:41:16Z"
+        },
+        {
+          "sha": "2ccb40cdad09bda843624ae932630904162b9ecc",
+          "date": "2026-11-20T19:41:16Z"
+        },
+        {
+          "sha": "eb6ef18d96f4d8c40b1edf61a98255d42e2be9c4",
+          "date": "2026-11-20T19:41:16Z"
+        },
+        {
+          "sha": "5a1443b36d525d995b0ec44854391cf1c2342b06",
+          "date": "2026-11-20T19:41:16Z"
+        },
+        {
+          "sha": "c30d25d5d87d4b9683ae473d122f3724fd876c98",
+          "date": "2026-11-10T16:12:05Z"
+        }
+      ]
+    },
+    {
       "name": "rhymeapp",
       "html_url": "https://github.com/UncleGene/rhymeapp",
       "description": "Showcase for rhyme gem",
@@ -569,6 +637,18 @@
       },
       "recent_commits": [
         {
+          "sha": "cedbe89ec41e44a7b77b59dc036227fd4bbac9a2",
+          "date": "2026-10-19T14:52:57Z"
+        },
+        {
+          "sha": "b7cd150b66f2bb85994844168bc407a46859cf24",
+          "date": "2026-10-18T22:22:44Z"
+        },
+        {
+          "sha": "c8c2ddff6c4be8c9e8898a7fcbe65203083686f3",
+          "date": "2026-10-18T22:07:43Z"
+        },
+        {
           "sha": "ea70b0ddd897ada2b4886fa8f9034451f602a411",
           "date": "2026-10-15T21:57:33Z"
         },
@@ -595,18 +675,6 @@
         {
           "sha": "80a86cf7aa79d4a11a5a0013b4070d6cf95501e3",
           "date": "2014-12-15T16:22:20Z"
-        },
-        {
-          "sha": "6b73ea868429c951b358d36989fd6305a925c1af",
-          "date": "2014-12-02T19:00:31Z"
-        },
-        {
-          "sha": "711d6d38cadcb3377972ccbe4ab3e2c406da743e",
-          "date": "2014-12-02T18:58:53Z"
-        },
-        {
-          "sha": "4aa3974a70551afca15c505c8359f0f23bcb0eda",
-          "date": "2014-12-02T18:46:08Z"
         }
       ]
     }

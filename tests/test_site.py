@@ -163,7 +163,7 @@ class GeneratorTests(unittest.TestCase):
         by_name['flay-js']['recent_commits'] = history([2018, 2018])
         by_name['rhymes']['recent_commits'] = history([2018])
         rendered = HTML(site.render(self.catalog, self.groups)).domains
-        self.assertEqual(rendered, ['preservation', 'code-quality', 'language', 'talks', 'learning', 'security', 'writing'])
+        self.assertEqual(rendered, ['preservation', 'code-quality', 'language', 'talks', 'agent-tools', 'learning', 'photography', 'security', 'writing'])
         self.groups['groups'].reverse()
         self.assertEqual(HTML(site.render(self.catalog, self.groups)).domains, rendered)
 
@@ -202,6 +202,20 @@ class GeneratorTests(unittest.TestCase):
         self.assertEqual(len(result), 101)
         self.assertEqual(fetch.call_count, 2)
         self.assertIn('page=2', fetch.call_args.args[0])
+
+    def test_refresh_excludes_forks_without_breaking_pagination(self):
+        rows = api_rows(101)
+        for row in rows[:100]:
+            row['fork'] = True
+            row['has_pages'] = True
+        with patch.object(site, 'fetch_json', side_effect=[rows[:100], rows[100:]]) as fetch, \
+                patch.object(site, 'fetch_recent_commits', return_value=[]) as history, \
+                patch.object(site, 'check_pages') as pages:
+            result = site.fetch_repositories(self.groups)
+        self.assertEqual([repo['name'] for repo in result], ['project-100'])
+        self.assertEqual(fetch.call_count, 2)
+        history.assert_called_once_with('project-100')
+        pages.assert_not_called()
 
     def test_failed_refresh_preserves_last_good_inventory(self):
         for stage in ('first page', 'second page', 'Pages probe', 'commit history'):

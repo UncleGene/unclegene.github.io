@@ -26,7 +26,7 @@ Remove the blog's Twitter and Delicious sections.
   `2013/12/07/rails-shadow-facets-of-concurrency/index.html:267`.
   Preserve identifiers to avoid detaching existing comment threads.
 
-## Repository inventory and current groups
+## Repository inventory and groups — 2026-10-18 snapshot
 
 Source: public [GitHub repositories API](https://api.github.com/users/UncleGene/repos?type=owner&per_page=100&sort=full_name).
 The response contains 13 repositories (fewer than one full 100-item page),
@@ -60,12 +60,12 @@ Custom Pages domains require explicit verification rather than guessing.
 
 Status: active. Type: core. Priority: high.
 
-Visitors can browse every public repository owned by UncleGene at `/`, grouped
+Visitors can browse every public non-fork repository owned by UncleGene at `/`, grouped
 by domain. Each entry has a repository link and a concise factual description.
-Include renamed repositories and this site's repository. Missing descriptions
-receive a curated factual summary; do not invent product capabilities.
+Include renamed repositories and this site's repository. Exclude forks
+(user amendment, 2026-11-20). Missing descriptions receive a curated factual summary; do not invent product capabilities.
 
-Given the captured inventory, when the homepage renders, then all 13 unique
+Given the captured inventory, when the homepage renders, then all eligible
 repositories appear exactly once and the groups explain their subject areas.
 Use responsive semantic HTML with keyboard-visible focus and readable contrast.
 Separate practice applications from security libraries and concurrency work.
@@ -372,3 +372,18 @@ showcase CSS, talk poster, and a blog image. All 20 tests and full-repository
 Ruff passed again before pushing. No remaining release action is required.
 Live site: https://unclegene.github.io/ ; archive: https://unclegene.github.io/blog/ .
 Earlier local-only checkpoints above describe their state before publication.
+
+
+## Public inventory refresh — 2026-11-20 local / 2026-11-21 UTC
+
+The public API returned 16 owned repositories; excluding the genealogy fork
+leaves 15 directory entries. Added `MiniMe` under AI development tools and
+`lrc-external-score` under Photography tools, using their public READMEs for
+concise descriptions. Refreshed commit histories and activity ordering; all
+three configured Pages destinations returned HTTP 200. Refresh now skips
+forks before fetching their Pages status or history and still paginates by
+the full API response size.
+
+Validation: all 21 unit tests, full-repository Ruff and whitespace checks pass.
+The new test covers a full first page of forks followed by an eligible repo.
+User authorized committing and publishing this refresh on 2026-11-20.

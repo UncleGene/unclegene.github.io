@@ -116,6 +116,8 @@ def fetch_repositories(domains):
         for row in rows:
             if row['private'] or row['owner']['login'].lower() != OWNER.lower():
                 raise ValueError('GitHub returned a private or non-owned repository')
+            if row['fork']:
+                continue
             repo = {key: row[key] for key in ('name', 'html_url', 'description', 'language', 'fork', 'archived', 'has_pages')}
             repo['pages'] = None
             if row['has_pages']:

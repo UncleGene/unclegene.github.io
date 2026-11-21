@@ -62,6 +62,22 @@
         "flay_haml"
       ],
       "notice": "Historical tools. Compatibility with modern Ruby, Rails, and tooling has not been verified; these projects may need substantial updates."
+    },
+    {
+      "id": "agent-tools",
+      "title": "AI development tools",
+      "description": "Skills and workflows for AI coding agents.",
+      "repos": [
+        "MiniMe"
+      ]
+    },
+    {
+      "id": "photography",
+      "title": "Photography tools",
+      "description": "Tools for organizing and working with photographs.",
+      "repos": [
+        "lrc-external-score"
+      ]
     }
   ],
   "overrides": {
@@ -91,6 +107,12 @@
       "description": "Controller-level GET whitelisting and CSRF checks for older Rails applications.",
       "note": "Historical · Rails 3-era",
       "notice": "Declares Rails ~> 3.1. Compatibility with modern Rails has not been verified."
+    },
+    "MiniMe": {
+      "description": "Engineering skills for AI coding agents, with a CLI for installation and audits."
+    },
+    "lrc-external-score": {
+      "description": "A Lightroom Classic plugin for recording external photo scores and finding photos by score."
     }
   }
 }

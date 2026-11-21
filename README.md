@@ -1,6 +1,6 @@
 # Eugene Kalenkovich — projects and writing
 
-A static GitHub Pages user homepage with all public repositories grouped by
+A static GitHub Pages user homepage with public, non-fork repositories grouped by
 subject. The original **203** blog lives at `/blog/`, including its 15 articles,
 archives, categories, downloads, and Atom feed.
 
@@ -26,7 +26,7 @@ python3 -m unittest discover -s tests -v
 ```
 
 `refresh` reads all pages of the public owned-repository listing from GitHub,
-checks Pages URLs, captures the latest ten default-branch commits per
+excludes forks, checks Pages URLs, captures the latest ten default-branch commits per
 repository, updates `data/repositories.json`, and rebuilds `index.html`.
 Network or API failures stop the refresh and leave the last valid inventory
 intact. It uses public endpoints without credentials; API rate limits can
@@ -40,8 +40,8 @@ python3 tools/site.py build
 ```
 
 GitHub topics are currently empty, so domain membership is curated. New public
-repositories appear under **Other projects** until assigned. Forks, archived,
-and renamed repositories remain visible. Directory content and navigation
+repositories appear under **Other projects** until assigned. Archived and
+renamed repositories remain visible; forks are excluded. Directory content and navigation
 work without JavaScript or visitor-side GitHub API calls. The featured concurrency talk uses a local poster and a
 standard YouTube embed, loaded after selecting Play. Direct slides and video
 links stay visible alongside it.
